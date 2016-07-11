@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.UI.WebControls;
 
 namespace KinoServer.Models
 {
@@ -14,5 +16,15 @@ namespace KinoServer.Models
 
         [Required]
         public IEnumerable<Change> Updates { get; set; }
+    }
+    public abstract class EssenceView:Essence
+    {
+        [Required]
+        public Image Image { get; set; }
+
+        [Required]
+        public Image IconImage { get; set; }
+
+        public IEnumerable<Uri> Links { get; set; }
     }
 }

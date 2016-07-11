@@ -246,6 +246,7 @@
     <Compile Include="Models\HistoryBindingModels.cs" />
     <Compile Include="Models\KinoBindingModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MessageBindingModels.cs" />
     <Compile Include="Models\PersonBindingModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />

@@ -5,7 +5,7 @@ using System.Web.UI.WebControls;
 
 namespace KinoServer.Models
 {
-    public class Kino:Essence
+    public class Kino: EssenceView
     {
         [Required]
         public string NameRU { get; set; }
@@ -17,6 +17,9 @@ namespace KinoServer.Models
         public IEnumerable<Country> Country { get; set; }
 
         [Required]
+        public IEnumerable<Genre> Genres { get; set; }
+
+        [Required]
         public string Description { get; set; }
 
         [Required]
@@ -26,7 +29,10 @@ namespace KinoServer.Models
         public DateTime ReleaseDVD { get; set; }
 
         [Required]
-        public Image Image { get; set; }
+        public int Rating { get; set; }
+
+        [Required]
+        public DateTime Duration { get; set; }
 
         [Required]
         public IEnumerable<Tag> Tags { get; set; }
@@ -41,8 +47,6 @@ namespace KinoServer.Models
 
         [Required]
         public IEnumerable<Person> Composer { get; set; }
-
-        public IEnumerable<Uri> Links { get; set; }
     }
     public class Film : Kino
     {
@@ -55,10 +59,13 @@ namespace KinoServer.Models
     public class Series : Kino
     {
         [Required]
-        public IEnumerable<IEnumerable<Video>> Video { get; set; }
+        public int CountSeason { get; set; }
 
         [Required]
         public IEnumerable<DateTime> Years { get; set; }
+
+        [Required]
+        public IEnumerable<IEnumerable<Video>> Video { get; set; }
     }
 
     public class Tag: Essence
@@ -72,6 +79,7 @@ namespace KinoServer.Models
 
         [Required]
         public bool Subtitle { get; set; }
+
         public IEnumerable<Person> AudioDubbing { get; set; }
     }
     public class Genre: Essence

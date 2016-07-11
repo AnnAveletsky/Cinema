@@ -5,7 +5,7 @@ using System.Web.UI.WebControls;
 
 namespace KinoServer.Models
 {
-    public class Person: Essence
+    public class Person: EssenceView
     {
 
         [Required]
@@ -13,21 +13,16 @@ namespace KinoServer.Models
 
         [Required]
         public string NameEN { get; set; }
-
-        [Required]
-        public Image Image { get; set; }
-
-        [Required]
-        public Image IconImage { get; set; }
-
+        
         public DateTime BirthDay { get; set; }
 
-        public Profession Profession { get; set; }
-
-        public IEnumerable<Uri> Links { get; set; }
+        public IEnumerable<Profession> Profession { get; set; }
     }
-    public class Profession:Essence
+    public enum Profession
     {
-        public string Name { get; set; }
+        Producer,
+        Actors,
+        Scenario,
+        Composer
     }
 }

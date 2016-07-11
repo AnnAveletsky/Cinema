@@ -10,5 +10,5 @@ namespace KinoServer.Models
 
         [Required]
         public UserInfoViewModel User{ get; set; }
-}
+    }
 }

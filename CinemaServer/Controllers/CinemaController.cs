@@ -29,51 +29,51 @@ namespace CinemaServer.Controllers
 
         // POST: api/Cinema
         [HttpPost]
-        public bool Post([FromBody]Cinema cinema)
+        public HttpStatusCode Post([FromBody]Cinema cinema)
         {
             try
             {
                 db.Сinemas.Add(cinema);
                 db.SaveChangesAsync();
-                return true;
+                return HttpStatusCode.OK;
             }
             catch (Exception e)
             {
-                return false;
+                return HttpStatusCode.Conflict;
             }
         }
 
         // PUT: api/Cinema/5
         [HttpPut]
-        public bool Put(int id, [FromBody]Cinema newCinema)
+        public HttpStatusCode Put(int id, [FromBody]Cinema newCinema)
         {
             try
             {
                 Cinema oldCinema = db.Сinemas.FindAsync(id).Result;
                 oldCinema.Update(newCinema);
                 db.SaveChangesAsync();
-                return true;
+                return HttpStatusCode.OK;
             }
             catch (Exception e)
             {
-                return false;
+                return HttpStatusCode.Conflict;
             }
         }
 
         // DELETE: api/Cinema/5
         [HttpDelete]
-        public bool Delete(int id)
+        public HttpStatusCode Delete(int id)
         {
             try
             {
                 Cinema cinema = db.Сinemas.FindAsync(id).Result;
                 db.Сinemas.Remove(cinema);
                 db.SaveChangesAsync();
-                return true;
+                return HttpStatusCode.OK;
             }
             catch (Exception e)
             {
-                return false;
+                return HttpStatusCode.Conflict;
             }
         }
     }

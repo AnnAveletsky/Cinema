@@ -13,10 +13,10 @@ namespace CinemaServer.Models
         public string NameEN { get; set; }
 
         [Required]
-        public IEnumerable<Country> Countries { get; set; }
+        public ICollection<Country> Countries { get; set; }
 
         [Required]
-        public IEnumerable<Genre> Genres { get; set; }
+        public ICollection<Genre> Genres { get; set; }
 
         [Required]
         public string Description { get; set; }
@@ -34,25 +34,25 @@ namespace CinemaServer.Models
         public DateTime Duration { get; set; }
 
         [Required]
-        public IEnumerable<Tag> Tags { get; set; }
+        public ICollection<Tag> Tags { get; set; }
 
         [Required]
-        public IEnumerable<Person> Persons { get; set; }
+        public ICollection<Person> Persons { get; set; }
 
         [Required]
         public int Views { get; set; }
 
-        public IEnumerable<Plaint> Plaints { get; set; }
+        public ICollection<Plaint> Plaints { get; set; }
 
-        public IEnumerable<Comment> Comments { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
         public int CountSeason { get; set; }
 
         [Required]
-        public IEnumerable<DateTime> Years { get; set; }
+        public ICollection<DateTime> Years { get; set; }
 
         [Required]
-        public IEnumerable<IEnumerable<Video>> Video { get; set; }
+        public ICollection<Video> Video { get; set; }
 
         public void Update(Cinema cinema)
         {
@@ -68,11 +68,21 @@ namespace CinemaServer.Models
     public class Tag : Essence
     {
         public string Name { get; set; }
+
+        public ICollection<Cinema> Cinemas { get; set; }
     }
     public class Video : Essence
     {
         [Url]
         public string Url { get; set; }
+
+        public int? IdCinema { get; set; }
+
+        public Cinema Cinema { get; set; }
+
+        public int Season { get; set; }
+
+        public int Serie { get; set; }
 
         [Required]
         public bool SubtitleRU { get; set; }
@@ -80,18 +90,29 @@ namespace CinemaServer.Models
         [Required]
         public bool SubtitleEN { get; set; }
 
-        public IEnumerable<Person> AudioDubbing { get; set; }
+        public ICollection<RolePersonCinema> Roles { get; set; }
+
+        public ICollection<Person> AudioDubbing { get; set; }
 
         public TransleteGrup TransleteGrup { get; set; }
+
+        public void Update(Video video)
+        {
+
+        }
     }
     public class Genre : Essence
     {
         [Required]
         public int Name { get; set; }
+
+        public ICollection<Cinema> Cinemas { get; set; }
     }
     public class Country : Essence
     {
         [Required]
         public string Name { get; set; }
+
+        public ICollection<Cinema> Cinemas { get; set; }
     }
 }

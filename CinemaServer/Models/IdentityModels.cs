@@ -32,6 +32,7 @@ namespace CinemaServer.Models
         }
         public DbSet<Cinema> Сinemas { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<RolePersonCinema> RolesPersonCinema { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Country> Countries { get; set; }

@@ -15,7 +15,7 @@ namespace CinemaServer.Models
         public Change Create { get; set; }
 
         [Required]
-        public IEnumerable<Change> Updates { get; set; }
+        public ICollection<Change> Updates { get; set; }
     }
     public abstract class EssenceView : Essence
     {
@@ -25,6 +25,6 @@ namespace CinemaServer.Models
         [Required]
         public Image IconImage { get; set; }
 
-        public IEnumerable<Uri> Links { get; set; }
+        public ICollection<Uri> Links { get; set; }
     }
 }

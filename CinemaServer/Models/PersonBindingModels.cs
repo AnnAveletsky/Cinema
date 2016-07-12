@@ -15,7 +15,7 @@ namespace CinemaServer.Models
 
         public DateTime BirthDay { get; set; }
 
-        public IEnumerable<RolePersonCinema> Roles { get; set; }
+        public ICollection<RolePersonCinema> Roles { get; set; }
     }
     public enum Profession
     {
@@ -29,6 +29,8 @@ namespace CinemaServer.Models
         [Required]
         public Profession Profession { get; set; }
 
+        public int? IdCinema { get; set; }
+
         [Required]
         public Cinema Сinema { get; set; }
     }
@@ -40,5 +42,7 @@ namespace CinemaServer.Models
         [Url]
         [Required]
         public Uri Url { get; set; }
+
+        public ICollection<Cinema> Cinemas { get; set; }
     }
 }

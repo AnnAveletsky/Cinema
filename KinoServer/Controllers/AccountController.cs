@@ -13,11 +13,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using KinoServer.Models;
-using KinoServer.Providers;
-using KinoServer.Results;
+using CinemaServer.Models;
+using CinemaServer.Providers;
+using CinemaServer.Results;
 
-namespace KinoServer.Controllers
+namespace CinemaServer.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]

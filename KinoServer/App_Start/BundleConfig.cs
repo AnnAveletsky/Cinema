@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace KinoServer
+namespace CinemaServer
 {
     public class BundleConfig
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace KinoServer.Areas.HelpPage.ModelDescriptions
+namespace CinemaServer.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

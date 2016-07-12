@@ -3,8 +3,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
+using CinemaServer.Models;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
     // Чтобы добавить данные профиля для пользователя, можно добавить дополнительные свойства в класс ApplicationUser. Дополнительные сведения см. по адресу: http://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
@@ -29,5 +31,15 @@ namespace KinoServer.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Cinema> Сinemas { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Video> Videos { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Plaint> Plaints { get; set; }
+        public DbSet<TransleteGrup> TransleteGrups { get; set; }
+        public DbSet<Change> Changes { get; set; }
     }
 }

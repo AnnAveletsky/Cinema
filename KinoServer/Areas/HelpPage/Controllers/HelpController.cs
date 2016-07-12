@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using KinoServer.Areas.HelpPage.ModelDescriptions;
-using KinoServer.Areas.HelpPage.Models;
+using CinemaServer.Areas.HelpPage.ModelDescriptions;
+using CinemaServer.Areas.HelpPage.Models;
 
-namespace KinoServer.Areas.HelpPage.Controllers
+namespace CinemaServer.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

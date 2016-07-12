@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(KinoServer.Startup))]
+[assembly: OwinStartup(typeof(CinemaServer.Startup))]
 
-namespace KinoServer
+namespace CinemaServer
 {
     public partial class Startup
     {

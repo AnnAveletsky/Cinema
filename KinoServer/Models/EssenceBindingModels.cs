@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.UI.WebControls;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
     public abstract class Essence
     {
         [Key]
         [Required]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public Change Create { get; set; }

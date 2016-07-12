@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.UI.WebControls;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
-    public class Kino: EssenceView
+    public class Cinema : EssenceView
     {
         [Required]
         public string NameRU { get; set; }
@@ -14,7 +13,7 @@ namespace KinoServer.Models
         public string NameEN { get; set; }
 
         [Required]
-        public IEnumerable<Country> Country { get; set; }
+        public IEnumerable<Country> Countries { get; set; }
 
         [Required]
         public IEnumerable<Genre> Genres { get; set; }
@@ -38,27 +37,15 @@ namespace KinoServer.Models
         public IEnumerable<Tag> Tags { get; set; }
         
         [Required]
-        public IEnumerable<Person> Producer { get; set; }
+        public IEnumerable<Person> Persons { get; set; }
+
+        [Required]
+        public int Views { get; set; }
+
+        public IEnumerable<Plaint> Plaints { get; set; }
+
+        public IEnumerable<Comment> Comments { get; set; }
         
-        public IEnumerable<Person> Actors { get; set; }
-
-        [Required]
-        public IEnumerable<Person> Scenario { get; set; }
-
-        [Required]
-        public IEnumerable<Person> Composer { get; set; }
-    }
-    public class Film : Kino
-    {
-        [Required]
-        public IEnumerable<Video> Video { get; set; }
-
-        [Required]
-        public DateTime Year { get; set; }
-    }
-    public class Series : Kino
-    {
-        [Required]
         public int CountSeason { get; set; }
 
         [Required]
@@ -66,6 +53,16 @@ namespace KinoServer.Models
 
         [Required]
         public IEnumerable<IEnumerable<Video>> Video { get; set; }
+
+        public void Update(Cinema cinema)
+        {
+
+        }
+    }
+    public enum Type
+    {
+        Film,
+        Series
     }
 
     public class Tag: Essence
@@ -78,9 +75,14 @@ namespace KinoServer.Models
         public string Url { get; set; }
 
         [Required]
-        public bool Subtitle { get; set; }
+        public bool SubtitleRU { get; set; }
+
+        [Required]
+        public bool SubtitleEN { get; set; }
 
         public IEnumerable<Person> AudioDubbing { get; set; }
+
+        public TransleteGrup TransleteGrup { get; set; }
     }
     public class Genre: Essence
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace KinoServer.Areas.HelpPage.ModelDescriptions
+namespace CinemaServer.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

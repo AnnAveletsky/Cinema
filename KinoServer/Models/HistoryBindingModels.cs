@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
     public class Change :Essence
     {

@@ -9,9 +9,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using KinoServer.Models;
+using CinemaServer.Models;
 
-namespace KinoServer.Providers
+namespace CinemaServer.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

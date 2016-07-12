@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace KinoServer.Areas.HelpPage.ModelDescriptions
+namespace CinemaServer.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

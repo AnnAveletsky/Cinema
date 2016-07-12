@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using KinoServer.Areas.HelpPage.ModelDescriptions;
-using KinoServer.Areas.HelpPage.Models;
+using CinemaServer.Areas.HelpPage.ModelDescriptions;
+using CinemaServer.Areas.HelpPage.Models;
 
-namespace KinoServer.Areas.HelpPage
+namespace CinemaServer.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

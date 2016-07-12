@@ -1,23 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CinemaServer.Models;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
-    public class Message:Essence
+    public abstract class Message : Essence
     {
         [Required]
-        public Kino Kino { get; set; }
+        public Cinema Сinemas { get; set; }
 
         [Required]
         public string Text { get; set; }
     }
-    public class Claim : Message
+    public class Plaint : Message
     {
-
+        public PlaintType PlaintType { get; set; }
+    }
+    public enum PlaintType
+    {
+        NoVideo,
+        Insult,
+        RightsViolation,
+        Other
     }
     public class Comment : Message
     {

@@ -8,10 +8,10 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using KinoServer.Providers;
-using KinoServer.Models;
+using CinemaServer.Providers;
+using CinemaServer.Models;
 
-namespace KinoServer
+namespace CinemaServer
 {
     public partial class Startup
     {

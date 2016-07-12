@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
     // Модели, используемые в качестве параметров действий AccountController.
 

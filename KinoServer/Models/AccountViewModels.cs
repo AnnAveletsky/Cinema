@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace KinoServer.Models
+namespace CinemaServer.Models
 {
     // Модели, возвращаемые действиями AccountController.
 

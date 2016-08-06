@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace Cinema.Api.Areas.HelpPage
+namespace Cinema.API.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

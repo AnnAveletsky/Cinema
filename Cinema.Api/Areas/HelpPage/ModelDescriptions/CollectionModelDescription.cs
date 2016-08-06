@@ -1,4 +1,4 @@
-namespace Cinema.Api.Areas.HelpPage.ModelDescriptions
+namespace Cinema.API.Areas.HelpPage.ModelDescriptions
 {
     public class CollectionModelDescription : ModelDescription
     {

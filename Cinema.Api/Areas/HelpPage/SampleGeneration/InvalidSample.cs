@@ -1,6 +1,6 @@
 using System;
 
-namespace Cinema.Api.Areas.HelpPage
+namespace Cinema.API.Areas.HelpPage
 {
     /// <summary>
     /// This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.

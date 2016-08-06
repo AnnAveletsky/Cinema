@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Cinema.Api
+namespace Cinema.API
 {
     public class FilterConfig
     {

@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Cinema.Api.Areas.HelpPage.ModelDescriptions;
-using Cinema.Api.Areas.HelpPage.Models;
+using Cinema.API.Areas.HelpPage.ModelDescriptions;
+using Cinema.API.Areas.HelpPage.Models;
 
-namespace Cinema.Api.Areas.HelpPage.Controllers
+namespace Cinema.API.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace Cinema.Api.Areas.HelpPage.ModelDescriptions
+namespace Cinema.API.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

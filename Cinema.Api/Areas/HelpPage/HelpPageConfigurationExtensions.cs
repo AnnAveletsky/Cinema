@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using Cinema.Api.Areas.HelpPage.ModelDescriptions;
-using Cinema.Api.Areas.HelpPage.Models;
+using Cinema.API.Areas.HelpPage.ModelDescriptions;
+using Cinema.API.Areas.HelpPage.Models;
 
-namespace Cinema.Api.Areas.HelpPage
+namespace Cinema.API.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

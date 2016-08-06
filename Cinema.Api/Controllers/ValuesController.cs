@@ -5,9 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Cinema.Api.Controllers
+namespace Cinema.API.Controllers
 {
-    [Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Cinema.Api
+namespace Cinema.API
 {
     public class BundleConfig
     {

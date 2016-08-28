@@ -8,8 +8,8 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using Cinema.Auth.Models;
-using Cinema.Admin.Providers;
+using Cinema.Models;
+using Cinema.Providers;
 
 namespace Cinema.Admin
 {

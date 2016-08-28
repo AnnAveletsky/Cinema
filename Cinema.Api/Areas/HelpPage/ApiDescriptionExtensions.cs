@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace Cinema.API.Areas.HelpPage
+namespace Cinema.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

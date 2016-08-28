@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Cinema.Auth.Models;
+using Cinema.Models;
 
 namespace Cinema.Admin.Controllers
 {

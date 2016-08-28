@@ -1,4 +1,4 @@
-namespace Cinema.API.Areas.HelpPage
+namespace Cinema.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

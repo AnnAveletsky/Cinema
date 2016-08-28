@@ -162,6 +162,7 @@
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\RutubeModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Theme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

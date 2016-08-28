@@ -101,6 +101,32 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cinema.Admin\Cinema.Admin.csproj">
+      <Project>{78788f9f-1adb-4315-8c14-58269acc68ad}</Project>
+      <Name>Cinema.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Api\Cinema.Api.csproj">
+      <Project>{ea5dde5b-f644-467d-b888-6ae376f1fa36}</Project>
+      <Name>Cinema.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Models\Cinema.Models.csproj">
+      <Project>{52b964be-e41f-4c5f-a576-a2db36fff021}</Project>
+      <Name>Cinema.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Providers\Cinema.Providers.csproj">
+      <Project>{1d49b39e-6d4c-4f2d-aeea-1d1b0f27cd62}</Project>
+      <Name>Cinema.Providers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Requests\Cinema.Requests.csproj">
+      <Project>{a6354900-640d-4bd9-bd76-363ae27933bf}</Project>
+      <Name>Cinema.Requests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema\Cinema.csproj">
+      <Project>{8b5edb3c-75dd-424b-b35e-c849b578d711}</Project>
+      <Name>Cinema</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

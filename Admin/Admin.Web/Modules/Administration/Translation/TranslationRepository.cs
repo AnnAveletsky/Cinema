@@ -56,7 +56,7 @@ namespace Admin.Administration.Repositories
 
             result.Entities = new List<TranslationItem>();
 
-            Func<string, string> effective = delegate(string key)
+            Func<string, string> effective = delegate (string key)
             {
                 if (key.StartsWith("Navigation."))
                 {

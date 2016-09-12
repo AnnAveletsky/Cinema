@@ -29,3 +29,4 @@ Serenity.CodeGenerator/App.config
 *.ncrunchproject
 *.ncrunchsolution
 *.dll
+Admin/Admin.Web/bin/Admin.Web.dll.config

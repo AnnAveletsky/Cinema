@@ -1,0 +1,14 @@
+
+@{
+    ViewData["Title"] = Serenity.LocalText.Get("Db.MovieDB.Movie.EntityPlural");
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new Admin.MovieDB.MovieGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

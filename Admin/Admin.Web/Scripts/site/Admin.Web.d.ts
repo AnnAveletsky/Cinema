@@ -399,6 +399,110 @@ declare namespace Admin.Northwind {
         constructor(container: JQuery);
     }
 }
+declare namespace Admin.MovieDB {
+    class PersonDialog extends Serenity.EntityDialog<PersonRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: PersonForm;
+        private moviesGrid;
+        constructor();
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace Admin.MovieDB {
+    class PersonGrid extends Serenity.EntityGrid<PersonRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PersonDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Admin.MovieDB {
+    class PersonMovieGrid extends Serenity.EntityGrid<MovieCastRow, any> {
+        protected getColumnsKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getButtons(): any;
+        protected getInitialTitle(): any;
+        protected usePager(): boolean;
+        protected getGridCanLoad(): boolean;
+        private _personID;
+        personID: number;
+    }
+}
+declare namespace Admin.MovieDB {
+    class MovieCastEditDialog extends Common.GridEditorDialog<MovieCastRow> {
+        protected getFormKey(): string;
+        protected getNameProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected form: MovieCastForm;
+        constructor();
+    }
+}
+declare namespace Admin.MovieDB {
+    class MovieCastEditor extends Common.GridEditorBase<MovieCastRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MovieCastEditDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
+        protected validateEntity(row: MovieCastRow, id: number): boolean;
+    }
+}
+declare namespace Admin.MovieDB {
+    class GenreListFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace Admin.MovieDB {
+    class MovieDialog extends Serenity.EntityDialog<MovieRow, any> {
+        protected getFormKey(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: any;
+    }
+}
+declare namespace Admin.MovieDB {
+    class MovieGrid extends Serenity.EntityGrid<MovieRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MovieDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getQuickSearchFields(): Serenity.QuickSearchField[];
+        protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
+    }
+}
+declare namespace Admin.MovieDB {
+    class GenreDialog extends Serenity.EntityDialog<GenreRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: GenreForm;
+    }
+}
+declare namespace Admin.MovieDB {
+    class GenreGrid extends Serenity.EntityGrid<GenreRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof GenreDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
 declare namespace Admin.Membership {
     class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
         protected getFormKey(): string;

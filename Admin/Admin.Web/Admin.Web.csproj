@@ -785,6 +785,7 @@
       <LastGenOutput>ClientTypes.log</LastGenOutput>
     </Content>
     <Content Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_Oracle.sql" />
+    <Content Include="Modules\MovieDB\Person\MovieDB.PersonDialog.Template.html" />
     <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\adminlte\app.js" />
     <Content Include="Scripts\adminlte\app.min.js" />
@@ -1262,6 +1263,16 @@
     <TypeScriptCompile Include="Modules\Membership\Account\ResetPassword\ResetPasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\LoginPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\SignUp\SignUpPanel.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Genre\GenreDialog.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Genre\GenreGrid.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\MovieCast\MovieCastEditDialog.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\MovieCast\MovieCastEditor.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Movie\GenreListFormatter.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Movie\MovieDialog.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Movie\MovieGrid.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Person\PersonDialog.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Person\PersonGrid.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Person\PersonMovieGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Category\CategoryDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Category\CategoryGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\CustomerGrid.ts" />
@@ -1288,6 +1299,9 @@
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <Content Include="Modules\MovieDB\Genre\GenreIndex.cshtml" />
+    <Content Include="Modules\MovieDB\Movie\MovieIndex.cshtml" />
+    <Content Include="Modules\MovieDB\Person\PersonIndex.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1448,6 +1462,7 @@
     <Content Include="Scripts\serenity\texts\serenity.texts.fa.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.es.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.de.json" />
+    <Content Include="Scripts\site\Admin.Web.js.map" />
     <None Include="Scripts\site\ScriptBundles.json" />
     <Content Include="Scripts\site\texts\site.texts.zh-CN.json" />
     <Content Include="Scripts\site\texts\site.texts.it.json" />
@@ -1667,6 +1682,8 @@
     <TypeScriptCompile Include="Modules\Northwind\Product\ProductDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Product\ProductGrid.ts" />
     <TypeScriptCompile Include="Scripts\serenity\Serenity.CoreLib.d.ts" />
+    <TypeScriptCompile Include="Modules\MovieDB\Admin.Movie.d.ts" />
+    <TypeScriptCompile Include="Scripts\site\Admin.Web.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\rsvp\rsvp.d.ts" />
@@ -1752,6 +1769,8 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\BasicSamples.ProduceSeafoodCategoryEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Imports\ClientTypes\MovieDB.GenreListFormatterAttribute.cs" />
+    <Compile Include="Modules\Common\Imports\ClientTypes\MovieDB.MovieCastEditorAttribute.cs" />
     <Compile Include="Modules\Common\Imports\ClientTypes\Northwind.CustomerEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -1827,6 +1846,35 @@
     <Compile Include="Modules\Membership\Account\SignUp\SignUpForm.cs" />
     <Compile Include="Modules\Membership\Account\SignUp\SignUpRequest.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRow.cs" />
+    <Compile Include="Modules\MovieDB\Genre\GenreColumns.cs" />
+    <Compile Include="Modules\MovieDB\Genre\GenreEndpoint.cs" />
+    <Compile Include="Modules\MovieDB\Genre\GenreForm.cs" />
+    <Compile Include="Modules\MovieDB\Genre\GenrePage.cs" />
+    <Compile Include="Modules\MovieDB\Genre\GenreRepository.cs" />
+    <Compile Include="Modules\MovieDB\Genre\GenreRow.cs" />
+    <Compile Include="Modules\MovieDB\MovieCast\MovieCastColumns.cs" />
+    <Compile Include="Modules\MovieDB\MovieCast\MovieCastEndpoint.cs" />
+    <Compile Include="Modules\MovieDB\MovieCast\MovieCastForm.cs" />
+    <Compile Include="Modules\MovieDB\MovieCast\MovieCastRepository.cs" />
+    <Compile Include="Modules\MovieDB\MovieCast\MovieCastRow.cs" />
+    <Compile Include="Modules\MovieDB\MovieGenres\MovieGenresRepository.cs" />
+    <Compile Include="Modules\MovieDB\MovieGenres\MovieGenresRow.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieColumns.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieEndpoint.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieForm.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieKind.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieListRequest.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MoviePage.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieRepository.cs" />
+    <Compile Include="Modules\MovieDB\Movie\MovieRow.cs" />
+    <Compile Include="Modules\MovieDB\Person\Gender.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonColumns.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonEndpoint.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonForm.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonMovieColumns.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonPage.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonRepository.cs" />
+    <Compile Include="Modules\MovieDB\Person\PersonRow.cs" />
     <Compile Include="Modules\Northwind\CategoryLang\CategoryLangEndpoint.cs" />
     <Compile Include="Modules\Northwind\CategoryLang\CategoryLangRepository.cs" />
     <Compile Include="Modules\Northwind\CategoryLang\CategoryLangRow.cs" />

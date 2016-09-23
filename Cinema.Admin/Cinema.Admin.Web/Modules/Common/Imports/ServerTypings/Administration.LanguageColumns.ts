@@ -1,0 +1,3 @@
+﻿namespace Cinema.Admin.Administration {
+}
+

@@ -1,7 +1,7 @@
-Cinema.Admin/Cinema.Admin.Web/obj/Debug/
+Cinema.Admin/Cinema.Admin.Web/obj/Debug/*.*
 Cinema.Admin/Cinema.Admin.Web/bin/
 Cinema.Admin/Cinema.Admin.Web/Scripts/site/Cinema.Admin.Web.js
 Cinema.Admin/Cinema.Admin.Web/Scripts/site/Cinema.Admin.Web.d.ts
 Cinema.Admin/Cinema.Admin.Web/Scripts/site/Cinema.Admin.Web.js.map
-Cinema.Admin/Cinema.Admin.Web/Scripts/site/Cinema.Admin.Web.js.map
 Cinema.Admin/Cinema.Admin.Web/Scripts/site/Cinema.Admin.Web.js
+packages/*

@@ -399,42 +399,6 @@ declare namespace Cinema.Northwind {
         constructor(container: JQuery);
     }
 }
-declare namespace Cinema.Movie {
-    class MovieDialog extends Serenity.EntityDialog<MovieRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: MovieForm;
-    }
-}
-declare namespace Cinema.Movie {
-    class MovieEditor extends Common.GridEditorBase<MovieRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof MovieEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie {
-    class MovieEditorDialog extends Common.GridEditorDialog<MovieRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected form: MovieForm;
-    }
-}
-declare namespace Cinema.Movie {
-    class MovieGrid extends Serenity.EntityGrid<MovieRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof MovieDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
 declare namespace Cinema.Membership {
     class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
         protected getFormKey(): string;

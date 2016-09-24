@@ -1683,7 +1683,6 @@
     <TypeScriptCompile Include="Scripts\typings\slickgrid\slickgrid.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\sortablejs\sortablejs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
-    <Content Include="Modules\Movie\Movie\MovieIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\MovieDB.MovieRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1693,10 +1692,6 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\MovieDB.MovieForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Movie\Movie\MovieGrid.ts" />
-    <TypeScriptCompile Include="Modules\Movie\Movie\MovieDialog.ts" />
-    <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditor.ts" />
-    <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1825,7 +1820,9 @@
     <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160519_181800_SampleGenres.cs" />
     <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160528_115400_MovieGenres.cs" />
     <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160528_141600_PersonAndMovieCast.cs" />
-    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160603_205900_PersonMovieImages.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160603_205900_PersonMovieImages - Copy.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160603_206000_Service.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160603_306000_Video.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160121_141200_CustomerRepresentatives.cs" />
@@ -1997,15 +1994,10 @@
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryColumns.cs" />
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryRepository.cs" />
     <Compile Include="Modules\Northwind\SalesByCategory\SalesByCategoryEndpoint.cs" />
-    <Compile Include="Modules\Movie\Movie\MovieRow.cs" />
-    <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />
-    <Compile Include="Modules\Movie\Movie\MovieForm.cs" />
-    <Compile Include="Modules\Movie\Movie\MovieRepository.cs" />
-    <Compile Include="Modules\Movie\Movie\MovieEndpoint.cs" />
-    <Compile Include="Modules\Movie\Movie\MoviePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Modules\Movie\" />
     <Folder Include="Scripts\typings\site\" />
   </ItemGroup>
   <ItemGroup>

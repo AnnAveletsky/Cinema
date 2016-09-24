@@ -1814,6 +1814,7 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160718_115100_History.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160519_181800_Sample.cs" />
     <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160419_115100_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />

@@ -4,7 +4,7 @@ using System;
 namespace Cinema.Migrations.MovieDB
 {
     [Migration(20160419115100)]
-    public class MovieDB_20160419_115100_MovieTable : Migration
+    public class MovieDB_20160419_115100_Initial : Migration
     {
         public override void Up()
         {
@@ -31,6 +31,7 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("PublishDateTime").AsDateTime().NotNullable().WithDefaultValue(DateTime.UtcNow)
                 .WithColumn("Kind").AsInt16().NotNullable().WithDefaultValue(1)
                 .WithColumn("Rating").AsInt16().NotNullable().WithDefaultValue(1)
+                .WithColumn("MPAA").AsString(6).Nullable()
                 .WithColumn("ContSuffrage").AsInt16().NotNullable().WithDefaultValue(0)
                 .WithColumn("PathImage").AsString(300).NotNullable()
                 .WithColumn("PathMiniImage").AsString(300).NotNullable()

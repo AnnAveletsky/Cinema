@@ -1,7 +1,7 @@
-﻿namespace Cinema.Movie
+﻿namespace Cinema
 {
-    //using FluentMigrator.Runner.Announcers;
-    //using FluentMigrator.Runner.Initialization;
+    using FluentMigrator.Runner.Announcers;
+    using FluentMigrator.Runner.Initialization;
     using Serenity.Data;
     using System;
     using System.Data.SqlClient;
@@ -100,7 +100,7 @@
                 }
 
                 serverConnection.Execute(command);
-                //SqlConnection.ClearAllPools();
+                SqlConnection.ClearAllPools();
             }
         }
 

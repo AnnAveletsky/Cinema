@@ -1,4 +1,4 @@
-﻿namespace Movie
+﻿namespace Cinema
 {
     //using Administration;
     using Serenity;

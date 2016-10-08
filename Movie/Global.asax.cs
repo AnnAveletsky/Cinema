@@ -1,5 +1,5 @@
 ﻿
-namespace Movie
+namespace Cinema
 {
     using System;
     using System.Globalization;

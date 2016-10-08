@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Movie
+namespace Cinema
 {
     public class RouteConfig
     {

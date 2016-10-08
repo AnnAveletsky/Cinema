@@ -146,7 +146,6 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
     <Content Include="Content\adminlte\img\avatar.png" />
     <Content Include="Content\adminlte\img\avatar04.png" />
     <Content Include="Content\adminlte\img\avatar2.png" />
@@ -786,14 +785,15 @@
     <Content Include="fonts\Simple-Line-Icons.svg" />
     <Content Include="Modules\Common\Imports\MultipleOutputHelper.ttinclude" />
     <Content Include="Content\site\site.administration.less" />
-    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_Postgres.sql" />
-    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_PostgresData.sql" />
-    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_MySql.sql" />
     <Content Include="Modules\Common\Imports\ClientTypes\ClientTypes.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ClientTypes.log</LastGenOutput>
     </Content>
+    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_MySql.sql" />
     <Content Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_Oracle.sql" />
+    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_Postgres.sql" />
+    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_PostgresData.sql" />
+    <EmbeddedResource Include="Modules\Common\Migrations\NorthwindDB\NorthwindDBScript_SqlServer.sql" />
     <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\adminlte\app.js" />
     <Content Include="Scripts\adminlte\app.min.js" />
@@ -1823,21 +1823,6 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Northwind.ShipperFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160605_215300_Granted.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
-    <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160718_115100_History.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160121_141200_CustomerRepresentatives.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20151226_184500_Notes.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20151202_193700_ProductLog.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20151014_030700_OrderDetailID.cs" />
-    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20141123_155100_Initial.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141103_140000_Initial.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationUpdateRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationListRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationItem.cs" />
@@ -1848,9 +1833,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141103_140000_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160605_215300_Granted.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160718_115100_History.cs" />
+    <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
     <Compile Include="Modules\Common\Navigation\NavigationItems.cs" />
     <Compile Include="Modules\Common\Navigation\NavigationModel.cs" />
     <Content Include="Modules\Northwind\Customer\Northwind.CustomerDialog.Template.html" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20141123_155100_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20151014_030700_OrderDetailID.cs" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20151202_193700_ProductLog.cs" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20151226_184500_Notes.cs" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160121_141200_CustomerRepresentatives.cs" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />
+    <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
     <Compile Include="Modules\Common\Reporting\DynamicDataReport.cs" />
     <Compile Include="Modules\Common\Reporting\ExcelReportGenerator.cs" />
     <Compile Include="Modules\Common\Reporting\ReportController.cs" />

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Movie.asax.cs" Inherits="Movie.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Cinema.asax.cs" Inherits="Cinema.Global" Language="C#" %>

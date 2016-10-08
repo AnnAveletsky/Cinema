@@ -1,6 +1,6 @@
-﻿namespace Cinema.Movie
+﻿namespace Movie
 {
-    using Administration;
+    //using Administration;
     using Serenity;
     using Serenity.Abstractions;
     using Serenity.Data;
@@ -26,7 +26,6 @@
             foreach (var databaseKey in databaseKeys)
             {
                 EnsureDatabase(databaseKey);
-                RunMigrations(databaseKey);
             }
         }
 

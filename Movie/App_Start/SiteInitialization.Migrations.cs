@@ -1,7 +1,7 @@
-﻿namespace Cinema
+﻿namespace Movie
 {
-    using FluentMigrator.Runner.Announcers;
-    using FluentMigrator.Runner.Initialization;
+    //using FluentMigrator.Runner.Announcers;
+    //using FluentMigrator.Runner.Initialization;
     using Serenity.Data;
     using System;
     using System.Data.SqlClient;
@@ -100,63 +100,12 @@
                 }
 
                 serverConnection.Execute(command);
-                SqlConnection.ClearAllPools();
+                //SqlConnection.ClearAllPools();
             }
         }
 
         public static bool SkippedMigrations { get; private set; }
 
-        private static void RunMigrations(string databaseKey)
-        {
-            var cs = SqlConnections.GetConnectionString(databaseKey);
-            var connection = cs.ConnectionString;
-
-            bool isOracle = cs.Dialect.GetType() == typeof(OracleDialect);
-
-            // safety check to ensure that we are not modifying an arbitrary database.
-            // remove these lines if you want Cinema migrations to run on your DB.
-            if (!isOracle && cs.ConnectionString.IndexOf(databaseKey + "_v1", StringComparison.OrdinalIgnoreCase) < 0)
-            {
-                SkippedMigrations = true;
-                return;
-            }
-
-            string databaseType = "SqlServer";
-            if (String.Equals(cs.ProviderName, "npgsql", StringComparison.OrdinalIgnoreCase))
-                databaseType = "Postgres";
-            else if (String.Equals(cs.ProviderName, "MySql.Data.MySqlClient", StringComparison.OrdinalIgnoreCase))
-                databaseType = "MySql";
-            else if (isOracle)
-                databaseType = "OracleManaged";
-
-            using (var sw = new StringWriter())
-            {
-                Announcer announcer = isOracle ?
-                    new TextWriterAnnouncer(sw) { ShowSql = true } :
-                    new TextWriterWithGoAnnouncer(sw) { ShowSql = true };
-
-                var runner = new RunnerContext(announcer)
-                {
-                    Database = databaseType,
-                    Connection = cs.ConnectionString,
-                    Targets = new string[] { typeof(SiteInitialization).Assembly.Location },
-                    Task = "migrate:up",
-                    WorkingDirectory = Path.GetDirectoryName(typeof(SiteInitialization).Assembly.Location),
-                    Namespace = "Cinema.Migrations." + databaseKey + "DB"
-                };
-
-                try
-                {
-                    new TaskExecutor(runner).Execute();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Error executing migration:\r\n" +
-                        sw.ToString(), ex);
-                }
-
-
-            }
-        }
+    
     }
 }

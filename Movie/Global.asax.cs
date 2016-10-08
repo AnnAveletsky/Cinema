@@ -1,5 +1,5 @@
 ﻿
-namespace Cinema
+namespace Movie
 {
     using System;
     using System.Globalization;
@@ -33,19 +33,19 @@ namespace Cinema
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            var cookie = Request.Cookies["LanguagePreference"];
-            if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
-            {
-                try
-                {
-                    var culture = CultureInfo.GetCultureInfo(cookie.Value);
-                    Thread.CurrentThread.CurrentUICulture = culture;
-                }
-                catch (CultureNotFoundException)
-                {
-                    // ignore
-                }
-            }
+            //var cookie = Request.Cookies["LanguagePreference"];
+            //if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
+            //{
+            //    try
+            //    {
+            //        var culture = CultureInfo.GetCultureInfo(cookie.Value);
+            //        Thread.CurrentThread.CurrentUICulture = culture;
+            //    }
+            //    catch (CultureNotFoundException)
+            //    {
+            //        // ignore
+            //    }
+            //}
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

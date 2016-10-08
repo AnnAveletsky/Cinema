@@ -1,4 +1,4 @@
-﻿namespace Movie
+﻿namespace Cinema.Movie
 {
     //using FluentMigrator.Runner.Announcers;
     //using FluentMigrator.Runner.Initialization;

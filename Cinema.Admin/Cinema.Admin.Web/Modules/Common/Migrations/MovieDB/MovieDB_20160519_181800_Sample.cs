@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace MovieTutorial.Migrations.MovieDB
+namespace Cinema.Admin.Migrations.MovieDB
 {
     [Migration(20160519181800)]
     public class MovieDB_20160519_181800_Sample : Migration

@@ -1,7 +1,7 @@
 ﻿using FluentMigrator;
 using System;
 
-namespace Cinema.Migrations.MovieDB
+namespace Cinema.Admin.Migrations.MovieDB
 {
     [Migration(20160419115100)]
     public class MovieDB_20160419_115100_Initial : Migration

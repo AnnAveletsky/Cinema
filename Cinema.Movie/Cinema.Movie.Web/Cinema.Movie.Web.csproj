@@ -1809,6 +1809,9 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160319_115100_Config.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160419_115100_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160519_181800_Sample.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160908_180100_CustomerGrossSales.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160216_154900_DataLocalization.cs" />
     <Compile Include="Modules\Common\Migrations\NorthwindDB\NorthwindDB_20160121_141200_CustomerRepresentatives.cs" />
@@ -2296,12 +2299,6 @@
     <TypeScriptCompile Include="Scripts\typings\jquery.validation\jquery.validation.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.autotable.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Cinema.Migrations\Cinema.Migrations.csproj">
-      <Project>{3881b9f6-cdd9-4ac9-a373-31486d03bf47}</Project>
-      <Name>Cinema.Migrations</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -48,41 +48,49 @@ else
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="@userImage" class="user-image" alt="User Image">
-                            <span class="hidden-xs">@Serenity.Authorization.Username</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="@userImage" class="img-circle" alt="User Image">
+                    @if (user != null)
+                    {
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="@userImage" class="user-image" alt="User Image">
+                                <span class="hidden-xs">@Serenity.Authorization.Username</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="@userImage" class="img-circle" alt="User Image">
 
-                                <p>
-                                    @(user != null ? user.DisplayName : "")
-                                </p>
-                            </li>
+                                    <p>
+                                        @(user != null ? user.DisplayName : "")
+                                    </p>
+                                </li>
 
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="~/Account/ChangePassword" class="btn btn-default btn-flat"><i class="fa fa-lock fa-fw"></i> @Texts.Forms.Membership.ChangePassword.FormTitle</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="~/Account/Signout" class="btn btn-default btn-flat"><i class="fa fa-sign-out fa-fw"></i> @LocalText.Get("Navigation.LogoutLink")</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="~/Account/ChangePassword" class="btn btn-default btn-flat"><i class="fa fa-lock fa-fw"></i> @Texts.Forms.Membership.ChangePassword.FormTitle</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="~/Account/Signout" class="btn btn-default btn-flat"><i class="fa fa-sign-out fa-fw"></i> @LocalText.Get("Navigation.LogoutLink")</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="~/Account/Login">Войти</a>
+                        </li>
+                    }
                     <li>
                         <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
+           
         </nav>
     </header>
 

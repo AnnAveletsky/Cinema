@@ -11,7 +11,7 @@ namespace Cinema.Movie.Common.Pages
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        [Authorize, HttpGet, Route("~/")]
+        [HttpGet, Route("~/")]
         public ActionResult Index()
         {
             var cachedModel = new DashboardPageModel()

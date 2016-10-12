@@ -21,10 +21,10 @@
     @RenderSection("Head", false)
     <title>@(ViewData["Title"]) - Cinema.Movie</title>
 </head>
-<body id="s-@(ViewData["PageId"])Page" class="@(ViewData["BodyClass"]) fixed sidebar-mini hold-transition skin-@theme@(hideNav ? " no-navigation" : " has-layout-event")@(rtl ? " rtl" : "")">
+<body id="s-@(ViewData["PageId"])Page" class="@(ViewData["BodyClass"])  @(user == null ? "no-navigation sidebar-collapse ":" sidebar-collapse sidebar-mini")   hold-transition skin-@theme@(hideNav ? " no-navigation" : " has-layout-event")@(rtl ? " rtl" : "")">
 
 @if (hideNav)
-{
+    {
 <script type="text/javascript">
     $(function () {
         @RenderSection("PageInitScript", false)

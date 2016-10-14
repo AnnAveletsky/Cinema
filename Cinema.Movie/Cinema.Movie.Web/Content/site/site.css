@@ -6707,6 +6707,9 @@ body {
   color: #000;
   -ms-overflow-style: scrollbar;
 }
+.content-wrapper {
+  background-color: #111111;
+}
 .ui-front {
   z-index: 1100;
 }

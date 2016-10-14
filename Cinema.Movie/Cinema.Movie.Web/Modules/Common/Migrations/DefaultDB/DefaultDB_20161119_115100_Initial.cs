@@ -1,10 +1,10 @@
 ﻿using FluentMigrator;
 using System;
 
-namespace Cinema.Movie.Migrations.MovieDB
+namespace Cinema.Movie.Migrations.DefaultDB
 {
-    [Migration(20160419115100)]
-    public class MovieDB_20160419_115100_Initial : Migration
+    [Migration(20161119115100)]
+    public class DefaultDB_20161119_115100_Initial : Migration
     {
         public override void Up()
         {

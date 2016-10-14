@@ -1,10 +1,10 @@
 ﻿using FluentMigrator;
 using System;
 
-namespace Cinema.Movie.Migrations.MovieDB
+namespace Cinema.Movie.Migrations.DefaultDB
 {
-    [Migration(20160319115100)]
-    public class MovieDB_20160319_115100_Config : Migration
+    [Migration(20161219115100)]
+    public class DefaultDB_20161219_115100_Config : Migration
     {
         public override void Up()
         {
@@ -12,6 +12,7 @@ namespace Cinema.Movie.Migrations.MovieDB
 
             Create.Table("Background").InSchema("conf")
                 .WithColumn("BackgroundId").AsInt16().NotNullable().PrimaryKey().Identity()
+                .WithColumn("Color").AsString(12).NotNullable()
                 .WithColumn("PathLg").AsString(200).NotNullable()
                 .WithColumn("PathMd").AsString(200).NotNullable()
                 .WithColumn("PathSm").AsString(200).NotNullable()

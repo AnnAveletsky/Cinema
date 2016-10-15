@@ -1,6 +1,9 @@
 ﻿
 namespace Cinema.Movie.Common.Pages
 {
+
+    using Movie;
+    using Movie.Entities;
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
@@ -14,9 +17,16 @@ namespace Cinema.Movie.Common.Pages
         [HttpGet, Route("~/")]
         public ActionResult Index()
         {
-            var cachedModel = new DashboardPageModel()
-            {
-            };
+            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
+                GenreRow.Fields.GenerationKey, () =>
+                {
+                    var model = new DashboardPageModel();
+                    using (var connection = SqlConnections.NewFor<GenreRow>())
+                    {
+                        model.Genres = connection.List<GenreRow>();
+                    }
+                    return model;
+                });
 
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }

@@ -61,11 +61,21 @@
     "Navigation.Administration/Translations": "Переводы",
     "Navigation.Administration/User Management": "Пользователи",
     "Navigation.Dashboard": "Главная",
+    "Navigation.Dashboard/CatalogFilms": "Каталог фильмов",
+    "Navigation.Dashboard/Contacts": "Контакты",
+    "Navigation.Dashboard/Dashboard": "Главная",
+    "Navigation.Dashboard/FAQ": "F.A.Q",
+    "Navigation.Dashboard/Top": "Топ",
+    "Navigation.LogoutLink": "Выход",
+    "Navigation.Movie": "Кино",
     "Navigation.Movie/Genre": "Категории",
     "Navigation.Movie/Movie": "Кино",
     "Navigation.Movie/Person": "Люди",
     "Navigation.Movie/Service": "Сервисы",
     "Navigation.Movie/Tag": "Теги",
     "Navigation.Movie/Video": "Видео",
-    "Navigation.SiteTitle": "Кинотеатр"
+    "Navigation.SiteTitle": "Кинотеатр",
+    "Site.Dashboard.CatalogFilms": "Каталог фильмов",
+    "Site.Dashboard.Contacts": "Контакты",
+    "Site.Dashboard.Top": "ТОП"
 }

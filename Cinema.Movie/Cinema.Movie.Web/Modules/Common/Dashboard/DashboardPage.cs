@@ -30,5 +30,69 @@ namespace Cinema.Movie.Common.Pages
 
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
+        [HttpGet, Route("~/catalog-films")]
+        public ActionResult CatalogFilms()
+        {
+            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
+                GenreRow.Fields.GenerationKey, () =>
+                {
+                    var model = new DashboardPageModel();
+                    using (var connection = SqlConnections.NewFor<GenreRow>())
+                    {
+                        model.Genres = connection.List<GenreRow>();
+                    }
+                    return model;
+                });
+
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
+        }
+        [HttpGet, Route("~/top")]
+        public ActionResult Top()
+        {
+            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
+                GenreRow.Fields.GenerationKey, () =>
+                {
+                    var model = new DashboardPageModel();
+                    using (var connection = SqlConnections.NewFor<GenreRow>())
+                    {
+                        model.Genres = connection.List<GenreRow>();
+                    }
+                    return model;
+                });
+
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
+        }
+        [HttpGet, Route("~/faq")]
+        public ActionResult FAQ()
+        {
+            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
+                GenreRow.Fields.GenerationKey, () =>
+                {
+                    var model = new DashboardPageModel();
+                    using (var connection = SqlConnections.NewFor<GenreRow>())
+                    {
+                        model.Genres = connection.List<GenreRow>();
+                    }
+                    return model;
+                });
+
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
+        }
+        [HttpGet, Route("~/contacts")]
+        public ActionResult Contacts()
+        {
+            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
+                GenreRow.Fields.GenerationKey, () =>
+                {
+                    var model = new DashboardPageModel();
+                    using (var connection = SqlConnections.NewFor<GenreRow>())
+                    {
+                        model.Genres = connection.List<GenreRow>();
+                    }
+                    return model;
+                });
+
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
+        }
     }
 }

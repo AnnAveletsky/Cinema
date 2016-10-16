@@ -47,12 +47,27 @@ else
         <nav class="navbar navbar-static-top" role="navigation">
             @if (user != null)
             {
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
             }
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="~/" class="uppercase">@LocalText.Get("Navigation.Dashboard")</a>
+                    </li>
+                    <li>
+                        <a href="~/catalog-films" class="uppercase">@Html.Raw(Texts.Site.Dashboard.CatalogFilms)</a>
+                    </li>
+                    <li>
+                        <a href="~/top" class="uppercase">@Html.Raw(Texts.Site.Dashboard.Top)</a>
+                    </li>
+                    <li>
+                        <a href="~/faq" class="uppercase">@Html.Raw(Texts.Site.Dashboard.FAQ)</a>
+                    </li>
+                    <li>
+                        <a href="~/contacts" class="uppercase">@Html.Raw(Texts.Site.Dashboard.Contacts)</a>
+                    </li>
                     @if (user != null)
                     {
                         <li class="dropdown user user-menu">
@@ -87,7 +102,6 @@ else
                     }
                     else
                     {
-                        {Html.RenderPartial(MVC.Views.Shared.LeftNavigation, new Cinema.Movie.Navigation.NavigationModel()); }
                         <li>
                             <a href="~/Account/Login">@LocalText.Get("Forms.Membership.Login.SignInButton")</a>
                         </li>

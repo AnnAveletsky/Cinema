@@ -1,8 +1,4 @@
-﻿
-
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Movie/Person", typeof(Cinema.Movie.Movie.Pages.PersonController))]
-
-namespace Cinema.Movie.Movie.Pages
+﻿namespace Cinema.Movie.Movie.Pages
 {
     using Serenity;
     using Serenity.Web;

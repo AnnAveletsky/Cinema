@@ -90,24 +90,24 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Core, Version=2.4.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Core.2.4.11\lib\net45\Serenity.Core.dll</HintPath>
+    <Reference Include="Serenity.Core, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Core.2.4.13\lib\net45\Serenity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Data, Version=2.4.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Data.2.4.11\lib\net45\Serenity.Data.dll</HintPath>
+    <Reference Include="Serenity.Data, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Data.2.4.13\lib\net45\Serenity.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Data.Entity, Version=2.4.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Data.Entity.2.4.11\lib\net45\Serenity.Data.Entity.dll</HintPath>
+    <Reference Include="Serenity.Data.Entity, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Data.Entity.2.4.13\lib\net45\Serenity.Data.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Services, Version=2.4.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Services.2.4.11\lib\net45\Serenity.Services.dll</HintPath>
+    <Reference Include="Serenity.Services, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Services.2.4.13\lib\net45\Serenity.Services.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Web, Version=2.4.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Web.2.4.11\lib\net45\Serenity.Web.dll</HintPath>
+    <Reference Include="Serenity.Web, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Web.2.4.13\lib\net45\Serenity.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.DirectoryServices" />
@@ -1116,14 +1116,6 @@
     <TypeScriptCompile Include="Modules\Administration\User\Authentication\Authorization.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\UserGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\User\UserDialog.ts" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="fonts\Simple-Line-Icons.woff2" />
     <Content Include="fonts\Simple-Line-Icons.woff" />
     <Content Include="fonts\Simple-Line-Icons.ttf" />
@@ -1143,6 +1135,14 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Modules\Common\Imports\ServerTypings\ServerTypings.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1238,6 +1238,8 @@
     <Content Include="Modules\Movie\Movie\MovieIndex.cshtml" />
     <Content Include="Modules\Movie\Person\PersonIndex.cshtml" />
     <Content Include="Modules\Movie\Tag\TagIndex.cshtml" />
+    <Content Include="Modules\Movie\Service\ServiceIndex.cshtml" />
+    <Content Include="Modules\Movie\Video\VideoIndex.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1565,17 +1567,23 @@
     <TypeScriptCompile Include="Modules\Movie\Person\PersonEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Person\PersonEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Person\PersonGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Service\ServiceDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Service\ServiceEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Service\ServiceEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Service\ServiceGrid.ts" />
     <TypeScriptCompile Include="Modules\Movie\Tag\TagDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Tag\TagEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Tag\TagEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Tag\TagGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Video\VideoDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Video\VideoEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Video\VideoEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Video\VideoGrid.ts" />
     <TypeScriptCompile Include="Scripts\serenity\Serenity.CoreLib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\rsvp\rsvp.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\slickgrid\slickgrid.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\sortablejs\sortablejs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Genre.GenreRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1630,6 +1638,8 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.TagForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\typings\sortablejs\sortablejs.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1778,12 +1788,24 @@
     <Compile Include="Modules\Movie\Person\PersonPage.cs" />
     <Compile Include="Modules\Movie\Person\PersonRepository.cs" />
     <Compile Include="Modules\Movie\Person\PersonRow.cs" />
+    <Compile Include="Modules\Movie\Service\ServiceColumns.cs" />
+    <Compile Include="Modules\Movie\Service\ServiceEndpoint.cs" />
+    <Compile Include="Modules\Movie\Service\ServiceForm.cs" />
+    <Compile Include="Modules\Movie\Service\ServicePage.cs" />
+    <Compile Include="Modules\Movie\Service\ServiceRepository.cs" />
+    <Compile Include="Modules\Movie\Service\ServiceRow.cs" />
     <Compile Include="Modules\Movie\Tag\TagColumns.cs" />
     <Compile Include="Modules\Movie\Tag\TagEndpoint.cs" />
     <Compile Include="Modules\Movie\Tag\TagForm.cs" />
     <Compile Include="Modules\Movie\Tag\TagPage.cs" />
     <Compile Include="Modules\Movie\Tag\TagRepository.cs" />
     <Compile Include="Modules\Movie\Tag\TagRow.cs" />
+    <Compile Include="Modules\Movie\Video\VideoColumns.cs" />
+    <Compile Include="Modules\Movie\Video\VideoEndpoint.cs" />
+    <Compile Include="Modules\Movie\Video\VideoForm.cs" />
+    <Compile Include="Modules\Movie\Video\VideoPage.cs" />
+    <Compile Include="Modules\Movie\Video\VideoRepository.cs" />
+    <Compile Include="Modules\Movie\Video\VideoRow.cs" />
     <Compile Include="Modules\Texts.cs" />
     <Compile Include="Modules\Membership\Account\AccountPage.cs" />
     <Compile Include="Modules\Administration\User\Authentication\AuthorizationService.cs" />

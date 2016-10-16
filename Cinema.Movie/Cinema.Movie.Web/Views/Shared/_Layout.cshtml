@@ -87,6 +87,7 @@ else
                     }
                     else
                     {
+                        {Html.RenderPartial(MVC.Views.Shared.LeftNavigation, new Cinema.Movie.Navigation.NavigationModel()); }
                         <li>
                             <a href="~/Account/Login">@LocalText.Get("Forms.Membership.Login.SignInButton")</a>
                         </li>

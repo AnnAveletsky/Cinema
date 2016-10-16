@@ -13,10 +13,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Create.Table("Background").InSchema("conf")
                 .WithColumn("BackgroundId").AsInt16().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Color").AsString(12).NotNullable()
-                .WithColumn("PathLg").AsString(200).NotNullable()
-                .WithColumn("PathMd").AsString(200).NotNullable()
-                .WithColumn("PathSm").AsString(200).NotNullable()
-                .WithColumn("PathXs").AsString(200).NotNullable();
+                .WithColumn("Path").AsString(200).NotNullable()
+                .WithColumn("Size").AsString(2).NotNullable();
 
         }
         public override void Down()

@@ -4,13 +4,13 @@
     using Serenity.Web;
     using System.Web.Mvc;
 
-    [RoutePrefix("Movie/Genre"), Route("{action=index}")]
-    public class GenreController : Controller
+    [RoutePrefix("Movie/Video"), Route("{action=index}")]
+    public class VideoController : Controller
     {
         [PageAuthorize("Administration")]
         public ActionResult Index()
         {
-            return View("~/Modules/Movie/Genre/GenreIndex.cshtml");
+            return View("~/Modules/Movie/Video/VideoIndex.cshtml");
         }
     }
 }

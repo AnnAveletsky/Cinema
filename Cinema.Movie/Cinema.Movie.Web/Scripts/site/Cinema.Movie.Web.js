@@ -15,24 +15,24 @@ var Cinema;
     (function (Movie_1) {
         var Movie;
         (function (Movie) {
-            var TagDialog = (function (_super) {
-                __extends(TagDialog, _super);
-                function TagDialog() {
+            var VideoDialog = (function (_super) {
+                __extends(VideoDialog, _super);
+                function VideoDialog() {
                     _super.apply(this, arguments);
-                    this.form = new Movie.TagForm(this.idPrefix);
+                    this.form = new Movie.VideoForm(this.idPrefix);
                 }
-                TagDialog.prototype.getFormKey = function () { return Movie.TagForm.formKey; };
-                TagDialog.prototype.getIdProperty = function () { return Movie.TagRow.idProperty; };
-                TagDialog.prototype.getLocalTextPrefix = function () { return Movie.TagRow.localTextPrefix; };
-                TagDialog.prototype.getNameProperty = function () { return Movie.TagRow.nameProperty; };
-                TagDialog.prototype.getService = function () { return Movie.TagService.baseUrl; };
-                TagDialog = __decorate([
+                VideoDialog.prototype.getFormKey = function () { return Movie.VideoForm.formKey; };
+                VideoDialog.prototype.getIdProperty = function () { return Movie.VideoRow.idProperty; };
+                VideoDialog.prototype.getLocalTextPrefix = function () { return Movie.VideoRow.localTextPrefix; };
+                VideoDialog.prototype.getNameProperty = function () { return Movie.VideoRow.nameProperty; };
+                VideoDialog.prototype.getService = function () { return Movie.VideoService.baseUrl; };
+                VideoDialog = __decorate([
                     Serenity.Decorators.registerClass(),
                     Serenity.Decorators.responsive()
-                ], TagDialog);
-                return TagDialog;
+                ], VideoDialog);
+                return VideoDialog;
             }(Serenity.EntityDialog));
-            Movie.TagDialog = TagDialog;
+            Movie.VideoDialog = VideoDialog;
         })(Movie = Movie_1.Movie || (Movie_1.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -172,20 +172,20 @@ var Cinema;
     (function (Movie_2) {
         var Movie;
         (function (Movie) {
-            var TagEditor = (function (_super) {
-                __extends(TagEditor, _super);
-                function TagEditor(container) {
+            var VideoEditor = (function (_super) {
+                __extends(VideoEditor, _super);
+                function VideoEditor(container) {
                     _super.call(this, container);
                 }
-                TagEditor.prototype.getColumnsKey = function () { return 'Movie.Tag'; };
-                TagEditor.prototype.getDialogType = function () { return Movie.TagEditorDialog; };
-                TagEditor.prototype.getLocalTextPrefix = function () { return Movie.TagRow.localTextPrefix; };
-                TagEditor = __decorate([
+                VideoEditor.prototype.getColumnsKey = function () { return 'Movie.Video'; };
+                VideoEditor.prototype.getDialogType = function () { return Movie.VideoEditorDialog; };
+                VideoEditor.prototype.getLocalTextPrefix = function () { return Movie.VideoRow.localTextPrefix; };
+                VideoEditor = __decorate([
                     Serenity.Decorators.registerClass()
-                ], TagEditor);
-                return TagEditor;
+                ], VideoEditor);
+                return VideoEditor;
             }(Movie_2.Common.GridEditorBase));
-            Movie.TagEditor = TagEditor;
+            Movie.VideoEditor = VideoEditor;
         })(Movie = Movie_2.Movie || (Movie_2.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -235,6 +235,108 @@ var Cinema;
     (function (Movie_3) {
         var Movie;
         (function (Movie) {
+            var VideoEditorDialog = (function (_super) {
+                __extends(VideoEditorDialog, _super);
+                function VideoEditorDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Movie.VideoForm(this.idPrefix);
+                }
+                VideoEditorDialog.prototype.getFormKey = function () { return Movie.VideoForm.formKey; };
+                VideoEditorDialog.prototype.getLocalTextPrefix = function () { return Movie.VideoRow.localTextPrefix; };
+                VideoEditorDialog.prototype.getNameProperty = function () { return Movie.VideoRow.nameProperty; };
+                VideoEditorDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], VideoEditorDialog);
+                return VideoEditorDialog;
+            }(Movie_3.Common.GridEditorDialog));
+            Movie.VideoEditorDialog = VideoEditorDialog;
+        })(Movie = Movie_3.Movie || (Movie_3.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_4) {
+        var Movie;
+        (function (Movie) {
+            var VideoGrid = (function (_super) {
+                __extends(VideoGrid, _super);
+                function VideoGrid(container) {
+                    _super.call(this, container);
+                }
+                VideoGrid.prototype.getColumnsKey = function () { return 'Movie.Video'; };
+                VideoGrid.prototype.getDialogType = function () { return Movie.VideoDialog; };
+                VideoGrid.prototype.getIdProperty = function () { return Movie.VideoRow.idProperty; };
+                VideoGrid.prototype.getLocalTextPrefix = function () { return Movie.VideoRow.localTextPrefix; };
+                VideoGrid.prototype.getService = function () { return Movie.VideoService.baseUrl; };
+                VideoGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], VideoGrid);
+                return VideoGrid;
+            }(Serenity.EntityGrid));
+            Movie.VideoGrid = VideoGrid;
+        })(Movie = Movie_4.Movie || (Movie_4.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_5) {
+        var Movie;
+        (function (Movie) {
+            var TagDialog = (function (_super) {
+                __extends(TagDialog, _super);
+                function TagDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Movie.TagForm(this.idPrefix);
+                }
+                TagDialog.prototype.getFormKey = function () { return Movie.TagForm.formKey; };
+                TagDialog.prototype.getIdProperty = function () { return Movie.TagRow.idProperty; };
+                TagDialog.prototype.getLocalTextPrefix = function () { return Movie.TagRow.localTextPrefix; };
+                TagDialog.prototype.getNameProperty = function () { return Movie.TagRow.nameProperty; };
+                TagDialog.prototype.getService = function () { return Movie.TagService.baseUrl; };
+                TagDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], TagDialog);
+                return TagDialog;
+            }(Serenity.EntityDialog));
+            Movie.TagDialog = TagDialog;
+        })(Movie = Movie_5.Movie || (Movie_5.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_6) {
+        var Movie;
+        (function (Movie) {
+            var TagEditor = (function (_super) {
+                __extends(TagEditor, _super);
+                function TagEditor(container) {
+                    _super.call(this, container);
+                }
+                TagEditor.prototype.getColumnsKey = function () { return 'Movie.Tag'; };
+                TagEditor.prototype.getDialogType = function () { return Movie.TagEditorDialog; };
+                TagEditor.prototype.getLocalTextPrefix = function () { return Movie.TagRow.localTextPrefix; };
+                TagEditor = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], TagEditor);
+                return TagEditor;
+            }(Movie_6.Common.GridEditorBase));
+            Movie.TagEditor = TagEditor;
+        })(Movie = Movie_6.Movie || (Movie_6.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_7) {
+        var Movie;
+        (function (Movie) {
             var TagEditorDialog = (function (_super) {
                 __extends(TagEditorDialog, _super);
                 function TagEditorDialog() {
@@ -249,15 +351,15 @@ var Cinema;
                     Serenity.Decorators.responsive()
                 ], TagEditorDialog);
                 return TagEditorDialog;
-            }(Movie_3.Common.GridEditorDialog));
+            }(Movie_7.Common.GridEditorDialog));
             Movie.TagEditorDialog = TagEditorDialog;
-        })(Movie = Movie_3.Movie || (Movie_3.Movie = {}));
+        })(Movie = Movie_7.Movie || (Movie_7.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_4) {
+    (function (Movie_8) {
         var Movie;
         (function (Movie) {
             var TagGrid = (function (_super) {
@@ -276,13 +378,115 @@ var Cinema;
                 return TagGrid;
             }(Serenity.EntityGrid));
             Movie.TagGrid = TagGrid;
-        })(Movie = Movie_4.Movie || (Movie_4.Movie = {}));
+        })(Movie = Movie_8.Movie || (Movie_8.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_5) {
+    (function (Movie_9) {
+        var Movie;
+        (function (Movie) {
+            var ServiceDialog = (function (_super) {
+                __extends(ServiceDialog, _super);
+                function ServiceDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Movie.ServiceForm(this.idPrefix);
+                }
+                ServiceDialog.prototype.getFormKey = function () { return Movie.ServiceForm.formKey; };
+                ServiceDialog.prototype.getIdProperty = function () { return Movie.ServiceRow.idProperty; };
+                ServiceDialog.prototype.getLocalTextPrefix = function () { return Movie.ServiceRow.localTextPrefix; };
+                ServiceDialog.prototype.getNameProperty = function () { return Movie.ServiceRow.nameProperty; };
+                ServiceDialog.prototype.getService = function () { return Movie.ServiceService.baseUrl; };
+                ServiceDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], ServiceDialog);
+                return ServiceDialog;
+            }(Serenity.EntityDialog));
+            Movie.ServiceDialog = ServiceDialog;
+        })(Movie = Movie_9.Movie || (Movie_9.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_10) {
+        var Movie;
+        (function (Movie) {
+            var ServiceEditor = (function (_super) {
+                __extends(ServiceEditor, _super);
+                function ServiceEditor(container) {
+                    _super.call(this, container);
+                }
+                ServiceEditor.prototype.getColumnsKey = function () { return 'Movie.Service'; };
+                ServiceEditor.prototype.getDialogType = function () { return Movie.ServiceEditorDialog; };
+                ServiceEditor.prototype.getLocalTextPrefix = function () { return Movie.ServiceRow.localTextPrefix; };
+                ServiceEditor = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], ServiceEditor);
+                return ServiceEditor;
+            }(Movie_10.Common.GridEditorBase));
+            Movie.ServiceEditor = ServiceEditor;
+        })(Movie = Movie_10.Movie || (Movie_10.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_11) {
+        var Movie;
+        (function (Movie) {
+            var ServiceEditorDialog = (function (_super) {
+                __extends(ServiceEditorDialog, _super);
+                function ServiceEditorDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Movie.ServiceForm(this.idPrefix);
+                }
+                ServiceEditorDialog.prototype.getFormKey = function () { return Movie.ServiceForm.formKey; };
+                ServiceEditorDialog.prototype.getLocalTextPrefix = function () { return Movie.ServiceRow.localTextPrefix; };
+                ServiceEditorDialog.prototype.getNameProperty = function () { return Movie.ServiceRow.nameProperty; };
+                ServiceEditorDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], ServiceEditorDialog);
+                return ServiceEditorDialog;
+            }(Movie_11.Common.GridEditorDialog));
+            Movie.ServiceEditorDialog = ServiceEditorDialog;
+        })(Movie = Movie_11.Movie || (Movie_11.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_12) {
+        var Movie;
+        (function (Movie) {
+            var ServiceGrid = (function (_super) {
+                __extends(ServiceGrid, _super);
+                function ServiceGrid(container) {
+                    _super.call(this, container);
+                }
+                ServiceGrid.prototype.getColumnsKey = function () { return 'Movie.Service'; };
+                ServiceGrid.prototype.getDialogType = function () { return Movie.ServiceDialog; };
+                ServiceGrid.prototype.getIdProperty = function () { return Movie.ServiceRow.idProperty; };
+                ServiceGrid.prototype.getLocalTextPrefix = function () { return Movie.ServiceRow.localTextPrefix; };
+                ServiceGrid.prototype.getService = function () { return Movie.ServiceService.baseUrl; };
+                ServiceGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], ServiceGrid);
+                return ServiceGrid;
+            }(Serenity.EntityGrid));
+            Movie.ServiceGrid = ServiceGrid;
+        })(Movie = Movie_12.Movie || (Movie_12.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_13) {
         var Movie;
         (function (Movie) {
             var PersonDialog = (function (_super) {
@@ -303,14 +507,14 @@ var Cinema;
                 return PersonDialog;
             }(Serenity.EntityDialog));
             Movie.PersonDialog = PersonDialog;
-        })(Movie = Movie_5.Movie || (Movie_5.Movie = {}));
+        })(Movie = Movie_13.Movie || (Movie_13.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 /// <reference path="../../Common/Helpers/GridEditorBase.ts" />
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_6) {
+    (function (Movie_14) {
         var Movie;
         (function (Movie) {
             var PersonEditor = (function (_super) {
@@ -325,16 +529,16 @@ var Cinema;
                     Serenity.Decorators.registerClass()
                 ], PersonEditor);
                 return PersonEditor;
-            }(Movie_6.Common.GridEditorBase));
+            }(Movie_14.Common.GridEditorBase));
             Movie.PersonEditor = PersonEditor;
-        })(Movie = Movie_6.Movie || (Movie_6.Movie = {}));
+        })(Movie = Movie_14.Movie || (Movie_14.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 /// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_7) {
+    (function (Movie_15) {
         var Movie;
         (function (Movie) {
             var PersonEditorDialog = (function (_super) {
@@ -351,15 +555,15 @@ var Cinema;
                     Serenity.Decorators.responsive()
                 ], PersonEditorDialog);
                 return PersonEditorDialog;
-            }(Movie_7.Common.GridEditorDialog));
+            }(Movie_15.Common.GridEditorDialog));
             Movie.PersonEditorDialog = PersonEditorDialog;
-        })(Movie = Movie_7.Movie || (Movie_7.Movie = {}));
+        })(Movie = Movie_15.Movie || (Movie_15.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_8) {
+    (function (Movie_16) {
         var Movie;
         (function (Movie) {
             var PersonGrid = (function (_super) {
@@ -378,13 +582,13 @@ var Cinema;
                 return PersonGrid;
             }(Serenity.EntityGrid));
             Movie.PersonGrid = PersonGrid;
-        })(Movie = Movie_8.Movie || (Movie_8.Movie = {}));
+        })(Movie = Movie_16.Movie || (Movie_16.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_9) {
+    (function (Movie_17) {
         var Movie;
         (function (Movie) {
             var MovieDialog = (function (_super) {
@@ -405,14 +609,14 @@ var Cinema;
                 return MovieDialog;
             }(Serenity.EntityDialog));
             Movie.MovieDialog = MovieDialog;
-        })(Movie = Movie_9.Movie || (Movie_9.Movie = {}));
+        })(Movie = Movie_17.Movie || (Movie_17.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 /// <reference path="../../Common/Helpers/GridEditorBase.ts" />
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_10) {
+    (function (Movie_18) {
         var Movie;
         (function (Movie) {
             var MovieEditor = (function (_super) {
@@ -427,16 +631,16 @@ var Cinema;
                     Serenity.Decorators.registerClass()
                 ], MovieEditor);
                 return MovieEditor;
-            }(Movie_10.Common.GridEditorBase));
+            }(Movie_18.Common.GridEditorBase));
             Movie.MovieEditor = MovieEditor;
-        })(Movie = Movie_10.Movie || (Movie_10.Movie = {}));
+        })(Movie = Movie_18.Movie || (Movie_18.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 /// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_11) {
+    (function (Movie_19) {
         var Movie;
         (function (Movie) {
             var MovieEditorDialog = (function (_super) {
@@ -453,15 +657,15 @@ var Cinema;
                     Serenity.Decorators.responsive()
                 ], MovieEditorDialog);
                 return MovieEditorDialog;
-            }(Movie_11.Common.GridEditorDialog));
+            }(Movie_19.Common.GridEditorDialog));
             Movie.MovieEditorDialog = MovieEditorDialog;
-        })(Movie = Movie_11.Movie || (Movie_11.Movie = {}));
+        })(Movie = Movie_19.Movie || (Movie_19.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_12) {
+    (function (Movie_20) {
         var Movie;
         (function (Movie) {
             var MovieGrid = (function (_super) {
@@ -480,13 +684,13 @@ var Cinema;
                 return MovieGrid;
             }(Serenity.EntityGrid));
             Movie.MovieGrid = MovieGrid;
-        })(Movie = Movie_12.Movie || (Movie_12.Movie = {}));
+        })(Movie = Movie_20.Movie || (Movie_20.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_13) {
+    (function (Movie_21) {
         var Movie;
         (function (Movie) {
             var GenreDialog = (function (_super) {
@@ -507,14 +711,14 @@ var Cinema;
                 return GenreDialog;
             }(Serenity.EntityDialog));
             Movie.GenreDialog = GenreDialog;
-        })(Movie = Movie_13.Movie || (Movie_13.Movie = {}));
+        })(Movie = Movie_21.Movie || (Movie_21.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 /// <reference path="../../Common/Helpers/GridEditorBase.ts" />
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_14) {
+    (function (Movie_22) {
         var Movie;
         (function (Movie) {
             var GenreEditor = (function (_super) {
@@ -529,16 +733,16 @@ var Cinema;
                     Serenity.Decorators.registerClass()
                 ], GenreEditor);
                 return GenreEditor;
-            }(Movie_14.Common.GridEditorBase));
+            }(Movie_22.Common.GridEditorBase));
             Movie.GenreEditor = GenreEditor;
-        })(Movie = Movie_14.Movie || (Movie_14.Movie = {}));
+        })(Movie = Movie_22.Movie || (Movie_22.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 /// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_15) {
+    (function (Movie_23) {
         var Movie;
         (function (Movie) {
             var GenreEditorDialog = (function (_super) {
@@ -555,15 +759,15 @@ var Cinema;
                     Serenity.Decorators.responsive()
                 ], GenreEditorDialog);
                 return GenreEditorDialog;
-            }(Movie_15.Common.GridEditorDialog));
+            }(Movie_23.Common.GridEditorDialog));
             Movie.GenreEditorDialog = GenreEditorDialog;
-        })(Movie = Movie_15.Movie || (Movie_15.Movie = {}));
+        })(Movie = Movie_23.Movie || (Movie_23.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_16) {
+    (function (Movie_24) {
         var Movie;
         (function (Movie) {
             var GenreGrid = (function (_super) {
@@ -582,7 +786,7 @@ var Cinema;
                 return GenreGrid;
             }(Serenity.EntityGrid));
             Movie.GenreGrid = GenreGrid;
-        })(Movie = Movie_16.Movie || (Movie_16.Movie = {}));
+        })(Movie = Movie_24.Movie || (Movie_24.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
@@ -1880,7 +2084,7 @@ var Cinema;
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_17) {
+    (function (Movie_25) {
         var Movie;
         (function (Movie) {
             var GenreForm = (function (_super) {
@@ -1893,13 +2097,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.GenreForm = GenreForm;
             [['Name', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(GenreForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_17.Movie || (Movie_17.Movie = {}));
+        })(Movie = Movie_25.Movie || (Movie_25.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_18) {
+    (function (Movie_26) {
         var Movie;
         (function (Movie) {
             var GenreRow;
@@ -1912,13 +2116,13 @@ var Cinema;
                 })(Fields = GenreRow.Fields || (GenreRow.Fields = {}));
                 ['GenreId', 'Name'].forEach(function (x) { return Fields[x] = x; });
             })(GenreRow = Movie.GenreRow || (Movie.GenreRow = {}));
-        })(Movie = Movie_18.Movie || (Movie_18.Movie = {}));
+        })(Movie = Movie_26.Movie || (Movie_26.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_19) {
+    (function (Movie_27) {
         var Movie;
         (function (Movie) {
             var GenreService;
@@ -1932,13 +2136,13 @@ var Cinema;
                     Methods[x] = GenreService.baseUrl + '/' + x;
                 });
             })(GenreService = Movie.GenreService || (Movie.GenreService = {}));
-        })(Movie = Movie_19.Movie || (Movie_19.Movie = {}));
+        })(Movie = Movie_27.Movie || (Movie_27.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_20) {
+    (function (Movie_28) {
         var Movie;
         (function (Movie) {
             var MovieForm = (function (_super) {
@@ -1951,13 +2155,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.MovieForm = MovieForm;
             [['TitleEn', function () { return Serenity.StringEditor; }], ['TitleOther', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['Storyline', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.IntegerEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.IntegerEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['ContSuffrage', function () { return Serenity.IntegerEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathMiniImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_20.Movie || (Movie_20.Movie = {}));
+        })(Movie = Movie_28.Movie || (Movie_28.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_21) {
+    (function (Movie_29) {
         var Movie;
         (function (Movie) {
             var MovieRow;
@@ -1970,13 +2174,13 @@ var Cinema;
                 })(Fields = MovieRow.Fields || (MovieRow.Fields = {}));
                 ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'Storyline', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'ContSuffrage', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime'].forEach(function (x) { return Fields[x] = x; });
             })(MovieRow = Movie.MovieRow || (Movie.MovieRow = {}));
-        })(Movie = Movie_21.Movie || (Movie_21.Movie = {}));
+        })(Movie = Movie_29.Movie || (Movie_29.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_22) {
+    (function (Movie_30) {
         var Movie;
         (function (Movie) {
             var MovieService;
@@ -1990,13 +2194,13 @@ var Cinema;
                     Methods[x] = MovieService.baseUrl + '/' + x;
                 });
             })(MovieService = Movie.MovieService || (Movie.MovieService = {}));
-        })(Movie = Movie_22.Movie || (Movie_22.Movie = {}));
+        })(Movie = Movie_30.Movie || (Movie_30.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_23) {
+    (function (Movie_31) {
         var Movie;
         (function (Movie) {
             var PersonForm = (function (_super) {
@@ -2009,13 +2213,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.PersonForm = PersonForm;
             [['Firstname', function () { return Serenity.StringEditor; }], ['Lastname', function () { return Serenity.StringEditor; }], ['BirthDate', function () { return Serenity.DateEditor; }], ['BirthPlace', function () { return Serenity.StringEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['Height', function () { return Serenity.IntegerEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathImageMini', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(PersonForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_23.Movie || (Movie_23.Movie = {}));
+        })(Movie = Movie_31.Movie || (Movie_31.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_24) {
+    (function (Movie_32) {
         var Movie;
         (function (Movie) {
             var PersonRow;
@@ -2028,13 +2232,13 @@ var Cinema;
                 })(Fields = PersonRow.Fields || (PersonRow.Fields = {}));
                 ['PersonId', 'Firstname', 'Lastname', 'BirthDate', 'BirthPlace', 'Gender', 'Height', 'PathImage', 'PathImageMini'].forEach(function (x) { return Fields[x] = x; });
             })(PersonRow = Movie.PersonRow || (Movie.PersonRow = {}));
-        })(Movie = Movie_24.Movie || (Movie_24.Movie = {}));
+        })(Movie = Movie_32.Movie || (Movie_32.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_25) {
+    (function (Movie_33) {
         var Movie;
         (function (Movie) {
             var PersonService;
@@ -2048,13 +2252,71 @@ var Cinema;
                     Methods[x] = PersonService.baseUrl + '/' + x;
                 });
             })(PersonService = Movie.PersonService || (Movie.PersonService = {}));
-        })(Movie = Movie_25.Movie || (Movie_25.Movie = {}));
+        })(Movie = Movie_33.Movie || (Movie_33.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_26) {
+    (function (Movie_34) {
+        var Movie;
+        (function (Movie) {
+            var ServiceForm = (function (_super) {
+                __extends(ServiceForm, _super);
+                function ServiceForm() {
+                    _super.apply(this, arguments);
+                }
+                ServiceForm.formKey = 'Movie.Service';
+                return ServiceForm;
+            }(Serenity.PrefixedContext));
+            Movie.ServiceForm = ServiceForm;
+            [['Name', function () { return Serenity.StringEditor; }], ['Api', function () { return Serenity.StringEditor; }], ['MaxRating', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ServiceForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Movie = Movie_34.Movie || (Movie_34.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_35) {
+        var Movie;
+        (function (Movie) {
+            var ServiceRow;
+            (function (ServiceRow) {
+                ServiceRow.idProperty = 'ServiceId';
+                ServiceRow.nameProperty = 'Name';
+                ServiceRow.localTextPrefix = 'Movie.Service';
+                var Fields;
+                (function (Fields) {
+                })(Fields = ServiceRow.Fields || (ServiceRow.Fields = {}));
+                ['ServiceId', 'Name', 'Api', 'MaxRating'].forEach(function (x) { return Fields[x] = x; });
+            })(ServiceRow = Movie.ServiceRow || (Movie.ServiceRow = {}));
+        })(Movie = Movie_35.Movie || (Movie_35.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_36) {
+        var Movie;
+        (function (Movie) {
+            var ServiceService;
+            (function (ServiceService) {
+                ServiceService.baseUrl = 'Movie/Service';
+                var Methods;
+                (function (Methods) {
+                })(Methods = ServiceService.Methods || (ServiceService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    ServiceService[x] = function (r, s, o) { return Q.serviceRequest(ServiceService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = ServiceService.baseUrl + '/' + x;
+                });
+            })(ServiceService = Movie.ServiceService || (Movie.ServiceService = {}));
+        })(Movie = Movie_36.Movie || (Movie_36.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_37) {
         var Movie;
         (function (Movie) {
             var TagForm = (function (_super) {
@@ -2067,13 +2329,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.TagForm = TagForm;
             [['Name', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TagForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_26.Movie || (Movie_26.Movie = {}));
+        })(Movie = Movie_37.Movie || (Movie_37.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_27) {
+    (function (Movie_38) {
         var Movie;
         (function (Movie) {
             var TagRow;
@@ -2086,13 +2348,13 @@ var Cinema;
                 })(Fields = TagRow.Fields || (TagRow.Fields = {}));
                 ['TagId', 'Name'].forEach(function (x) { return Fields[x] = x; });
             })(TagRow = Movie.TagRow || (Movie.TagRow = {}));
-        })(Movie = Movie_27.Movie || (Movie_27.Movie = {}));
+        })(Movie = Movie_38.Movie || (Movie_38.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_28) {
+    (function (Movie_39) {
         var Movie;
         (function (Movie) {
             var TagService;
@@ -2106,7 +2368,65 @@ var Cinema;
                     Methods[x] = TagService.baseUrl + '/' + x;
                 });
             })(TagService = Movie.TagService || (Movie.TagService = {}));
-        })(Movie = Movie_28.Movie || (Movie_28.Movie = {}));
+        })(Movie = Movie_39.Movie || (Movie_39.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_40) {
+        var Movie;
+        (function (Movie) {
+            var VideoForm = (function (_super) {
+                __extends(VideoForm, _super);
+                function VideoForm() {
+                    _super.apply(this, arguments);
+                }
+                VideoForm.formKey = 'Movie.Video';
+                return VideoForm;
+            }(Serenity.PrefixedContext));
+            Movie.VideoForm = VideoForm;
+            [['Path', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Translation', function () { return Serenity.IntegerEditor; }], ['Season', function () { return Serenity.IntegerEditor; }], ['Serie', function () { return Serenity.IntegerEditor; }], ['PlannePublishDate', function () { return Serenity.DateEditor; }], ['ActualPublishDateTime', function () { return Serenity.DateEditor; }], ['MovieId', function () { return Serenity.IntegerEditor; }], ['ServiceId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(VideoForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Movie = Movie_40.Movie || (Movie_40.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_41) {
+        var Movie;
+        (function (Movie) {
+            var VideoRow;
+            (function (VideoRow) {
+                VideoRow.idProperty = 'VudeoId';
+                VideoRow.nameProperty = 'Path';
+                VideoRow.localTextPrefix = 'Movie.Video';
+                var Fields;
+                (function (Fields) {
+                })(Fields = VideoRow.Fields || (VideoRow.Fields = {}));
+                ['VudeoId', 'Path', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(function (x) { return Fields[x] = x; });
+            })(VideoRow = Movie.VideoRow || (Movie.VideoRow = {}));
+        })(Movie = Movie_41.Movie || (Movie_41.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_42) {
+        var Movie;
+        (function (Movie) {
+            var VideoService;
+            (function (VideoService) {
+                VideoService.baseUrl = 'Movie/Video';
+                var Methods;
+                (function (Methods) {
+                })(Methods = VideoService.Methods || (VideoService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    VideoService[x] = function (r, s, o) { return Q.serviceRequest(VideoService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = VideoService.baseUrl + '/' + x;
+                });
+            })(VideoService = Movie.VideoService || (Movie.VideoService = {}));
+        })(Movie = Movie_42.Movie || (Movie_42.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;

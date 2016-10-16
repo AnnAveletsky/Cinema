@@ -93,10 +93,6 @@ namespace Cinema.Movie
                 public static LocalText ContentDescription =
                     "a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
                     "AdminLTE theme</a></em>)";
-                public static LocalText CatalogFilms ="Catalog films";
-                public static LocalText Top = "Top";
-                public static LocalText FAQ = "F.A.Q.";
-                public static LocalText Contacts = "Contacts";
             }
 
             public static class BasicProgressDialog

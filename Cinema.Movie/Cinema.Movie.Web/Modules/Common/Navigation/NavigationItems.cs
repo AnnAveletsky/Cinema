@@ -5,8 +5,8 @@ using Movie= Cinema.Movie.Movie.Pages;
 [assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 [assembly: NavigationLink(1100, "Dashboard/Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 [assembly: NavigationLink(1200, "Dashboard/CatalogFilms", url: "~/catalog-films", permission: "", icon: "fa-bars")]
-[assembly: NavigationLink(1300, "Dashboard/Top", url: "~/top", permission: "", icon: "icon-speedometer")]
-[assembly: NavigationLink(1400, "Dashboard/FAQ", url: "~/faq", permission: "", icon: "fa-list-ol")]
+[assembly: NavigationLink(1300, "Dashboard/Top", url: "~/top", permission: "", icon: "fa-list-ol")]
+[assembly: NavigationLink(1400, "Dashboard/FAQ", url: "~/faq", permission: "", icon: " fa-question")]
 [assembly: NavigationLink(1500, "Dashboard/Contacts", url: "~/contacts", permission: "", icon: "fa-info")]
 
 [assembly: NavigationMenu(9000, "Administration", icon: "fa-gears")]

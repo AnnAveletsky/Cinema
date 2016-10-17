@@ -7,9 +7,7 @@ namespace Cinema.Movie.Common
     public class DashboardPageModel
     {
         public List<GenreRow> Genres { get; set; }
-
-        public string Html { get; set; }
-
-        public List<MovieRow> Movies { get; set; }
+        public SortedList<string,string> Widgets { get; set; }
+        public string Content { get; set; }
     }
 }

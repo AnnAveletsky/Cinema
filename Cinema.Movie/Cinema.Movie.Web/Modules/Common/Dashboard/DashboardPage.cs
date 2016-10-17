@@ -14,10 +14,7 @@ namespace Cinema.Movie.Common.Pages
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        [HttpGet, Route("~/")]
-        public ActionResult Index()
-        {
-            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
+        DashboardPageModel cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
                 GenreRow.Fields.GenerationKey, () =>
                 {
                     var model = new DashboardPageModel();
@@ -25,78 +22,60 @@ namespace Cinema.Movie.Common.Pages
                     {
                         model.Genres = connection.List<GenreRow>();
                     }
+                    model.Widgets = new System.Collections.Generic.SortedList<string, string>();
                     return model;
                 });
+        [HttpGet, Route("~/")]
+        public ActionResult Index(int? page)
+        {
+            if (!cachedModel.Widgets.Keys.Contains("Dashboard/Dashboard"))
+            {
+                cachedModel.Widgets.Add("Dashboard/Dashboard", LocalText.Get("Site.Widget.Slider"));
+            }
+            cachedModel.Content = LocalText.Get("Site.Dashboard.HTMLDashboard");
             ViewData["Title"] = "";
-            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/Dashboard");
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/Dashboard";
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/catalog-films")]
-        public ActionResult CatalogFilms()
+        public ActionResult CatalogFilms(string begin)
         {
-            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
-                GenreRow.Fields.GenerationKey, () =>
-                {
-                    var model = new DashboardPageModel();
-                    using (var connection = SqlConnections.NewFor<GenreRow>())
-                    {
-                        model.Genres = connection.List<GenreRow>();
-                    }
-                    return model;
-                });
+            if (!cachedModel.Widgets.Keys.Contains("Dashboard/CatalogFilms"))
+            {
+                cachedModel.Widgets.Add("Dashboard/CatalogFilms", LocalText.Get("Site.Widget.Catalog"));
+            }
+            cachedModel.Content = LocalText.Get("Site.Dashboard.HTMLCatalogFilms");
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
+            ViewData["Footer"] = "";
             ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/top")]
         public ActionResult Top()
         {
-            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
-                GenreRow.Fields.GenerationKey, () =>
-                {
-                    var model = new DashboardPageModel();
-                    using (var connection = SqlConnections.NewFor<GenreRow>())
-                    {
-                        model.Genres = connection.List<GenreRow>();
-                    }
-                    return model;
-                });
+            cachedModel.Content = LocalText.Get("Site.Dashboard.HTMLTop");
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Top");
-            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/Top");
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/Top";
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/faq")]
         public ActionResult FAQ()
         {
-            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
-                GenreRow.Fields.GenerationKey, () =>
-                {
-                    var model = new DashboardPageModel();
-                    using (var connection = SqlConnections.NewFor<GenreRow>())
-                    {
-                        model.Genres = connection.List<GenreRow>();
-                    }
-                    return model;
-                });
+            cachedModel.Content = LocalText.Get("Site.Dashboard.HTMLFAQ");
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/FAQ");
-            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/FAQ");
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/FAQ";
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/contacts")]
         public ActionResult Contacts()
         {
-            var cachedModel = TwoLevelCache.GetLocalStoreOnly("DashboardPageModel", TimeSpan.FromMinutes(5),
-                GenreRow.Fields.GenerationKey, () =>
-                {
-                    var model = new DashboardPageModel();
-                    using (var connection = SqlConnections.NewFor<GenreRow>())
-                    {
-                        model.Genres = connection.List<GenreRow>();
-                    }
-                    return model;
-                });
+            cachedModel.Content = LocalText.Get("Site.Dashboard.HTMLContacts");
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Contacts");
-            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/Contacts");
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/Contacts";
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
     }

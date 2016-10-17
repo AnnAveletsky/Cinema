@@ -90,11 +90,17 @@ namespace Cinema.Movie
         {
             public static class Dashboard
             {
-                public static LocalText ContentDescription =
-                    "a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
-                    "AdminLTE theme</a></em>)";
+                public static LocalText HTMLDashboard = "";
+                public static LocalText HTMLCatalogFilms = "";
+                public static LocalText HTMLTop = "";
+                public static LocalText HTMLFAQ = "";
+                public static LocalText HTMLContacts = "";
             }
-
+            public static class Widget
+            {
+                public static LocalText Slider = "";
+                public static LocalText Catalog = "0-9 A B C D E F G H I K L M N O P Q R S T V X Y Z";
+            }
             public static class BasicProgressDialog
             {
                 public static LocalText CancelTitle = "Operation cancelled. Waiting for in progress calls to complete...";

@@ -51,7 +51,7 @@ else
                     <span class="sr-only">Toggle navigation</span>
                 </a>
             }
-            <div class="navbar-custom-menu">
+            <div class="navbar-left">
                 <ul class="nav navbar-nav">
                     <li>
                         <a href="~/" class="uppercase">@LocalText.Get("Navigation.Dashboard/Dashboard")</a>
@@ -67,6 +67,17 @@ else
                     </li>
                     <li>
                         <a href="~/contacts" class="uppercase">@LocalText.Get("Navigation.Dashboard/Contacts")</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Search">
+                            </div>
+                        </form>
                     </li>
                     @if (user != null)
                     {
@@ -84,7 +95,6 @@ else
                                         @(user != null ? user.DisplayName : "")
                                     </p>
                                 </li>
-
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">

@@ -27,7 +27,8 @@ namespace Cinema.Movie.Common.Pages
                     }
                     return model;
                 });
-
+            ViewData["Title"] = "";
+            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/Dashboard");
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/catalog-films")]
@@ -43,7 +44,8 @@ namespace Cinema.Movie.Common.Pages
                     }
                     return model;
                 });
-
+            ViewData["Title"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
+            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/top")]
@@ -59,7 +61,8 @@ namespace Cinema.Movie.Common.Pages
                     }
                     return model;
                 });
-
+            ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Top");
+            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/Top");
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/faq")]
@@ -75,7 +78,8 @@ namespace Cinema.Movie.Common.Pages
                     }
                     return model;
                 });
-
+            ViewData["Title"] = LocalText.Get("Navigation.Dashboard/FAQ");
+            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/FAQ");
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
         [HttpGet, Route("~/contacts")]
@@ -91,7 +95,8 @@ namespace Cinema.Movie.Common.Pages
                     }
                     return model;
                 });
-
+            ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Contacts");
+            ViewData["PageId"] = LocalText.Get("Navigation.Dashboard/Contacts");
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
         }
     }

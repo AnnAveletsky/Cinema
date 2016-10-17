@@ -40,6 +40,7 @@
     "Db.Movie.Tag.TagId": "Id",
     "Db.Movie.Video.EntityPlural": "Видео",
     "Db.Movie.Video.EntitySingular": "Видео",
+    "Db.Movie.Video.MovieDescription": "Описание",
     "Db.Movie.Video.MovieId": "Кино",
     "Db.Movie.Video.Name": "Имя",
     "Db.Movie.Video.Season": "Сезон",

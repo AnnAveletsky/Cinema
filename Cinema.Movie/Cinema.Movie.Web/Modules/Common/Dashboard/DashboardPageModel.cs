@@ -8,6 +8,8 @@ namespace Cinema.Movie.Common
     {
         public List<GenreRow> Genres { get; set; }
 
+        public string Html { get; set; }
+
         public List<MovieRow> Movies { get; set; }
     }
 }

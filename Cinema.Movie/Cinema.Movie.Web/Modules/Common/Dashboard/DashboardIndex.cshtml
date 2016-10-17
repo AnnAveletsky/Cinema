@@ -4,25 +4,8 @@
 
 }
 
-<div class="col-md-2 hidden-xs">
-    <div class="box box-primary">
-        <div class="box-header ">
-            <b class="uppercase header">@LocalText.Get("Db.Movie.Genre.EntityPlural")</b>
-        </div>
-        <div class="box-body">
-            <ul class="list-group list-group-unbordered">
-                @foreach (var i in Model.Genres)
-                {
-                    <li class="list-group-item">
-                         <a href="/genre/@i.GenreId"><b>@i.Name</b></a>
-                    </li>
-                }
-            </ul>
-        </div>
-        <!-- /.box-body -->
-    </div>
-</div>
-<div class="col-md-8 col-xs-12">
+<div class="col-md-2 col-lg-3"></div>
+<div class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
     <div class="box box-primary">
         <div class="box-header uppercase">
             <b>  @ViewData["Title"]</b>
@@ -33,13 +16,32 @@
     </div>
 </div>
 
-<div class="col-md-2 hidden-xs">
+<div class="col-sm-4 col-md-3 col-lg-2 hidden-xs">
     <div class="box box-primary">
-        <div class="box-header">
-            
+        <div class="box-body">
+            <form action="#" method="get">
+                <div class="input-group">
+                    <input type="text" id="SidebarSearch" name="q" class="form-control" autocomplete="off">
+                    <span class="input-group-btn">
+                        <button type="button" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
         </div>
-        <div class="box-body box-profile">
+    </div>
+    <div class="box box-primary">
+        <div class="box-header ">
+            <b class="uppercase header">@LocalText.Get("Db.Movie.Genre.EntityPlural")</b>
         </div>
-        <!-- /.box-body -->
+        <div class="box-body">
+            <ul class="list-group list-group-unbordered">
+                @foreach (var i in Model.Genres)
+                {
+                    <li class="list-group-item">
+                        <a href="/genre/@i.GenreId"><b>@i.Name</b></a>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </div>

@@ -6,6 +6,7 @@
 <div class="col-xs-12"></div>
 <div class="col-xs-1 col-md-2 col-lg-2"></div>
 <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
+
     @if ((string)ViewData["Title"] != "" || Model.Content != "" || !Model.Widgets.Keys.Contains(ViewData["PageId"].ToString()))
     {
         <div class="box box-primary">
@@ -23,6 +24,11 @@
             </div>
         </div>
     }
+    @if (Model.Movies != null)
+    {
+        {Html.RenderPartial("~/Modules/Movie/Movie/_Movies.cshtml", Model.Movies);}
+    }
+    
     @if ((string)ViewData["Footer"] != "")
     {
         <div class="box box-primary">
@@ -48,21 +54,7 @@
             </form>
         </div>
     </div>
-    <div class="box box-primary">
-        <div class="box-header ">
-            <b class="uppercase header">@LocalText.Get("Db.Movie.Genre.EntityPlural")</b>
-        </div>
-        <div class="box-body">
-            <ul class="list-group list-group-unbordered">
-                @foreach (var i in Model.Genres)
-                {
-                    <li class="list-group-item">
-                        <a href="/genre/@i.GenreId"><b>@i.Name</b></a>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
+    @{Html.RenderPartial("~/Modules/Movie/Genre/_Genres.cshtml", Model.Genres);}
 
 </div>
 <div class="col-lg-2"></div>

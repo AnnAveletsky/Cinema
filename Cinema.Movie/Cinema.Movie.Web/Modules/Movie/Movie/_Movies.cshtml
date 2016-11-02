@@ -1,0 +1,6 @@
+﻿@model List<Cinema.Movie.Movie.Entities.MovieRow>
+
+@foreach(var model in Model)
+{
+    {Html.RenderPartial("_MovieShot",model);}
+}

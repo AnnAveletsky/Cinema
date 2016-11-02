@@ -7912,3 +7912,21 @@ section.content > .s-DataGrid {
 .s-Movie-ServiceDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Movie-VideoDialog > .size {
+  width: 650px;
+}
+.s-Movie-VideoDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Movie-MovieDialog > .size {
+  width: 650px;
+}
+.s-Movie-MovieDialog .caption {
+  width: 150px;
+}

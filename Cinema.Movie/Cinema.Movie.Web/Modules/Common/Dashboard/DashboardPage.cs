@@ -127,13 +127,19 @@ namespace Cinema.Movie.Common.Pages
         }
 
         [HttpGet, Route("~/movie")]
-        public ActionResult Movie(int id)
+        public ActionResult Movie(int? id,string name="")
         {
-            model.Movie = MovieFull(id);
-            ViewData["Title"] = LocalText.Get("Navigation.Movie/Movie");
-            ViewData["Footer"] = "";
-            ViewData["PageId"] = "Dashboard/Top";
-            return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
+            if (id != null)
+            {
+                model.Movie = MovieFull((int)id);
+                ViewData["Title"] = LocalText.Get("Navigation.Movie/Movie");
+                ViewData["Footer"] = "";
+                ViewData["PageId"] = "Dashboard/Top";
+                return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
+            }else
+            {
+                return HttpNotFound();
+            }
         }
 
     }

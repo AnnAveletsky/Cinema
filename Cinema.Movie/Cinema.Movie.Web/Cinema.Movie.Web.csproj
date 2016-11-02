@@ -1240,6 +1240,7 @@
     <Content Include="Modules\Movie\Tag\TagIndex.cshtml" />
     <Content Include="Modules\Movie\Service\ServiceIndex.cshtml" />
     <Content Include="Modules\Movie\Video\VideoIndex.cshtml" />
+    <Content Include="Modules\Movie\Movie\_Movies.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1726,6 +1727,7 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160605_215300_Granted.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161220_181800_SampleMovie.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161219_115100_Config.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161119_115100_Initial.cs" />

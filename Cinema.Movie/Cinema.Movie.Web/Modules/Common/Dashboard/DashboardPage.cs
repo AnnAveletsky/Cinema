@@ -11,19 +11,8 @@ namespace Cinema.Movie.Common.Pages
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        private DashboardPageModel model = new DashboardPageModel() { Widgets = Widgets(), Genres = Genres() };
-
-        private static SortedList<string, string> Widgets()
-        {
-           return TwoLevelCache.GetLocalStoreOnly("Widgets", TimeSpan.FromMinutes(200),
-              GenreRow.Fields.GenerationKey, () =>
-              {
-                  SortedList<string, string> Widgets = new SortedList<string, string>();
-                  Widgets.Add("Catalog", LocalText.Get("Site.Widget.Catalog"));
-                  Widgets.Add("Slider", LocalText.Get("Site.Widget.Slider"));
-                  return Widgets;
-              });
-        }
+        private DashboardPageModel model = new DashboardPageModel() { Genres = Genres() };
+        
         private static List<GenreRow> Genres()
         {
             return TwoLevelCache.GetLocalStoreOnly("Genres", TimeSpan.FromMinutes(200),
@@ -131,10 +120,11 @@ namespace Cinema.Movie.Common.Pages
         {
             if (id != null)
             {
+                model.Content = "";
                 model.Movie = MovieFull((int)id);
-                ViewData["Title"] = LocalText.Get("Navigation.Movie/Movie");
+                ViewData["Title"] = "";
                 ViewData["Footer"] = "";
-                ViewData["PageId"] = "Dashboard/Top";
+                ViewData["PageId"] = "Dashboard/Movie";
                 return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
             }else
             {

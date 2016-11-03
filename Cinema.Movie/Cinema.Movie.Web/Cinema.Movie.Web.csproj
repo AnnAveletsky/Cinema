@@ -1224,6 +1224,14 @@
     <TypeScriptCompile Include="Modules\Common\Navigation\LanguageSelection.ts" />
     <TypeScriptCompile Include="Modules\Common\ScriptInitialization.ts" />
     <TypeScriptCompile Include="Modules\Common\UserPreference\UserPreferenceStorage.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Background\BackgroundDialog.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Background\BackgroundEditor.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Background\BackgroundEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Background\BackgroundGrid.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Settings\SettingsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Settings\SettingsEditor.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Settings\SettingsEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Configuration\Settings\SettingsGrid.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ChangePassword\ChangePasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ForgotPassword\ForgotPasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ResetPassword\ResetPasswordPanel.ts" />
@@ -1242,6 +1250,8 @@
     <Content Include="Modules\Movie\Video\VideoIndex.cshtml" />
     <Content Include="Modules\Movie\Movie\_Movies.cshtml" />
     <Content Include="Modules\Movie\Movie\_Movie.cshtml" />
+    <Content Include="Modules\Configuration\Background\BackgroundIndex.cshtml" />
+    <Content Include="Modules\Configuration\Settings\SettingsIndex.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1724,15 +1734,15 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161004_212900_UserImage.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160606_212900_UserImage.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160605_215300_Granted.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161221_181800_SampleMovie.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160610_181800_SampleMovie.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161219_115100_Config.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161119_115100_Initial.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20161219_181800_Sample.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160608_115100_Config.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115100_Initial.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160609_181800_Sample.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141103_140000_Initial.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationUpdateRequest.cs" />
@@ -1747,6 +1757,7 @@
     </Compile>
     <Compile Include="Modules\Common\Navigation\NavigationItems.cs" />
     <Compile Include="Modules\Common\Navigation\NavigationModel.cs" />
+    <Compile Include="Modules\Common\Navigation\Setting.cs" />
     <Compile Include="Modules\Common\Reporting\DynamicDataReport.cs" />
     <Compile Include="Modules\Common\Reporting\ExcelReportGenerator.cs" />
     <Compile Include="Modules\Common\Reporting\ReportController.cs" />
@@ -1754,6 +1765,18 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceModels.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceEndpoint.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRepository.cs" />
+    <Compile Include="Modules\Configuration\Background\BackgroundColumns.cs" />
+    <Compile Include="Modules\Configuration\Background\BackgroundEndpoint.cs" />
+    <Compile Include="Modules\Configuration\Background\BackgroundForm.cs" />
+    <Compile Include="Modules\Configuration\Background\BackgroundPage.cs" />
+    <Compile Include="Modules\Configuration\Background\BackgroundRepository.cs" />
+    <Compile Include="Modules\Configuration\Background\BackgroundRow.cs" />
+    <Compile Include="Modules\Configuration\Settings\SettingsColumns.cs" />
+    <Compile Include="Modules\Configuration\Settings\SettingsEndpoint.cs" />
+    <Compile Include="Modules\Configuration\Settings\SettingsForm.cs" />
+    <Compile Include="Modules\Configuration\Settings\SettingsPage.cs" />
+    <Compile Include="Modules\Configuration\Settings\SettingsRepository.cs" />
+    <Compile Include="Modules\Configuration\Settings\SettingsRow.cs" />
     <Compile Include="Modules\Membership\Account\ChangePassword\AccountPage.ChangePassword.cs" />
     <Compile Include="Modules\Membership\Account\EnvironmentSettings.cs" />
     <Compile Include="Modules\Membership\Account\ForgotPassword\AccountPage.ForgotPassword.cs" />

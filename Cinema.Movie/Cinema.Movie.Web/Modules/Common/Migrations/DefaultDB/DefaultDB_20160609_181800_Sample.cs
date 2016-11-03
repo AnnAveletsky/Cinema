@@ -2,8 +2,8 @@
 
 namespace Cinema.Movie.Migrations.DefaultDB
 {
-    [Migration(20161219181800)]
-    public class DefaultDB_20161219_181800_Sample : Migration
+    [Migration(20160609181800)]
+    public class DefaultDB_20160609_181800_Sample : Migration
     {
         public override void Up()
         {

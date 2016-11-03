@@ -1041,6 +1041,210 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsDialog = (function (_super) {
+                __extends(SettingsDialog, _super);
+                function SettingsDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Configuration.SettingsForm(this.idPrefix);
+                }
+                SettingsDialog.prototype.getFormKey = function () { return Configuration.SettingsForm.formKey; };
+                SettingsDialog.prototype.getIdProperty = function () { return Configuration.SettingsRow.idProperty; };
+                SettingsDialog.prototype.getLocalTextPrefix = function () { return Configuration.SettingsRow.localTextPrefix; };
+                SettingsDialog.prototype.getNameProperty = function () { return Configuration.SettingsRow.nameProperty; };
+                SettingsDialog.prototype.getService = function () { return Configuration.SettingsService.baseUrl; };
+                SettingsDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], SettingsDialog);
+                return SettingsDialog;
+            }(Serenity.EntityDialog));
+            Configuration.SettingsDialog = SettingsDialog;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsEditor = (function (_super) {
+                __extends(SettingsEditor, _super);
+                function SettingsEditor(container) {
+                    _super.call(this, container);
+                }
+                SettingsEditor.prototype.getColumnsKey = function () { return 'Configuration.Settings'; };
+                SettingsEditor.prototype.getDialogType = function () { return Configuration.SettingsEditorDialog; };
+                SettingsEditor.prototype.getLocalTextPrefix = function () { return Configuration.SettingsRow.localTextPrefix; };
+                SettingsEditor = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], SettingsEditor);
+                return SettingsEditor;
+            }(Movie.Common.GridEditorBase));
+            Configuration.SettingsEditor = SettingsEditor;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsEditorDialog = (function (_super) {
+                __extends(SettingsEditorDialog, _super);
+                function SettingsEditorDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Configuration.SettingsForm(this.idPrefix);
+                }
+                SettingsEditorDialog.prototype.getFormKey = function () { return Configuration.SettingsForm.formKey; };
+                SettingsEditorDialog.prototype.getLocalTextPrefix = function () { return Configuration.SettingsRow.localTextPrefix; };
+                SettingsEditorDialog.prototype.getNameProperty = function () { return Configuration.SettingsRow.nameProperty; };
+                SettingsEditorDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], SettingsEditorDialog);
+                return SettingsEditorDialog;
+            }(Movie.Common.GridEditorDialog));
+            Configuration.SettingsEditorDialog = SettingsEditorDialog;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsGrid = (function (_super) {
+                __extends(SettingsGrid, _super);
+                function SettingsGrid(container) {
+                    _super.call(this, container);
+                }
+                SettingsGrid.prototype.getColumnsKey = function () { return 'Configuration.Settings'; };
+                SettingsGrid.prototype.getDialogType = function () { return Configuration.SettingsDialog; };
+                SettingsGrid.prototype.getIdProperty = function () { return Configuration.SettingsRow.idProperty; };
+                SettingsGrid.prototype.getLocalTextPrefix = function () { return Configuration.SettingsRow.localTextPrefix; };
+                SettingsGrid.prototype.getService = function () { return Configuration.SettingsService.baseUrl; };
+                SettingsGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], SettingsGrid);
+                return SettingsGrid;
+            }(Serenity.EntityGrid));
+            Configuration.SettingsGrid = SettingsGrid;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundDialog = (function (_super) {
+                __extends(BackgroundDialog, _super);
+                function BackgroundDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Configuration.BackgroundForm(this.idPrefix);
+                }
+                BackgroundDialog.prototype.getFormKey = function () { return Configuration.BackgroundForm.formKey; };
+                BackgroundDialog.prototype.getIdProperty = function () { return Configuration.BackgroundRow.idProperty; };
+                BackgroundDialog.prototype.getLocalTextPrefix = function () { return Configuration.BackgroundRow.localTextPrefix; };
+                BackgroundDialog.prototype.getNameProperty = function () { return Configuration.BackgroundRow.nameProperty; };
+                BackgroundDialog.prototype.getService = function () { return Configuration.BackgroundService.baseUrl; };
+                BackgroundDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], BackgroundDialog);
+                return BackgroundDialog;
+            }(Serenity.EntityDialog));
+            Configuration.BackgroundDialog = BackgroundDialog;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundEditor = (function (_super) {
+                __extends(BackgroundEditor, _super);
+                function BackgroundEditor(container) {
+                    _super.call(this, container);
+                }
+                BackgroundEditor.prototype.getColumnsKey = function () { return 'Configuration.Background'; };
+                BackgroundEditor.prototype.getDialogType = function () { return Configuration.BackgroundEditorDialog; };
+                BackgroundEditor.prototype.getLocalTextPrefix = function () { return Configuration.BackgroundRow.localTextPrefix; };
+                BackgroundEditor = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], BackgroundEditor);
+                return BackgroundEditor;
+            }(Movie.Common.GridEditorBase));
+            Configuration.BackgroundEditor = BackgroundEditor;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundEditorDialog = (function (_super) {
+                __extends(BackgroundEditorDialog, _super);
+                function BackgroundEditorDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Configuration.BackgroundForm(this.idPrefix);
+                }
+                BackgroundEditorDialog.prototype.getFormKey = function () { return Configuration.BackgroundForm.formKey; };
+                BackgroundEditorDialog.prototype.getLocalTextPrefix = function () { return Configuration.BackgroundRow.localTextPrefix; };
+                BackgroundEditorDialog.prototype.getNameProperty = function () { return Configuration.BackgroundRow.nameProperty; };
+                BackgroundEditorDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], BackgroundEditorDialog);
+                return BackgroundEditorDialog;
+            }(Movie.Common.GridEditorDialog));
+            Configuration.BackgroundEditorDialog = BackgroundEditorDialog;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundGrid = (function (_super) {
+                __extends(BackgroundGrid, _super);
+                function BackgroundGrid(container) {
+                    _super.call(this, container);
+                }
+                BackgroundGrid.prototype.getColumnsKey = function () { return 'Configuration.Background'; };
+                BackgroundGrid.prototype.getDialogType = function () { return Configuration.BackgroundDialog; };
+                BackgroundGrid.prototype.getIdProperty = function () { return Configuration.BackgroundRow.idProperty; };
+                BackgroundGrid.prototype.getLocalTextPrefix = function () { return Configuration.BackgroundRow.localTextPrefix; };
+                BackgroundGrid.prototype.getService = function () { return Configuration.BackgroundService.baseUrl; };
+                BackgroundGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], BackgroundGrid);
+                return BackgroundGrid;
+            }(Serenity.EntityGrid));
+            Configuration.BackgroundGrid = BackgroundGrid;
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
         var ScriptInitialization;
         (function (ScriptInitialization) {
             Q.Config.responsiveDialogs = true;
@@ -1984,6 +2188,122 @@ var Cinema;
                 });
             })(UserPreferenceService = Common.UserPreferenceService || (Common.UserPreferenceService = {}));
         })(Common = Movie.Common || (Movie.Common = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundForm = (function (_super) {
+                __extends(BackgroundForm, _super);
+                function BackgroundForm() {
+                    _super.apply(this, arguments);
+                }
+                BackgroundForm.formKey = 'Configuration.Background';
+                return BackgroundForm;
+            }(Serenity.PrefixedContext));
+            Configuration.BackgroundForm = BackgroundForm;
+            [['Color', function () { return Serenity.StringEditor; }], ['Path', function () { return Serenity.StringEditor; }], ['Size', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(BackgroundForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundRow;
+            (function (BackgroundRow) {
+                BackgroundRow.idProperty = 'BackgroundId';
+                BackgroundRow.nameProperty = 'Color';
+                BackgroundRow.localTextPrefix = 'Configuration.Background';
+                var Fields;
+                (function (Fields) {
+                })(Fields = BackgroundRow.Fields || (BackgroundRow.Fields = {}));
+                ['BackgroundId', 'Color', 'Path', 'Size'].forEach(function (x) { return Fields[x] = x; });
+            })(BackgroundRow = Configuration.BackgroundRow || (Configuration.BackgroundRow = {}));
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var BackgroundService;
+            (function (BackgroundService) {
+                BackgroundService.baseUrl = 'Configuration/Background';
+                var Methods;
+                (function (Methods) {
+                })(Methods = BackgroundService.Methods || (BackgroundService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    BackgroundService[x] = function (r, s, o) { return Q.serviceRequest(BackgroundService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = BackgroundService.baseUrl + '/' + x;
+                });
+            })(BackgroundService = Configuration.BackgroundService || (Configuration.BackgroundService = {}));
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsForm = (function (_super) {
+                __extends(SettingsForm, _super);
+                function SettingsForm() {
+                    _super.apply(this, arguments);
+                }
+                SettingsForm.formKey = 'Configuration.Settings';
+                return SettingsForm;
+            }(Serenity.PrefixedContext));
+            Configuration.SettingsForm = SettingsForm;
+            [['Setting', function () { return Serenity.StringEditor; }], ['Value', function () { return Serenity.StringEditor; }], ['Type', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SettingsForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsRow;
+            (function (SettingsRow) {
+                SettingsRow.idProperty = 'SettingId';
+                SettingsRow.nameProperty = 'Setting';
+                SettingsRow.localTextPrefix = 'Configuration.Settings';
+                var Fields;
+                (function (Fields) {
+                })(Fields = SettingsRow.Fields || (SettingsRow.Fields = {}));
+                ['SettingId', 'Setting', 'Value', 'Type'].forEach(function (x) { return Fields[x] = x; });
+            })(SettingsRow = Configuration.SettingsRow || (Configuration.SettingsRow = {}));
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Configuration;
+        (function (Configuration) {
+            var SettingsService;
+            (function (SettingsService) {
+                SettingsService.baseUrl = 'Configuration/Settings';
+                var Methods;
+                (function (Methods) {
+                })(Methods = SettingsService.Methods || (SettingsService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    SettingsService[x] = function (r, s, o) { return Q.serviceRequest(SettingsService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = SettingsService.baseUrl + '/' + x;
+                });
+            })(SettingsService = Configuration.SettingsService || (Configuration.SettingsService = {}));
+        })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;

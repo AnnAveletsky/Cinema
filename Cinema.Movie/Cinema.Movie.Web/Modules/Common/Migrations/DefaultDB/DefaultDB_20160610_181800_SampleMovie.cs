@@ -3,8 +3,8 @@ using System;
 
 namespace Cinema.Movie.Migrations.DefaultDB
 {
-    [Migration(20161221181800)]
-    public class DefaultDB_20161221_181800_Sample : Migration
+    [Migration(20160610181800)]
+    public class DefaultDB_20160610_181800_SampleMovie : Migration
     {
         public override void Up()
         {

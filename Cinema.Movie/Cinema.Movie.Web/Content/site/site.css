@@ -7930,3 +7930,21 @@ section.content > .s-DataGrid {
 .s-Movie-MovieDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Configuration-SettingsDialog > .size {
+  width: 650px;
+}
+.s-Configuration-SettingsDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Configuration-BackgroundDialog > .size {
+  width: 650px;
+}
+.s-Configuration-BackgroundDialog .caption {
+  width: 150px;
+}

@@ -1,18 +1,22 @@
 ﻿
 namespace Cinema.Movie.Common.Pages
 {
+    using Modules.Common.Navigation;
     using Movie.Entities;
     using Serenity;
     using Serenity.Data;
+    using Serenity.Services;
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using Movies = Cinema.Movie.Movie.Pages.MovieController;
 
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
         private DashboardPageModel model = new DashboardPageModel() { Genres = Genres() };
         
+
         private static List<GenreRow> Genres()
         {
             return TwoLevelCache.GetLocalStoreOnly("Genres", TimeSpan.FromMinutes(200),
@@ -23,17 +27,6 @@ namespace Cinema.Movie.Common.Pages
                       return connection.List<GenreRow>();
                   }
               });
-        }
-        private static List<MovieRow> MoviesShot(Pagination pagination)
-        {
-            using (var connection = SqlConnections.NewFor<MovieRow>())
-            {
-                if(connection.Count<MovieRow>()< pagination.Count)
-                {
-                    return connection.List<MovieRow>();
-                }
-                return connection.List<MovieRow>(i => i.Skip((pagination.Page - 1) * pagination.Count).Take(pagination.Count));
-            }
         }
         private static MovieRow MovieFull(int id)
         {
@@ -54,7 +47,13 @@ namespace Cinema.Movie.Common.Pages
             {
                 return LocalText.Get("Site.Dashboard.HTMLDashboard");
             });
-            model.Movies = MoviesShot(new Pagination(count, page) { Genre = genre });
+            //BaseCriteria criteria = new Criteria("c").StartsWith("S");
+            model.Movies = new Movies().ListPage(new ListRequest
+            {
+                //Criteria = criteria,
+                Skip = (page - 1) * count,
+                Take = count
+            });
             ViewData["Title"] = "";
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Dashboard";
@@ -68,7 +67,11 @@ namespace Cinema.Movie.Common.Pages
             {
                 return LocalText.Get("Site.Dashboard.HTMLCatalogFilms");
             });
-            model.Movies = MoviesShot(new Pagination(count, page));
+            model.Movies = new Movies().ListPage(new ListRequest
+            {
+                Skip = (page - 1) * count,
+                Take = count
+            });
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/CatalogFilms";
@@ -82,7 +85,11 @@ namespace Cinema.Movie.Common.Pages
             {
                 return LocalText.Get("Site.Dashboard.HTMLTop");
             });
-            model.Movies = MoviesShot(new Pagination(count, page));
+            model.Movies = new Movies().ListPage(new ListRequest
+            {
+                Skip = (page - 1) * count,
+                Take = count
+            });
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Top");
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Top";

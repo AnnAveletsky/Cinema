@@ -11,6 +11,7 @@
     "Db.Movie.Movie.Description": "Описание",
     "Db.Movie.Movie.EntityPlural": "Кино",
     "Db.Movie.Movie.EntitySingular": "Кино",
+    "Db.Movie.Movie.Kind": "Тип",
     "Db.Movie.Movie.MovieId": "Id",
     "Db.Movie.Movie.Mpaa": "Mpaa",
     "Db.Movie.Movie.Nice": "Оценка сайта",
@@ -42,6 +43,7 @@
     "Db.Movie.Video.EntitySingular": "Видео",
     "Db.Movie.Video.MovieDescription": "Описание",
     "Db.Movie.Video.MovieId": "Кино",
+    "Db.Movie.Video.MovieKind": "Тип",
     "Db.Movie.Video.Name": "Имя",
     "Db.Movie.Video.Season": "Сезон",
     "Db.Movie.Video.Serie": "Серия",
@@ -61,6 +63,8 @@
     "Navigation.Administration/Roles": "Роли",
     "Navigation.Administration/Translations": "Переводы",
     "Navigation.Administration/User Management": "Пользователи",
+    "Navigation.Configuration/Background": "Фон",
+    "Navigation.Configuration/Settings": "Настройки",
     "Navigation.Dashboard": "Киносайт",
     "Navigation.Dashboard/CatalogFilms": "Каталог фильмов",
     "Navigation.Dashboard/Contacts": "Контакты",
@@ -78,5 +82,6 @@
     "Navigation.SiteTitle": "Кинотеатр",
     "Site.Dashboard.CatalogFilms": "Каталог фильмов",
     "Site.Dashboard.Contacts": "Контакты",
-    "Site.Dashboard.Top": "ТОП"
+    "Site.Dashboard.Top": "ТОП",
+    "Site.Layout.GeneralSettings": "Главные настройки"
 }

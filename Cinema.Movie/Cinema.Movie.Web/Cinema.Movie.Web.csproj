@@ -1252,6 +1252,7 @@
     <Content Include="Modules\Movie\Movie\_Movie.cshtml" />
     <Content Include="Modules\Configuration\Background\BackgroundIndex.cshtml" />
     <Content Include="Modules\Configuration\Settings\SettingsIndex.cshtml" />
+    <Content Include="Modules\Movie\Genre\_Genres.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />

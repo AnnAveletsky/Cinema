@@ -6,6 +6,7 @@ namespace Cinema.Movie.Movie.Repositories
     using Serenity.Data;
     using Serenity.Services;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using MyRow = Entities.MovieRow;
 
@@ -36,6 +37,25 @@ namespace Cinema.Movie.Movie.Repositories
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
             return new MyListHandler().Process(connection, request);
+        }
+        public List<MyRow> ListPage(IDbConnection connection, ListRequest request)
+        {
+            var row = new MyRow();
+            return new SqlQuery().From(row)
+                .Select(
+                    fld.MovieId,
+                    fld.TitleEn,
+                    fld.TitleOther,
+                    fld.Description,
+                    fld.YearStart,
+                    fld.YearEnd,
+                    fld.Rating,
+                    fld.PathImage,
+                    fld.Nice)
+                .Where(request.Criteria)
+                .Skip(request.Skip)
+                .Take(request.Take)
+                .List(connection,row);
         }
 
         private class MySaveHandler : SaveRequestHandler<MyRow> { }

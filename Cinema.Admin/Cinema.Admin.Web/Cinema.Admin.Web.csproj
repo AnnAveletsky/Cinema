@@ -638,7 +638,6 @@
     <Content Include="Content\site\site.htmlcontent.css" />
     <Content Include="Content\site\site.css" />
     <Content Include="Content\site\site.mixins.less" />
-    <Content Include="Content\site\site.northwind.less" />
     <Content Include="Content\site\site.membership.less" />
     <Content Include="Content\adminlte\.csslintrc" />
     <Content Include="Content\adminlte\404_500_errors.less" />

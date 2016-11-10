@@ -3,21 +3,6 @@
 
 @foreach (Cinema.Movie.Movie.Entities.MovieRow item in Model)
 {
-    <div class="box box-primary">
-        <div class="box-header">
-            <a class="uppercase" href="~/movie?id=@item.MovieId">
-                @(item.TitleEn + (item.TitleOther != null ? "/" + item.TitleOther : "")
-        + " (" + (item.YearStart.HasValue == true&&item.YearStart != item.YearEnd? item.YearStart.ToString() : "") + item.YearEnd + ")")
-            </a>
-        </div>
-        <div class="box-body box-profile">
-                <a href="#" class="thumbnail col-xs-4">
-                    <img class="img-responsive" src="@item.PathImage" />
-                </a>
-            <div class="col-xs-8">
-                <p>@item.Description</p>
-                <p>@item.Storyline</p>
-            </div>
-        </div>
-    </div>
+   {Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", item);}
+   
 }

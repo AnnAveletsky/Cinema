@@ -1,0 +1,276 @@
+/*
+ * Skin: Modern
+ * -----------
+ */
+@import "../adminlte/AdminLTE.less";
+
+
+.skin-modern{
+    @modern-danger:#5F1A16;
+    @modern-success:#009B86;
+    @modern-primary:#0D2436;
+    @modern-info:#0D2436;
+    @modern-default:#F7FFBC;
+    @modern-text:#fff;
+    @modern-warming:#F36E21;
+    .skin-colors(@modern-danger,@modern-primary,@modern-success,@modern-warming,@modern-info,@modern-default);
+
+    //bg
+    @modern-backgrond:@modern-primary;
+    .skin-backgrond(@modern-backgrond);
+
+    //header
+    @modern-nav-bg:@modern-success;
+    @modern-nav-color: @modern-default;
+    @modern-sidebar-bg:@modern-danger;
+    @modern-sidebar-color: @modern-default;
+    .skin-header(@modern-nav-bg,@modern-nav-color,@modern-sidebar-bg,@modern-sidebar-color);
+
+
+    //form control
+    @modern-form-control-border-color:@modern-primary;
+    @modern-form-control-color:@modern-primary;
+    .skin-form-control(@modern-form-control-border-color,@modern-form-control-color);
+
+
+     //box
+     @modern-box-border:@modern-success;
+     @modern-box-bg:@modern-default;
+     @modern-box-color:@modern-primary;
+     @modern-box-with-backgrond:@modern-success;
+     @modern-box-with-backgrond-color:@modern-default;
+     .skin-custom-box(@modern-box-border,@modern-box-bg,@modern-box-color,@modern-box-with-backgrond,@modern-box-with-backgrond-color);
+}
+
+.skin-header(@nav-bg,@nav-color,@sidebar-bg,@sidebar-color){
+  .main-header {
+    .navbar {
+      .navbar-variant(@nav-bg; @nav-color);
+      .sidebar-toggle {
+        color: @nav-color;
+        &:hover {
+          background-color: darken(@nav-bg, 5%);
+        }
+      }
+      @media (max-width: @screen-header-collapse) {
+        .dropdown-menu {
+          li {
+            &.divider {
+              background-color: rgba(255, 255, 255, 0.1);
+            }
+            a {
+              &:hover {
+                background: darken(@nav-bg, 5%);
+              }
+            }
+          }
+        }
+      }
+    }
+    //Logo
+    .logo {
+      .logo-variant(@nav-bg);
+    }
+
+    li.user-header {
+      background-color: @nav-bg;
+    }
+    
+  }
+
+  //Content Header
+  .content-header {
+    background: transparent;
+  }
+
+  .sidebar-menu > li.active > a,
+  .sidebar-menu > li > a:hover{
+      border-left:3px solid @nav-bg;
+  }
+
+  .main-header .navbar .nav > li > a:hover, 
+  .main-header .navbar .nav > li > a:active, 
+  .main-header .navbar .nav > li > a:focus, 
+  .main-header .navbar .nav .open > a, 
+  .main-header .navbar .nav .open > a:hover, 
+  .main-header .navbar .nav .open > a:focus, 
+  .main-header .navbar .nav > .active > a,
+  .navbar-nav > .user-menu > .dropdown-menu > .user-footer{
+      color:@nav-color;
+      background:@sidebar-bg;
+  }
+  .navbar-nav > .user-menu > .dropdown-menu, 
+  .navbar-nav > .user-menu > .dropdown-menu > .user-body,
+  .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img{
+      border-color:@sidebar-bg;
+  }
+  .navbar-nav > .user-menu > .dropdown-menu{
+      background:@sidebar-bg;
+  }
+  .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p{
+      color:@nav-color;
+  }
+  .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default{
+      color:@sidebar-bg;
+  }
+  //Create the sidebar skin
+  .skin-light-sidebar(@nav-bg);
+  .main-footer {
+    border-top-color: @gray;
+  }
+  .content-wrapper,
+     .main-footer{
+        border:none;
+    }
+  .control-sidebar-dark, 
+  .control-sidebar-dark + .control-sidebar-bg{
+    background:@sidebar-bg;
+    .form-control{
+      background-color:transparent;
+      border-color:@sidebar-color;
+      color:@sidebar-color;
+    }
+  }
+  .control-sidebar-dark .control-sidebar-heading, 
+    .control-sidebar-dark .control-sidebar-subheading{
+      color:@sidebar-color;
+    }
+  
+}
+
+.skin-backgrond(@backgrond){
+    .content-wrapper,
+      .right-side{
+        background:@backgrond;
+    }
+  }
+.skin-form-control(@border-color,@color){
+    .form-control{
+      background-color:transparent;
+      border-color:@border-color;
+      color:@color;
+    }
+  }
+.skin-colors(@danger,@primary,@success,@warming,@info,@default){
+    .btn-danger{
+        border-color:@danger;
+        background-color:@danger;
+        color:@default;
+    }
+    .btn.danger:hover{ 
+        border-color:@danger;
+        background-color:darken(@danger, 5%);
+    }
+    .btn-primary{
+        border-color:@primary;
+        background-color:@primary;
+        color:@default;
+    }
+    .btn.primary:hover{
+        border-color:@primary;
+        background-color:darken(@primary, 5%);
+    }
+    .btn-success{
+        border-color:@success;
+        background-color:@success;
+        color:@default;
+    }
+    .btn-success:hover{
+        border-color:@success;
+        background-color:darken(@success, 5%);
+    }
+    .btn-warning{
+        border-color:@warming;
+        background-color:@warming;
+        color:@primary;
+    }
+    .btn-warming:hover{
+        border-color:@warming;
+        background-color:darken(@warming, 5%);
+    }
+    .btn-info{
+        border-color:@info;
+        background-color:@info;
+        color:@default;
+    }
+    .btn-info:hover{
+        border-color:@info;
+        background-color:darken(@info, 5%);
+    }
+    .btn-default{
+        border-color:@default;
+        background-color:@default;
+        color:@primary;
+    }
+    .btn-default:hover{
+        border-color:@default;
+        background-color:darken(@default, 5%);
+    }
+}
+.skin-custom-box(@border,@bg,@color,@with-backgrond,@with-backgrond-color){
+    .box-custom{
+        border-color:@border;
+        background:@bg;
+        color:@color;
+        .box-body{
+            .list-group-item{
+                background-color:transparent;
+                border-color:@border;
+            }
+            a{
+                color:@color;
+            }
+            a:hover{
+                color:@color;
+            }
+            .thumbnail{
+                background:transparent;
+                border-color:@border;
+                border-radius: 0;
+            }
+        }
+        .btn-custom{
+            border-color:@border;
+            background-color:@bg;
+            color:@color;
+            outline-color: transparent;
+        }
+        .btn.custom:hover,
+        .btn.custom:active{ 
+            outline-color:@color;
+            border-color:@color;
+            background-color:darken(@bg, 5%);
+        }
+        .form-control.form-control-custom{
+          background-color:transparent;
+          border-color:@border;
+          color:@color;
+        }
+    }
+    .box-with-backgrond{
+        background:@with-backgrond;
+        color:@with-backgrond-color;
+        a{
+            color:@with-backgrond-color;
+        }
+        a:hover{
+            color:@with-backgrond-color;
+        }
+        .btn-custom{
+            border-color:@with-backgrond-color;
+            background-color:@with-backgrond-color;
+        }
+        .btn.custom:hover,
+        .btn.custom:active{ 
+            border-color:@with-backgrond-color;
+            background-color:darken(@with-backgrond-color, 5%);
+        }
+        .form-control.form-control-custom{
+          border-color:@with-backgrond-color;
+          color:@with-backgrond-color;
+        }
+    }
+}
+
+
+

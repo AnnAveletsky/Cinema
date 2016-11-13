@@ -7012,34 +7012,25 @@ section.content > .s-DataGrid {
 .skin-modern .content-header {
   background: transparent;
 }
-.skin-modern .sidebar-menu > li.active > a,
-.skin-modern .sidebar-menu > li > a:hover {
-  border-left: 3px solid #009b86;
+.skin-modern .main-header .navbar .nav .open > a:focus,
+.skin-modern .main-header .navbar .nav > li > a:focus {
+  color: #f7ffbc;
+  background-color: #009b86;
 }
 .skin-modern .main-header .navbar .nav > li > a:hover,
 .skin-modern .main-header .navbar .nav > li > a:active,
-.skin-modern .main-header .navbar .nav > li > a:focus,
 .skin-modern .main-header .navbar .nav .open > a,
 .skin-modern .main-header .navbar .nav .open > a:hover,
-.skin-modern .main-header .navbar .nav .open > a:focus,
 .skin-modern .main-header .navbar .nav > .active > a,
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-footer {
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-footer,
+.skin-modern .main-header .navbar .sidebar-toggle:hover,
+.skin-modern .main-header .logo:hover {
   color: #f7ffbc;
   background: #5f1a16;
 }
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu,
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-body,
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
-  border-color: #5f1a16;
-}
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu {
-  background: #5f1a16;
-}
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
-  color: #f7ffbc;
-}
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
-  color: #5f1a16;
+.skin-modern .main-header .navbar .sidebar-toggle,
+.skin-modern .main-header .navbar .sidebar-toggle:hover {
+  font-size: 14px;
 }
 .skin-modern .wrapper,
 .skin-modern .main-sidebar,
@@ -7139,12 +7130,80 @@ section.content > .s-DataGrid {
     border-left: 1px solid #d2d6de;
   }
 }
-.skin-modern .main-footer {
-  border-top-color: #d2d6de;
+.skin-modern .wrapper,
+.skin-modern aside.main-sidebar,
+.skin-modern .left-side {
+  background-color: #5f1a16;
+}
+.skin-modern .sidebar-menu > li > a {
+  color: #5f1a16;
+  background: #f7ffbc;
+}
+.skin-modern .sidebar-menu > li {
+  border-top: 2px solid #5f1a16;
+}
+.skin-modern .sidebar-menu > li.active > a,
+.skin-modern .sidebar-menu > li > a:hover,
+.skin-modern .sidebar-menu > li:hover > a {
+  border-left: 3px solid #f7ffbc;
+  background-color: #009b86;
+  color: #f7ffbc;
+}
+.skin-modern .sidebar-menu > li > .treeview-menu {
+  background-color: transparent;
+}
+.skin-modern .sidebar-menu > li > .treeview-menu li {
+  background-color: transparent;
+}
+.skin-modern .sidebar-menu > li > .treeview-menu a {
+  background: #f7ffbc;
+  border-left: 3px solid transparent;
+  color: #5f1a16;
+}
+.skin-modern .sidebar-menu > li > .treeview-menu a:hover,
+.skin-modern .sidebar-menu > li > .treeview-menu li.active > a {
+  border-left: 3px solid #009b86;
+  color: #009b86;
 }
 .skin-modern .content-wrapper,
 .skin-modern .main-footer {
-  border: none;
+  border: transparent;
+}
+.skin-modern .sidebar .sidebar-form {
+  border: 0;
+  border-radius: 0;
+}
+.skin-modern .sidebar .sidebar-form .btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f7ffbc;
+  background-color: #5f1a16;
+  color: #f7ffbc;
+}
+.skin-modern .sidebar .sidebar-form .btn.custom:hover,
+.skin-modern .sidebar .sidebar-form .btn.custom:active {
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #5f1a16;
+}
+.skin-modern .sidebar .sidebar-form .form-control.form-control-custom,
+.skin-modern .sidebar .sidebar-form input[type="text"] {
+  background-color: transparent;
+  border-color: #f7ffbc;
+  color: #f7ffbc;
+  border-radius: 0;
+}
+.skin-modern .sidebar .sidebar-form input[type="text"] {
+  padding: 7px;
+}
+.skin-modern .sidebar .sidebar-form .form-control.form-control-custom:focus,
+.skin-modern .sidebar .sidebar-form .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .sidebar .sidebar-form input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .sidebar .sidebar-form input[type="text"]:focus {
+  background-color: #f7ffbc;
+  color: #5f1a16;
+  border-color: #5f1a16;
 }
 .skin-modern .control-sidebar-dark,
 .skin-modern .control-sidebar-dark + .control-sidebar-bg {
@@ -7159,6 +7218,21 @@ section.content > .s-DataGrid {
 .skin-modern .control-sidebar-dark .control-sidebar-heading,
 .skin-modern .control-sidebar-dark .control-sidebar-subheading {
   color: #f7ffbc;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu,
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-body,
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+  border-color: #009b86;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu {
+  background: #009b86;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
+.skin-modern .main-header .logo b {
+  color: #f7ffbc;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: #009b86;
 }
 .skin-modern .form-control {
   background-color: transparent;
@@ -7186,21 +7260,36 @@ section.content > .s-DataGrid {
   border-radius: 0;
 }
 .skin-modern .box-custom .btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
   border-color: #009b86;
   background-color: #f7ffbc;
   color: #0d2436;
-  outline-color: transparent;
 }
 .skin-modern .box-custom .btn.custom:hover,
 .skin-modern .box-custom .btn.custom:active {
   outline-color: #0d2436;
   border-color: #0d2436;
-  background-color: #f4ffa3;
+  background-color: #0d2436;
+  color: #f7ffbc;
 }
-.skin-modern .box-custom .form-control.form-control-custom {
+.skin-modern .box-custom .form-control.form-control-custom,
+.skin-modern .box-custom input[type="text"] {
   background-color: transparent;
   border-color: #009b86;
   color: #0d2436;
+  border-radius: 0;
+}
+.skin-modern .box-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-modern .box-custom .form-control.form-control-custom:focus,
+.skin-modern .box-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .box-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .box-custom input[type="text"]:focus {
+  background-color: #0d2436;
+  color: #f7ffbc;
+  border-color: #f7ffbc;
 }
 .skin-modern .box-with-backgrond {
   background: #009b86;
@@ -7213,17 +7302,51 @@ section.content > .s-DataGrid {
   color: #f7ffbc;
 }
 .skin-modern .box-with-backgrond .btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
   border-color: #f7ffbc;
-  background-color: #f7ffbc;
+  background-color: #009b86;
+  color: #f7ffbc;
 }
 .skin-modern .box-with-backgrond .btn.custom:hover,
 .skin-modern .box-with-backgrond .btn.custom:active {
+  outline-color: #f7ffbc;
   border-color: #f7ffbc;
-  background-color: #f4ffa3;
+  background-color: #f7ffbc;
+  color: #009b86;
 }
-.skin-modern .box-with-backgrond .form-control.form-control-custom {
+.skin-modern .box-with-backgrond .form-control.form-control-custom,
+.skin-modern .box-with-backgrond input[type="text"] {
+  background-color: transparent;
   border-color: #f7ffbc;
   color: #f7ffbc;
+  border-radius: 0;
+}
+.skin-modern .box-with-backgrond input[type="text"] {
+  padding: 7px;
+}
+.skin-modern .box-with-backgrond .form-control.form-control-custom:focus,
+.skin-modern .box-with-backgrond .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .box-with-backgrond input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .box-with-backgrond input[type="text"]:focus {
+  background-color: #f7ffbc;
+  color: #009b86;
+  border-color: #009b86;
+}
+.sidebar-collapse .sidebar-menu > li {
+  border-top: 0;
+}
+.sidebar-collapse .sidebar-menu > li > a,
+.sidebar-collapse .sidebar-menu > li.active > a,
+.sidebar-collapse .sidebar-menu > li > a:hover,
+.sidebar-collapse .sidebar-menu > li:hover > a {
+  border-left: 0;
+}
+.sidebar-collapse .sidebar-menu > li > .treeview-menu {
+  border-color: transparent !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-right: 3px;
 }
 .s-Administration-LanguageDialog > .size {
   width: 450px;

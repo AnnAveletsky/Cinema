@@ -1143,6 +1143,16 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\site\site.skins.less" />
+    <Content Include="Content\site\fonts\Rurintania\3690.ttf" />
+    <Content Include="Content\site\fonts\Humblle Rought Free\Humblle Rought Caps.ttf" />
+    <Content Include="Content\site\fonts\Humblle Rought Free\Humblle Rought Caps.otf" />
+    <Content Include="Content\site\fonts\hamurz\Hamurz Free Version.otf" />
+    <Content Include="Content\site\fonts\hamurz\Hamurz Free Version.ttf" />
+    <Content Include="Content\site\fonts\Bureno\Bureno Regular.otf" />
+    <Content Include="Content\site\fonts\Bureno\Bureno Regular.ttf" />
+    <Content Include="Content\site\fonts\BlowBrush Free Font\blowbrush.otf" />
+    <Content Include="Content\site\fonts\BlowBrush Free Font\blowbrush.ttf" />
+    <Content Include="Content\site\fonts\Favorit\Favorit.ttf" />
     <None Include="Modules\Common\Imports\ServerTypings\ServerTypings.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

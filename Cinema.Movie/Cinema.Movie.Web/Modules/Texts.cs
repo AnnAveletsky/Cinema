@@ -166,6 +166,7 @@ namespace Cinema.Movie
                 public static LocalText ThemeRedLight = "Red Light";
                 public static LocalText ThemeYellow = "Yellow";
                 public static LocalText ThemeYellowLight = "Yellow Light";
+                public static LocalText ThemeModern = "Modern";
             }
 
             public static class ValidationError

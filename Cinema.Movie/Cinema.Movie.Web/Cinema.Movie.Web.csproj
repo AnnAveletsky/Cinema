@@ -1153,6 +1153,9 @@
     <Content Include="Content\site\fonts\BlowBrush Free Font\blowbrush.otf" />
     <Content Include="Content\site\fonts\BlowBrush Free Font\blowbrush.ttf" />
     <Content Include="Content\site\fonts\Favorit\Favorit.ttf" />
+    <Content Include="Content\site\fonts\Komi\10220.ttf" />
+    <Content Include="Content\site\fonts\Marguerite cyr-lat\10254.otf" />
+    <Content Include="Content\site\fonts\Buccaneer Cyr Regular\10119.ttf" />
     <None Include="Modules\Common\Imports\ServerTypings\ServerTypings.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

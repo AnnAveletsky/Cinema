@@ -6907,59 +6907,67 @@ section.content > .s-DataGrid {
   font-family: Favorit;
   src: url("fonts/Favorit/Favorit.ttf");
 }
+@font-face {
+  font-family: Komi;
+  src: url("fonts/Komi/10220.ttf");
+}
+@font-face {
+  font-family: Buccaneer Cyr Regular;
+  src: url("fonts/Buccaneer Cyr Regular/10119.ttf");
+}
 .skin-modern .btn-danger {
-  border-color: #5f1a16;
-  background-color: #5f1a16;
-  color: #f7ffbc;
+  border-color: #dd4b39;
+  background-color: #dd4b39;
+  color: #d2d6de;
 }
 .skin-modern .btn.danger:hover {
-  border-color: #5f1a16;
-  background-color: #4a1411;
+  border-color: #dd4b39;
+  background-color: #d73925;
 }
 .skin-modern .btn-primary {
-  border-color: #0d2436;
-  background-color: #0d2436;
-  color: #f7ffbc;
+  border-color: #3c8dbc;
+  background-color: #3c8dbc;
+  color: #d2d6de;
 }
 .skin-modern .btn.primary:hover {
-  border-color: #0d2436;
-  background-color: #081621;
+  border-color: #3c8dbc;
+  background-color: #367fa9;
 }
 .skin-modern .btn-success {
-  border-color: #009b86;
-  background-color: #009b86;
-  color: #f7ffbc;
+  border-color: #00a65a;
+  background-color: #00a65a;
+  color: #d2d6de;
 }
 .skin-modern .btn-success:hover {
-  border-color: #009b86;
-  background-color: #008270;
+  border-color: #00a65a;
+  background-color: #008d4c;
 }
 .skin-modern .btn-warning {
-  border-color: #f36e21;
-  background-color: #f36e21;
-  color: #0d2436;
+  border-color: #f39c12;
+  background-color: #f39c12;
+  color: #3c8dbc;
 }
 .skin-modern .btn-warming:hover {
-  border-color: #f36e21;
-  background-color: #ee5f0d;
+  border-color: #f39c12;
+  background-color: #e08e0b;
 }
 .skin-modern .btn-info {
-  border-color: #0d2436;
-  background-color: #0d2436;
-  color: #f7ffbc;
+  border-color: #00c0ef;
+  background-color: #00c0ef;
+  color: #d2d6de;
 }
 .skin-modern .btn-info:hover {
-  border-color: #0d2436;
-  background-color: #081621;
+  border-color: #00c0ef;
+  background-color: #00acd6;
 }
 .skin-modern .btn-default {
-  border-color: #f7ffbc;
-  background-color: #f7ffbc;
-  color: #0d2436;
+  border-color: #d2d6de;
+  background-color: #d2d6de;
+  color: #3c8dbc;
 }
 .skin-modern .btn-default:hover {
-  border-color: #f7ffbc;
-  background-color: #f4ffa3;
+  border-color: #d2d6de;
+  background-color: #c3c9d3;
 }
 .skin-modern .content-wrapper,
 .skin-modern .right-side {
@@ -7031,6 +7039,9 @@ section.content > .s-DataGrid {
 .skin-modern .main-header .logo:hover {
   color: #f7ffbc;
   background: #5f1a16;
+}
+.skin-modern .main-header .logo {
+  font-family: 'Buccaneer Cyr Regular';
 }
 .skin-modern .main-header .navbar .sidebar-toggle,
 .skin-modern .main-header .navbar .sidebar-toggle:hover {
@@ -7134,6 +7145,21 @@ section.content > .s-DataGrid {
     border-left: 1px solid #d2d6de;
   }
 }
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu,
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-body,
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+  border-color: #009b86;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu {
+  background: #009b86;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
+.skin-modern .main-header .logo b {
+  color: #f7ffbc;
+}
+.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: #009b86;
+}
 .skin-modern .wrapper,
 .skin-modern aside.main-sidebar,
 .skin-modern .left-side {
@@ -7177,85 +7203,189 @@ section.content > .s-DataGrid {
   border: 0;
   border-radius: 0;
 }
-.skin-modern .sidebar .sidebar-form .btn-custom {
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f7ffbc;
   background-color: #5f1a16;
   color: #f7ffbc;
 }
-.skin-modern .sidebar .sidebar-form .btn.custom:hover,
-.skin-modern .sidebar .sidebar-form .btn.custom:active {
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
   outline-color: #f7ffbc;
   border-color: #f7ffbc;
   background-color: #f7ffbc;
   color: #5f1a16;
 }
-.skin-modern .sidebar .sidebar-form .form-control.form-control-custom,
-.skin-modern .sidebar .sidebar-form input[type="text"] {
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom input[type="text"],
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom select,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom select {
   background-color: transparent;
   border-color: #f7ffbc;
   color: #f7ffbc;
   border-radius: 0;
 }
-.skin-modern .sidebar .sidebar-form input[type="text"] {
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom input[type="text"] option,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] option,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom select option,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom select option {
+  background: #f7ffbc;
+  color: #5f1a16;
+  border: #f7ffbc;
+}
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] {
   padding: 7px;
 }
-.skin-modern .sidebar .sidebar-form .form-control.form-control-custom:focus,
-.skin-modern .sidebar .sidebar-form .form-control.form-control-custom:focus + .input-group-btn .btn,
-.skin-modern .sidebar .sidebar-form input[type="text"]:focus + .input-group-btn .btn,
-.skin-modern .sidebar .sidebar-form input[type="text"]:focus {
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus {
   background-color: #f7ffbc;
   color: #5f1a16;
   border-color: #5f1a16;
 }
-.skin-modern .control-sidebar-dark,
-.skin-modern .control-sidebar-dark + .control-sidebar-bg {
-  background: #5f1a16;
-}
-.skin-modern .control-sidebar-dark .form-control,
-.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-control {
-  background-color: transparent;
+.skin-modern .sidebar .sidebar-form .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
   border-color: #f7ffbc;
+  background-color: #5f1a16;
   color: #f7ffbc;
+}
+.skin-modern .sidebar .sidebar-form .btn.btn-custom:hover,
+.skin-modern .sidebar .sidebar-form .btn.btn-custom:active {
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #5f1a16;
 }
 .skin-modern .control-sidebar-dark .control-sidebar-heading,
 .skin-modern .control-sidebar-dark .control-sidebar-subheading {
   color: #f7ffbc;
 }
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu,
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-body,
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
-  border-color: #009b86;
-}
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu {
-  background: #009b86;
-}
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
-.skin-modern .main-header .logo b {
+.skin-modern .control-sidebar-dark,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg {
+  background: #5f1a16;
   color: #f7ffbc;
 }
-.skin-modern .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
-  color: #009b86;
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f7ffbc;
+  background-color: #5f1a16;
+  color: #f7ffbc;
 }
-.skin-modern .box-header .box-title,
-.skin-modern .logo b,
-.skin-modern .nav.navbar-nav a {
-  font-family: 'Favorit';
-  font-weight: 800;
-  letter-spacing: 0.1vw;
-  line-height: 1.3;
-  font-size: 16px;
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #5f1a16;
 }
-.skin-modern .form-control {
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark .input-group.input-group-custom select,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom select,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select {
   background-color: transparent;
-  border-color: #0d2436;
-  color: #0d2436;
+  border-color: #f7ffbc;
+  color: #f7ffbc;
+  border-radius: 0;
+}
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom input[type="text"] option,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"] option,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom input[type="text"] option,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] option,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom select option,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select option,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom select option,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select option {
+  background: #f7ffbc;
+  color: #5f1a16;
+  border: #f7ffbc;
+}
+.skin-modern .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #f7ffbc;
+  color: #5f1a16;
+  border-color: #5f1a16;
+}
+.skin-modern .control-sidebar-dark .btn.btn-custom,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f7ffbc;
+  background-color: #5f1a16;
+  color: #f7ffbc;
+}
+.skin-modern .control-sidebar-dark .btn.btn-custom:hover,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
+.skin-modern .control-sidebar-dark .btn.btn-custom:active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #5f1a16;
 }
 .skin-modern .box-custom {
   border-color: #009b86;
   background: #f7ffbc;
   color: #0d2436;
+}
+.skin-modern .box-custom .box-header.with-border {
+  border-bottom: 1px solid #009b86;
 }
 .skin-modern .box-custom .box-body .list-group-item {
   background-color: transparent;
@@ -7272,37 +7402,73 @@ section.content > .s-DataGrid {
   border-color: #009b86;
   border-radius: 0;
 }
-.skin-modern .box-custom .btn-custom {
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #0d2436;
+  background-color: #f7ffbc;
+  color: #0d2436;
+}
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom:active,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #0d2436;
+  border-color: #0d2436;
+  background-color: #0d2436;
+  color: #f7ffbc;
+}
+.skin-modern .box-custom .input-group.input-group-custom .form-control.form-control-custom,
+.skin-modern .box-custom .form-group.form-group-custom .form-control.form-control-custom,
+.skin-modern .box-custom .input-group.input-group-custom input[type="text"],
+.skin-modern .box-custom .form-group.form-group-custom input[type="text"],
+.skin-modern .box-custom .input-group.input-group-custom select,
+.skin-modern .box-custom .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #009b86;
+  color: #0d2436;
+  border-radius: 0;
+}
+.skin-modern .box-custom .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-modern .box-custom .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-modern .box-custom .input-group.input-group-custom input[type="text"] option,
+.skin-modern .box-custom .form-group.form-group-custom input[type="text"] option,
+.skin-modern .box-custom .input-group.input-group-custom select option,
+.skin-modern .box-custom .form-group.form-group-custom select option {
+  background: #0d2436;
+  color: #f7ffbc;
+  border: #0d2436;
+}
+.skin-modern .box-custom .input-group.input-group-custom input[type="text"],
+.skin-modern .box-custom .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-modern .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-modern .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-modern .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .box-custom .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .box-custom .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .box-custom .input-group.input-group-custom input[type="text"]:focus,
+.skin-modern .box-custom .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #0d2436;
+  color: #f7ffbc;
+  border-color: #f7ffbc;
+}
+.skin-modern .box-custom .btn.btn-custom {
   border-radius: 0;
   outline-color: transparent;
   border-color: #009b86;
   background-color: #f7ffbc;
   color: #0d2436;
 }
-.skin-modern .box-custom .btn.custom:hover,
-.skin-modern .box-custom .btn.custom:active {
+.skin-modern .box-custom .btn.btn-custom:hover,
+.skin-modern .box-custom .btn.btn-custom:active {
   outline-color: #0d2436;
   border-color: #0d2436;
   background-color: #0d2436;
   color: #f7ffbc;
-}
-.skin-modern .box-custom .form-control.form-control-custom,
-.skin-modern .box-custom input[type="text"] {
-  background-color: transparent;
-  border-color: #009b86;
-  color: #0d2436;
-  border-radius: 0;
-}
-.skin-modern .box-custom input[type="text"] {
-  padding: 7px;
-}
-.skin-modern .box-custom .form-control.form-control-custom:focus,
-.skin-modern .box-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
-.skin-modern .box-custom input[type="text"]:focus + .input-group-btn .btn,
-.skin-modern .box-custom input[type="text"]:focus {
-  background-color: #0d2436;
-  color: #f7ffbc;
-  border-color: #f7ffbc;
 }
 .skin-modern .box-with-backgrond {
   background: #009b86;
@@ -7314,37 +7480,1955 @@ section.content > .s-DataGrid {
 .skin-modern .box-with-backgrond a:hover {
   color: #f7ffbc;
 }
-.skin-modern .box-with-backgrond .btn-custom {
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f7ffbc;
   background-color: #009b86;
   color: #f7ffbc;
 }
-.skin-modern .box-with-backgrond .btn.custom:hover,
-.skin-modern .box-with-backgrond .btn.custom:active {
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
   outline-color: #f7ffbc;
   border-color: #f7ffbc;
   background-color: #f7ffbc;
   color: #009b86;
 }
-.skin-modern .box-with-backgrond .form-control.form-control-custom,
-.skin-modern .box-with-backgrond input[type="text"] {
+.skin-modern .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom,
+.skin-modern .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-modern .box-with-backgrond .form-group.form-group-custom input[type="text"],
+.skin-modern .box-with-backgrond .input-group.input-group-custom select,
+.skin-modern .box-with-backgrond .form-group.form-group-custom select {
   background-color: transparent;
   border-color: #f7ffbc;
   color: #f7ffbc;
   border-radius: 0;
 }
-.skin-modern .box-with-backgrond input[type="text"] {
+.skin-modern .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-modern .box-with-backgrond .input-group.input-group-custom input[type="text"] option,
+.skin-modern .box-with-backgrond .form-group.form-group-custom input[type="text"] option,
+.skin-modern .box-with-backgrond .input-group.input-group-custom select option,
+.skin-modern .box-with-backgrond .form-group.form-group-custom select option {
+  background: #f7ffbc;
+  color: #009b86;
+  border: #f7ffbc;
+}
+.skin-modern .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-modern .box-with-backgrond .form-group.form-group-custom input[type="text"] {
   padding: 7px;
 }
-.skin-modern .box-with-backgrond .form-control.form-control-custom:focus,
-.skin-modern .box-with-backgrond .form-control.form-control-custom:focus + .input-group-btn .btn,
-.skin-modern .box-with-backgrond input[type="text"]:focus + .input-group-btn .btn,
-.skin-modern .box-with-backgrond input[type="text"]:focus {
+.skin-modern .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-modern .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-modern .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus,
+.skin-modern .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus {
   background-color: #f7ffbc;
   color: #009b86;
   border-color: #009b86;
+}
+.skin-modern .uppercase {
+  font-family: 'Komi';
+}
+.skin-sunset {
+  /*
+        #534255
+        #a15e61
+        #8e9dc7
+        #f2b183
+        #f5ebe0
+    */
+}
+.skin-sunset .btn-danger {
+  border-color: #dd4b39;
+  background-color: #dd4b39;
+  color: #d2d6de;
+}
+.skin-sunset .btn.danger:hover {
+  border-color: #dd4b39;
+  background-color: #d73925;
+}
+.skin-sunset .btn-primary {
+  border-color: #3c8dbc;
+  background-color: #3c8dbc;
+  color: #d2d6de;
+}
+.skin-sunset .btn.primary:hover {
+  border-color: #3c8dbc;
+  background-color: #367fa9;
+}
+.skin-sunset .btn-success {
+  border-color: #00a65a;
+  background-color: #00a65a;
+  color: #d2d6de;
+}
+.skin-sunset .btn-success:hover {
+  border-color: #00a65a;
+  background-color: #008d4c;
+}
+.skin-sunset .btn-warning {
+  border-color: #f39c12;
+  background-color: #f39c12;
+  color: #3c8dbc;
+}
+.skin-sunset .btn-warming:hover {
+  border-color: #f39c12;
+  background-color: #e08e0b;
+}
+.skin-sunset .btn-info {
+  border-color: #00c0ef;
+  background-color: #00c0ef;
+  color: #d2d6de;
+}
+.skin-sunset .btn-info:hover {
+  border-color: #00c0ef;
+  background-color: #00acd6;
+}
+.skin-sunset .btn-default {
+  border-color: #d2d6de;
+  background-color: #d2d6de;
+  color: #3c8dbc;
+}
+.skin-sunset .btn-default:hover {
+  border-color: #d2d6de;
+  background-color: #c3c9d3;
+}
+.skin-sunset .content-wrapper,
+.skin-sunset .right-side {
+  background: #534255;
+}
+.skin-sunset .main-header .navbar {
+  background-color: #a15e61;
+}
+.skin-sunset .main-header .navbar .nav > li > a {
+  color: #f5ebe0;
+}
+.skin-sunset .main-header .navbar .nav > li > a:hover,
+.skin-sunset .main-header .navbar .nav > li > a:active,
+.skin-sunset .main-header .navbar .nav > li > a:focus,
+.skin-sunset .main-header .navbar .nav .open > a,
+.skin-sunset .main-header .navbar .nav .open > a:hover,
+.skin-sunset .main-header .navbar .nav .open > a:focus,
+.skin-sunset .main-header .navbar .nav > .active > a {
+  background: rgba(0, 0, 0, 0.1);
+  color: #f6f6f6;
+}
+.skin-sunset .main-header .navbar .sidebar-toggle {
+  color: #f5ebe0;
+}
+.skin-sunset .main-header .navbar .sidebar-toggle:hover {
+  color: #f6f6f6;
+  background: rgba(0, 0, 0, 0.1);
+}
+.skin-sunset .main-header .navbar .sidebar-toggle {
+  color: #f5ebe0;
+}
+.skin-sunset .main-header .navbar .sidebar-toggle:hover {
+  background-color: #915557;
+}
+@media (max-width: 767px) {
+  .skin-sunset .main-header .navbar .dropdown-menu li.divider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .skin-sunset .main-header .navbar .dropdown-menu li a:hover {
+    background: #915557;
+  }
+}
+.skin-sunset .main-header .logo {
+  background-color: #a15e61;
+  color: #ffffff;
+  border-bottom: 0 solid transparent;
+}
+.skin-sunset .main-header .logo:hover {
+  background-color: #9e5c5f;
+}
+.skin-sunset .main-header li.user-header {
+  background-color: #a15e61;
+}
+.skin-sunset .content-header {
+  background: transparent;
+}
+.skin-sunset .main-header .navbar .nav .open > a:focus,
+.skin-sunset .main-header .navbar .nav > li > a:focus {
+  color: #f5ebe0;
+  background-color: #a15e61;
+}
+.skin-sunset .main-header .navbar .nav > li > a:hover,
+.skin-sunset .main-header .navbar .nav > li > a:active,
+.skin-sunset .main-header .navbar .nav .open > a,
+.skin-sunset .main-header .navbar .nav .open > a:hover,
+.skin-sunset .main-header .navbar .nav > .active > a,
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu > .user-footer,
+.skin-sunset .main-header .navbar .sidebar-toggle:hover,
+.skin-sunset .main-header .logo:hover {
+  color: #f5ebe0;
+  background: #f2b183;
+}
+.skin-sunset .main-header .logo {
+  font-family: 'Buccaneer Cyr Regular';
+}
+.skin-sunset .main-header .navbar .sidebar-toggle,
+.skin-sunset .main-header .navbar .sidebar-toggle:hover {
+  font-size: 14px;
+}
+.skin-sunset .wrapper,
+.skin-sunset .main-sidebar,
+.skin-sunset .left-side {
+  background-color: #f9fafc;
+}
+.skin-sunset .content-wrapper,
+.skin-sunset .main-footer {
+  border-left: 1px solid #d2d6de;
+}
+.skin-sunset .user-panel > .info,
+.skin-sunset .user-panel > .info > a {
+  color: #444444;
+}
+.skin-sunset .sidebar-menu > li {
+  -webkit-transition: border-left-color 0.3s ease;
+  -o-transition: border-left-color 0.3s ease;
+  transition: border-left-color 0.3s ease;
+}
+.skin-sunset .sidebar-menu > li.header {
+  color: #848484;
+  background: #f9fafc;
+}
+.skin-sunset .sidebar-menu > li > a {
+  border-left: 3px solid transparent;
+  font-weight: 600;
+}
+.skin-sunset .sidebar-menu > li:hover > a,
+.skin-sunset .sidebar-menu > li.active > a {
+  color: #000000;
+  background: #f4f4f5;
+}
+.skin-sunset .sidebar-menu > li.active {
+  border-left-color: #a15e61;
+}
+.skin-sunset .sidebar-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-sunset .sidebar-menu > li > .treeview-menu {
+  background: #f4f4f5;
+}
+.skin-sunset .sidebar a {
+  color: #444444;
+}
+.skin-sunset .sidebar a:hover {
+  text-decoration: none;
+}
+.skin-sunset .treeview-menu > li > a {
+  color: #777777;
+}
+.skin-sunset .treeview-menu > li.active > a,
+.skin-sunset .treeview-menu > li > a:hover {
+  color: #000000;
+}
+.skin-sunset .treeview-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-sunset .sidebar-form {
+  border-radius: 3px;
+  border: 1px solid #d2d6de;
+  margin: 10px 10px;
+}
+.skin-sunset .sidebar-form input[type="text"],
+.skin-sunset .sidebar-form .btn {
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid transparent;
+  height: 35px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.skin-sunset .sidebar-form input[type="text"] {
+  color: #666;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+}
+.skin-sunset .sidebar-form input[type="text"]:focus,
+.skin-sunset .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  background-color: #fff;
+  color: #666;
+}
+.skin-sunset .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  border-left-color: #fff;
+}
+.skin-sunset .sidebar-form .btn {
+  color: #999;
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+}
+@media (min-width: 768px) {
+  .skin-sunset.sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {
+    border-left: 1px solid #d2d6de;
+  }
+}
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu,
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu > .user-body,
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+  border-color: #a15e61;
+}
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu {
+  background: #a15e61;
+}
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
+.skin-sunset .main-header .logo b {
+  color: #f5ebe0;
+}
+.skin-sunset .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: #a15e61;
+}
+.skin-sunset .wrapper,
+.skin-sunset aside.main-sidebar,
+.skin-sunset .left-side {
+  background-color: #f5ebe0;
+}
+.skin-sunset .sidebar-menu > li > a {
+  color: #f5ebe0;
+  background: #8e9dc7;
+}
+.skin-sunset .sidebar-menu > li {
+  border-top: 2px solid #f5ebe0;
+}
+.skin-sunset .sidebar-menu > li.active > a,
+.skin-sunset .sidebar-menu > li > a:hover,
+.skin-sunset .sidebar-menu > li:hover > a {
+  border-left: 3px solid #8e9dc7;
+  background-color: #f5ebe0;
+  color: #8e9dc7;
+}
+.skin-sunset .sidebar-menu > li > .treeview-menu {
+  background-color: transparent;
+}
+.skin-sunset .sidebar-menu > li > .treeview-menu li {
+  background-color: transparent;
+}
+.skin-sunset .sidebar-menu > li > .treeview-menu a {
+  background: #8e9dc7;
+  border-left: 3px solid transparent;
+  color: #f5ebe0;
+}
+.skin-sunset .sidebar-menu > li > .treeview-menu a:hover,
+.skin-sunset .sidebar-menu > li > .treeview-menu li.active > a {
+  border-left: 3px solid #f5ebe0;
+  color: #f5ebe0;
+}
+.skin-sunset .content-wrapper,
+.skin-sunset .main-footer {
+  border: transparent;
+}
+.skin-sunset .sidebar .sidebar-form {
+  border: 0;
+  border-radius: 0;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #8e9dc7;
+  background-color: #f5ebe0;
+  color: #8e9dc7;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom input[type="text"],
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom select,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #8e9dc7;
+  color: #8e9dc7;
+  border-radius: 0;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom input[type="text"] option,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] option,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom select option,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom select option {
+  background: #8e9dc7;
+  color: #f5ebe0;
+  border: #8e9dc7;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+  border-color: #f5ebe0;
+}
+.skin-sunset .sidebar .sidebar-form .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #8e9dc7;
+  background-color: #f5ebe0;
+  color: #8e9dc7;
+}
+.skin-sunset .sidebar .sidebar-form .btn.btn-custom:hover,
+.skin-sunset .sidebar .sidebar-form .btn.btn-custom:active {
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .control-sidebar-dark .control-sidebar-heading,
+.skin-sunset .control-sidebar-dark .control-sidebar-subheading {
+  color: #8e9dc7;
+}
+.skin-sunset .control-sidebar-dark,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg {
+  background: #f5ebe0;
+  color: #8e9dc7;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #8e9dc7;
+  background-color: #f5ebe0;
+  color: #8e9dc7;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom select,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom select,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #8e9dc7;
+  color: #8e9dc7;
+  border-radius: 0;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom input[type="text"] option,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"] option,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom input[type="text"] option,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] option,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom select option,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select option,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom select option,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select option {
+  background: #8e9dc7;
+  color: #f5ebe0;
+  border: #8e9dc7;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+  border-color: #f5ebe0;
+}
+.skin-sunset .control-sidebar-dark .btn.btn-custom,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #8e9dc7;
+  background-color: #f5ebe0;
+  color: #8e9dc7;
+}
+.skin-sunset .control-sidebar-dark .btn.btn-custom:hover,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
+.skin-sunset .control-sidebar-dark .btn.btn-custom:active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .box-custom {
+  border-color: #f2b183;
+  background: #f5ebe0;
+  color: #534255;
+}
+.skin-sunset .box-custom .box-header.with-border {
+  border-bottom: 1px solid #f2b183;
+}
+.skin-sunset .box-custom .box-body .list-group-item {
+  background-color: transparent;
+  border-color: #f2b183;
+}
+.skin-sunset .box-custom .box-body a {
+  color: #534255;
+}
+.skin-sunset .box-custom .box-body a:hover {
+  color: #534255;
+}
+.skin-sunset .box-custom .box-body .thumbnail {
+  background: transparent;
+  border-color: #f2b183;
+  border-radius: 0;
+}
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #534255;
+  background-color: #f5ebe0;
+  color: #534255;
+}
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom:active,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #534255;
+  border-color: #534255;
+  background-color: #534255;
+  color: #f5ebe0;
+}
+.skin-sunset .box-custom .input-group.input-group-custom .form-control.form-control-custom,
+.skin-sunset .box-custom .form-group.form-group-custom .form-control.form-control-custom,
+.skin-sunset .box-custom .input-group.input-group-custom input[type="text"],
+.skin-sunset .box-custom .form-group.form-group-custom input[type="text"],
+.skin-sunset .box-custom .input-group.input-group-custom select,
+.skin-sunset .box-custom .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #f2b183;
+  color: #534255;
+  border-radius: 0;
+}
+.skin-sunset .box-custom .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-sunset .box-custom .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-sunset .box-custom .input-group.input-group-custom input[type="text"] option,
+.skin-sunset .box-custom .form-group.form-group-custom input[type="text"] option,
+.skin-sunset .box-custom .input-group.input-group-custom select option,
+.skin-sunset .box-custom .form-group.form-group-custom select option {
+  background: #534255;
+  color: #f5ebe0;
+  border: #534255;
+}
+.skin-sunset .box-custom .input-group.input-group-custom input[type="text"],
+.skin-sunset .box-custom .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-sunset .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .box-custom .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .box-custom .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .box-custom .input-group.input-group-custom input[type="text"]:focus,
+.skin-sunset .box-custom .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #534255;
+  color: #f5ebe0;
+  border-color: #f5ebe0;
+}
+.skin-sunset .box-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f2b183;
+  background-color: #f5ebe0;
+  color: #534255;
+}
+.skin-sunset .box-custom .btn.btn-custom:hover,
+.skin-sunset .box-custom .btn.btn-custom:active {
+  outline-color: #534255;
+  border-color: #534255;
+  background-color: #534255;
+  color: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond {
+  background: #f2b183;
+  color: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond a {
+  color: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond a:hover {
+  color: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f5ebe0;
+  background-color: #f2b183;
+  color: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #f5ebe0;
+  border-color: #f5ebe0;
+  background-color: #f5ebe0;
+  color: #f2b183;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-sunset .box-with-backgrond .form-group.form-group-custom input[type="text"],
+.skin-sunset .box-with-backgrond .input-group.input-group-custom select,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #f5ebe0;
+  color: #f5ebe0;
+  border-radius: 0;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom input[type="text"] option,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom input[type="text"] option,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom select option,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom select option {
+  background: #f5ebe0;
+  color: #f2b183;
+  border: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-sunset .box-with-backgrond .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #f5ebe0;
+  color: #f2b183;
+  border-color: #f2b183;
+}
+.skin-sunset .uppercase {
+  font-family: 'Buccaneer Cyr Regular';
+}
+.skin-tenderness {
+  /*
+        #2b4046
+        #46899b
+        #aaabac
+        #f2ceb9
+        #f0f0f3
+    */
+}
+.skin-tenderness .btn-danger {
+  border-color: #dd4b39;
+  background-color: #dd4b39;
+  color: #d2d6de;
+}
+.skin-tenderness .btn.danger:hover {
+  border-color: #dd4b39;
+  background-color: #d73925;
+}
+.skin-tenderness .btn-primary {
+  border-color: #3c8dbc;
+  background-color: #3c8dbc;
+  color: #d2d6de;
+}
+.skin-tenderness .btn.primary:hover {
+  border-color: #3c8dbc;
+  background-color: #367fa9;
+}
+.skin-tenderness .btn-success {
+  border-color: #00a65a;
+  background-color: #00a65a;
+  color: #d2d6de;
+}
+.skin-tenderness .btn-success:hover {
+  border-color: #00a65a;
+  background-color: #008d4c;
+}
+.skin-tenderness .btn-warning {
+  border-color: #f39c12;
+  background-color: #f39c12;
+  color: #3c8dbc;
+}
+.skin-tenderness .btn-warming:hover {
+  border-color: #f39c12;
+  background-color: #e08e0b;
+}
+.skin-tenderness .btn-info {
+  border-color: #00c0ef;
+  background-color: #00c0ef;
+  color: #d2d6de;
+}
+.skin-tenderness .btn-info:hover {
+  border-color: #00c0ef;
+  background-color: #00acd6;
+}
+.skin-tenderness .btn-default {
+  border-color: #d2d6de;
+  background-color: #d2d6de;
+  color: #3c8dbc;
+}
+.skin-tenderness .btn-default:hover {
+  border-color: #d2d6de;
+  background-color: #c3c9d3;
+}
+.skin-tenderness .content-wrapper,
+.skin-tenderness .right-side {
+  background: #c4c6d7;
+}
+.skin-tenderness .main-header .navbar {
+  background-color: #46899b;
+}
+.skin-tenderness .main-header .navbar .nav > li > a {
+  color: #f0f0f3;
+}
+.skin-tenderness .main-header .navbar .nav > li > a:hover,
+.skin-tenderness .main-header .navbar .nav > li > a:active,
+.skin-tenderness .main-header .navbar .nav > li > a:focus,
+.skin-tenderness .main-header .navbar .nav .open > a,
+.skin-tenderness .main-header .navbar .nav .open > a:hover,
+.skin-tenderness .main-header .navbar .nav .open > a:focus,
+.skin-tenderness .main-header .navbar .nav > .active > a {
+  background: rgba(0, 0, 0, 0.1);
+  color: #f6f6f6;
+}
+.skin-tenderness .main-header .navbar .sidebar-toggle {
+  color: #f0f0f3;
+}
+.skin-tenderness .main-header .navbar .sidebar-toggle:hover {
+  color: #f6f6f6;
+  background: rgba(0, 0, 0, 0.1);
+}
+.skin-tenderness .main-header .navbar .sidebar-toggle {
+  color: #f0f0f3;
+}
+.skin-tenderness .main-header .navbar .sidebar-toggle:hover {
+  background-color: #3e7989;
+}
+@media (max-width: 767px) {
+  .skin-tenderness .main-header .navbar .dropdown-menu li.divider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .skin-tenderness .main-header .navbar .dropdown-menu li a:hover {
+    background: #3e7989;
+  }
+}
+.skin-tenderness .main-header .logo {
+  background-color: #46899b;
+  color: #ffffff;
+  border-bottom: 0 solid transparent;
+}
+.skin-tenderness .main-header .logo:hover {
+  background-color: #448697;
+}
+.skin-tenderness .main-header li.user-header {
+  background-color: #46899b;
+}
+.skin-tenderness .content-header {
+  background: transparent;
+}
+.skin-tenderness .main-header .navbar .nav .open > a:focus,
+.skin-tenderness .main-header .navbar .nav > li > a:focus {
+  color: #f0f0f3;
+  background-color: #46899b;
+}
+.skin-tenderness .main-header .navbar .nav > li > a:hover,
+.skin-tenderness .main-header .navbar .nav > li > a:active,
+.skin-tenderness .main-header .navbar .nav .open > a,
+.skin-tenderness .main-header .navbar .nav .open > a:hover,
+.skin-tenderness .main-header .navbar .nav > .active > a,
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu > .user-footer,
+.skin-tenderness .main-header .navbar .sidebar-toggle:hover,
+.skin-tenderness .main-header .logo:hover {
+  color: #46899b;
+  background: #f0f0f3;
+}
+.skin-tenderness .main-header .logo {
+  font-family: 'Buccaneer Cyr Regular';
+}
+.skin-tenderness .main-header .navbar .sidebar-toggle,
+.skin-tenderness .main-header .navbar .sidebar-toggle:hover {
+  font-size: 14px;
+}
+.skin-tenderness .wrapper,
+.skin-tenderness .main-sidebar,
+.skin-tenderness .left-side {
+  background-color: #f9fafc;
+}
+.skin-tenderness .content-wrapper,
+.skin-tenderness .main-footer {
+  border-left: 1px solid #d2d6de;
+}
+.skin-tenderness .user-panel > .info,
+.skin-tenderness .user-panel > .info > a {
+  color: #444444;
+}
+.skin-tenderness .sidebar-menu > li {
+  -webkit-transition: border-left-color 0.3s ease;
+  -o-transition: border-left-color 0.3s ease;
+  transition: border-left-color 0.3s ease;
+}
+.skin-tenderness .sidebar-menu > li.header {
+  color: #848484;
+  background: #f9fafc;
+}
+.skin-tenderness .sidebar-menu > li > a {
+  border-left: 3px solid transparent;
+  font-weight: 600;
+}
+.skin-tenderness .sidebar-menu > li:hover > a,
+.skin-tenderness .sidebar-menu > li.active > a {
+  color: #000000;
+  background: #f4f4f5;
+}
+.skin-tenderness .sidebar-menu > li.active {
+  border-left-color: #46899b;
+}
+.skin-tenderness .sidebar-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-tenderness .sidebar-menu > li > .treeview-menu {
+  background: #f4f4f5;
+}
+.skin-tenderness .sidebar a {
+  color: #444444;
+}
+.skin-tenderness .sidebar a:hover {
+  text-decoration: none;
+}
+.skin-tenderness .treeview-menu > li > a {
+  color: #777777;
+}
+.skin-tenderness .treeview-menu > li.active > a,
+.skin-tenderness .treeview-menu > li > a:hover {
+  color: #000000;
+}
+.skin-tenderness .treeview-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-tenderness .sidebar-form {
+  border-radius: 3px;
+  border: 1px solid #d2d6de;
+  margin: 10px 10px;
+}
+.skin-tenderness .sidebar-form input[type="text"],
+.skin-tenderness .sidebar-form .btn {
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid transparent;
+  height: 35px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.skin-tenderness .sidebar-form input[type="text"] {
+  color: #666;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+}
+.skin-tenderness .sidebar-form input[type="text"]:focus,
+.skin-tenderness .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  background-color: #fff;
+  color: #666;
+}
+.skin-tenderness .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  border-left-color: #fff;
+}
+.skin-tenderness .sidebar-form .btn {
+  color: #999;
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+}
+@media (min-width: 768px) {
+  .skin-tenderness.sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {
+    border-left: 1px solid #d2d6de;
+  }
+}
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu,
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu > .user-body,
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+  border-color: #46899b;
+}
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu {
+  background: #46899b;
+}
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
+.skin-tenderness .main-header .logo b {
+  color: #f0f0f3;
+}
+.skin-tenderness .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: #46899b;
+}
+.skin-tenderness .wrapper,
+.skin-tenderness aside.main-sidebar,
+.skin-tenderness .left-side {
+  background-color: #aaabac;
+}
+.skin-tenderness .sidebar-menu > li > a {
+  color: #aaabac;
+  background: #f0f0f3;
+}
+.skin-tenderness .sidebar-menu > li {
+  border-top: 2px solid #aaabac;
+}
+.skin-tenderness .sidebar-menu > li.active > a,
+.skin-tenderness .sidebar-menu > li > a:hover,
+.skin-tenderness .sidebar-menu > li:hover > a {
+  border-left: 3px solid #f0f0f3;
+  background-color: #46899b;
+  color: #f0f0f3;
+}
+.skin-tenderness .sidebar-menu > li > .treeview-menu {
+  background-color: transparent;
+}
+.skin-tenderness .sidebar-menu > li > .treeview-menu li {
+  background-color: transparent;
+}
+.skin-tenderness .sidebar-menu > li > .treeview-menu a {
+  background: #f0f0f3;
+  border-left: 3px solid transparent;
+  color: #aaabac;
+}
+.skin-tenderness .sidebar-menu > li > .treeview-menu a:hover,
+.skin-tenderness .sidebar-menu > li > .treeview-menu li.active > a {
+  border-left: 3px solid #46899b;
+  color: #46899b;
+}
+.skin-tenderness .content-wrapper,
+.skin-tenderness .main-footer {
+  border: transparent;
+}
+.skin-tenderness .sidebar .sidebar-form {
+  border: 0;
+  border-radius: 0;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f0f0f3;
+  background-color: #aaabac;
+  color: #f0f0f3;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #aaabac;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom input[type="text"],
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom select,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #f0f0f3;
+  color: #f0f0f3;
+  border-radius: 0;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom input[type="text"] option,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] option,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom select option,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom select option {
+  background: #f0f0f3;
+  color: #aaabac;
+  border: #f0f0f3;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #f0f0f3;
+  color: #aaabac;
+  border-color: #aaabac;
+}
+.skin-tenderness .sidebar .sidebar-form .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f0f0f3;
+  background-color: #aaabac;
+  color: #f0f0f3;
+}
+.skin-tenderness .sidebar .sidebar-form .btn.btn-custom:hover,
+.skin-tenderness .sidebar .sidebar-form .btn.btn-custom:active {
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #aaabac;
+}
+.skin-tenderness .control-sidebar-dark .control-sidebar-heading,
+.skin-tenderness .control-sidebar-dark .control-sidebar-subheading {
+  color: #f0f0f3;
+}
+.skin-tenderness .control-sidebar-dark,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg {
+  background: #aaabac;
+  color: #f0f0f3;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f0f0f3;
+  background-color: #aaabac;
+  color: #f0f0f3;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #aaabac;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom select,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom select,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #f0f0f3;
+  color: #f0f0f3;
+  border-radius: 0;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom input[type="text"] option,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"] option,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom input[type="text"] option,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] option,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom select option,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select option,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom select option,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select option {
+  background: #f0f0f3;
+  color: #aaabac;
+  border: #f0f0f3;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #f0f0f3;
+  color: #aaabac;
+  border-color: #aaabac;
+}
+.skin-tenderness .control-sidebar-dark .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f0f0f3;
+  background-color: #aaabac;
+  color: #f0f0f3;
+}
+.skin-tenderness .control-sidebar-dark .btn.btn-custom:hover,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom:active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #aaabac;
+}
+.skin-tenderness .box-custom {
+  border-color: #46899b;
+  background: #f2ceb9;
+  color: #46899b;
+}
+.skin-tenderness .box-custom .box-header.with-border {
+  border-bottom: 1px solid #46899b;
+}
+.skin-tenderness .box-custom .box-body .list-group-item {
+  background-color: transparent;
+  border-color: #46899b;
+}
+.skin-tenderness .box-custom .box-body a {
+  color: #46899b;
+}
+.skin-tenderness .box-custom .box-body a:hover {
+  color: #46899b;
+}
+.skin-tenderness .box-custom .box-body .thumbnail {
+  background: transparent;
+  border-color: #46899b;
+  border-radius: 0;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #46899b;
+  background-color: #f2ceb9;
+  color: #46899b;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom:active,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #46899b;
+  border-color: #46899b;
+  background-color: #46899b;
+  color: #f2ceb9;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom .form-control.form-control-custom,
+.skin-tenderness .box-custom .form-group.form-group-custom .form-control.form-control-custom,
+.skin-tenderness .box-custom .input-group.input-group-custom input[type="text"],
+.skin-tenderness .box-custom .form-group.form-group-custom input[type="text"],
+.skin-tenderness .box-custom .input-group.input-group-custom select,
+.skin-tenderness .box-custom .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #46899b;
+  color: #46899b;
+  border-radius: 0;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-tenderness .box-custom .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-tenderness .box-custom .input-group.input-group-custom input[type="text"] option,
+.skin-tenderness .box-custom .form-group.form-group-custom input[type="text"] option,
+.skin-tenderness .box-custom .input-group.input-group-custom select option,
+.skin-tenderness .box-custom .form-group.form-group-custom select option {
+  background: #46899b;
+  color: #f2ceb9;
+  border: #46899b;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom input[type="text"],
+.skin-tenderness .box-custom .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .box-custom .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .box-custom .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .box-custom .input-group.input-group-custom input[type="text"]:focus,
+.skin-tenderness .box-custom .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #46899b;
+  color: #f2ceb9;
+  border-color: #f2ceb9;
+}
+.skin-tenderness .box-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #46899b;
+  background-color: #f2ceb9;
+  color: #46899b;
+}
+.skin-tenderness .box-custom .btn.btn-custom:hover,
+.skin-tenderness .box-custom .btn.btn-custom:active {
+  outline-color: #46899b;
+  border-color: #46899b;
+  background-color: #46899b;
+  color: #f2ceb9;
+}
+.skin-tenderness .box-with-backgrond {
+  background: #46899b;
+  color: #f0f0f3;
+}
+.skin-tenderness .box-with-backgrond a {
+  color: #f0f0f3;
+}
+.skin-tenderness .box-with-backgrond a:hover {
+  color: #f0f0f3;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f0f0f3;
+  background-color: #46899b;
+  color: #f0f0f3;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #46899b;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom input[type="text"],
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom select,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #f0f0f3;
+  color: #f0f0f3;
+  border-radius: 0;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom input[type="text"] option,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom input[type="text"] option,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom select option,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom select option {
+  background: #f0f0f3;
+  color: #46899b;
+  border: #f0f0f3;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #f0f0f3;
+  color: #46899b;
+  border-color: #46899b;
+}
+.skin-tenderness .uppercase {
+  font-family: 'Komi';
+}
+.skin-grapefruit {
+  /*
+        #18171c
+        #891813
+        #50536a
+        #c4c6d7
+        #ded199
+    */
+}
+.skin-grapefruit .btn-danger {
+  border-color: #dd4b39;
+  background-color: #dd4b39;
+  color: #d2d6de;
+}
+.skin-grapefruit .btn.danger:hover {
+  border-color: #dd4b39;
+  background-color: #d73925;
+}
+.skin-grapefruit .btn-primary {
+  border-color: #3c8dbc;
+  background-color: #3c8dbc;
+  color: #d2d6de;
+}
+.skin-grapefruit .btn.primary:hover {
+  border-color: #3c8dbc;
+  background-color: #367fa9;
+}
+.skin-grapefruit .btn-success {
+  border-color: #00a65a;
+  background-color: #00a65a;
+  color: #d2d6de;
+}
+.skin-grapefruit .btn-success:hover {
+  border-color: #00a65a;
+  background-color: #008d4c;
+}
+.skin-grapefruit .btn-warning {
+  border-color: #f39c12;
+  background-color: #f39c12;
+  color: #3c8dbc;
+}
+.skin-grapefruit .btn-warming:hover {
+  border-color: #f39c12;
+  background-color: #e08e0b;
+}
+.skin-grapefruit .btn-info {
+  border-color: #00c0ef;
+  background-color: #00c0ef;
+  color: #d2d6de;
+}
+.skin-grapefruit .btn-info:hover {
+  border-color: #00c0ef;
+  background-color: #00acd6;
+}
+.skin-grapefruit .btn-default {
+  border-color: #d2d6de;
+  background-color: #d2d6de;
+  color: #3c8dbc;
+}
+.skin-grapefruit .btn-default:hover {
+  border-color: #d2d6de;
+  background-color: #c3c9d3;
+}
+.skin-grapefruit .content-wrapper,
+.skin-grapefruit .right-side {
+  background: #18171c;
+}
+.skin-grapefruit .main-header .navbar {
+  background-color: #891813;
+}
+.skin-grapefruit .main-header .navbar .nav > li > a {
+  color: #ded199;
+}
+.skin-grapefruit .main-header .navbar .nav > li > a:hover,
+.skin-grapefruit .main-header .navbar .nav > li > a:active,
+.skin-grapefruit .main-header .navbar .nav > li > a:focus,
+.skin-grapefruit .main-header .navbar .nav .open > a,
+.skin-grapefruit .main-header .navbar .nav .open > a:hover,
+.skin-grapefruit .main-header .navbar .nav .open > a:focus,
+.skin-grapefruit .main-header .navbar .nav > .active > a {
+  background: rgba(0, 0, 0, 0.1);
+  color: #f6f6f6;
+}
+.skin-grapefruit .main-header .navbar .sidebar-toggle {
+  color: #ded199;
+}
+.skin-grapefruit .main-header .navbar .sidebar-toggle:hover {
+  color: #f6f6f6;
+  background: rgba(0, 0, 0, 0.1);
+}
+.skin-grapefruit .main-header .navbar .sidebar-toggle {
+  color: #ded199;
+}
+.skin-grapefruit .main-header .navbar .sidebar-toggle:hover {
+  background-color: #731410;
+}
+@media (max-width: 767px) {
+  .skin-grapefruit .main-header .navbar .dropdown-menu li.divider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .skin-grapefruit .main-header .navbar .dropdown-menu li a:hover {
+    background: #731410;
+  }
+}
+.skin-grapefruit .main-header .logo {
+  background-color: #891813;
+  color: #ffffff;
+  border-bottom: 0 solid transparent;
+}
+.skin-grapefruit .main-header .logo:hover {
+  background-color: #851712;
+}
+.skin-grapefruit .main-header li.user-header {
+  background-color: #891813;
+}
+.skin-grapefruit .content-header {
+  background: transparent;
+}
+.skin-grapefruit .main-header .navbar .nav .open > a:focus,
+.skin-grapefruit .main-header .navbar .nav > li > a:focus {
+  color: #ded199;
+  background-color: #891813;
+}
+.skin-grapefruit .main-header .navbar .nav > li > a:hover,
+.skin-grapefruit .main-header .navbar .nav > li > a:active,
+.skin-grapefruit .main-header .navbar .nav .open > a,
+.skin-grapefruit .main-header .navbar .nav .open > a:hover,
+.skin-grapefruit .main-header .navbar .nav > .active > a,
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu > .user-footer,
+.skin-grapefruit .main-header .navbar .sidebar-toggle:hover,
+.skin-grapefruit .main-header .logo:hover {
+  color: #891813;
+  background: #ded199;
+}
+.skin-grapefruit .main-header .logo {
+  font-family: 'Buccaneer Cyr Regular';
+}
+.skin-grapefruit .main-header .navbar .sidebar-toggle,
+.skin-grapefruit .main-header .navbar .sidebar-toggle:hover {
+  font-size: 14px;
+}
+.skin-grapefruit .wrapper,
+.skin-grapefruit .main-sidebar,
+.skin-grapefruit .left-side {
+  background-color: #f9fafc;
+}
+.skin-grapefruit .content-wrapper,
+.skin-grapefruit .main-footer {
+  border-left: 1px solid #d2d6de;
+}
+.skin-grapefruit .user-panel > .info,
+.skin-grapefruit .user-panel > .info > a {
+  color: #444444;
+}
+.skin-grapefruit .sidebar-menu > li {
+  -webkit-transition: border-left-color 0.3s ease;
+  -o-transition: border-left-color 0.3s ease;
+  transition: border-left-color 0.3s ease;
+}
+.skin-grapefruit .sidebar-menu > li.header {
+  color: #848484;
+  background: #f9fafc;
+}
+.skin-grapefruit .sidebar-menu > li > a {
+  border-left: 3px solid transparent;
+  font-weight: 600;
+}
+.skin-grapefruit .sidebar-menu > li:hover > a,
+.skin-grapefruit .sidebar-menu > li.active > a {
+  color: #000000;
+  background: #f4f4f5;
+}
+.skin-grapefruit .sidebar-menu > li.active {
+  border-left-color: #891813;
+}
+.skin-grapefruit .sidebar-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-grapefruit .sidebar-menu > li > .treeview-menu {
+  background: #f4f4f5;
+}
+.skin-grapefruit .sidebar a {
+  color: #444444;
+}
+.skin-grapefruit .sidebar a:hover {
+  text-decoration: none;
+}
+.skin-grapefruit .treeview-menu > li > a {
+  color: #777777;
+}
+.skin-grapefruit .treeview-menu > li.active > a,
+.skin-grapefruit .treeview-menu > li > a:hover {
+  color: #000000;
+}
+.skin-grapefruit .treeview-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-grapefruit .sidebar-form {
+  border-radius: 3px;
+  border: 1px solid #d2d6de;
+  margin: 10px 10px;
+}
+.skin-grapefruit .sidebar-form input[type="text"],
+.skin-grapefruit .sidebar-form .btn {
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid transparent;
+  height: 35px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.skin-grapefruit .sidebar-form input[type="text"] {
+  color: #666;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+}
+.skin-grapefruit .sidebar-form input[type="text"]:focus,
+.skin-grapefruit .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  background-color: #fff;
+  color: #666;
+}
+.skin-grapefruit .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  border-left-color: #fff;
+}
+.skin-grapefruit .sidebar-form .btn {
+  color: #999;
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+}
+@media (min-width: 768px) {
+  .skin-grapefruit.sidebar-mini.sidebar-collapse .sidebar-menu > li > .treeview-menu {
+    border-left: 1px solid #d2d6de;
+  }
+}
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu,
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu > .user-body,
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
+  border-color: #891813;
+}
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu {
+  background: #891813;
+}
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
+.skin-grapefruit .main-header .logo b {
+  color: #ded199;
+}
+.skin-grapefruit .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: #891813;
+}
+.skin-grapefruit .wrapper,
+.skin-grapefruit aside.main-sidebar,
+.skin-grapefruit .left-side {
+  background-color: #c4c6d7;
+}
+.skin-grapefruit .sidebar-menu > li > a {
+  color: #c4c6d7;
+  background: #50536a;
+}
+.skin-grapefruit .sidebar-menu > li {
+  border-top: 2px solid #c4c6d7;
+}
+.skin-grapefruit .sidebar-menu > li.active > a,
+.skin-grapefruit .sidebar-menu > li > a:hover,
+.skin-grapefruit .sidebar-menu > li:hover > a {
+  border-left: 3px solid #50536a;
+  background-color: #891813;
+  color: #50536a;
+}
+.skin-grapefruit .sidebar-menu > li > .treeview-menu {
+  background-color: transparent;
+}
+.skin-grapefruit .sidebar-menu > li > .treeview-menu li {
+  background-color: transparent;
+}
+.skin-grapefruit .sidebar-menu > li > .treeview-menu a {
+  background: #50536a;
+  border-left: 3px solid transparent;
+  color: #c4c6d7;
+}
+.skin-grapefruit .sidebar-menu > li > .treeview-menu a:hover,
+.skin-grapefruit .sidebar-menu > li > .treeview-menu li.active > a {
+  border-left: 3px solid #891813;
+  color: #891813;
+}
+.skin-grapefruit .content-wrapper,
+.skin-grapefruit .main-footer {
+  border: transparent;
+}
+.skin-grapefruit .sidebar .sidebar-form {
+  border: 0;
+  border-radius: 0;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #50536a;
+  background-color: #c4c6d7;
+  color: #50536a;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #50536a;
+  border-color: #50536a;
+  background-color: #50536a;
+  color: #c4c6d7;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom input[type="text"],
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom select,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #50536a;
+  color: #50536a;
+  border-radius: 0;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom input[type="text"] option,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] option,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom select option,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom select option {
+  background: #50536a;
+  color: #c4c6d7;
+  border: #50536a;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom input[type="text"]:focus,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #50536a;
+  color: #c4c6d7;
+  border-color: #c4c6d7;
+}
+.skin-grapefruit .sidebar .sidebar-form .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #50536a;
+  background-color: #c4c6d7;
+  color: #50536a;
+}
+.skin-grapefruit .sidebar .sidebar-form .btn.btn-custom:hover,
+.skin-grapefruit .sidebar .sidebar-form .btn.btn-custom:active {
+  outline-color: #50536a;
+  border-color: #50536a;
+  background-color: #50536a;
+  color: #c4c6d7;
+}
+.skin-grapefruit .control-sidebar-dark .control-sidebar-heading,
+.skin-grapefruit .control-sidebar-dark .control-sidebar-subheading {
+  color: #50536a;
+}
+.skin-grapefruit .control-sidebar-dark,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg {
+  background: #c4c6d7;
+  color: #50536a;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #50536a;
+  background-color: #c4c6d7;
+  color: #50536a;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #50536a;
+  border-color: #50536a;
+  background-color: #50536a;
+  color: #c4c6d7;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom select,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom select,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #50536a;
+  color: #50536a;
+  border-radius: 0;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom input[type="text"] option,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"] option,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom input[type="text"] option,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] option,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom select option,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom select option,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom select option,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom select option {
+  background: #50536a;
+  color: #c4c6d7;
+  border: #50536a;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom input[type="text"],
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom input[type="text"]:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom input[type="text"]:focus,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom input[type="text"]:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #50536a;
+  color: #c4c6d7;
+  border-color: #c4c6d7;
+}
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #50536a;
+  background-color: #c4c6d7;
+  color: #50536a;
+}
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom:hover,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom:active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  outline-color: #50536a;
+  border-color: #50536a;
+  background-color: #50536a;
+  color: #c4c6d7;
+}
+.skin-grapefruit .box-custom {
+  border-color: #891813;
+  background: #c4c6d7;
+  color: #18171c;
+}
+.skin-grapefruit .box-custom .box-header.with-border {
+  border-bottom: 1px solid #891813;
+}
+.skin-grapefruit .box-custom .box-body .list-group-item {
+  background-color: transparent;
+  border-color: #891813;
+}
+.skin-grapefruit .box-custom .box-body a {
+  color: #18171c;
+}
+.skin-grapefruit .box-custom .box-body a:hover {
+  color: #18171c;
+}
+.skin-grapefruit .box-custom .box-body .thumbnail {
+  background: transparent;
+  border-color: #891813;
+  border-radius: 0;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #18171c;
+  background-color: #c4c6d7;
+  color: #18171c;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom:active,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #18171c;
+  border-color: #18171c;
+  background-color: #18171c;
+  color: #c4c6d7;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom .form-control.form-control-custom,
+.skin-grapefruit .box-custom .form-group.form-group-custom .form-control.form-control-custom,
+.skin-grapefruit .box-custom .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .box-custom .form-group.form-group-custom input[type="text"],
+.skin-grapefruit .box-custom .input-group.input-group-custom select,
+.skin-grapefruit .box-custom .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #891813;
+  color: #18171c;
+  border-radius: 0;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .box-custom .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .box-custom .input-group.input-group-custom input[type="text"] option,
+.skin-grapefruit .box-custom .form-group.form-group-custom input[type="text"] option,
+.skin-grapefruit .box-custom .input-group.input-group-custom select option,
+.skin-grapefruit .box-custom .form-group.form-group-custom select option {
+  background: #18171c;
+  color: #c4c6d7;
+  border: #18171c;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .box-custom .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .box-custom .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .box-custom .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .box-custom .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .box-custom .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .box-custom .input-group.input-group-custom input[type="text"]:focus,
+.skin-grapefruit .box-custom .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #18171c;
+  color: #c4c6d7;
+  border-color: #c4c6d7;
+}
+.skin-grapefruit .box-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #891813;
+  background-color: #c4c6d7;
+  color: #18171c;
+}
+.skin-grapefruit .box-custom .btn.btn-custom:hover,
+.skin-grapefruit .box-custom .btn.btn-custom:active {
+  outline-color: #18171c;
+  border-color: #18171c;
+  background-color: #18171c;
+  color: #c4c6d7;
+}
+.skin-grapefruit .box-with-backgrond {
+  background: #891813;
+  color: #ded199;
+}
+.skin-grapefruit .box-with-backgrond a {
+  color: #ded199;
+}
+.skin-grapefruit .box-with-backgrond a:hover {
+  color: #ded199;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #ded199;
+  background-color: #891813;
+  color: #ded199;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  outline-color: #ded199;
+  border-color: #ded199;
+  background-color: #ded199;
+  color: #891813;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom input[type="text"],
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom select,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom select {
+  background-color: transparent;
+  border-color: #ded199;
+  color: #ded199;
+  border-radius: 0;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom option,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom input[type="text"] option,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom input[type="text"] option,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom select option,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom select option {
+  background: #ded199;
+  color: #891813;
+  border: #ded199;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom input[type="text"],
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom input[type="text"] {
+  padding: 7px;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .form-control.form-control-custom:focus + .input-group-btn .btn,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus + .input-group-btn .btn,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom input[type="text"]:focus,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom input[type="text"]:focus {
+  background-color: #ded199;
+  color: #891813;
+  border-color: #891813;
+}
+.skin-grapefruit .uppercase {
+  font-family: 'Komi';
 }
 .sidebar-collapse .sidebar-menu > li {
   border-top: 0;

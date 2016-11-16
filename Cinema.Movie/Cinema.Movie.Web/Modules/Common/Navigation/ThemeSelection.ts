@@ -25,6 +25,9 @@
             Q.addOption(select, 'black', Q.text('Site.Layout.ThemeBlack'));
             Q.addOption(select, 'black-light', Q.text('Site.Layout.ThemeBlackLight'));
             Q.addOption(select, 'modern', Q.text('Site.Layout.ThemeModern'));
+            Q.addOption(select, 'sunset', Q.text('Site.Layout.ThemeSunset'));
+            Q.addOption(select, 'tenderness', Q.text('Site.Layout.ThemeTenderness'));
+            Q.addOption(select, 'grapefruit', Q.text('Site.Layout.ThemeGrapefruit'));
 
             select.val(this.getCurrentTheme());
         }

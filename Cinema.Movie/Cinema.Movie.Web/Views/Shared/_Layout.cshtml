@@ -128,8 +128,8 @@ else
         <aside class="main-sidebar">
             <section class="sidebar">
                 <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" id="SidebarSearch" name="q" class="form-control.form-control-custom" autocomplete="off">
+                    <div class="input-group input-group-custom">
+                        <input type="text" id="SidebarSearch" name="q" class="form-control" autocomplete="off">
                         <span class="input-group-btn input-group-btn-custom">
                             <button type="button" name="search" id="search-btn" class="btn btn-custom"><i class="fa fa-search"></i></button>
                         </span>
@@ -169,15 +169,16 @@ else
                     <form method="post">
                         <h3 class="control-sidebar-heading">@Texts.Site.Layout.GeneralSettings</h3>
 
-                        <div class="form-group">
+                        <div class="form-group form-group-custom">
                             <label class="control-sidebar-subheading">@Texts.Site.Layout.Language</label>
                             <select id="LanguageSelect" class="form-control"></select>
                         </div>
 
-                        <div class="form-group" style="margin-top: 15px;">
+                        <div class="form-group form-group-custom" style="margin-top: 15px;">
                             <label class="control-sidebar-subheading">@Texts.Site.Layout.Theme</label>
                             <select id="ThemeSelect" class="form-control"></select>
                         </div>
+                        <div class="btn btn-custom">@Texts.Site.Layout.Save</div>
                     </form>
                 </div>
             </div>

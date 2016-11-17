@@ -28,6 +28,7 @@
             Q.addOption(select, 'sunset', Q.text('Site.Layout.ThemeSunset'));
             Q.addOption(select, 'tenderness', Q.text('Site.Layout.ThemeTenderness'));
             Q.addOption(select, 'grapefruit', Q.text('Site.Layout.ThemeGrapefruit'));
+            Q.addOption(select, 'nature', Q.text('Site.Layout.ThemeNature'));
 
             select.val(this.getCurrentTheme());
         }

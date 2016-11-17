@@ -170,6 +170,7 @@ namespace Cinema.Movie
                 public static LocalText ThemeSunset = "Sunset";
                 public static LocalText ThemeTenderness = "Tenderness";
                 public static LocalText ThemeGrapefruit = "Grapefruit";
+                public static LocalText ThemeNature = "Nature";
                 public static LocalText Save = "Save";
             }
 

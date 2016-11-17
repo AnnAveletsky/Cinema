@@ -16,7 +16,10 @@
     font-family: Buccaneer Cyr Regular; 
     src: url("fonts/Buccaneer Cyr Regular/10119.ttf"); 
 }
-
+@font-face{
+    font-family:Roboto, sans-serif;
+    src:url("https://fonts.googleapis.com/css?family=Roboto");
+}
 .skin-modern{
     .skin-theme();
 }
@@ -29,9 +32,11 @@
         #f5ebe0
     */
     .skin-theme(#a15e61,#f5ebe0,#f2b183,#f5ebe0,
-    #f5ebe0,#8e9dc7,#f5ebe0,#f5ebe0,
+    #f5ebe0,#8e9dc7,
+    #f5ebe0,#f2b183,#f5ebe0,
+    #8e9dc7,#f5ebe0,
     #f5ebe0,#534255,#f2b183,#f5ebe0,
-    #534255,'Buccaneer Cyr Regular');
+    #534255,'Roboto', 'sans-serif');
 }
 
 .skin-tenderness{
@@ -43,9 +48,11 @@
         #f0f0f3
     */
     .skin-theme(#46899b,#f0f0f3,#f0f0f3,#46899b,
-    #aaabac,#f0f0f3,#46899b,#f0f0f3,
+    #aaabac,#f0f0f3,
+    #f0f0f3,#f2ceb9,#f0f0f3,
+    #aaabac,#f0f0f3,
     #f2ceb9,#46899b,#46899b,#f0f0f3,
-    #c4c6d7,'Komi');
+    #c4c6d7,'Roboto', 'sans-serif');
 }
 .skin-grapefruit{
     /*
@@ -56,35 +63,54 @@
         #ded199
     */
     .skin-theme(#891813,#ded199,#ded199,#891813,
-    #c4c6d7,#50536a,#50536a,#ded199,
-    #c4c6d7,#18171c,#891813,#ded199,
-    #18171c,'Komi');
+    #c4c6d7,#50536a,
+    #ded199,#891813,#ded199,
+    #50536a,#ded199,
+    #c4c6d7,#18171c,#50536a,#ded199,
+    #18171c,'Roboto', 'sans-serif');
+    
+}
+.skin-nature{
+    /*
+        #061405
+        #1f3c1c
+        #487101
+        #d3d699
+        #f1f2f8
+    */
+    .skin-theme(#1f3c1c,#f1f2f8,#d3d699,#1f3c1c,
+    #f1f2f8,#487101,
+    #f1f2f8,#487101,#f1f2f8,
+    #d3d699,#1f3c1c,
+    #f1f2f8,#061405,#487101,#f1f2f8,
+    #061405,'Roboto', 'sans-serif');
 }
 .skin-theme(@nav-bg:#009B86,@nav-color:#F7FFBC,@nav-hover:#5F1A16,@nav-hover-color:#F7FFBC,
-@sidebar-bg:#5F1A16,@sidebar-color:#F7FFBC,@sidebar-hover-bg:#009B86,@sidebar-hover-color:#F7FFBC,
+@sidebar-right-bg:#5F1A16,@sidebar-right-color:#F7FFBC,
+@sidebar-left-bg:#F7FFBC,@sidebar-left-menu-bg:#009B86,@sidebar-left-color:#F7FFBC,
+@sidebar-left-hover-bg:#5F1A16,@sidebar-left-hover-color:#F7FFBC,
 @box-bg:#F7FFBC,@box-color:#0D2436,@box-with-bg-bg:#009B86,@box-with-bg-color:#F7FFBC,
-@bg:#0D2436,@font:'Komi',
+@bg:#0D2436,@font-header:Roboto,@font-header-modif:sans-serif,@font-logo:'Buccaneer Cyr Regular',@font-modif:sans-serif,
 @primary:#3c8dbc,@success:#00a65a,@warming:#f39c12,@info:#00c0ef,@danger:#dd4b39,@default:#d2d6de){
     
     .skin-colors(@danger,@primary,@success,@warming,@info,@default);
 
     //bg
-    .skin-backgrond(@bg);
+    .skin-main(@bg, @font-header,@font-header-modif,@font-logo,@font-modif);
 
     //header
-    .skin-header(@nav-bg,@nav-color,@nav-hover,@nav-hover-color,@font);
+    .skin-header(@nav-bg,@nav-color,@nav-hover,@nav-hover-color);
     .skin-sidebar-user(@nav-bg,@nav-color);
-    .skin-sidebar-left(@sidebar-bg,@sidebar-color,@sidebar-hover-bg);
-    .skin-sidebar-right(@sidebar-bg,@sidebar-color);
     
+    .skin-sidebar-right(@sidebar-right-bg,@sidebar-right-color);
+    .skin-sidebar-left(@sidebar-left-bg,@sidebar-left-menu-bg,@sidebar-left-color,@sidebar-left-hover-bg,@sidebar-left-hover-color);
+
     //box
     .skin-custom-box(@box-bg,@box-color,@box-with-bg-bg,@box-with-bg-color);
-    .uppercase{
-        font-family:@font;
-    }
+    
 }
 
-.skin-header(@nav-bg,@nav-color,@nav-hover-bg,@nav-hover-color,@font-uppercase){
+.skin-header(@nav-bg,@nav-color,@nav-hover-bg,@nav-hover-color){
   .main-header {
     .navbar {
       .navbar-variant(@nav-bg; @nav-color);
@@ -142,9 +168,7 @@
       color:@nav-hover-color;
       background:@nav-hover-bg;
   }
-  .main-header .logo{
-      font-family:'Buccaneer Cyr Regular';
-  }
+  
   
   .main-header .navbar .sidebar-toggle,
   .main-header .navbar .sidebar-toggle:hover{
@@ -153,15 +177,14 @@
   //Create the sidebar skin
   .skin-light-sidebar(@nav-bg);
 }
-.skin-sidebar-left(@bg,@color,@active-bg){
+.skin-sidebar-left(@bg,@menu-bg,@color,@hover-bg,@hover-color){
   .wrapper, 
   aside.main-sidebar, .left-side{
       background-color:@bg;
   }
    .sidebar-menu > li > a{
-      color:@bg;
-      background:@color;
-
+      color:@color;
+      background:@menu-bg;
   }
    .sidebar-menu > li{
        border-top:2px solid @bg;
@@ -170,9 +193,9 @@
   .sidebar-menu > li.active > a,
   .sidebar-menu > li > a:hover,
   .sidebar-menu > li:hover > a{
-      border-left:3px solid @color;
-      background-color:@active-bg;
-      color:@color;
+      background-color:@hover-bg;
+      border-left:3px solid @menu-bg;
+      color:@hover-color;
   }
     .sidebar-menu > li > .treeview-menu{
         background-color:transparent;
@@ -181,14 +204,14 @@
         } 
        
         a{
-            background:@color;
+            background:@menu-bg;
             border-left: 3px solid transparent;
-            color:@bg;
+            color:@color;
         }
         a:hover,
         li.active > a{
-            border-left:3px solid @active-bg;
-            color:@active-bg;
+            border-left:3px solid @hover-bg;
+            color:@hover-bg;
         }
     }
   .content-wrapper,
@@ -198,8 +221,7 @@
   .sidebar .sidebar-form{
       border:0;
       border-radius:0;
-      .skin-form-control(@bg,@color,@color);
-      .skin-btn(@bg,@color,@color);
+      .skin-form-control(@hover-color,@hover-bg,@menu-bg);
   } 
 }
 .skin-sidebar-right(@bg,@color){
@@ -227,20 +249,27 @@
   .navbar-nav > .user-menu > .dropdown-menu{
       background:@bg;
   }
-  .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p,
-  .main-header .logo b{
+  .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p{
       color:@color;
   }
   .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default{
       color:@bg;
   }
 }
-.skin-backgrond(@backgrond){
+.skin-main(@backgrond,@font-header,@font-header-modif,@font-logo,@font-logo-modif){
     .content-wrapper,
       .right-side{
         background:@backgrond;
     }
-    
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+        font-family:@font-header, @font-header-modif;
+    }
+    .uppercase{
+        font-family:@font-header, @font-header-modif;
+    }
+    .main-header .logo{
+      font-family:@font-logo, @font-logo-modif;
+  }
   }
 .skin-colors(@danger,@primary,@success,@warming,@info,@default){
     .btn-danger{
@@ -343,13 +372,13 @@
             border-radius: 0;
             outline-color: transparent;
             border-color:@border;
-            background-color:@bg;
-            color:@color;
+            background-color:transparent;
+            color:@border;
         }
     .btn.btn-custom:hover,
     .btn.btn-custom:active{ 
         outline-color:@color;
-        border-color:@color;
+        border-color:@border;
         background-color:@color;
         color:@bg;
     }
@@ -357,13 +386,13 @@
 .skin-form-control(@bg,@color,@border){
     .input-group.input-group-custom, 
     .form-group.form-group-custom{
-        .skin-btn(@bg,@color,@color);
+        .skin-btn(@bg,@color,@border);
         .form-control.form-control-custom,
          input[type="text"],
         select{
             background-color:transparent;
             border-color:@border;
-            color:@color;
+            color:@border;
             border-radius:0;
             option{
                 background:@color;

@@ -3,25 +3,64 @@
 
 <div class="box box-custom">
     <div class="box-header with-border box-with-backgrond">
-        <a @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = movie?id=" + @Model.MovieId : "")>
+        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = movie?id=" + @Model.MovieId : "")>
             <h3 class="box-title">
-                @(Model.TitleEn + (Model.TitleOther != null ? "/" + Model.TitleOther : "")
-        + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                @if (Model.TitleOther != null)
+                {
+                    @(Model.TitleOther + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                    <br />
+                    @Model.TitleEn
+                }
+                else
+                {
+                    @(Model.TitleEn + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                }
+                  
             </h3>
+            <span class="pull-right">
+                @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
+            {
+                if (i < Model.Rating)
+                {
+                        <span class="fa fa-star"></span>
+                    }
+                    else if (i + 1 < Model.Rating)
+                    {
+                        <span class="fa fa-star-half-o"></span>
+                    }
+                    else
+                    {
+                        <span class="fa fa-star-o"></span>
+                    }
+                }
+            </span>
         </a>
+        <span class="pull-right">
+            @if (Model.Nice == true)
+            {
+                <span class="fa fa-thumbs-o-up fa-2x"></span>
+            }
+        </span>
     </div>
     <div class="box-body box-profile">
         <a href="#" class="thumbnail col-xs-4">
             <img class="img-responsive" src="@Model.PathImage" />
         </a>
+        <a>@LocalText.Get("Db.Movie.Movie.ContSuffrage")</a>
+
+        <a>@Model.ContSuffrage</a>
+        <a>@Model.Kind</a>
         <div class="col-xs-8">
             <p>@Model.Description</p>
             <p>@Model.Storyline</p>
         </div>
         @if ((string)ViewData["PageId"] == "Dashboard/Movie")
         {
-
+            <a>@Model.Mpaa</a>
+            if (Model.Kind == 1)
+            {
+                <a>@Model.ContSeason</a>
+            }
         }
     </div>
 </div>
-

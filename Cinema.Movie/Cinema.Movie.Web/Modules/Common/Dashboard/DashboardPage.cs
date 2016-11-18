@@ -54,6 +54,7 @@ namespace Cinema.Movie.Common.Pages
                 Skip = (page - 1) * count,
                 Take = count
             });
+            ViewData["MaxRating"] = 10;
             ViewData["Title"] = "";
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Dashboard";
@@ -72,6 +73,7 @@ namespace Cinema.Movie.Common.Pages
                 Skip = (page - 1) * count,
                 Take = count
             });
+            ViewData["MaxRating"] = 10;
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/CatalogFilms";
@@ -129,6 +131,7 @@ namespace Cinema.Movie.Common.Pages
             {
                 model.Content = "";
                 model.Movie = MovieFull((int)id);
+                ViewData["MaxRating"] = 10;
                 ViewData["Title"] = "";
                 ViewData["Footer"] = "";
                 ViewData["PageId"] = "Dashboard/Movie";

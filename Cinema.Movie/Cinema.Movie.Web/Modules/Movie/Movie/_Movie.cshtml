@@ -43,11 +43,13 @@
         </span>
     </div>
     <div class="box-body box-profile">
+
+
         <a href="#" class="thumbnail col-xs-4">
             <img class="img-responsive" src="@Model.PathImage" />
         </a>
-
         <div class="col-xs-8">
+
             @if (Model.Tagline != null)
             {
                 <div class="col-xs-12 no-padding text-center">
@@ -69,7 +71,21 @@
                     @Model.Description
                 </p>
             </div>
+            <div class="col-xs-12 no-padding">
+                @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
+                {
+                    @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
+                    foreach (var i in Model.GenreListName)
+                    {
+                        <div class="pull-right">
+                            <span class="label label-info  ">@i </span>
+                        </div>
+                    }
+                }
+            </div>
+
         </div>
+
         @if ((string)ViewData["PageId"] == "Dashboard/Movie")
         {
             <a>@Model.Mpaa</a>

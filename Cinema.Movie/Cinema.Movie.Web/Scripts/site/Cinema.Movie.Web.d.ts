@@ -1033,6 +1033,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<GenreRow>;
         namespace Fields {
             const GenreId: string;
             const Name: string;
@@ -1086,6 +1088,71 @@ declare namespace Cinema.Movie.Movie {
         LastEventPublishDateTime: Serenity.DateEditor;
         Tagline: Serenity.StringEditor;
         Budget: Serenity.IntegerEditor;
+        GenreList: Serenity.LookupEditor;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    interface MovieGenresRow {
+        MovieGenreId?: number;
+        MovieId?: number;
+        GenreId?: number;
+        MovieTitleEn?: string;
+        MovieTitleOther?: string;
+        MovieDescription?: string;
+        MovieYearStart?: number;
+        MovieYearEnd?: number;
+        MovieReleaseWorldDate?: string;
+        MovieReleaseOtherDate?: string;
+        MovieReleaseDvd?: string;
+        MovieRuntime?: number;
+        MovieCreateDateTime?: string;
+        MovieUpdateDateTime?: string;
+        MoviePublishDateTime?: string;
+        MovieKind?: number;
+        MovieRating?: number;
+        MovieMpaa?: string;
+        MoviePathImage?: string;
+        MoviePathMiniImage?: string;
+        MovieNice?: boolean;
+        MovieContSeason?: number;
+        MovieLastEvent?: string;
+        MovieLastEventPublishDateTime?: string;
+        MovieTagline?: string;
+        MovieBudget?: number;
+        GenreName?: string;
+    }
+    namespace MovieGenresRow {
+        const idProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const MovieGenreId: string;
+            const MovieId: string;
+            const GenreId: string;
+            const MovieTitleEn: string;
+            const MovieTitleOther: string;
+            const MovieDescription: string;
+            const MovieYearStart: string;
+            const MovieYearEnd: string;
+            const MovieReleaseWorldDate: string;
+            const MovieReleaseOtherDate: string;
+            const MovieReleaseDvd: string;
+            const MovieRuntime: string;
+            const MovieCreateDateTime: string;
+            const MovieUpdateDateTime: string;
+            const MoviePublishDateTime: string;
+            const MovieKind: string;
+            const MovieRating: string;
+            const MovieMpaa: string;
+            const MoviePathImage: string;
+            const MoviePathMiniImage: string;
+            const MovieNice: string;
+            const MovieContSeason: string;
+            const MovieLastEvent: string;
+            const MovieLastEventPublishDateTime: string;
+            const MovieTagline: string;
+            const MovieBudget: string;
+            const GenreName: string;
+        }
     }
 }
 declare namespace Cinema.Movie.Movie {
@@ -1121,6 +1188,7 @@ declare namespace Cinema.Movie.Movie {
         LastEventPublishDateTime?: string;
         Tagline?: string;
         Budget?: number;
+        GenreList?: number[];
     }
     namespace MovieRow {
         const idProperty: string;
@@ -1151,6 +1219,7 @@ declare namespace Cinema.Movie.Movie {
             const LastEventPublishDateTime: string;
             const Tagline: string;
             const Budget: string;
+            const GenreList: string;
         }
     }
 }

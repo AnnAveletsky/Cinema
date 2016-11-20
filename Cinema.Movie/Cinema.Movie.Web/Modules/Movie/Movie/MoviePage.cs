@@ -10,6 +10,7 @@ namespace Cinema.Movie.Movie.Pages
     using Modules.Common.Navigation;
     using Movies = Repositories.MovieRepository;
     using System.Collections.Generic;
+    using System;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -19,11 +20,18 @@ namespace Cinema.Movie.Movie.Pages
         {
             return View("~/Modules/Movie/Movie/MovieIndex.cshtml");
         }
-        public List<MovieRow> ListPage(ListRequest listRequest)
+        public static List<MovieRow> Page(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<MovieRow>())
             {
-                return new Movies().ListPage(connection,listRequest);
+                return new Movies().List(connection,listRequest).Entities;
+            }
+        }
+        public static MovieRow Movie(RetrieveRequest retrieveRequest)
+        {
+            using (var connection = SqlConnections.NewFor<MovieRow>())
+            {
+                return new Movies().Retrieve(connection, retrieveRequest).Entity;
             }
         }
     }

@@ -17,7 +17,7 @@ namespace Cinema.Movie.Movie.Entities
     public sealed class PersonRow : Row, IIdRow, INameRow
     {
         [DisplayName("Person Id"), Identity]
-        public Int16? PersonId
+        public Int64? PersonId
         {
             get { return Fields.PersonId[this]; }
             set { Fields.PersonId[this] = value; }
@@ -98,7 +98,7 @@ namespace Cinema.Movie.Movie.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int16Field PersonId;
+            public Int64Field PersonId;
             public StringField Firstname;
             public StringField Lastname;
             public DateTimeField BirthDate;

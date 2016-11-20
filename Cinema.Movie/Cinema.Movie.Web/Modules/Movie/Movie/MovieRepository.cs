@@ -2,6 +2,7 @@
 
 namespace Cinema.Movie.Movie.Repositories
 {
+    using Entities;
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
@@ -38,28 +39,7 @@ namespace Cinema.Movie.Movie.Repositories
         {
             return new MyListHandler().Process(connection, request);
         }
-        public List<MyRow> ListPage(IDbConnection connection, ListRequest request)
-        {
-            var row = new MyRow();
-            return new SqlQuery().From(row)
-                .Select(
-                    fld.MovieId,
-                    fld.TitleEn,
-                    fld.TitleOther,
-                    fld.Description,
-                    fld.YearStart,
-                    fld.YearEnd,
-                    fld.Rating,
-                    fld.Tagline,
-                    fld.Budget,
-                    fld.PathImage,
-                    fld.Nice)
-                .Where(request.Criteria)
-                .Skip(request.Skip)
-                .Take(request.Take)
-                .List(connection,row);
-        }
-
+        
         private class MySaveHandler : SaveRequestHandler<MyRow> { }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }

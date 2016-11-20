@@ -1221,6 +1221,9 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenresRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieKind.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1805,6 +1808,7 @@
     <Compile Include="Modules\Movie\Genre\GenrePage.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRepository.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
+    <Compile Include="Modules\Movie\MovieGenres\MovieGenresRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />
     <Compile Include="Modules\Movie\Movie\MovieEndpoint.cs" />
     <Compile Include="Modules\Movie\Movie\MovieForm.cs" />

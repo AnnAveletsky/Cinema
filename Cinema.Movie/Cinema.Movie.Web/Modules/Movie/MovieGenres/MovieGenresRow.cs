@@ -11,79 +11,30 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Video"), InstanceName("Video"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("MovieGenres"), InstanceName("MovieGenres"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    public sealed class VideoRow : Row, IIdRow, INameRow
+    public sealed class MovieGenresRow : Row, IIdRow
     {
-        [DisplayName("Vudeo Id"), Identity]
-        public Int64? VudeoId
+        [DisplayName("Movie Genre Id"), Identity]
+        public Int64? MovieGenreId
         {
-            get { return Fields.VudeoId[this]; }
-            set { Fields.VudeoId[this] = value; }
-        }
-
-        [DisplayName("Path"), Size(300), QuickSearch]
-        public String Path
-        {
-            get { return Fields.Path[this]; }
-            set { Fields.Path[this] = value; }
-        }
-
-        [DisplayName("Name"), Size(300)]
-        public String Name
-        {
-            get { return Fields.Name[this]; }
-            set { Fields.Name[this] = value; }
-        }
-
-        [DisplayName("Translation")]
-        public Int16? Translation
-        {
-            get { return Fields.Translation[this]; }
-            set { Fields.Translation[this] = value; }
-        }
-
-        [DisplayName("Season")]
-        public Int16? Season
-        {
-            get { return Fields.Season[this]; }
-            set { Fields.Season[this] = value; }
-        }
-
-        [DisplayName("Serie")]
-        public Int16? Serie
-        {
-            get { return Fields.Serie[this]; }
-            set { Fields.Serie[this] = value; }
-        }
-
-        [DisplayName("Planne Publish Date")]
-        public DateTime? PlannePublishDate
-        {
-            get { return Fields.PlannePublishDate[this]; }
-            set { Fields.PlannePublishDate[this] = value; }
-        }
-
-        [DisplayName("Actual Publish Date Time")]
-        public DateTime? ActualPublishDateTime
-        {
-            get { return Fields.ActualPublishDateTime[this]; }
-            set { Fields.ActualPublishDateTime[this] = value; }
+            get { return Fields.MovieGenreId[this]; }
+            set { Fields.MovieGenreId[this] = value; }
         }
 
         [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("MovieTitleEn")]
-        public Int16? MovieId
+        public Int64? MovieId
         {
             get { return Fields.MovieId[this]; }
             set { Fields.MovieId[this] = value; }
         }
 
-        [DisplayName("Service"), NotNull, ForeignKey("[mov].[Service]", "ServiceId"), LeftJoin("jService"), TextualField("ServiceName")]
-        public Int16? ServiceId
+        [DisplayName("Genre"), NotNull, ForeignKey("[mov].[Genre]", "GenreId"), LeftJoin("jGenre"), TextualField("GenreName")]
+        public Int16? GenreId
         {
-            get { return Fields.ServiceId[this]; }
-            set { Fields.ServiceId[this] = value; }
+            get { return Fields.GenreId[this]; }
+            set { Fields.GenreId[this] = value; }
         }
 
         [DisplayName("Movie Title En"), Expression("jMovie.[TitleEn]")]
@@ -105,13 +56,6 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.MovieDescription[this]; }
             set { Fields.MovieDescription[this] = value; }
-        }
-
-        [DisplayName("Movie Storyline"), Expression("jMovie.[Storyline]")]
-        public String MovieStoryline
-        {
-            get { return Fields.MovieStoryline[this]; }
-            set { Fields.MovieStoryline[this] = value; }
         }
 
         [DisplayName("Movie Year Start"), Expression("jMovie.[YearStart]")]
@@ -178,14 +122,14 @@ namespace Cinema.Movie.Movie.Entities
         }
 
         [DisplayName("Movie Kind"), Expression("jMovie.[Kind]")]
-        public Int16? MovieKind
+        public Int32? MovieKind
         {
             get { return Fields.MovieKind[this]; }
             set { Fields.MovieKind[this] = value; }
         }
 
         [DisplayName("Movie Rating"), Expression("jMovie.[Rating]")]
-        public Int16? MovieRating
+        public Int32? MovieRating
         {
             get { return Fields.MovieRating[this]; }
             set { Fields.MovieRating[this] = value; }
@@ -196,13 +140,6 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.MovieMpaa[this]; }
             set { Fields.MovieMpaa[this] = value; }
-        }
-
-        [DisplayName("Movie Cont Suffrage"), Expression("jMovie.[ContSuffrage]")]
-        public Int16? MovieContSuffrage
-        {
-            get { return Fields.MovieContSuffrage[this]; }
-            set { Fields.MovieContSuffrage[this] = value; }
         }
 
         [DisplayName("Movie Path Image"), Expression("jMovie.[PathImage]")]
@@ -247,61 +184,48 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MovieLastEventPublishDateTime[this] = value; }
         }
 
-        [DisplayName("Service Name"), Expression("jService.[Name]")]
-        public String ServiceName
+        [DisplayName("Movie Tagline"), Expression("jMovie.[Tagline]")]
+        public String MovieTagline
         {
-            get { return Fields.ServiceName[this]; }
-            set { Fields.ServiceName[this] = value; }
+            get { return Fields.MovieTagline[this]; }
+            set { Fields.MovieTagline[this] = value; }
         }
 
-        [DisplayName("Service Api"), Expression("jService.[Api]")]
-        public String ServiceApi
+        [DisplayName("Movie Budget"), Expression("jMovie.[Budget]")]
+        public Decimal? MovieBudget
         {
-            get { return Fields.ServiceApi[this]; }
-            set { Fields.ServiceApi[this] = value; }
+            get { return Fields.MovieBudget[this]; }
+            set { Fields.MovieBudget[this] = value; }
         }
 
-        [DisplayName("Service Max Rating"), Expression("jService.[MaxRating]")]
-        public Int16? ServiceMaxRating
+        [DisplayName("Genre Name"), Expression("jGenre.[Name]")]
+        public String GenreName
         {
-            get { return Fields.ServiceMaxRating[this]; }
-            set { Fields.ServiceMaxRating[this] = value; }
+            get { return Fields.GenreName[this]; }
+            set { Fields.GenreName[this] = value; }
         }
 
         IIdField IIdRow.IdField
         {
-            get { return Fields.VudeoId; }
-        }
-
-        StringField INameRow.NameField
-        {
-            get { return Fields.Path; }
+            get { return Fields.MovieGenreId; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
 
-        public VideoRow()
+        public MovieGenresRow()
             : base(Fields)
         {
         }
 
         public class RowFields : RowFieldsBase
         {
-            public Int64Field VudeoId;
-            public StringField Path;
-            public StringField Name;
-            public Int16Field Translation;
-            public Int16Field Season;
-            public Int16Field Serie;
-            public DateTimeField PlannePublishDate;
-            public DateTimeField ActualPublishDateTime;
-            public Int16Field MovieId;
-            public Int16Field ServiceId;
+            public Int64Field MovieGenreId;
+            public Int64Field MovieId;
+            public Int16Field GenreId;
 
             public StringField MovieTitleEn;
             public StringField MovieTitleOther;
             public StringField MovieDescription;
-            public StringField MovieStoryline;
             public Int16Field MovieYearStart;
             public Int16Field MovieYearEnd;
             public DateTimeField MovieReleaseWorldDate;
@@ -311,25 +235,24 @@ namespace Cinema.Movie.Movie.Entities
             public DateTimeField MovieCreateDateTime;
             public DateTimeField MovieUpdateDateTime;
             public DateTimeField MoviePublishDateTime;
-            public Int16Field MovieKind;
-            public Int16Field MovieRating;
+            public Int32Field MovieKind;
+            public Int32Field MovieRating;
             public StringField MovieMpaa;
-            public Int16Field MovieContSuffrage;
             public StringField MoviePathImage;
             public StringField MoviePathMiniImage;
             public BooleanField MovieNice;
             public Int16Field MovieContSeason;
             public StringField MovieLastEvent;
             public DateTimeField MovieLastEventPublishDateTime;
+            public StringField MovieTagline;
+            public DecimalField MovieBudget;
 
-            public StringField ServiceName;
-            public StringField ServiceApi;
-            public Int16Field ServiceMaxRating;
+            public StringField GenreName;
 
             public RowFields()
-                : base("[mov].[Video]")
+                : base("[mov].[MovieGenres]")
             {
-                LocalTextPrefix = "Movie.Video";
+                LocalTextPrefix = "Movie.MovieGenres";
             }
         }
     }

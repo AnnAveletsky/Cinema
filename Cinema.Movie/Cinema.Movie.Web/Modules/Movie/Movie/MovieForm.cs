@@ -37,5 +37,6 @@ namespace Cinema.Movie.Movie.Forms
         public DateTime LastEventPublishDateTime { get; set; }
         public String Tagline { get; set; }
         public Int32 Budget { get; set; }
+        public List<Int16> GenreList { get; set; }
     }
 }

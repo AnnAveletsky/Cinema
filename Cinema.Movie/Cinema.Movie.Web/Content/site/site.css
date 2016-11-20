@@ -10077,7 +10077,7 @@ section.content > .s-DataGrid {
 .sidebar-collapse .sidebar-menu > li > a:hover,
 .sidebar-collapse .sidebar-menu > li:hover > a {
   border-left: 0;
-  padding-left: 17px;
+  padding-left: 18px;
 }
 .sidebar-collapse .sidebar-menu > li > .treeview-menu {
   border-color: transparent !important;

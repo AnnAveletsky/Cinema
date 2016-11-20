@@ -2224,6 +2224,11 @@ var Cinema;
                 GenreRow.idProperty = 'GenreId';
                 GenreRow.nameProperty = 'Name';
                 GenreRow.localTextPrefix = 'Movie.Genre';
+                GenreRow.lookupKey = 'Movie.Genre';
+                function getLookup() {
+                    return Q.getLookup('Movie.Genre');
+                }
+                GenreRow.getLookup = getLookup;
                 var Fields;
                 (function (Fields) {
                 })(Fields = GenreRow.Fields || (GenreRow.Fields = {}));
@@ -2267,7 +2272,7 @@ var Cinema;
                 return MovieForm;
             }(Serenity.PrefixedContext));
             Movie.MovieForm = MovieForm;
-            [['TitleEn', function () { return Serenity.StringEditor; }], ['TitleOther', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.IntegerEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.EnumEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathMiniImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }], ['Tagline', function () { return Serenity.StringEditor; }], ['Budget', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TitleEn', function () { return Serenity.StringEditor; }], ['TitleOther', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.IntegerEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.EnumEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathMiniImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }], ['Tagline', function () { return Serenity.StringEditor; }], ['Budget', function () { return Serenity.IntegerEditor; }], ['GenreList', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Movie = Movie_28.Movie || (Movie_28.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -2277,13 +2282,15 @@ var Cinema;
     (function (Movie_29) {
         var Movie;
         (function (Movie) {
-            (function (MovieKind) {
-                MovieKind[MovieKind["Film"] = 1] = "Film";
-                MovieKind[MovieKind["TvSeries"] = 2] = "TvSeries";
-                MovieKind[MovieKind["MiniSeries"] = 3] = "MiniSeries";
-            })(Movie.MovieKind || (Movie.MovieKind = {}));
-            var MovieKind = Movie.MovieKind;
-            Serenity.Decorators.registerEnum(MovieKind, 'Movie.Movie.MovieKind');
+            var MovieGenresRow;
+            (function (MovieGenresRow) {
+                MovieGenresRow.idProperty = 'MovieGenreId';
+                MovieGenresRow.localTextPrefix = 'Movie.MovieGenres';
+                var Fields;
+                (function (Fields) {
+                })(Fields = MovieGenresRow.Fields || (MovieGenresRow.Fields = {}));
+                ['MovieGenreId', 'MovieId', 'GenreId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'GenreName'].forEach(function (x) { return Fields[x] = x; });
+            })(MovieGenresRow = Movie.MovieGenresRow || (Movie.MovieGenresRow = {}));
         })(Movie = Movie_29.Movie || (Movie_29.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -2291,6 +2298,22 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie_30) {
+        var Movie;
+        (function (Movie) {
+            (function (MovieKind) {
+                MovieKind[MovieKind["Film"] = 1] = "Film";
+                MovieKind[MovieKind["TvSeries"] = 2] = "TvSeries";
+                MovieKind[MovieKind["MiniSeries"] = 3] = "MiniSeries";
+            })(Movie.MovieKind || (Movie.MovieKind = {}));
+            var MovieKind = Movie.MovieKind;
+            Serenity.Decorators.registerEnum(MovieKind, 'Movie.Movie.MovieKind');
+        })(Movie = Movie_30.Movie || (Movie_30.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_31) {
         var Movie;
         (function (Movie) {
             var MovieRow;
@@ -2301,15 +2324,15 @@ var Cinema;
                 var Fields;
                 (function (Fields) {
                 })(Fields = MovieRow.Fields || (MovieRow.Fields = {}));
-                ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget'].forEach(function (x) { return Fields[x] = x; });
+                ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList'].forEach(function (x) { return Fields[x] = x; });
             })(MovieRow = Movie.MovieRow || (Movie.MovieRow = {}));
-        })(Movie = Movie_30.Movie || (Movie_30.Movie = {}));
+        })(Movie = Movie_31.Movie || (Movie_31.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_31) {
+    (function (Movie_32) {
         var Movie;
         (function (Movie) {
             var MovieService;
@@ -2323,13 +2346,13 @@ var Cinema;
                     Methods[x] = MovieService.baseUrl + '/' + x;
                 });
             })(MovieService = Movie.MovieService || (Movie.MovieService = {}));
-        })(Movie = Movie_31.Movie || (Movie_31.Movie = {}));
+        })(Movie = Movie_32.Movie || (Movie_32.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_32) {
+    (function (Movie_33) {
         var Movie;
         (function (Movie) {
             var PersonForm = (function (_super) {
@@ -2342,13 +2365,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.PersonForm = PersonForm;
             [['Firstname', function () { return Serenity.StringEditor; }], ['Lastname', function () { return Serenity.StringEditor; }], ['BirthDate', function () { return Serenity.DateEditor; }], ['BirthPlace', function () { return Serenity.StringEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['Height', function () { return Serenity.IntegerEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathImageMini', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(PersonForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_32.Movie || (Movie_32.Movie = {}));
+        })(Movie = Movie_33.Movie || (Movie_33.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_33) {
+    (function (Movie_34) {
         var Movie;
         (function (Movie) {
             var PersonRow;
@@ -2361,13 +2384,13 @@ var Cinema;
                 })(Fields = PersonRow.Fields || (PersonRow.Fields = {}));
                 ['PersonId', 'Firstname', 'Lastname', 'BirthDate', 'BirthPlace', 'Gender', 'Height', 'PathImage', 'PathImageMini'].forEach(function (x) { return Fields[x] = x; });
             })(PersonRow = Movie.PersonRow || (Movie.PersonRow = {}));
-        })(Movie = Movie_33.Movie || (Movie_33.Movie = {}));
+        })(Movie = Movie_34.Movie || (Movie_34.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_34) {
+    (function (Movie_35) {
         var Movie;
         (function (Movie) {
             var PersonService;
@@ -2381,13 +2404,13 @@ var Cinema;
                     Methods[x] = PersonService.baseUrl + '/' + x;
                 });
             })(PersonService = Movie.PersonService || (Movie.PersonService = {}));
-        })(Movie = Movie_34.Movie || (Movie_34.Movie = {}));
+        })(Movie = Movie_35.Movie || (Movie_35.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_35) {
+    (function (Movie_36) {
         var Movie;
         (function (Movie) {
             var ServiceForm = (function (_super) {
@@ -2400,13 +2423,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.ServiceForm = ServiceForm;
             [['Name', function () { return Serenity.StringEditor; }], ['Api', function () { return Serenity.StringEditor; }], ['MaxRating', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ServiceForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_35.Movie || (Movie_35.Movie = {}));
+        })(Movie = Movie_36.Movie || (Movie_36.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_36) {
+    (function (Movie_37) {
         var Movie;
         (function (Movie) {
             var ServiceRow;
@@ -2419,13 +2442,13 @@ var Cinema;
                 })(Fields = ServiceRow.Fields || (ServiceRow.Fields = {}));
                 ['ServiceId', 'Name', 'Api', 'MaxRating'].forEach(function (x) { return Fields[x] = x; });
             })(ServiceRow = Movie.ServiceRow || (Movie.ServiceRow = {}));
-        })(Movie = Movie_36.Movie || (Movie_36.Movie = {}));
+        })(Movie = Movie_37.Movie || (Movie_37.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_37) {
+    (function (Movie_38) {
         var Movie;
         (function (Movie) {
             var ServiceService;
@@ -2439,13 +2462,13 @@ var Cinema;
                     Methods[x] = ServiceService.baseUrl + '/' + x;
                 });
             })(ServiceService = Movie.ServiceService || (Movie.ServiceService = {}));
-        })(Movie = Movie_37.Movie || (Movie_37.Movie = {}));
+        })(Movie = Movie_38.Movie || (Movie_38.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_38) {
+    (function (Movie_39) {
         var Movie;
         (function (Movie) {
             var TagForm = (function (_super) {
@@ -2458,13 +2481,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.TagForm = TagForm;
             [['Name', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TagForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_38.Movie || (Movie_38.Movie = {}));
+        })(Movie = Movie_39.Movie || (Movie_39.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_39) {
+    (function (Movie_40) {
         var Movie;
         (function (Movie) {
             var TagRow;
@@ -2477,13 +2500,13 @@ var Cinema;
                 })(Fields = TagRow.Fields || (TagRow.Fields = {}));
                 ['TagId', 'Name'].forEach(function (x) { return Fields[x] = x; });
             })(TagRow = Movie.TagRow || (Movie.TagRow = {}));
-        })(Movie = Movie_39.Movie || (Movie_39.Movie = {}));
+        })(Movie = Movie_40.Movie || (Movie_40.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_40) {
+    (function (Movie_41) {
         var Movie;
         (function (Movie) {
             var TagService;
@@ -2497,13 +2520,13 @@ var Cinema;
                     Methods[x] = TagService.baseUrl + '/' + x;
                 });
             })(TagService = Movie.TagService || (Movie.TagService = {}));
-        })(Movie = Movie_40.Movie || (Movie_40.Movie = {}));
+        })(Movie = Movie_41.Movie || (Movie_41.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_41) {
+    (function (Movie_42) {
         var Movie;
         (function (Movie) {
             var VideoForm = (function (_super) {
@@ -2516,13 +2539,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.VideoForm = VideoForm;
             [['Path', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Translation', function () { return Serenity.IntegerEditor; }], ['Season', function () { return Serenity.IntegerEditor; }], ['Serie', function () { return Serenity.IntegerEditor; }], ['PlannePublishDate', function () { return Serenity.DateEditor; }], ['ActualPublishDateTime', function () { return Serenity.DateEditor; }], ['MovieId', function () { return Serenity.IntegerEditor; }], ['ServiceId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(VideoForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_41.Movie || (Movie_41.Movie = {}));
+        })(Movie = Movie_42.Movie || (Movie_42.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_42) {
+    (function (Movie_43) {
         var Movie;
         (function (Movie) {
             var VideoRow;
@@ -2535,13 +2558,13 @@ var Cinema;
                 })(Fields = VideoRow.Fields || (VideoRow.Fields = {}));
                 ['VudeoId', 'Path', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(function (x) { return Fields[x] = x; });
             })(VideoRow = Movie.VideoRow || (Movie.VideoRow = {}));
-        })(Movie = Movie_42.Movie || (Movie_42.Movie = {}));
+        })(Movie = Movie_43.Movie || (Movie_43.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_43) {
+    (function (Movie_44) {
         var Movie;
         (function (Movie) {
             var VideoService;
@@ -2555,7 +2578,7 @@ var Cinema;
                     Methods[x] = VideoService.baseUrl + '/' + x;
                 });
             })(VideoService = Movie.VideoService || (Movie.VideoService = {}));
-        })(Movie = Movie_43.Movie || (Movie_43.Movie = {}));
+        })(Movie = Movie_44.Movie || (Movie_44.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;

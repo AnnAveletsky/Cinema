@@ -9,7 +9,7 @@ namespace Cinema.Movie.Common.Pages
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Movies = Cinema.Movie.Movie.Pages.MovieController;
+    using Movies = Movie.Pages.MovieController;
 
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
@@ -28,17 +28,7 @@ namespace Cinema.Movie.Common.Pages
                   }
               });
         }
-        private static MovieRow MovieFull(int id)
-        {
-            return TwoLevelCache.GetLocalStoreOnly("Movie"+id, TimeSpan.FromMinutes(200),
-              MovieRow.Fields.GenerationKey, () =>
-              {
-                  using (var connection = SqlConnections.NewFor<MovieRow>())
-                  {
-                      return connection.ById<MovieRow>(id);
-                  }
-              });
-        }
+        
         [HttpGet, Route("~/")]
         public ActionResult Index(int count=10,int page=1,string genre="")
         {
@@ -48,7 +38,7 @@ namespace Cinema.Movie.Common.Pages
                 return LocalText.Get("Site.Dashboard.HTMLDashboard");
             });
             //BaseCriteria criteria = new Criteria("c").StartsWith("S");
-            model.Movies = new Movies().ListPage(new ListRequest
+            model.Movies = Movies.Page(new ListRequest
             {
                 //Criteria = criteria,
                 Skip = (page - 1) * count,
@@ -68,7 +58,7 @@ namespace Cinema.Movie.Common.Pages
             {
                 return LocalText.Get("Site.Dashboard.HTMLCatalogFilms");
             });
-            model.Movies = new Movies().ListPage(new ListRequest
+            model.Movies = Movies.Page(new ListRequest
             {
                 Skip = (page - 1) * count,
                 Take = count
@@ -87,7 +77,7 @@ namespace Cinema.Movie.Common.Pages
             {
                 return LocalText.Get("Site.Dashboard.HTMLTop");
             });
-            model.Movies = new Movies().ListPage(new ListRequest
+            model.Movies = Movies.Page(new ListRequest
             {
                 Skip = (page - 1) * count,
                 Take = count
@@ -125,12 +115,14 @@ namespace Cinema.Movie.Common.Pages
         }
 
         [HttpGet, Route("~/movie")]
-        public ActionResult Movie(int? id,string name="")
+        public ActionResult Movie(Int64? id,string name="")
         {
             if (id != null)
             {
                 model.Content = "";
-                model.Movie = MovieFull((int)id);
+                var ExcludeColumns = new HashSet<string>();
+                ExcludeColumns.Add("GenreList");
+                model.Movie = Movies.Movie(new RetrieveRequest() { EntityId=(Int64)id, ExcludeColumns= ExcludeColumns});
                 ViewData["MaxRating"] = 10;
                 ViewData["Title"] = "";
                 ViewData["Footer"] = "";

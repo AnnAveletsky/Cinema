@@ -14,7 +14,7 @@ namespace Cinema.Movie.Movie.Columns
     public class PersonColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int16 PersonId { get; set; }
+        public Int64 PersonId { get; set; }
         [EditLink]
         public String Firstname { get; set; }
         public String Lastname { get; set; }

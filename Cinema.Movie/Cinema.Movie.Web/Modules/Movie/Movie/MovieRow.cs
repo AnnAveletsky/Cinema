@@ -9,6 +9,7 @@ namespace Cinema.Movie.Movie.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -18,7 +19,7 @@ namespace Cinema.Movie.Movie.Entities
     public sealed class MovieRow : Row, IIdRow, INameRow
     {
         [DisplayName("Movie Id"), Identity]
-        public Int16? MovieId
+        public Int64? MovieId
         {
             get { return Fields.MovieId[this]; }
             set { Fields.MovieId[this] = value; }
@@ -182,6 +183,23 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Budget[this]; }
             set { Fields.Budget[this] = value; }
         }
+        [DisplayName("Genres")]
+        [LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreId")]
+        public List<Int16> GenreList
+        {
+            get { return Fields.GenreList[this]; }
+            set { Fields.GenreList[this] = value; }
+        }
+        [DisplayName("Genres")]
+        [LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreName")]
+        public List<string> GenreListName
+        {
+            get { return Fields.GenreListName[this]; }
+            set { Fields.GenreListName[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieId; }
@@ -201,7 +219,7 @@ namespace Cinema.Movie.Movie.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int16Field MovieId;
+            public Int64Field MovieId;
             public StringField TitleEn;
             public StringField TitleOther;
             public StringField Description;
@@ -225,6 +243,8 @@ namespace Cinema.Movie.Movie.Entities
             public DateTimeField LastEventPublishDateTime;
             public StringField Tagline;
             public Int32Field Budget;
+            public ListField<Int16> GenreList;
+            public ListField<string> GenreListName;
 
             public RowFields()
                 : base("[mov].[Movie]")

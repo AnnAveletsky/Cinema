@@ -15,7 +15,7 @@ namespace Cinema.Movie.Movie.Columns
     public class MovieColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int16 MovieId { get; set; }
+        public Int64 MovieId { get; set; }
         [EditLink]
         public String TitleEn { get; set; }
         public String TitleOther { get; set; }
@@ -40,5 +40,7 @@ namespace Cinema.Movie.Movie.Columns
         public DateTime LastEventPublishDateTime { get; set; }
         public String Tagline { get; set; }
         public Int32 Budget { get; set; }
+        public List<Int16> GenreList { get; set; }
+        public List<string> GenreListName { get; set; }
     }
 }

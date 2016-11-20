@@ -14,7 +14,7 @@ namespace Cinema.Movie.Movie.Columns
     public class VideoColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int16 VudeoId { get; set; }
+        public Int64 VudeoId { get; set; }
         [EditLink]
         public String Path { get; set; }
         public String Name { get; set; }

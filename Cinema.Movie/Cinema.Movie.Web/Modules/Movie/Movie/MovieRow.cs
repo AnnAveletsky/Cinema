@@ -2,6 +2,7 @@
 
 namespace Cinema.Movie.Movie.Entities
 {
+    using Cinema.Movie.Migrations.DefaultDB;
     using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
@@ -44,13 +45,6 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Description[this] = value; }
         }
 
-        [DisplayName("Storyline")]
-        public String Storyline
-        {
-            get { return Fields.Storyline[this]; }
-            set { Fields.Storyline[this] = value; }
-        }
-
         [DisplayName("Year Start")]
         public Int16? YearStart
         {
@@ -86,7 +80,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.ReleaseDvd[this] = value; }
         }
 
-        [DisplayName("Runtime")]
+        [DisplayName("Runtime (mins)")]
         public Int16? Runtime
         {
             get { return Fields.Runtime[this]; }
@@ -114,11 +108,11 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PublishDateTime[this] = value; }
         }
 
-        [DisplayName("Kind"), NotNull]
-        public Int16? Kind
+        [DisplayName("Kind"), NotNull, DefaultValue(MovieKind.Film)]
+        public MovieKind? Kind
         {
-            get { return Fields.Kind[this]; }
-            set { Fields.Kind[this] = value; }
+            get { return (MovieKind?)Fields.Kind[this]; }
+            set { Fields.Kind[this] = (Int16?)value; }
         }
 
         [DisplayName("Rating"), NotNull]
@@ -133,13 +127,6 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.Mpaa[this]; }
             set { Fields.Mpaa[this] = value; }
-        }
-
-        [DisplayName("Cont Suffrage"), NotNull]
-        public Int16? ContSuffrage
-        {
-            get { return Fields.ContSuffrage[this]; }
-            set { Fields.ContSuffrage[this] = value; }
         }
 
         [DisplayName("Path Image"), Size(300), NotNull]
@@ -183,7 +170,18 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.LastEventPublishDateTime[this]; }
             set { Fields.LastEventPublishDateTime[this] = value; }
         }
-
+        [DisplayName("Tagline"), Size(400)]
+        public String Tagline
+        {
+            get { return Fields.Tagline[this]; }
+            set { Fields.Tagline[this] = value; }
+        }
+        [DisplayName("Budget")]
+        public Int32? Budget
+        {
+            get { return Fields.Budget[this]; }
+            set { Fields.Budget[this] = value; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieId; }
@@ -207,26 +205,26 @@ namespace Cinema.Movie.Movie.Entities
             public StringField TitleEn;
             public StringField TitleOther;
             public StringField Description;
-            public StringField Storyline;
             public Int16Field YearStart;
             public Int16Field YearEnd;
             public DateTimeField ReleaseWorldDate;
             public DateTimeField ReleaseOtherDate;
             public DateTimeField ReleaseDvd;
-            public Int16Field Runtime;
+            public readonly Int16Field Runtime;
             public DateTimeField CreateDateTime;
             public DateTimeField UpdateDateTime;
             public DateTimeField PublishDateTime;
-            public Int16Field Kind;
+            public readonly Int16Field Kind;
             public Int16Field Rating;
             public StringField Mpaa;
-            public Int16Field ContSuffrage;
             public StringField PathImage;
             public StringField PathMiniImage;
             public BooleanField Nice;
             public Int16Field ContSeason;
             public StringField LastEvent;
             public DateTimeField LastEventPublishDateTime;
+            public StringField Tagline;
+            public Int32Field Budget;
 
             public RowFields()
                 : base("[mov].[Movie]")

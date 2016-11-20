@@ -1,11 +1,9 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface MovieRow {
         MovieId?: number;
         TitleEn?: string;
         TitleOther?: string;
         Description?: string;
-        Storyline?: string;
         YearStart?: number;
         YearEnd?: number;
         ReleaseWorldDate?: string;
@@ -15,16 +13,17 @@ namespace Cinema.Movie.Movie {
         CreateDateTime?: string;
         UpdateDateTime?: string;
         PublishDateTime?: string;
-        Kind?: number;
+        Kind?: MovieKind;
         Rating?: number;
         Mpaa?: string;
-        ContSuffrage?: number;
         PathImage?: string;
         PathMiniImage?: string;
         Nice?: boolean;
         ContSeason?: number;
         LastEvent?: string;
         LastEventPublishDateTime?: string;
+        Tagline?: string;
+        Budget?: number;
     }
 
     export namespace MovieRow {
@@ -33,33 +32,33 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.Movie';
 
         export namespace Fields {
-            export declare const MovieId;
-            export declare const TitleEn;
-            export declare const TitleOther;
-            export declare const Description;
-            export declare const Storyline;
-            export declare const YearStart;
-            export declare const YearEnd;
-            export declare const ReleaseWorldDate;
-            export declare const ReleaseOtherDate;
-            export declare const ReleaseDvd;
-            export declare const Runtime;
-            export declare const CreateDateTime;
-            export declare const UpdateDateTime;
-            export declare const PublishDateTime;
-            export declare const Kind;
-            export declare const Rating;
-            export declare const Mpaa;
-            export declare const ContSuffrage;
-            export declare const PathImage;
-            export declare const PathMiniImage;
-            export declare const Nice;
-            export declare const ContSeason;
-            export declare const LastEvent;
-            export declare const LastEventPublishDateTime;
+            export declare const MovieId: string;
+            export declare const TitleEn: string;
+            export declare const TitleOther: string;
+            export declare const Description: string;
+            export declare const YearStart: string;
+            export declare const YearEnd: string;
+            export declare const ReleaseWorldDate: string;
+            export declare const ReleaseOtherDate: string;
+            export declare const ReleaseDvd: string;
+            export declare const Runtime: string;
+            export declare const CreateDateTime: string;
+            export declare const UpdateDateTime: string;
+            export declare const PublishDateTime: string;
+            export declare const Kind: string;
+            export declare const Rating: string;
+            export declare const Mpaa: string;
+            export declare const PathImage: string;
+            export declare const PathMiniImage: string;
+            export declare const Nice: string;
+            export declare const ContSeason: string;
+            export declare const LastEvent: string;
+            export declare const LastEventPublishDateTime: string;
+            export declare const Tagline: string;
+            export declare const Budget: string;
         }
 
-        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'Storyline', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'ContSuffrage', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface PersonRow {
         PersonId?: number;
         Firstname?: string;
@@ -18,15 +17,15 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.Person';
 
         export namespace Fields {
-            export declare const PersonId;
-            export declare const Firstname;
-            export declare const Lastname;
-            export declare const BirthDate;
-            export declare const BirthPlace;
-            export declare const Gender;
-            export declare const Height;
-            export declare const PathImage;
-            export declare const PathImageMini;
+            export declare const PersonId: string;
+            export declare const Firstname: string;
+            export declare const Lastname: string;
+            export declare const BirthDate: string;
+            export declare const BirthPlace: string;
+            export declare const Gender: string;
+            export declare const Height: string;
+            export declare const PathImage: string;
+            export declare const PathImageMini: string;
         }
 
         ['PersonId', 'Firstname', 'Lastname', 'BirthDate', 'BirthPlace', 'Gender', 'Height', 'PathImage', 'PathImageMini'].forEach(x => (<any>Fields)[x] = x);

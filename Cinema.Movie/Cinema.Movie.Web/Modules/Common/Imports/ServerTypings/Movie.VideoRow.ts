@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface VideoRow {
         VudeoId?: number;
         Path?: string;
@@ -45,16 +44,16 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.Video';
 
         export namespace Fields {
-            export declare const VudeoId;
-            export declare const Path;
-            export declare const Name;
-            export declare const Translation;
-            export declare const Season;
-            export declare const Serie;
-            export declare const PlannePublishDate;
-            export declare const ActualPublishDateTime;
-            export declare const MovieId;
-            export declare const ServiceId;
+            export declare const VudeoId: string;
+            export declare const Path: string;
+            export declare const Name: string;
+            export declare const Translation: string;
+            export declare const Season: string;
+            export declare const Serie: string;
+            export declare const PlannePublishDate: string;
+            export declare const ActualPublishDateTime: string;
+            export declare const MovieId: string;
+            export declare const ServiceId: string;
             export declare const MovieTitleEn: string;
             export declare const MovieTitleOther: string;
             export declare const MovieDescription: string;

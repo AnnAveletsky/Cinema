@@ -1948,218 +1948,6 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var BasicSamplesService;
-            (function (BasicSamplesService) {
-                BasicSamplesService.baseUrl = 'BasicSamples/BasicSamples';
-                var Methods;
-                (function (Methods) {
-                })(Methods = BasicSamplesService.Methods || (BasicSamplesService.Methods = {}));
-                ['OrdersByShipper', 'OrderBulkAction'].forEach(function (x) {
-                    BasicSamplesService[x] = function (r, s, o) { return Q.serviceRequest(BasicSamplesService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = BasicSamplesService.baseUrl + '/' + x;
-                });
-            })(BasicSamplesService = BasicSamples.BasicSamplesService || (BasicSamples.BasicSamplesService = {}));
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var ChangingLookupTextForm = (function (_super) {
-                __extends(ChangingLookupTextForm, _super);
-                function ChangingLookupTextForm() {
-                    _super.apply(this, arguments);
-                }
-                ChangingLookupTextForm.formKey = 'BasicSamples.ChangingLookupText';
-                return ChangingLookupTextForm;
-            }(Serenity.PrefixedContext));
-            BasicSamples.ChangingLookupTextForm = ChangingLookupTextForm;
-            [['ProductID', function () { return ChangingLookupTextEditor; }], ['UnitPrice', function () { return Serenity.DecimalEditor; }], ['Quantity', function () { return Serenity.IntegerEditor; }], ['Discount', function () { return Serenity.DecimalEditor; }]].forEach(function (x) { return Object.defineProperty(ChangingLookupTextForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var CustomerGrossSalesRow;
-            (function (CustomerGrossSalesRow) {
-                CustomerGrossSalesRow.nameProperty = 'ContactName';
-                CustomerGrossSalesRow.localTextPrefix = 'BasicSamples.GrossSales';
-                var Fields;
-                (function (Fields) {
-                })(Fields = CustomerGrossSalesRow.Fields || (CustomerGrossSalesRow.Fields = {}));
-                ['CustomerId', 'ContactName', 'ProductId', 'ProductName', 'GrossAmount'].forEach(function (x) { return Fields[x] = x; });
-            })(CustomerGrossSalesRow = BasicSamples.CustomerGrossSalesRow || (BasicSamples.CustomerGrossSalesRow = {}));
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var CustomerGrossSalesService;
-            (function (CustomerGrossSalesService) {
-                CustomerGrossSalesService.baseUrl = 'BasicSamples/CustomerGrossSales';
-                var Methods;
-                (function (Methods) {
-                })(Methods = CustomerGrossSalesService.Methods || (CustomerGrossSalesService.Methods = {}));
-                ['List'].forEach(function (x) {
-                    CustomerGrossSalesService[x] = function (r, s, o) { return Q.serviceRequest(CustomerGrossSalesService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = CustomerGrossSalesService.baseUrl + '/' + x;
-                });
-            })(CustomerGrossSalesService = BasicSamples.CustomerGrossSalesService || (BasicSamples.CustomerGrossSalesService = {}));
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var FilteredLookupInDetailForm = (function (_super) {
-                __extends(FilteredLookupInDetailForm, _super);
-                function FilteredLookupInDetailForm() {
-                    _super.apply(this, arguments);
-                }
-                FilteredLookupInDetailForm.formKey = 'BasicSamples.FilteredLookupInDetail';
-                return FilteredLookupInDetailForm;
-            }(Serenity.PrefixedContext));
-            BasicSamples.FilteredLookupInDetailForm = FilteredLookupInDetailForm;
-            [['CustomerID', function () { return Movie.Northwind.CustomerEditor; }], ['OrderDate', function () { return Serenity.DateEditor; }], ['CategoryID', function () { return Serenity.LookupEditor; }], ['DetailList', function () { return FilteredLookupDetailEditor; }]].forEach(function (x) { return Object.defineProperty(FilteredLookupInDetailForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var HardcodedValuesForm = (function (_super) {
-                __extends(HardcodedValuesForm, _super);
-                function HardcodedValuesForm() {
-                    _super.apply(this, arguments);
-                }
-                HardcodedValuesForm.formKey = 'BasicSamples.HarcodedValues';
-                return HardcodedValuesForm;
-            }(Serenity.PrefixedContext));
-            BasicSamples.HardcodedValuesForm = HardcodedValuesForm;
-            [['SomeValue', function () { return HardcodedValuesEditor; }]].forEach(function (x) { return Object.defineProperty(HardcodedValuesForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var LookupFilterByMultipleForm = (function (_super) {
-                __extends(LookupFilterByMultipleForm, _super);
-                function LookupFilterByMultipleForm() {
-                    _super.apply(this, arguments);
-                }
-                LookupFilterByMultipleForm.formKey = 'BasicSamples.LookupFilterByMultiple';
-                return LookupFilterByMultipleForm;
-            }(Serenity.PrefixedContext));
-            BasicSamples.LookupFilterByMultipleForm = LookupFilterByMultipleForm;
-            [['ProductName', function () { return Serenity.StringEditor; }], ['ProductImage', function () { return Serenity.ImageUploadEditor; }], ['Discontinued', function () { return Serenity.BooleanEditor; }], ['SupplierID', function () { return Serenity.LookupEditor; }], ['CategoryID', function () { return ProduceSeafoodCategoryEditor; }], ['QuantityPerUnit', function () { return Serenity.StringEditor; }], ['UnitPrice', function () { return Serenity.DecimalEditor; }], ['UnitsInStock', function () { return Serenity.IntegerEditor; }], ['UnitsOnOrder', function () { return Serenity.IntegerEditor; }], ['ReorderLevel', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(LookupFilterByMultipleForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var PopulateLinkedDataForm = (function (_super) {
-                __extends(PopulateLinkedDataForm, _super);
-                function PopulateLinkedDataForm() {
-                    _super.apply(this, arguments);
-                }
-                PopulateLinkedDataForm.formKey = 'BasicSamples.PopulateLinkedData';
-                return PopulateLinkedDataForm;
-            }(Serenity.PrefixedContext));
-            BasicSamples.PopulateLinkedDataForm = PopulateLinkedDataForm;
-            [['CustomerID', function () { return Movie.Northwind.CustomerEditor; }], ['CustomerContactName', function () { return Serenity.StringEditor; }], ['CustomerContactTitle', function () { return Serenity.StringEditor; }], ['CustomerCity', function () { return Serenity.StringEditor; }], ['CustomerRegion', function () { return Serenity.StringEditor; }], ['CustomerCountry', function () { return Serenity.StringEditor; }], ['CustomerPhone', function () { return Serenity.StringEditor; }], ['CustomerFax', function () { return Serenity.StringEditor; }], ['OrderDate', function () { return Serenity.DateEditor; }], ['RequiredDate', function () { return Serenity.DateEditor; }], ['EmployeeID', function () { return Serenity.LookupEditor; }], ['DetailList', function () { return Movie.Northwind.OrderDetailsEditor; }]].forEach(function (x) { return Object.defineProperty(PopulateLinkedDataForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var ProductExcelImportForm = (function (_super) {
-                __extends(ProductExcelImportForm, _super);
-                function ProductExcelImportForm() {
-                    _super.apply(this, arguments);
-                }
-                ProductExcelImportForm.formKey = 'BasicSamples.ProductExcelImport';
-                return ProductExcelImportForm;
-            }(Serenity.PrefixedContext));
-            BasicSamples.ProductExcelImportForm = ProductExcelImportForm;
-            [['FileName', function () { return Serenity.ImageUploadEditor; }]].forEach(function (x) { return Object.defineProperty(ProductExcelImportForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var ProductExcelImportService;
-            (function (ProductExcelImportService) {
-                ProductExcelImportService.baseUrl = 'BasicSamples/ProductExcelImport';
-                var Methods;
-                (function (Methods) {
-                })(Methods = ProductExcelImportService.Methods || (ProductExcelImportService.Methods = {}));
-                ['ExcelImport'].forEach(function (x) {
-                    ProductExcelImportService[x] = function (r, s, o) { return Q.serviceRequest(ProductExcelImportService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = ProductExcelImportService.baseUrl + '/' + x;
-                });
-            })(ProductExcelImportService = BasicSamples.ProductExcelImportService || (BasicSamples.ProductExcelImportService = {}));
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var BasicSamples;
-        (function (BasicSamples) {
-            var VSGalleryQAService;
-            (function (VSGalleryQAService) {
-                VSGalleryQAService.baseUrl = 'BasicSamples/VSGalleryQA';
-                var Methods;
-                (function (Methods) {
-                })(Methods = VSGalleryQAService.Methods || (VSGalleryQAService.Methods = {}));
-                ['List'].forEach(function (x) {
-                    VSGalleryQAService[x] = function (r, s, o) { return Q.serviceRequest(VSGalleryQAService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = VSGalleryQAService.baseUrl + '/' + x;
-                });
-            })(VSGalleryQAService = BasicSamples.VSGalleryQAService || (BasicSamples.VSGalleryQAService = {}));
-        })(BasicSamples = Movie.BasicSamples || (Movie.BasicSamples = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
         var Common;
         (function (Common) {
             var UserPreferenceRow;
@@ -2479,7 +2267,7 @@ var Cinema;
                 return MovieForm;
             }(Serenity.PrefixedContext));
             Movie.MovieForm = MovieForm;
-            [['TitleEn', function () { return Serenity.StringEditor; }], ['TitleOther', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['Storyline', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.IntegerEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.IntegerEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['ContSuffrage', function () { return Serenity.IntegerEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathMiniImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TitleEn', function () { return Serenity.StringEditor; }], ['TitleOther', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.IntegerEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.EnumEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathMiniImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }], ['Tagline', function () { return Serenity.StringEditor; }], ['Budget', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Movie = Movie_28.Movie || (Movie_28.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -2487,6 +2275,22 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie_29) {
+        var Movie;
+        (function (Movie) {
+            (function (MovieKind) {
+                MovieKind[MovieKind["Film"] = 1] = "Film";
+                MovieKind[MovieKind["TvSeries"] = 2] = "TvSeries";
+                MovieKind[MovieKind["MiniSeries"] = 3] = "MiniSeries";
+            })(Movie.MovieKind || (Movie.MovieKind = {}));
+            var MovieKind = Movie.MovieKind;
+            Serenity.Decorators.registerEnum(MovieKind, 'Movie.Movie.MovieKind');
+        })(Movie = Movie_29.Movie || (Movie_29.Movie = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie_30) {
         var Movie;
         (function (Movie) {
             var MovieRow;
@@ -2497,15 +2301,15 @@ var Cinema;
                 var Fields;
                 (function (Fields) {
                 })(Fields = MovieRow.Fields || (MovieRow.Fields = {}));
-                ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'Storyline', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'ContSuffrage', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime'].forEach(function (x) { return Fields[x] = x; });
+                ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget'].forEach(function (x) { return Fields[x] = x; });
             })(MovieRow = Movie.MovieRow || (Movie.MovieRow = {}));
-        })(Movie = Movie_29.Movie || (Movie_29.Movie = {}));
+        })(Movie = Movie_30.Movie || (Movie_30.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_30) {
+    (function (Movie_31) {
         var Movie;
         (function (Movie) {
             var MovieService;
@@ -2519,13 +2323,13 @@ var Cinema;
                     Methods[x] = MovieService.baseUrl + '/' + x;
                 });
             })(MovieService = Movie.MovieService || (Movie.MovieService = {}));
-        })(Movie = Movie_30.Movie || (Movie_30.Movie = {}));
+        })(Movie = Movie_31.Movie || (Movie_31.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_31) {
+    (function (Movie_32) {
         var Movie;
         (function (Movie) {
             var PersonForm = (function (_super) {
@@ -2538,13 +2342,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.PersonForm = PersonForm;
             [['Firstname', function () { return Serenity.StringEditor; }], ['Lastname', function () { return Serenity.StringEditor; }], ['BirthDate', function () { return Serenity.DateEditor; }], ['BirthPlace', function () { return Serenity.StringEditor; }], ['Gender', function () { return Serenity.IntegerEditor; }], ['Height', function () { return Serenity.IntegerEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['PathImageMini', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(PersonForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_31.Movie || (Movie_31.Movie = {}));
+        })(Movie = Movie_32.Movie || (Movie_32.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_32) {
+    (function (Movie_33) {
         var Movie;
         (function (Movie) {
             var PersonRow;
@@ -2557,13 +2361,13 @@ var Cinema;
                 })(Fields = PersonRow.Fields || (PersonRow.Fields = {}));
                 ['PersonId', 'Firstname', 'Lastname', 'BirthDate', 'BirthPlace', 'Gender', 'Height', 'PathImage', 'PathImageMini'].forEach(function (x) { return Fields[x] = x; });
             })(PersonRow = Movie.PersonRow || (Movie.PersonRow = {}));
-        })(Movie = Movie_32.Movie || (Movie_32.Movie = {}));
+        })(Movie = Movie_33.Movie || (Movie_33.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_33) {
+    (function (Movie_34) {
         var Movie;
         (function (Movie) {
             var PersonService;
@@ -2577,13 +2381,13 @@ var Cinema;
                     Methods[x] = PersonService.baseUrl + '/' + x;
                 });
             })(PersonService = Movie.PersonService || (Movie.PersonService = {}));
-        })(Movie = Movie_33.Movie || (Movie_33.Movie = {}));
+        })(Movie = Movie_34.Movie || (Movie_34.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_34) {
+    (function (Movie_35) {
         var Movie;
         (function (Movie) {
             var ServiceForm = (function (_super) {
@@ -2596,13 +2400,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.ServiceForm = ServiceForm;
             [['Name', function () { return Serenity.StringEditor; }], ['Api', function () { return Serenity.StringEditor; }], ['MaxRating', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ServiceForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_34.Movie || (Movie_34.Movie = {}));
+        })(Movie = Movie_35.Movie || (Movie_35.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_35) {
+    (function (Movie_36) {
         var Movie;
         (function (Movie) {
             var ServiceRow;
@@ -2615,13 +2419,13 @@ var Cinema;
                 })(Fields = ServiceRow.Fields || (ServiceRow.Fields = {}));
                 ['ServiceId', 'Name', 'Api', 'MaxRating'].forEach(function (x) { return Fields[x] = x; });
             })(ServiceRow = Movie.ServiceRow || (Movie.ServiceRow = {}));
-        })(Movie = Movie_35.Movie || (Movie_35.Movie = {}));
+        })(Movie = Movie_36.Movie || (Movie_36.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_36) {
+    (function (Movie_37) {
         var Movie;
         (function (Movie) {
             var ServiceService;
@@ -2635,13 +2439,13 @@ var Cinema;
                     Methods[x] = ServiceService.baseUrl + '/' + x;
                 });
             })(ServiceService = Movie.ServiceService || (Movie.ServiceService = {}));
-        })(Movie = Movie_36.Movie || (Movie_36.Movie = {}));
+        })(Movie = Movie_37.Movie || (Movie_37.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_37) {
+    (function (Movie_38) {
         var Movie;
         (function (Movie) {
             var TagForm = (function (_super) {
@@ -2654,13 +2458,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.TagForm = TagForm;
             [['Name', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(TagForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_37.Movie || (Movie_37.Movie = {}));
+        })(Movie = Movie_38.Movie || (Movie_38.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_38) {
+    (function (Movie_39) {
         var Movie;
         (function (Movie) {
             var TagRow;
@@ -2673,13 +2477,13 @@ var Cinema;
                 })(Fields = TagRow.Fields || (TagRow.Fields = {}));
                 ['TagId', 'Name'].forEach(function (x) { return Fields[x] = x; });
             })(TagRow = Movie.TagRow || (Movie.TagRow = {}));
-        })(Movie = Movie_38.Movie || (Movie_38.Movie = {}));
+        })(Movie = Movie_39.Movie || (Movie_39.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_39) {
+    (function (Movie_40) {
         var Movie;
         (function (Movie) {
             var TagService;
@@ -2693,13 +2497,13 @@ var Cinema;
                     Methods[x] = TagService.baseUrl + '/' + x;
                 });
             })(TagService = Movie.TagService || (Movie.TagService = {}));
-        })(Movie = Movie_39.Movie || (Movie_39.Movie = {}));
+        })(Movie = Movie_40.Movie || (Movie_40.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_40) {
+    (function (Movie_41) {
         var Movie;
         (function (Movie) {
             var VideoForm = (function (_super) {
@@ -2712,13 +2516,13 @@ var Cinema;
             }(Serenity.PrefixedContext));
             Movie.VideoForm = VideoForm;
             [['Path', function () { return Serenity.StringEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['Translation', function () { return Serenity.IntegerEditor; }], ['Season', function () { return Serenity.IntegerEditor; }], ['Serie', function () { return Serenity.IntegerEditor; }], ['PlannePublishDate', function () { return Serenity.DateEditor; }], ['ActualPublishDateTime', function () { return Serenity.DateEditor; }], ['MovieId', function () { return Serenity.IntegerEditor; }], ['ServiceId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(VideoForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Movie = Movie_40.Movie || (Movie_40.Movie = {}));
+        })(Movie = Movie_41.Movie || (Movie_41.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_41) {
+    (function (Movie_42) {
         var Movie;
         (function (Movie) {
             var VideoRow;
@@ -2731,13 +2535,13 @@ var Cinema;
                 })(Fields = VideoRow.Fields || (VideoRow.Fields = {}));
                 ['VudeoId', 'Path', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(function (x) { return Fields[x] = x; });
             })(VideoRow = Movie.VideoRow || (Movie.VideoRow = {}));
-        })(Movie = Movie_41.Movie || (Movie_41.Movie = {}));
+        })(Movie = Movie_42.Movie || (Movie_42.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
 (function (Cinema) {
     var Movie;
-    (function (Movie_42) {
+    (function (Movie_43) {
         var Movie;
         (function (Movie) {
             var VideoService;
@@ -2751,850 +2555,7 @@ var Cinema;
                     Methods[x] = VideoService.baseUrl + '/' + x;
                 });
             })(VideoService = Movie.VideoService || (Movie.VideoService = {}));
-        })(Movie = Movie_42.Movie || (Movie_42.Movie = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CategoryForm = (function (_super) {
-                __extends(CategoryForm, _super);
-                function CategoryForm() {
-                    _super.apply(this, arguments);
-                }
-                CategoryForm.formKey = 'Northwind.Category';
-                return CategoryForm;
-            }(Serenity.PrefixedContext));
-            Northwind.CategoryForm = CategoryForm;
-            [['CategoryName', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(CategoryForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CategoryLangRow;
-            (function (CategoryLangRow) {
-                CategoryLangRow.idProperty = 'Id';
-                CategoryLangRow.nameProperty = 'CategoryName';
-                CategoryLangRow.localTextPrefix = 'Northwind.CategoryLang';
-                var Fields;
-                (function (Fields) {
-                })(Fields = CategoryLangRow.Fields || (CategoryLangRow.Fields = {}));
-                ['Id', 'CategoryId', 'LanguageId', 'CategoryName', 'Description'].forEach(function (x) { return Fields[x] = x; });
-            })(CategoryLangRow = Northwind.CategoryLangRow || (Northwind.CategoryLangRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CategoryLangService;
-            (function (CategoryLangService) {
-                CategoryLangService.baseUrl = 'Northwind/CategoryLang';
-                var Methods;
-                (function (Methods) {
-                })(Methods = CategoryLangService.Methods || (CategoryLangService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    CategoryLangService[x] = function (r, s, o) { return Q.serviceRequest(CategoryLangService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = CategoryLangService.baseUrl + '/' + x;
-                });
-            })(CategoryLangService = Northwind.CategoryLangService || (Northwind.CategoryLangService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CategoryRow;
-            (function (CategoryRow) {
-                CategoryRow.idProperty = 'CategoryID';
-                CategoryRow.nameProperty = 'CategoryName';
-                CategoryRow.localTextPrefix = 'Northwind.Category';
-                CategoryRow.lookupKey = 'Northwind.Category';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Category');
-                }
-                CategoryRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = CategoryRow.Fields || (CategoryRow.Fields = {}));
-                ['CategoryID', 'CategoryName', 'Description', 'Picture'].forEach(function (x) { return Fields[x] = x; });
-            })(CategoryRow = Northwind.CategoryRow || (Northwind.CategoryRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CategoryService;
-            (function (CategoryService) {
-                CategoryService.baseUrl = 'Northwind/Category';
-                var Methods;
-                (function (Methods) {
-                })(Methods = CategoryService.Methods || (CategoryService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'RetrieveLocalization', 'Retrieve', 'List'].forEach(function (x) {
-                    CategoryService[x] = function (r, s, o) { return Q.serviceRequest(CategoryService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = CategoryService.baseUrl + '/' + x;
-                });
-            })(CategoryService = Northwind.CategoryService || (Northwind.CategoryService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CustomerCustomerDemoRow;
-            (function (CustomerCustomerDemoRow) {
-                CustomerCustomerDemoRow.idProperty = 'ID';
-                CustomerCustomerDemoRow.nameProperty = 'CustomerID';
-                CustomerCustomerDemoRow.localTextPrefix = 'Northwind.CustomerCustomerDemo';
-                var Fields;
-                (function (Fields) {
-                })(Fields = CustomerCustomerDemoRow.Fields || (CustomerCustomerDemoRow.Fields = {}));
-                ['ID', 'CustomerID', 'CustomerTypeID', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerAddress', 'CustomerCity', 'CustomerRegion', 'CustomerPostalCode', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'CustomerTypeCustomerDesc'].forEach(function (x) { return Fields[x] = x; });
-            })(CustomerCustomerDemoRow = Northwind.CustomerCustomerDemoRow || (Northwind.CustomerCustomerDemoRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CustomerDemographicRow;
-            (function (CustomerDemographicRow) {
-                CustomerDemographicRow.idProperty = 'ID';
-                CustomerDemographicRow.nameProperty = 'CustomerTypeID';
-                CustomerDemographicRow.localTextPrefix = 'Northwind.CustomerDemographic';
-                var Fields;
-                (function (Fields) {
-                })(Fields = CustomerDemographicRow.Fields || (CustomerDemographicRow.Fields = {}));
-                ['ID', 'CustomerTypeID', 'CustomerDesc'].forEach(function (x) { return Fields[x] = x; });
-            })(CustomerDemographicRow = Northwind.CustomerDemographicRow || (Northwind.CustomerDemographicRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CustomerForm = (function (_super) {
-                __extends(CustomerForm, _super);
-                function CustomerForm() {
-                    _super.apply(this, arguments);
-                }
-                CustomerForm.formKey = 'Northwind.Customer';
-                return CustomerForm;
-            }(Serenity.PrefixedContext));
-            Northwind.CustomerForm = CustomerForm;
-            [['CustomerID', function () { return Serenity.StringEditor; }], ['CompanyName', function () { return Serenity.StringEditor; }], ['ContactName', function () { return Serenity.StringEditor; }], ['ContactTitle', function () { return Serenity.StringEditor; }], ['Representatives', function () { return Serenity.LookupEditor; }], ['Address', function () { return Serenity.StringEditor; }], ['City', function () { return Serenity.StringEditor; }], ['Region', function () { return Serenity.StringEditor; }], ['PostalCode', function () { return Serenity.StringEditor; }], ['Country', function () { return Serenity.StringEditor; }], ['Phone', function () { return Serenity.StringEditor; }], ['Fax', function () { return Serenity.StringEditor; }], ['NoteList', function () { return NotesEditor; }]].forEach(function (x) { return Object.defineProperty(CustomerForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CustomerRepresentativesRow;
-            (function (CustomerRepresentativesRow) {
-                CustomerRepresentativesRow.idProperty = 'RepresentativeId';
-                CustomerRepresentativesRow.localTextPrefix = 'CustomerRepresentatives';
-                var Fields;
-                (function (Fields) {
-                })(Fields = CustomerRepresentativesRow.Fields || (CustomerRepresentativesRow.Fields = {}));
-                ['RepresentativeId', 'CustomerId', 'EmployeeId'].forEach(function (x) { return Fields[x] = x; });
-            })(CustomerRepresentativesRow = Northwind.CustomerRepresentativesRow || (Northwind.CustomerRepresentativesRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CustomerRow;
-            (function (CustomerRow) {
-                CustomerRow.idProperty = 'ID';
-                CustomerRow.nameProperty = 'CompanyName';
-                CustomerRow.localTextPrefix = 'Northwind.Customer';
-                CustomerRow.lookupKey = 'Northwind.Customer';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Customer');
-                }
-                CustomerRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = CustomerRow.Fields || (CustomerRow.Fields = {}));
-                ['ID', 'CustomerID', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax', 'NoteList', 'Representatives'].forEach(function (x) { return Fields[x] = x; });
-            })(CustomerRow = Northwind.CustomerRow || (Northwind.CustomerRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var CustomerService;
-            (function (CustomerService) {
-                CustomerService.baseUrl = 'Northwind/Customer';
-                var Methods;
-                (function (Methods) {
-                })(Methods = CustomerService.Methods || (CustomerService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'GetNextNumber', 'Retrieve', 'List'].forEach(function (x) {
-                    CustomerService[x] = function (r, s, o) { return Q.serviceRequest(CustomerService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = CustomerService.baseUrl + '/' + x;
-                });
-            })(CustomerService = Northwind.CustomerService || (Northwind.CustomerService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var EmployeeRow;
-            (function (EmployeeRow) {
-                EmployeeRow.idProperty = 'EmployeeID';
-                EmployeeRow.nameProperty = 'FullName';
-                EmployeeRow.localTextPrefix = 'Northwind.Employee';
-                EmployeeRow.lookupKey = 'Northwind.Employee';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Employee');
-                }
-                EmployeeRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = EmployeeRow.Fields || (EmployeeRow.Fields = {}));
-                ['EmployeeID', 'LastName', 'FirstName', 'FullName', 'Title', 'TitleOfCourtesy', 'BirthDate', 'HireDate', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'HomePhone', 'Extension', 'Photo', 'Notes', 'ReportsTo', 'PhotoPath', 'ReportsToFullName', 'ReportsToLastName', 'ReportsToFirstName', 'ReportsToTitle', 'ReportsToTitleOfCourtesy', 'ReportsToBirthDate', 'ReportsToHireDate', 'ReportsToAddress', 'ReportsToCity', 'ReportsToRegion', 'ReportsToPostalCode', 'ReportsToCountry', 'ReportsToHomePhone', 'ReportsToExtension', 'ReportsToPhoto', 'ReportsToNotes', 'ReportsToReportsTo', 'ReportsToPhotoPath', 'Gender'].forEach(function (x) { return Fields[x] = x; });
-            })(EmployeeRow = Northwind.EmployeeRow || (Northwind.EmployeeRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var EmployeeTerritoryRow;
-            (function (EmployeeTerritoryRow) {
-                EmployeeTerritoryRow.idProperty = 'EmployeeID';
-                EmployeeTerritoryRow.nameProperty = 'TerritoryID';
-                EmployeeTerritoryRow.localTextPrefix = 'Northwind.EmployeeTerritory';
-                var Fields;
-                (function (Fields) {
-                })(Fields = EmployeeTerritoryRow.Fields || (EmployeeTerritoryRow.Fields = {}));
-                ['EmployeeID', 'TerritoryID', 'EmployeeLastName', 'EmployeeFirstName', 'EmployeeTitle', 'EmployeeTitleOfCourtesy', 'EmployeeBirthDate', 'EmployeeHireDate', 'EmployeeAddress', 'EmployeeCity', 'EmployeeRegion', 'EmployeePostalCode', 'EmployeeCountry', 'EmployeeHomePhone', 'EmployeeExtension', 'EmployeePhoto', 'EmployeeNotes', 'EmployeeReportsTo', 'EmployeePhotoPath', 'TerritoryTerritoryDescription', 'TerritoryRegionID'].forEach(function (x) { return Fields[x] = x; });
-            })(EmployeeTerritoryRow = Northwind.EmployeeTerritoryRow || (Northwind.EmployeeTerritoryRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            (function (Gender) {
-                Gender[Gender["Male"] = 1] = "Male";
-                Gender[Gender["Female"] = 2] = "Female";
-            })(Northwind.Gender || (Northwind.Gender = {}));
-            var Gender = Northwind.Gender;
-            Serenity.Decorators.registerEnum(Gender, 'Cinema.Movie.Northwind.Entities.Gender');
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var NoteRow;
-            (function (NoteRow) {
-                NoteRow.idProperty = 'NoteId';
-                NoteRow.nameProperty = 'EntityType';
-                NoteRow.localTextPrefix = 'Northwind.Note';
-                var Fields;
-                (function (Fields) {
-                })(Fields = NoteRow.Fields || (NoteRow.Fields = {}));
-                ['NoteId', 'EntityType', 'EntityId', 'Text', 'InsertUserId', 'InsertDate', 'InsertUserDisplayName'].forEach(function (x) { return Fields[x] = x; });
-            })(NoteRow = Northwind.NoteRow || (Northwind.NoteRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var OrderDetailForm = (function (_super) {
-                __extends(OrderDetailForm, _super);
-                function OrderDetailForm() {
-                    _super.apply(this, arguments);
-                }
-                OrderDetailForm.formKey = 'Northwind.OrderDetail';
-                return OrderDetailForm;
-            }(Serenity.PrefixedContext));
-            Northwind.OrderDetailForm = OrderDetailForm;
-            [['ProductID', function () { return Serenity.LookupEditor; }], ['UnitPrice', function () { return Serenity.DecimalEditor; }], ['Quantity', function () { return Serenity.IntegerEditor; }], ['Discount', function () { return Serenity.DecimalEditor; }]].forEach(function (x) { return Object.defineProperty(OrderDetailForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var OrderDetailRow;
-            (function (OrderDetailRow) {
-                OrderDetailRow.idProperty = 'DetailID';
-                OrderDetailRow.localTextPrefix = 'Northwind.OrderDetail';
-                var Fields;
-                (function (Fields) {
-                })(Fields = OrderDetailRow.Fields || (OrderDetailRow.Fields = {}));
-                ['DetailID', 'OrderID', 'ProductID', 'UnitPrice', 'Quantity', 'Discount', 'OrderCustomerID', 'OrderEmployeeID', 'OrderDate', 'OrderShippedDate', 'OrderShipVia', 'OrderShipCity', 'OrderShipCountry', 'ProductName', 'ProductDiscontinued', 'ProductSupplierID', 'ProductQuantityPerUnit', 'ProductUnitPrice', 'LineTotal'].forEach(function (x) { return Fields[x] = x; });
-            })(OrderDetailRow = Northwind.OrderDetailRow || (Northwind.OrderDetailRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var OrderDetailService;
-            (function (OrderDetailService) {
-                OrderDetailService.baseUrl = 'Northwind/OrderDetail';
-                var Methods;
-                (function (Methods) {
-                })(Methods = OrderDetailService.Methods || (OrderDetailService.Methods = {}));
-                ['Retrieve', 'List'].forEach(function (x) {
-                    OrderDetailService[x] = function (r, s, o) { return Q.serviceRequest(OrderDetailService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = OrderDetailService.baseUrl + '/' + x;
-                });
-            })(OrderDetailService = Northwind.OrderDetailService || (Northwind.OrderDetailService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var OrderForm = (function (_super) {
-                __extends(OrderForm, _super);
-                function OrderForm() {
-                    _super.apply(this, arguments);
-                }
-                OrderForm.formKey = 'Northwind.Order';
-                return OrderForm;
-            }(Serenity.PrefixedContext));
-            Northwind.OrderForm = OrderForm;
-            [['CustomerID', function () { return CustomerEditor; }], ['OrderDate', function () { return Serenity.DateEditor; }], ['RequiredDate', function () { return Serenity.DateEditor; }], ['EmployeeID', function () { return Serenity.LookupEditor; }], ['DetailList', function () { return OrderDetailsEditor; }], ['ShippedDate', function () { return Serenity.DateEditor; }], ['ShipVia', function () { return Serenity.LookupEditor; }], ['Freight', function () { return Serenity.DecimalEditor; }], ['ShipName', function () { return Serenity.StringEditor; }], ['ShipAddress', function () { return Serenity.StringEditor; }], ['ShipCity', function () { return Serenity.StringEditor; }], ['ShipRegion', function () { return Serenity.StringEditor; }], ['ShipPostalCode', function () { return Serenity.StringEditor; }], ['ShipCountry', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(OrderForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var OrderRow;
-            (function (OrderRow) {
-                OrderRow.idProperty = 'OrderID';
-                OrderRow.nameProperty = 'CustomerID';
-                OrderRow.localTextPrefix = 'Northwind.Order';
-                OrderRow.lookupKey = 'Northwind.OrderShipCity';
-                function getLookup() {
-                    return Q.getLookup('Northwind.OrderShipCity');
-                }
-                OrderRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = OrderRow.Fields || (OrderRow.Fields = {}));
-                ['OrderID', 'CustomerID', 'EmployeeID', 'OrderDate', 'RequiredDate', 'ShippedDate', 'ShipVia', 'Freight', 'ShipName', 'ShipAddress', 'ShipCity', 'ShipRegion', 'ShipPostalCode', 'ShipCountry', 'CustomerCompanyName', 'CustomerContactName', 'CustomerContactTitle', 'CustomerCity', 'CustomerRegion', 'CustomerCountry', 'CustomerPhone', 'CustomerFax', 'EmployeeFullName', 'EmployeeGender', 'ShipViaCompanyName', 'ShipViaPhone', 'ShippingState', 'DetailList'].forEach(function (x) { return Fields[x] = x; });
-            })(OrderRow = Northwind.OrderRow || (Northwind.OrderRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var OrderService;
-            (function (OrderService) {
-                OrderService.baseUrl = 'Northwind/Order';
-                var Methods;
-                (function (Methods) {
-                })(Methods = OrderService.Methods || (OrderService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    OrderService[x] = function (r, s, o) { return Q.serviceRequest(OrderService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = OrderService.baseUrl + '/' + x;
-                });
-            })(OrderService = Northwind.OrderService || (Northwind.OrderService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            (function (OrderShippingState) {
-                OrderShippingState[OrderShippingState["NotShipped"] = 0] = "NotShipped";
-                OrderShippingState[OrderShippingState["Shipped"] = 1] = "Shipped";
-            })(Northwind.OrderShippingState || (Northwind.OrderShippingState = {}));
-            var OrderShippingState = Northwind.OrderShippingState;
-            Serenity.Decorators.registerEnum(OrderShippingState, 'Northwind.OrderShippingState');
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ProductForm = (function (_super) {
-                __extends(ProductForm, _super);
-                function ProductForm() {
-                    _super.apply(this, arguments);
-                }
-                ProductForm.formKey = 'Northwind.Product';
-                return ProductForm;
-            }(Serenity.PrefixedContext));
-            Northwind.ProductForm = ProductForm;
-            [['ProductName', function () { return Serenity.StringEditor; }], ['ProductImage', function () { return Serenity.ImageUploadEditor; }], ['Discontinued', function () { return Serenity.BooleanEditor; }], ['SupplierID', function () { return Serenity.LookupEditor; }], ['CategoryID', function () { return Serenity.LookupEditor; }], ['QuantityPerUnit', function () { return Serenity.StringEditor; }], ['UnitPrice', function () { return Serenity.DecimalEditor; }], ['UnitsInStock', function () { return Serenity.IntegerEditor; }], ['UnitsOnOrder', function () { return Serenity.IntegerEditor; }], ['ReorderLevel', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(ProductForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ProductLangRow;
-            (function (ProductLangRow) {
-                ProductLangRow.idProperty = 'Id';
-                ProductLangRow.nameProperty = 'ProductName';
-                ProductLangRow.localTextPrefix = 'Northwind.ProductLang';
-                var Fields;
-                (function (Fields) {
-                })(Fields = ProductLangRow.Fields || (ProductLangRow.Fields = {}));
-                ['Id', 'ProductId', 'LanguageId', 'ProductName'].forEach(function (x) { return Fields[x] = x; });
-            })(ProductLangRow = Northwind.ProductLangRow || (Northwind.ProductLangRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ProductLangService;
-            (function (ProductLangService) {
-                ProductLangService.baseUrl = 'Northwind/ProductLang';
-                var Methods;
-                (function (Methods) {
-                })(Methods = ProductLangService.Methods || (ProductLangService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    ProductLangService[x] = function (r, s, o) { return Q.serviceRequest(ProductLangService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = ProductLangService.baseUrl + '/' + x;
-                });
-            })(ProductLangService = Northwind.ProductLangService || (Northwind.ProductLangService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ProductLogRow;
-            (function (ProductLogRow) {
-                ProductLogRow.idProperty = 'ProductLogID';
-                ProductLogRow.localTextPrefix = 'Northwind.ProductLog';
-                var Fields;
-                (function (Fields) {
-                })(Fields = ProductLogRow.Fields || (ProductLogRow.Fields = {}));
-                ['ProductLogID', 'OperationType', 'ChangingUserId', 'ValidFrom', 'ValidUntil', 'ProductID', 'ProductName', 'ProductImage', 'Discontinued', 'SupplierID', 'CategoryID', 'QuantityPerUnit', 'UnitPrice', 'UnitsInStock', 'UnitsOnOrder', 'ReorderLevel'].forEach(function (x) { return Fields[x] = x; });
-            })(ProductLogRow = Northwind.ProductLogRow || (Northwind.ProductLogRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ProductRow;
-            (function (ProductRow) {
-                ProductRow.idProperty = 'ProductID';
-                ProductRow.nameProperty = 'ProductName';
-                ProductRow.localTextPrefix = 'Northwind.Product';
-                ProductRow.lookupKey = 'Northwind.Product';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Product');
-                }
-                ProductRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = ProductRow.Fields || (ProductRow.Fields = {}));
-                ['ProductID', 'ProductName', 'ProductImage', 'Discontinued', 'SupplierID', 'CategoryID', 'QuantityPerUnit', 'UnitPrice', 'UnitsInStock', 'UnitsOnOrder', 'ReorderLevel', 'SupplierCompanyName', 'SupplierContactName', 'SupplierContactTitle', 'SupplierAddress', 'SupplierCity', 'SupplierRegion', 'SupplierPostalCode', 'SupplierCountry', 'SupplierPhone', 'SupplierFax', 'SupplierHomePage', 'CategoryName', 'CategoryDescription', 'CategoryPicture'].forEach(function (x) { return Fields[x] = x; });
-            })(ProductRow = Northwind.ProductRow || (Northwind.ProductRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ProductService;
-            (function (ProductService) {
-                ProductService.baseUrl = 'Northwind/Product';
-                var Methods;
-                (function (Methods) {
-                })(Methods = ProductService.Methods || (ProductService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'RetrieveLocalization', 'List'].forEach(function (x) {
-                    ProductService[x] = function (r, s, o) { return Q.serviceRequest(ProductService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = ProductService.baseUrl + '/' + x;
-                });
-            })(ProductService = Northwind.ProductService || (Northwind.ProductService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var RegionForm = (function (_super) {
-                __extends(RegionForm, _super);
-                function RegionForm() {
-                    _super.apply(this, arguments);
-                }
-                RegionForm.formKey = 'Northwind.Region';
-                return RegionForm;
-            }(Serenity.PrefixedContext));
-            Northwind.RegionForm = RegionForm;
-            [['RegionID', function () { return Serenity.IntegerEditor; }], ['RegionDescription', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(RegionForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var RegionRow;
-            (function (RegionRow) {
-                RegionRow.idProperty = 'RegionID';
-                RegionRow.nameProperty = 'RegionDescription';
-                RegionRow.localTextPrefix = 'Northwind.Region';
-                RegionRow.lookupKey = 'Northwind.Region';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Region');
-                }
-                RegionRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = RegionRow.Fields || (RegionRow.Fields = {}));
-                ['RegionID', 'RegionDescription'].forEach(function (x) { return Fields[x] = x; });
-            })(RegionRow = Northwind.RegionRow || (Northwind.RegionRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var RegionService;
-            (function (RegionService) {
-                RegionService.baseUrl = 'Northwind/Region';
-                var Methods;
-                (function (Methods) {
-                })(Methods = RegionService.Methods || (RegionService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    RegionService[x] = function (r, s, o) { return Q.serviceRequest(RegionService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = RegionService.baseUrl + '/' + x;
-                });
-            })(RegionService = Northwind.RegionService || (Northwind.RegionService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var SalesByCategoryRow;
-            (function (SalesByCategoryRow) {
-                SalesByCategoryRow.nameProperty = 'CategoryName';
-                SalesByCategoryRow.localTextPrefix = 'Northwind.SalesByCategory';
-                var Fields;
-                (function (Fields) {
-                })(Fields = SalesByCategoryRow.Fields || (SalesByCategoryRow.Fields = {}));
-                ['CategoryId', 'CategoryName', 'ProductName', 'ProductSales'].forEach(function (x) { return Fields[x] = x; });
-            })(SalesByCategoryRow = Northwind.SalesByCategoryRow || (Northwind.SalesByCategoryRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var SalesByCategoryService;
-            (function (SalesByCategoryService) {
-                SalesByCategoryService.baseUrl = 'Northwind/SalesByCategory';
-                var Methods;
-                (function (Methods) {
-                })(Methods = SalesByCategoryService.Methods || (SalesByCategoryService.Methods = {}));
-                ['List'].forEach(function (x) {
-                    SalesByCategoryService[x] = function (r, s, o) { return Q.serviceRequest(SalesByCategoryService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = SalesByCategoryService.baseUrl + '/' + x;
-                });
-            })(SalesByCategoryService = Northwind.SalesByCategoryService || (Northwind.SalesByCategoryService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ShipperForm = (function (_super) {
-                __extends(ShipperForm, _super);
-                function ShipperForm() {
-                    _super.apply(this, arguments);
-                }
-                ShipperForm.formKey = 'Northwind.Shipper';
-                return ShipperForm;
-            }(Serenity.PrefixedContext));
-            Northwind.ShipperForm = ShipperForm;
-            [['CompanyName', function () { return Serenity.StringEditor; }], ['Phone', function () { return PhoneEditor; }]].forEach(function (x) { return Object.defineProperty(ShipperForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ShipperRow;
-            (function (ShipperRow) {
-                ShipperRow.idProperty = 'ShipperID';
-                ShipperRow.nameProperty = 'CompanyName';
-                ShipperRow.localTextPrefix = 'Northwind.Shipper';
-                ShipperRow.lookupKey = 'Northwind.Shipper';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Shipper');
-                }
-                ShipperRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = ShipperRow.Fields || (ShipperRow.Fields = {}));
-                ['ShipperID', 'CompanyName', 'Phone'].forEach(function (x) { return Fields[x] = x; });
-            })(ShipperRow = Northwind.ShipperRow || (Northwind.ShipperRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var ShipperService;
-            (function (ShipperService) {
-                ShipperService.baseUrl = 'Northwind/Shipper';
-                var Methods;
-                (function (Methods) {
-                })(Methods = ShipperService.Methods || (ShipperService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    ShipperService[x] = function (r, s, o) { return Q.serviceRequest(ShipperService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = ShipperService.baseUrl + '/' + x;
-                });
-            })(ShipperService = Northwind.ShipperService || (Northwind.ShipperService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var SupplierForm = (function (_super) {
-                __extends(SupplierForm, _super);
-                function SupplierForm() {
-                    _super.apply(this, arguments);
-                }
-                SupplierForm.formKey = 'Northwind.Supplier';
-                return SupplierForm;
-            }(Serenity.PrefixedContext));
-            Northwind.SupplierForm = SupplierForm;
-            [['CompanyName', function () { return Serenity.StringEditor; }], ['ContactName', function () { return Serenity.StringEditor; }], ['ContactTitle', function () { return Serenity.StringEditor; }], ['Address', function () { return Serenity.StringEditor; }], ['Region', function () { return Serenity.StringEditor; }], ['PostalCode', function () { return Serenity.StringEditor; }], ['Country', function () { return Serenity.StringEditor; }], ['City', function () { return Serenity.StringEditor; }], ['Phone', function () { return Serenity.StringEditor; }], ['Fax', function () { return Serenity.StringEditor; }], ['HomePage', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(SupplierForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var SupplierRow;
-            (function (SupplierRow) {
-                SupplierRow.idProperty = 'SupplierID';
-                SupplierRow.nameProperty = 'CompanyName';
-                SupplierRow.localTextPrefix = 'Northwind.Supplier';
-                SupplierRow.lookupKey = 'Northwind.Supplier';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Supplier');
-                }
-                SupplierRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = SupplierRow.Fields || (SupplierRow.Fields = {}));
-                ['SupplierID', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax', 'HomePage'].forEach(function (x) { return Fields[x] = x; });
-            })(SupplierRow = Northwind.SupplierRow || (Northwind.SupplierRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var SupplierService;
-            (function (SupplierService) {
-                SupplierService.baseUrl = 'Northwind/Supplier';
-                var Methods;
-                (function (Methods) {
-                })(Methods = SupplierService.Methods || (SupplierService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    SupplierService[x] = function (r, s, o) { return Q.serviceRequest(SupplierService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = SupplierService.baseUrl + '/' + x;
-                });
-            })(SupplierService = Northwind.SupplierService || (Northwind.SupplierService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var TerritoryForm = (function (_super) {
-                __extends(TerritoryForm, _super);
-                function TerritoryForm() {
-                    _super.apply(this, arguments);
-                }
-                TerritoryForm.formKey = 'Northwind.Territory';
-                return TerritoryForm;
-            }(Serenity.PrefixedContext));
-            Northwind.TerritoryForm = TerritoryForm;
-            [['TerritoryID', function () { return Serenity.StringEditor; }], ['TerritoryDescription', function () { return Serenity.StringEditor; }], ['RegionID', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(TerritoryForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var TerritoryRow;
-            (function (TerritoryRow) {
-                TerritoryRow.idProperty = 'ID';
-                TerritoryRow.nameProperty = 'TerritoryID';
-                TerritoryRow.localTextPrefix = 'Northwind.Territory';
-                TerritoryRow.lookupKey = 'Northwind.Territory';
-                function getLookup() {
-                    return Q.getLookup('Northwind.Territory');
-                }
-                TerritoryRow.getLookup = getLookup;
-                var Fields;
-                (function (Fields) {
-                })(Fields = TerritoryRow.Fields || (TerritoryRow.Fields = {}));
-                ['ID', 'TerritoryID', 'TerritoryDescription', 'RegionID', 'RegionDescription'].forEach(function (x) { return Fields[x] = x; });
-            })(TerritoryRow = Northwind.TerritoryRow || (Northwind.TerritoryRow = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
-    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
-})(Cinema || (Cinema = {}));
-var Cinema;
-(function (Cinema) {
-    var Movie;
-    (function (Movie) {
-        var Northwind;
-        (function (Northwind) {
-            var TerritoryService;
-            (function (TerritoryService) {
-                TerritoryService.baseUrl = 'Northwind/Territory';
-                var Methods;
-                (function (Methods) {
-                })(Methods = TerritoryService.Methods || (TerritoryService.Methods = {}));
-                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
-                    TerritoryService[x] = function (r, s, o) { return Q.serviceRequest(TerritoryService.baseUrl + '/' + x, r, s, o); };
-                    Methods[x] = TerritoryService.baseUrl + '/' + x;
-                });
-            })(TerritoryService = Northwind.TerritoryService || (Northwind.TerritoryService = {}));
-        })(Northwind = Movie.Northwind || (Movie.Northwind = {}));
+        })(Movie = Movie_43.Movie || (Movie_43.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;

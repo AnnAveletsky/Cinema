@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Configuration {
+﻿namespace Cinema.Movie.Configuration {
     export interface SettingsRow {
         SettingId?: number;
         Setting?: string;
@@ -13,10 +12,10 @@ namespace Cinema.Movie.Configuration {
         export const localTextPrefix = 'Configuration.Settings';
 
         export namespace Fields {
-            export declare const SettingId;
-            export declare const Setting;
-            export declare const Value;
-            export declare const Type;
+            export declare const SettingId: string;
+            export declare const Setting: string;
+            export declare const Value: string;
+            export declare const Type: string;
         }
 
         ['SettingId', 'Setting', 'Value', 'Type'].forEach(x => (<any>Fields)[x] = x);

@@ -15,7 +15,7 @@
                 {
                     @(Model.TitleEn + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
                 }
-                  
+
             </h3>
             <span class="pull-right">
                 @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
@@ -46,18 +46,34 @@
         <a href="#" class="thumbnail col-xs-4">
             <img class="img-responsive" src="@Model.PathImage" />
         </a>
-        <a>@LocalText.Get("Db.Movie.Movie.ContSuffrage")</a>
 
-        <a>@Model.ContSuffrage</a>
-        <a>@Model.Kind</a>
         <div class="col-xs-8">
-            <p>@Model.Description</p>
-            <p>@Model.Storyline</p>
+            @if (Model.Tagline != null)
+            {
+                <div class="col-xs-12 no-padding text-center">
+                    <span class="fa fa-quote-left"></span>
+                    <i class="tagline ">
+                        @Model.Tagline
+                    </i>
+                    <span class="fa fa-quote-right"></span>
+                </div>
+            }
+            @if (Model.Budget != null)
+            {
+                <div class="col-xs-12 no-padding">
+                    <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Budget $</i></p>
+                </div>
+            }
+            <div class="col-xs-12 no-padding text-justify">
+                <p>
+                    @Model.Description
+                </p>
+            </div>
         </div>
         @if ((string)ViewData["PageId"] == "Dashboard/Movie")
         {
             <a>@Model.Mpaa</a>
-            if (Model.Kind == 1)
+            if (Model.Kind == Cinema.Movie.Movie.MovieKind.TvSeries)
             {
                 <a>@Model.ContSeason</a>
             }

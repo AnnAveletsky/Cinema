@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface TagRow {
         TagId?: number;
         Name?: string;
@@ -11,8 +10,8 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.Tag';
 
         export namespace Fields {
-            export declare const TagId;
-            export declare const Name;
+            export declare const TagId: string;
+            export declare const Name: string;
         }
 
         ['TagId', 'Name'].forEach(x => (<any>Fields)[x] = x);

@@ -34,6 +34,12 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Setting = "Theme",
                     Value = "red",
                     Type = "string"
+                })
+                .Row(new
+                {
+                    Setting = "MaxRaiting",
+                    Value = "10",
+                    Type = "Int32"
                 });
         }
         public override void Down()

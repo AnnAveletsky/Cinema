@@ -50,6 +50,8 @@ namespace Cinema.Movie.Movie.Repositories
                     fld.YearStart,
                     fld.YearEnd,
                     fld.Rating,
+                    fld.Tagline,
+                    fld.Budget,
                     fld.PathImage,
                     fld.Nice)
                 .Where(request.Criteria)

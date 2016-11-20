@@ -6998,7 +6998,8 @@ section.content > .s-DataGrid {
 .skin-modern .uppercase {
   font-family: Roboto, sans-serif;
 }
-.skin-modern .main-header .logo {
+.skin-modern .main-header .logo,
+.skin-modern .tagline {
   font-family: 'Buccaneer Cyr Regular', sans-serif;
 }
 .skin-modern .main-header .navbar {
@@ -7628,7 +7629,8 @@ section.content > .s-DataGrid {
 .skin-sunset .uppercase {
   font-family: 'Roboto', 'sans-serif';
 }
-.skin-sunset .main-header .logo {
+.skin-sunset .main-header .logo,
+.skin-sunset .tagline {
   font-family: 'Buccaneer Cyr Regular', sans-serif;
 }
 .skin-sunset .main-header .navbar {
@@ -8258,7 +8260,8 @@ section.content > .s-DataGrid {
 .skin-tenderness .uppercase {
   font-family: 'Roboto', 'sans-serif';
 }
-.skin-tenderness .main-header .logo {
+.skin-tenderness .main-header .logo,
+.skin-tenderness .tagline {
   font-family: 'Buccaneer Cyr Regular', sans-serif;
 }
 .skin-tenderness .main-header .navbar {
@@ -8888,7 +8891,8 @@ section.content > .s-DataGrid {
 .skin-grapefruit .uppercase {
   font-family: 'Roboto', 'sans-serif';
 }
-.skin-grapefruit .main-header .logo {
+.skin-grapefruit .main-header .logo,
+.skin-grapefruit .tagline {
   font-family: 'Buccaneer Cyr Regular', sans-serif;
 }
 .skin-grapefruit .main-header .navbar {
@@ -9518,7 +9522,8 @@ section.content > .s-DataGrid {
 .skin-nature .uppercase {
   font-family: 'Roboto', 'sans-serif';
 }
-.skin-nature .main-header .logo {
+.skin-nature .main-header .logo,
+.skin-nature .tagline {
   font-family: 'Buccaneer Cyr Regular', sans-serif;
 }
 .skin-nature .main-header .navbar {

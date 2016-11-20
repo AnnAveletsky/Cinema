@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface ServiceRow {
         ServiceId?: number;
         Name?: string;
@@ -13,10 +12,10 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.Service';
 
         export namespace Fields {
-            export declare const ServiceId;
-            export declare const Name;
-            export declare const Api;
-            export declare const MaxRating;
+            export declare const ServiceId: string;
+            export declare const Name: string;
+            export declare const Api: string;
+            export declare const MaxRating: string;
         }
 
         ['ServiceId', 'Name', 'Api', 'MaxRating'].forEach(x => (<any>Fields)[x] = x);

@@ -1,14 +1,12 @@
-﻿
-
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export namespace VideoService {
         export const baseUrl = 'Movie/Video';
 
-        export declare function Create(request: Serenity.SaveRequest<VideoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        export declare function Update(request: Serenity.SaveRequest<VideoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        export declare function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<VideoRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        export declare function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VideoRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        export declare function Create(request: Serenity.SaveRequest<VideoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function Update(request: Serenity.SaveRequest<VideoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<VideoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VideoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
         export namespace Methods {
             export declare const Create: string;
@@ -24,3 +22,4 @@ namespace Cinema.Movie.Movie {
         });
     }
 }
+

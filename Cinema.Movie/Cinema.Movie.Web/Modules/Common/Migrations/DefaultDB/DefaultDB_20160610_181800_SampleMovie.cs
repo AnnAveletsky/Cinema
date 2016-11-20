@@ -13,7 +13,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 {
                     TitleEn = "Harry Potter and the Sorcerer's Stone",
                     Description = "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.",
-                    Storyline = "",
                     YearStart = 2001,
                     YearEnd = 2001,
                     ReleaseWorldDate = new DateTime(2001,11,1),
@@ -33,7 +32,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
              {
                  TitleEn = "Harry Potter and the Chamber of Secrets",
                  Description = "Harry ignores warnings not to return to Hogwarts, only to find the school plagued by a series of mysterious attacks and a strange voice haunting him.",
-                 Storyline = "",
                  YearStart = 2002,
                  YearEnd = 2002,
                  ReleaseWorldDate = new DateTime(2002, 11, 24),

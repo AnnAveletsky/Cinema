@@ -1,3 +1,0 @@
-﻿namespace Cinema.Movie.BasicSamples {
-}
-

@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Configuration {
+﻿namespace Cinema.Movie.Configuration {
     export interface BackgroundRow {
         BackgroundId?: number;
         Color?: string;
@@ -13,10 +12,10 @@ namespace Cinema.Movie.Configuration {
         export const localTextPrefix = 'Configuration.Background';
 
         export namespace Fields {
-            export declare const BackgroundId;
-            export declare const Color;
-            export declare const Path;
-            export declare const Size;
+            export declare const BackgroundId: string;
+            export declare const Color: string;
+            export declare const Path: string;
+            export declare const Size: string;
         }
 
         ['BackgroundId', 'Color', 'Path', 'Size'].forEach(x => (<any>Fields)[x] = x);

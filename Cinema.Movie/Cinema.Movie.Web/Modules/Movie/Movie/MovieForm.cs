@@ -8,6 +8,7 @@ namespace Cinema.Movie.Movie.Forms
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.IO;
+    using Cinema.Movie.Migrations.DefaultDB;
 
     [FormScript("Movie.Movie")]
     [BasedOnRow(typeof(Entities.MovieRow))]
@@ -16,7 +17,6 @@ namespace Cinema.Movie.Movie.Forms
         public String TitleEn { get; set; }
         public String TitleOther { get; set; }
         public String Description { get; set; }
-        public String Storyline { get; set; }
         public Int16 YearStart { get; set; }
         public Int16 YearEnd { get; set; }
         public DateTime ReleaseWorldDate { get; set; }
@@ -26,15 +26,16 @@ namespace Cinema.Movie.Movie.Forms
         public DateTime CreateDateTime { get; set; }
         public DateTime UpdateDateTime { get; set; }
         public DateTime PublishDateTime { get; set; }
-        public Int16 Kind { get; set; }
+        public MovieKind Kind { get; set; }
         public Int16 Rating { get; set; }
         public String Mpaa { get; set; }
-        public Int16 ContSuffrage { get; set; }
         public String PathImage { get; set; }
         public String PathMiniImage { get; set; }
         public Boolean Nice { get; set; }
         public Int16 ContSeason { get; set; }
         public String LastEvent { get; set; }
         public DateTime LastEventPublishDateTime { get; set; }
+        public String Tagline { get; set; }
+        public Int32 Budget { get; set; }
     }
 }

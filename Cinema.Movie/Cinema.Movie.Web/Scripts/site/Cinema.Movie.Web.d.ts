@@ -1,164 +1,11 @@
-﻿declare namespace Cinema.Movie.Northwind {
-    class TerritoryDialog extends Serenity.EntityDialog<TerritoryRow, any> {
+﻿declare namespace Cinema.Movie.Movie {
+    class VideoDialog extends Serenity.EntityDialog<VideoRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: TerritoryForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class TerritoryGrid extends Serenity.EntityGrid<TerritoryRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class SupplierDialog extends Serenity.EntityDialog<SupplierRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: SupplierForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class SupplierGrid extends Serenity.EntityGrid<SupplierRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class ShipperDialog extends Serenity.EntityDialog<ShipperRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: ShipperForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class ShipperFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class ShipperGrid extends Serenity.EntityGrid<ShipperRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class PhoneEditor extends Serenity.StringEditor {
-        constructor(input: JQuery);
-        protected formatValue(): void;
-        protected getFormattedValue(): string;
-        multiple: boolean;
-        get_value(): string;
-        set_value(value: string): void;
-        static validate(phone: string, isMultiple: boolean): string;
-        static isValidPhone(phone: string): boolean;
-        static formatPhone(phone: any): any;
-        static formatMulti(phone: string, format: (s: string) => string): string;
-        static isValidMulti(phone: string, check: (s: string) => boolean): boolean;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class RegionDialog extends Serenity.EntityDialog<RegionRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: RegionForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class RegionGrid extends Serenity.EntityGrid<RegionRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class ProductDialog extends Serenity.EntityDialog<ProductRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: ProductForm;
-        protected getLanguages(): string[][];
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class ProductGrid extends Serenity.EntityGrid<ProductRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        private pendingChanges;
-        constructor(container: JQuery);
-        protected getButtons(): Serenity.ToolButton[];
-        protected onViewProcessData(response: any): Serenity.ListResponse<ProductRow>;
-        /**
-         * It would be nice if we could use autonumeric, Serenity editors etc. here, to control input validation,
-         * but it's not supported by SlickGrid as we are only allowed to return a string, and should attach
-         * no event handlers to rendered cell contents
-         */
-        private numericInputFormatter(ctx);
-        private stringInputFormatter(ctx);
-        /**
-         * Sorry but you cannot use LookupEditor, e.g. Select2 here, only possible is a SELECT element
-         */
-        private selectFormatter(ctx, idField, lookup);
-        private getEffectiveValue(item, field);
-        protected getColumns(): Slick.Column[];
-        private inputsChange(e);
-        private setSaveButtonState();
-        private saveClick();
-    }
-}
-declare namespace Cinema.Movie.Common {
-    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
-        protected getIdProperty(): string;
-        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
-        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
-        destroy(): void;
-        protected updateInterface(): void;
-        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
-        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class OrderDetailDialog extends Common.GridEditorDialog<OrderDetailRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: OrderDetailForm;
-        constructor();
+        protected form: VideoForm;
     }
 }
 declare namespace Cinema.Movie.Common {
@@ -183,216 +30,217 @@ declare namespace Cinema.Movie.Common {
         protected createQuickSearchInput(): void;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class OrderDetailsEditor extends Common.GridEditorBase<OrderDetailRow> {
+declare namespace Cinema.Movie.Movie {
+    class VideoEditor extends Common.GridEditorBase<VideoRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): typeof OrderDetailDialog;
+        protected getDialogType(): typeof VideoEditorDialog;
         protected getLocalTextPrefix(): string;
         constructor(container: JQuery);
-        validateEntity(row: any, id: any): boolean;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class FreightFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
     }
 }
 declare namespace Cinema.Movie.Common {
-    class BulkServiceAction {
-        protected keys: string[];
-        protected queue: string[];
-        protected queueIndex: number;
-        protected progressDialog: BasicProgressDialog;
-        protected pendingRequests: number;
-        protected completedRequests: number;
-        protected errorByKey: Q.Dictionary<Serenity.ServiceError>;
-        private successCount;
-        private errorCount;
-        done: () => void;
-        protected createProgressDialog(): void;
-        protected getConfirmationFormat(): string;
-        protected getConfirmationMessage(targetCount: any): string;
-        protected confirm(targetCount: any, action: any): void;
-        protected getNothingToProcessMessage(): string;
-        protected nothingToProcess(): void;
-        protected getParallelRequests(): number;
-        protected getBatchSize(): number;
-        protected startParallelExecution(): void;
-        protected serviceCallCleanup(): void;
-        protected executeForBatch(batch: string[]): void;
-        protected executeNextBatch(): void;
-        protected getAllHadErrorsFormat(): string;
-        protected showAllHadErrors(): void;
-        protected getSomeHadErrorsFormat(): string;
-        protected showSomeHadErrors(): void;
-        protected getAllSuccessFormat(): string;
-        protected showAllSuccess(): void;
-        protected showResults(): void;
-        execute(keys: string[]): void;
-        get_successCount(): any;
-        set_successCount(value: number): void;
-        get_errorCount(): any;
-        set_errorCount(value: number): void;
+    class GridEditorDialog<TEntity> extends Serenity.EntityDialog<TEntity, any> {
+        protected getIdProperty(): string;
+        onSave: (options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void) => void;
+        onDelete: (options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void) => void;
+        destroy(): void;
+        protected updateInterface(): void;
+        protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
+        protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
     }
 }
-declare namespace Cinema.Movie.BasicSamples {
-    class OrderBulkAction extends Common.BulkServiceAction {
-        /**
-         * This controls how many service requests will be used in parallel.
-         * Determine this number based on how many requests your server
-         * might be able to handle, and amount of wait on external resources.
-         */
-        protected getParallelRequests(): number;
-        /**
-         * These number of records IDs will be sent to your service in one
-         * service call. If your service is designed to handle one record only,
-         * set it to 1. But note that, if you have 5000 records, this will
-         * result in 5000 service calls / requests.
-         */
-        protected getBatchSize(): number;
-        /**
-         * This is where you should call your service.
-         * Batch parameter contains the selected order IDs
-         * that should be processed in this service call.
-         */
-        protected executeForBatch(batch: any): void;
+declare namespace Cinema.Movie.Movie {
+    class VideoEditorDialog extends Common.GridEditorDialog<VideoRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: VideoForm;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
+declare namespace Cinema.Movie.Movie {
+    class VideoGrid extends Serenity.EntityGrid<VideoRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof VideoDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class TagDialog extends Serenity.EntityDialog<TagRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: OrderForm;
-        constructor();
-        getToolbarButtons(): Serenity.ToolButton[];
+        protected form: TagForm;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
+declare namespace Cinema.Movie.Movie {
+    class TagEditor extends Common.GridEditorBase<TagRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof TagEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class TagEditorDialog extends Common.GridEditorDialog<TagRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: TagForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class TagGrid extends Serenity.EntityGrid<TagRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof TagDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
-        protected shippingStateFilter: Serenity.EnumEditor;
         constructor(container: JQuery);
-        protected createQuickFilters(): void;
-        protected getButtons(): Serenity.ToolButton[];
-        set_shippingState(value: number): void;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class NoteDialog extends Serenity.TemplatedDialog<any> {
-        private textEditor;
-        constructor();
-        protected getTemplate(): string;
-        protected getDialogOptions(): JQueryUI.DialogOptions;
-        text: string;
-        okClick: () => void;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class NotesEditor extends Serenity.TemplatedWidget<any> implements Serenity.IGetEditValue, Serenity.ISetEditValue {
-        private isDirty;
-        private items;
-        constructor(div: JQuery);
-        protected getTemplate(): string;
-        protected updateContent(): void;
-        protected addClick(): void;
-        protected editClick(e: any): void;
-        deleteClick(e: any): void;
-        value: NoteRow[];
-        getEditValue(prop: Serenity.PropertyItem, target: any): void;
-        setEditValue(source: any, prop: Serenity.PropertyItem): void;
-        get_isDirty(): boolean;
-        set_isDirty(value: any): void;
-        onChange: () => void;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class EmployeeFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-        genderProperty: string;
-        initializeColumn(column: Slick.Column): void;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class CustomerDialog extends Serenity.EntityDialog<CustomerRow, any> {
+declare namespace Cinema.Movie.Movie {
+    class ServiceDialog extends Serenity.EntityDialog<ServiceRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: CustomerForm;
-        private ordersGrid;
-        private loadedState;
-        constructor();
-        getSaveState(): string;
-        loadResponse(data: any): void;
-        loadEntity(entity: CustomerRow): void;
-        onSaveSuccess(response: any): void;
+        protected form: ServiceForm;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class CustomerEditor extends Serenity.LookupEditorBase<CustomerRow, any> {
-        constructor(hidden: JQuery);
-        protected getLookupKey(): string;
-        protected getItemText(item: any, lookup: any): string;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class CustomerGrid extends Serenity.EntityGrid<CustomerRow, any> {
+declare namespace Cinema.Movie.Movie {
+    class ServiceEditor extends Common.GridEditorBase<ServiceRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof ServiceEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class ServiceEditorDialog extends Common.GridEditorDialog<ServiceRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: ServiceForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class ServiceGrid extends Serenity.EntityGrid<ServiceRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ServiceDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
-        getButtons(): Serenity.ToolButton[];
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class CustomerOrderDialog extends OrderDialog {
-        constructor();
-        updateInterface(): void;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class CustomerOrdersGrid extends OrderGrid {
-        protected getDialogType(): typeof CustomerOrderDialog;
-        constructor(container: JQuery);
-        protected getColumns(): Slick.Column[];
-        protected initEntityDialog(itemType: any, dialog: any): void;
-        protected addButtonClick(): void;
-        protected getInitialTitle(): any;
-        protected getGridCanLoad(): boolean;
-        private _customerID;
-        customerID: string;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class EmployeeListFormatter implements Slick.Formatter {
-        format(ctx: Slick.FormatterContext): string;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class CategoryDialog extends Serenity.EntityDialog<CategoryRow, any> {
+declare namespace Cinema.Movie.Movie {
+    class PersonDialog extends Serenity.EntityDialog<PersonRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
-        protected form: CategoryForm;
-        protected getLanguages(): string[][];
+        protected form: PersonForm;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    class CategoryGrid extends Serenity.EntityGrid<CategoryRow, any> {
+declare namespace Cinema.Movie.Movie {
+    class PersonEditor extends Common.GridEditorBase<PersonRow> {
         protected getColumnsKey(): string;
-        protected getDialogType(): any;
+        protected getDialogType(): typeof PersonEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class PersonEditorDialog extends Common.GridEditorDialog<PersonRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: PersonForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class PersonGrid extends Serenity.EntityGrid<PersonRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PersonDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieDialog extends Serenity.EntityDialog<MovieRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MovieForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieEditor extends Common.GridEditorBase<MovieRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MovieEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieEditorDialog extends Common.GridEditorDialog<MovieRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: MovieForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieGrid extends Serenity.EntityGrid<MovieRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MovieDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class GenreDialog extends Serenity.EntityDialog<GenreRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: GenreForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class GenreEditor extends Common.GridEditorBase<GenreRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof GenreEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class GenreEditorDialog extends Common.GridEditorDialog<GenreRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: GenreForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class GenreGrid extends Serenity.EntityGrid<GenreRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof GenreDialog;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
@@ -431,6 +279,78 @@ declare namespace Cinema.Movie.Membership {
     class ChangePasswordPanel extends Serenity.PropertyPanel<ChangePasswordRequest, any> {
         protected getFormKey(): string;
         private form;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class SettingsDialog extends Serenity.EntityDialog<SettingsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SettingsForm;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class SettingsEditor extends Common.GridEditorBase<SettingsRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SettingsEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class SettingsEditorDialog extends Common.GridEditorDialog<SettingsRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: SettingsForm;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class SettingsGrid extends Serenity.EntityGrid<SettingsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SettingsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class BackgroundDialog extends Serenity.EntityDialog<BackgroundRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: BackgroundForm;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class BackgroundEditor extends Common.GridEditorBase<BackgroundRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof BackgroundEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class BackgroundEditorDialog extends Common.GridEditorDialog<BackgroundRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: BackgroundForm;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    class BackgroundGrid extends Serenity.EntityGrid<BackgroundRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof BackgroundDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
         constructor(container: JQuery);
     }
 }
@@ -835,189 +755,6 @@ declare namespace Cinema.Movie.Administration {
         }
     }
 }
-declare namespace Cinema.Movie.BasicSamples {
-    namespace BasicSamplesService {
-        const baseUrl: string;
-        function OrdersByShipper(request: OrdersByShipperRequest, onSuccess?: (response: OrdersByShipperResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function OrderBulkAction(request: OrderBulkActionRequest, onSuccess?: (response: Serenity.ServiceResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const OrdersByShipper: string;
-            const OrderBulkAction: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ChangingLookupTextForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface ChangingLookupTextForm {
-        ProductID: ChangingLookupTextEditor;
-        UnitPrice: Serenity.DecimalEditor;
-        Quantity: Serenity.IntegerEditor;
-        Discount: Serenity.DecimalEditor;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface CustomerGrossSalesListRequest extends Serenity.ListRequest {
-        StartDate?: string;
-        EndDate?: string;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface CustomerGrossSalesRow {
-        CustomerId?: string;
-        ContactName?: string;
-        ProductId?: number;
-        ProductName?: string;
-        GrossAmount?: number;
-    }
-    namespace CustomerGrossSalesRow {
-        const nameProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const CustomerId: string;
-            const ContactName: string;
-            const ProductId: string;
-            const ProductName: string;
-            const GrossAmount: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    namespace CustomerGrossSalesService {
-        const baseUrl: string;
-        function List(request: CustomerGrossSalesListRequest, onSuccess?: (response: Serenity.ListResponse<CustomerGrossSalesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class FilteredLookupInDetailForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface FilteredLookupInDetailForm {
-        CustomerID: Northwind.CustomerEditor;
-        OrderDate: Serenity.DateEditor;
-        CategoryID: Serenity.LookupEditor;
-        DetailList: FilteredLookupDetailEditor;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class HardcodedValuesForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface HardcodedValuesForm {
-        SomeValue: HardcodedValuesEditor;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class LookupFilterByMultipleForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface LookupFilterByMultipleForm {
-        ProductName: Serenity.StringEditor;
-        ProductImage: Serenity.ImageUploadEditor;
-        Discontinued: Serenity.BooleanEditor;
-        SupplierID: Serenity.LookupEditor;
-        CategoryID: ProduceSeafoodCategoryEditor;
-        QuantityPerUnit: Serenity.StringEditor;
-        UnitPrice: Serenity.DecimalEditor;
-        UnitsInStock: Serenity.IntegerEditor;
-        UnitsOnOrder: Serenity.IntegerEditor;
-        ReorderLevel: Serenity.IntegerEditor;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface OrderBulkActionRequest extends Serenity.ServiceRequest {
-        OrderIDs?: number[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface OrdersByShipperRequest extends Serenity.ServiceRequest {
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface OrdersByShipperResponse extends Serenity.ServiceResponse {
-        Values?: {
-            [key: string]: any;
-        }[];
-        ShipperKeys?: string[];
-        ShipperLabels?: string[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class PopulateLinkedDataForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface PopulateLinkedDataForm {
-        CustomerID: Northwind.CustomerEditor;
-        CustomerContactName: Serenity.StringEditor;
-        CustomerContactTitle: Serenity.StringEditor;
-        CustomerCity: Serenity.StringEditor;
-        CustomerRegion: Serenity.StringEditor;
-        CustomerCountry: Serenity.StringEditor;
-        CustomerPhone: Serenity.StringEditor;
-        CustomerFax: Serenity.StringEditor;
-        OrderDate: Serenity.DateEditor;
-        RequiredDate: Serenity.DateEditor;
-        EmployeeID: Serenity.LookupEditor;
-        DetailList: Northwind.OrderDetailsEditor;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ProductExcelImportForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface ProductExcelImportForm {
-        FileName: Serenity.ImageUploadEditor;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    namespace ProductExcelImportService {
-        const baseUrl: string;
-        function ExcelImport(request: ExcelImportRequest, onSuccess?: (response: ExcelImportResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const ExcelImport: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface VSGalleryQAPost {
-        PostId?: number;
-        PostedOn?: string;
-        PostedByName?: string;
-        PostedByUserId?: string;
-        Message?: string;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    namespace VSGalleryQAService {
-        const baseUrl: string;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VSGalleryQAThread>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    interface VSGalleryQAThread {
-        ThreadId?: number;
-        Title?: string;
-        StartedOn?: string;
-        StartedByName?: string;
-        StartedByUserId?: string;
-        LastPostOn?: string;
-        PostCount?: number;
-        Posts?: VSGalleryQAPost[];
-    }
-}
 declare namespace Cinema.Movie.Common.Pages {
     interface UploadResponse extends Serenity.ServiceResponse {
         TemporaryFile?: string;
@@ -1075,6 +812,102 @@ declare namespace Cinema.Movie.Common {
         PreferenceType?: string;
         Name?: string;
         Value?: string;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+}
+declare namespace Cinema.Movie.Configuration {
+    class BackgroundForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface BackgroundForm {
+        Color: Serenity.StringEditor;
+        Path: Serenity.StringEditor;
+        Size: Serenity.StringEditor;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    interface BackgroundRow {
+        BackgroundId?: number;
+        Color?: string;
+        Path?: string;
+        Size?: string;
+    }
+    namespace BackgroundRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const BackgroundId: string;
+            const Color: string;
+            const Path: string;
+            const Size: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    namespace BackgroundService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<BackgroundRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<BackgroundRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<BackgroundRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<BackgroundRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+}
+declare namespace Cinema.Movie.Configuration {
+    class SettingsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SettingsForm {
+        Setting: Serenity.StringEditor;
+        Value: Serenity.StringEditor;
+        Type: Serenity.StringEditor;
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    interface SettingsRow {
+        SettingId?: number;
+        Setting?: string;
+        Value?: string;
+        Type?: string;
+    }
+    namespace SettingsRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const SettingId: string;
+            const Setting: string;
+            const Value: string;
+            const Type: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Configuration {
+    namespace SettingsService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<SettingsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SettingsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SettingsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SettingsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
     }
 }
 declare namespace Cinema.Movie {
@@ -1181,46 +1014,154 @@ declare namespace Cinema.Movie.Membership {
         Password?: string;
     }
 }
-declare namespace Cinema.Movie.Northwind {
+declare namespace Cinema.Movie.Movie {
 }
-declare namespace Cinema.Movie.Northwind {
-    class CategoryForm extends Serenity.PrefixedContext {
+declare namespace Cinema.Movie.Movie {
+    class GenreForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
-    interface CategoryForm {
-        CategoryName: Serenity.StringEditor;
+    interface GenreForm {
+        Name: Serenity.StringEditor;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    interface GenreRow {
+        GenreId?: number;
+        Name?: string;
+    }
+    namespace GenreRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const GenreId: string;
+            const Name: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    namespace GenreService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<GenreRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<GenreRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<GenreRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<GenreRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MovieForm {
+        TitleEn: Serenity.StringEditor;
+        TitleOther: Serenity.StringEditor;
         Description: Serenity.StringEditor;
+        YearStart: Serenity.IntegerEditor;
+        YearEnd: Serenity.IntegerEditor;
+        ReleaseWorldDate: Serenity.DateEditor;
+        ReleaseOtherDate: Serenity.DateEditor;
+        ReleaseDvd: Serenity.DateEditor;
+        Runtime: Serenity.IntegerEditor;
+        CreateDateTime: Serenity.DateEditor;
+        UpdateDateTime: Serenity.DateEditor;
+        PublishDateTime: Serenity.DateEditor;
+        Kind: Serenity.EnumEditor;
+        Rating: Serenity.IntegerEditor;
+        Mpaa: Serenity.StringEditor;
+        PathImage: Serenity.StringEditor;
+        PathMiniImage: Serenity.StringEditor;
+        Nice: Serenity.BooleanEditor;
+        ContSeason: Serenity.IntegerEditor;
+        LastEvent: Serenity.StringEditor;
+        LastEventPublishDateTime: Serenity.DateEditor;
+        Tagline: Serenity.StringEditor;
+        Budget: Serenity.IntegerEditor;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface CategoryLangRow {
-        Id?: number;
-        CategoryId?: number;
-        LanguageId?: number;
-        CategoryName?: string;
-        Description?: string;
+declare namespace Cinema.Movie.Movie {
+    enum MovieKind {
+        Film = 1,
+        TvSeries = 2,
+        MiniSeries = 3,
     }
-    namespace CategoryLangRow {
+}
+declare namespace Cinema.Movie.Movie {
+    interface MovieRow {
+        MovieId?: number;
+        TitleEn?: string;
+        TitleOther?: string;
+        Description?: string;
+        YearStart?: number;
+        YearEnd?: number;
+        ReleaseWorldDate?: string;
+        ReleaseOtherDate?: string;
+        ReleaseDvd?: string;
+        Runtime?: number;
+        CreateDateTime?: string;
+        UpdateDateTime?: string;
+        PublishDateTime?: string;
+        Kind?: MovieKind;
+        Rating?: number;
+        Mpaa?: string;
+        PathImage?: string;
+        PathMiniImage?: string;
+        Nice?: boolean;
+        ContSeason?: number;
+        LastEvent?: string;
+        LastEventPublishDateTime?: string;
+        Tagline?: string;
+        Budget?: number;
+    }
+    namespace MovieRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const Id: string;
-            const CategoryId: string;
-            const LanguageId: string;
-            const CategoryName: string;
+            const MovieId: string;
+            const TitleEn: string;
+            const TitleOther: string;
             const Description: string;
+            const YearStart: string;
+            const YearEnd: string;
+            const ReleaseWorldDate: string;
+            const ReleaseOtherDate: string;
+            const ReleaseDvd: string;
+            const Runtime: string;
+            const CreateDateTime: string;
+            const UpdateDateTime: string;
+            const PublishDateTime: string;
+            const Kind: string;
+            const Rating: string;
+            const Mpaa: string;
+            const PathImage: string;
+            const PathMiniImage: string;
+            const Nice: string;
+            const ContSeason: string;
+            const LastEvent: string;
+            const LastEventPublishDateTime: string;
+            const Tagline: string;
+            const Budget: string;
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    namespace CategoryLangService {
+declare namespace Cinema.Movie.Movie {
+    namespace MovieService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<CategoryLangRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<CategoryLangRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<MovieRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MovieRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CategoryLangRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CategoryLangRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MovieRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MovieRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1230,545 +1171,60 @@ declare namespace Cinema.Movie.Northwind {
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface CategoryRow {
-        CategoryID?: number;
-        CategoryName?: string;
-        Description?: string;
-        Picture?: number[];
-    }
-    namespace CategoryRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<CategoryRow>;
-        namespace Fields {
-            const CategoryID: string;
-            const CategoryName: string;
-            const Description: string;
-            const Picture: string;
-        }
-    }
+declare namespace Cinema.Movie.Movie {
 }
-declare namespace Cinema.Movie.Northwind {
-    namespace CategoryService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveWithLocalizationRequest<CategoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveWithLocalizationRequest<CategoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function RetrieveLocalization(request: Serenity.RetrieveLocalizationRequest, onSuccess?: (response: Serenity.RetrieveLocalizationResponse<CategoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CategoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CategoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const RetrieveLocalization: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    interface CustomerCustomerDemoRow {
-        ID?: number;
-        CustomerID?: string;
-        CustomerTypeID?: string;
-        CustomerCompanyName?: string;
-        CustomerContactName?: string;
-        CustomerContactTitle?: string;
-        CustomerAddress?: string;
-        CustomerCity?: string;
-        CustomerRegion?: string;
-        CustomerPostalCode?: string;
-        CustomerCountry?: string;
-        CustomerPhone?: string;
-        CustomerFax?: string;
-        CustomerTypeCustomerDesc?: string;
-    }
-    namespace CustomerCustomerDemoRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const ID: string;
-            const CustomerID: string;
-            const CustomerTypeID: string;
-            const CustomerCompanyName: string;
-            const CustomerContactName: string;
-            const CustomerContactTitle: string;
-            const CustomerAddress: string;
-            const CustomerCity: string;
-            const CustomerRegion: string;
-            const CustomerPostalCode: string;
-            const CustomerCountry: string;
-            const CustomerPhone: string;
-            const CustomerFax: string;
-            const CustomerTypeCustomerDesc: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface CustomerDemographicRow {
-        ID?: number;
-        CustomerTypeID?: string;
-        CustomerDesc?: string;
-    }
-    namespace CustomerDemographicRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const ID: string;
-            const CustomerTypeID: string;
-            const CustomerDesc: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class CustomerForm extends Serenity.PrefixedContext {
+declare namespace Cinema.Movie.Movie {
+    class PersonForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
-    interface CustomerForm {
-        CustomerID: Serenity.StringEditor;
-        CompanyName: Serenity.StringEditor;
-        ContactName: Serenity.StringEditor;
-        ContactTitle: Serenity.StringEditor;
-        Representatives: Serenity.LookupEditor;
-        Address: Serenity.StringEditor;
-        City: Serenity.StringEditor;
-        Region: Serenity.StringEditor;
-        PostalCode: Serenity.StringEditor;
-        Country: Serenity.StringEditor;
-        Phone: Serenity.StringEditor;
-        Fax: Serenity.StringEditor;
-        NoteList: NotesEditor;
+    interface PersonForm {
+        Firstname: Serenity.StringEditor;
+        Lastname: Serenity.StringEditor;
+        BirthDate: Serenity.DateEditor;
+        BirthPlace: Serenity.StringEditor;
+        Gender: Serenity.IntegerEditor;
+        Height: Serenity.IntegerEditor;
+        PathImage: Serenity.StringEditor;
+        PathImageMini: Serenity.StringEditor;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface CustomerRepresentativesRow {
-        RepresentativeId?: number;
-        CustomerId?: number;
-        EmployeeId?: number;
-    }
-    namespace CustomerRepresentativesRow {
-        const idProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const RepresentativeId: string;
-            const CustomerId: string;
-            const EmployeeId: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface CustomerRow {
-        ID?: number;
-        CustomerID?: string;
-        CompanyName?: string;
-        ContactName?: string;
-        ContactTitle?: string;
-        Address?: string;
-        City?: string;
-        Region?: string;
-        PostalCode?: string;
-        Country?: string;
-        Phone?: string;
-        Fax?: string;
-        NoteList?: NoteRow[];
-        Representatives?: number[];
-    }
-    namespace CustomerRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<CustomerRow>;
-        namespace Fields {
-            const ID: string;
-            const CustomerID: string;
-            const CompanyName: string;
-            const ContactName: string;
-            const ContactTitle: string;
-            const Address: string;
-            const City: string;
-            const Region: string;
-            const PostalCode: string;
-            const Country: string;
-            const Phone: string;
-            const Fax: string;
-            const NoteList: string;
-            const Representatives: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace CustomerService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<CustomerRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<CustomerRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function GetNextNumber(request: GetNextNumberRequest, onSuccess?: (response: GetNextNumberResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CustomerRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CustomerRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const GetNextNumber: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface EmployeeRow {
-        EmployeeID?: number;
-        LastName?: string;
-        FirstName?: string;
-        FullName?: string;
-        Title?: string;
-        TitleOfCourtesy?: string;
+declare namespace Cinema.Movie.Movie {
+    interface PersonRow {
+        PersonId?: number;
+        Firstname?: string;
+        Lastname?: string;
         BirthDate?: string;
-        HireDate?: string;
-        Address?: string;
-        City?: string;
-        Region?: string;
-        PostalCode?: string;
-        Country?: string;
-        HomePhone?: string;
-        Extension?: string;
-        Photo?: number[];
-        Notes?: string;
-        ReportsTo?: number;
-        PhotoPath?: string;
-        ReportsToFullName?: string;
-        ReportsToLastName?: string;
-        ReportsToFirstName?: string;
-        ReportsToTitle?: string;
-        ReportsToTitleOfCourtesy?: string;
-        ReportsToBirthDate?: string;
-        ReportsToHireDate?: string;
-        ReportsToAddress?: string;
-        ReportsToCity?: string;
-        ReportsToRegion?: string;
-        ReportsToPostalCode?: string;
-        ReportsToCountry?: string;
-        ReportsToHomePhone?: string;
-        ReportsToExtension?: string;
-        ReportsToPhoto?: number[];
-        ReportsToNotes?: string;
-        ReportsToReportsTo?: number;
-        ReportsToPhotoPath?: string;
-        Gender?: Gender;
+        BirthPlace?: string;
+        Gender?: number;
+        Height?: number;
+        PathImage?: string;
+        PathImageMini?: string;
     }
-    namespace EmployeeRow {
+    namespace PersonRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<EmployeeRow>;
         namespace Fields {
-            const EmployeeID: string;
-            const LastName: string;
-            const FirstName: string;
-            const FullName: string;
-            const Title: string;
-            const TitleOfCourtesy: string;
+            const PersonId: string;
+            const Firstname: string;
+            const Lastname: string;
             const BirthDate: string;
-            const HireDate: string;
-            const Address: string;
-            const City: string;
-            const Region: string;
-            const PostalCode: string;
-            const Country: string;
-            const HomePhone: string;
-            const Extension: string;
-            const Photo: string;
-            const Notes: string;
-            const ReportsTo: string;
-            const PhotoPath: string;
-            const ReportsToFullName: string;
-            const ReportsToLastName: string;
-            const ReportsToFirstName: string;
-            const ReportsToTitle: string;
-            const ReportsToTitleOfCourtesy: string;
-            const ReportsToBirthDate: string;
-            const ReportsToHireDate: string;
-            const ReportsToAddress: string;
-            const ReportsToCity: string;
-            const ReportsToRegion: string;
-            const ReportsToPostalCode: string;
-            const ReportsToCountry: string;
-            const ReportsToHomePhone: string;
-            const ReportsToExtension: string;
-            const ReportsToPhoto: string;
-            const ReportsToNotes: string;
-            const ReportsToReportsTo: string;
-            const ReportsToPhotoPath: string;
+            const BirthPlace: string;
             const Gender: string;
+            const Height: string;
+            const PathImage: string;
+            const PathImageMini: string;
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface EmployeeTerritoryRow {
-        EmployeeID?: number;
-        TerritoryID?: string;
-        EmployeeLastName?: string;
-        EmployeeFirstName?: string;
-        EmployeeTitle?: string;
-        EmployeeTitleOfCourtesy?: string;
-        EmployeeBirthDate?: string;
-        EmployeeHireDate?: string;
-        EmployeeAddress?: string;
-        EmployeeCity?: string;
-        EmployeeRegion?: string;
-        EmployeePostalCode?: string;
-        EmployeeCountry?: string;
-        EmployeeHomePhone?: string;
-        EmployeeExtension?: string;
-        EmployeePhoto?: number[];
-        EmployeeNotes?: string;
-        EmployeeReportsTo?: number;
-        EmployeePhotoPath?: string;
-        TerritoryTerritoryDescription?: string;
-        TerritoryRegionID?: number;
-    }
-    namespace EmployeeTerritoryRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const EmployeeID: string;
-            const TerritoryID: string;
-            const EmployeeLastName: string;
-            const EmployeeFirstName: string;
-            const EmployeeTitle: string;
-            const EmployeeTitleOfCourtesy: string;
-            const EmployeeBirthDate: string;
-            const EmployeeHireDate: string;
-            const EmployeeAddress: string;
-            const EmployeeCity: string;
-            const EmployeeRegion: string;
-            const EmployeePostalCode: string;
-            const EmployeeCountry: string;
-            const EmployeeHomePhone: string;
-            const EmployeeExtension: string;
-            const EmployeePhoto: string;
-            const EmployeeNotes: string;
-            const EmployeeReportsTo: string;
-            const EmployeePhotoPath: string;
-            const TerritoryTerritoryDescription: string;
-            const TerritoryRegionID: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    enum Gender {
-        Male = 1,
-        Female = 2,
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface NoteRow {
-        NoteId?: number;
-        EntityType?: string;
-        EntityId?: number;
-        Text?: string;
-        InsertUserId?: number;
-        InsertDate?: string;
-        InsertUserDisplayName?: string;
-    }
-    namespace NoteRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const NoteId: string;
-            const EntityType: string;
-            const EntityId: string;
-            const Text: string;
-            const InsertUserId: string;
-            const InsertDate: string;
-            const InsertUserDisplayName: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    class OrderDetailForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface OrderDetailForm {
-        ProductID: Serenity.LookupEditor;
-        UnitPrice: Serenity.DecimalEditor;
-        Quantity: Serenity.IntegerEditor;
-        Discount: Serenity.DecimalEditor;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface OrderDetailRow {
-        DetailID?: number;
-        OrderID?: number;
-        ProductID?: number;
-        UnitPrice?: number;
-        Quantity?: number;
-        Discount?: number;
-        OrderCustomerID?: string;
-        OrderEmployeeID?: number;
-        OrderDate?: string;
-        OrderShippedDate?: string;
-        OrderShipVia?: number;
-        OrderShipCity?: string;
-        OrderShipCountry?: string;
-        ProductName?: string;
-        ProductDiscontinued?: boolean;
-        ProductSupplierID?: number;
-        ProductQuantityPerUnit?: string;
-        ProductUnitPrice?: number;
-        LineTotal?: number;
-    }
-    namespace OrderDetailRow {
-        const idProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const DetailID: string;
-            const OrderID: string;
-            const ProductID: string;
-            const UnitPrice: string;
-            const Quantity: string;
-            const Discount: string;
-            const OrderCustomerID: string;
-            const OrderEmployeeID: string;
-            const OrderDate: string;
-            const OrderShippedDate: string;
-            const OrderShipVia: string;
-            const OrderShipCity: string;
-            const OrderShipCountry: string;
-            const ProductName: string;
-            const ProductDiscontinued: string;
-            const ProductSupplierID: string;
-            const ProductQuantityPerUnit: string;
-            const ProductUnitPrice: string;
-            const LineTotal: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace OrderDetailService {
+declare namespace Cinema.Movie.Movie {
+    namespace PersonService {
         const baseUrl: string;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderDetailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<OrderDetailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    class OrderForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface OrderForm {
-        CustomerID: CustomerEditor;
-        OrderDate: Serenity.DateEditor;
-        RequiredDate: Serenity.DateEditor;
-        EmployeeID: Serenity.LookupEditor;
-        DetailList: OrderDetailsEditor;
-        ShippedDate: Serenity.DateEditor;
-        ShipVia: Serenity.LookupEditor;
-        Freight: Serenity.DecimalEditor;
-        ShipName: Serenity.StringEditor;
-        ShipAddress: Serenity.StringEditor;
-        ShipCity: Serenity.StringEditor;
-        ShipRegion: Serenity.StringEditor;
-        ShipPostalCode: Serenity.StringEditor;
-        ShipCountry: Serenity.StringEditor;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface OrderRow {
-        OrderID?: number;
-        CustomerID?: string;
-        EmployeeID?: number;
-        OrderDate?: string;
-        RequiredDate?: string;
-        ShippedDate?: string;
-        ShipVia?: number;
-        Freight?: number;
-        ShipName?: string;
-        ShipAddress?: string;
-        ShipCity?: string;
-        ShipRegion?: string;
-        ShipPostalCode?: string;
-        ShipCountry?: string;
-        CustomerCompanyName?: string;
-        CustomerContactName?: string;
-        CustomerContactTitle?: string;
-        CustomerCity?: string;
-        CustomerRegion?: string;
-        CustomerCountry?: string;
-        CustomerPhone?: string;
-        CustomerFax?: string;
-        EmployeeFullName?: string;
-        EmployeeGender?: Gender;
-        ShipViaCompanyName?: string;
-        ShipViaPhone?: string;
-        ShippingState?: OrderShippingState;
-        DetailList?: OrderDetailRow[];
-    }
-    namespace OrderRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<OrderRow>;
-        namespace Fields {
-            const OrderID: string;
-            const CustomerID: string;
-            const EmployeeID: string;
-            const OrderDate: string;
-            const RequiredDate: string;
-            const ShippedDate: string;
-            const ShipVia: string;
-            const Freight: string;
-            const ShipName: string;
-            const ShipAddress: string;
-            const ShipCity: string;
-            const ShipRegion: string;
-            const ShipPostalCode: string;
-            const ShipCountry: string;
-            const CustomerCompanyName: string;
-            const CustomerContactName: string;
-            const CustomerContactTitle: string;
-            const CustomerCity: string;
-            const CustomerRegion: string;
-            const CustomerCountry: string;
-            const CustomerPhone: string;
-            const CustomerFax: string;
-            const EmployeeFullName: string;
-            const EmployeeGender: string;
-            const ShipViaCompanyName: string;
-            const ShipViaPhone: string;
-            const ShippingState: string;
-            const DetailList: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace OrderService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<OrderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<OrderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<PersonRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PersonRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PersonRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PersonRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1778,58 +1234,45 @@ declare namespace Cinema.Movie.Northwind {
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    enum OrderShippingState {
-        NotShipped = 0,
-        Shipped = 1,
-    }
+declare namespace Cinema.Movie.Movie {
 }
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    class ProductForm extends Serenity.PrefixedContext {
+declare namespace Cinema.Movie.Movie {
+    class ServiceForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
-    interface ProductForm {
-        ProductName: Serenity.StringEditor;
-        ProductImage: Serenity.ImageUploadEditor;
-        Discontinued: Serenity.BooleanEditor;
-        SupplierID: Serenity.LookupEditor;
-        CategoryID: Serenity.LookupEditor;
-        QuantityPerUnit: Serenity.StringEditor;
-        UnitPrice: Serenity.DecimalEditor;
-        UnitsInStock: Serenity.IntegerEditor;
-        UnitsOnOrder: Serenity.IntegerEditor;
-        ReorderLevel: Serenity.IntegerEditor;
+    interface ServiceForm {
+        Name: Serenity.StringEditor;
+        Api: Serenity.StringEditor;
+        MaxRating: Serenity.IntegerEditor;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface ProductLangRow {
-        Id?: number;
-        ProductId?: number;
-        LanguageId?: number;
-        ProductName?: string;
+declare namespace Cinema.Movie.Movie {
+    interface ServiceRow {
+        ServiceId?: number;
+        Name?: string;
+        Api?: string;
+        MaxRating?: number;
     }
-    namespace ProductLangRow {
+    namespace ServiceRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const Id: string;
-            const ProductId: string;
-            const LanguageId: string;
-            const ProductName: string;
+            const ServiceId: string;
+            const Name: string;
+            const Api: string;
+            const MaxRating: string;
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    namespace ProductLangService {
+declare namespace Cinema.Movie.Movie {
+    namespace ServiceService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<ProductLangRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ProductLangRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<ServiceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ServiceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProductLangRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProductLangRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ServiceRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ServiceRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1839,166 +1282,39 @@ declare namespace Cinema.Movie.Northwind {
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface ProductLogRow {
-        ProductLogID?: number;
-        OperationType?: Serenity.CaptureOperationType;
-        ChangingUserId?: number;
-        ValidFrom?: string;
-        ValidUntil?: string;
-        ProductID?: number;
-        ProductName?: string;
-        ProductImage?: string;
-        Discontinued?: boolean;
-        SupplierID?: number;
-        CategoryID?: number;
-        QuantityPerUnit?: string;
-        UnitPrice?: number;
-        UnitsInStock?: number;
-        UnitsOnOrder?: number;
-        ReorderLevel?: number;
-    }
-    namespace ProductLogRow {
-        const idProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const ProductLogID: string;
-            const OperationType: string;
-            const ChangingUserId: string;
-            const ValidFrom: string;
-            const ValidUntil: string;
-            const ProductID: string;
-            const ProductName: string;
-            const ProductImage: string;
-            const Discontinued: string;
-            const SupplierID: string;
-            const CategoryID: string;
-            const QuantityPerUnit: string;
-            const UnitPrice: string;
-            const UnitsInStock: string;
-            const UnitsOnOrder: string;
-            const ReorderLevel: string;
-        }
-    }
+declare namespace Cinema.Movie.Movie {
 }
-declare namespace Cinema.Movie.Northwind {
-    interface ProductRow {
-        ProductID?: number;
-        ProductName?: string;
-        ProductImage?: string;
-        Discontinued?: boolean;
-        SupplierID?: number;
-        CategoryID?: number;
-        QuantityPerUnit?: string;
-        UnitPrice?: number;
-        UnitsInStock?: number;
-        UnitsOnOrder?: number;
-        ReorderLevel?: number;
-        SupplierCompanyName?: string;
-        SupplierContactName?: string;
-        SupplierContactTitle?: string;
-        SupplierAddress?: string;
-        SupplierCity?: string;
-        SupplierRegion?: string;
-        SupplierPostalCode?: string;
-        SupplierCountry?: string;
-        SupplierPhone?: string;
-        SupplierFax?: string;
-        SupplierHomePage?: string;
-        CategoryName?: string;
-        CategoryDescription?: string;
-        CategoryPicture?: number[];
-    }
-    namespace ProductRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<ProductRow>;
-        namespace Fields {
-            const ProductID: string;
-            const ProductName: string;
-            const ProductImage: string;
-            const Discontinued: string;
-            const SupplierID: string;
-            const CategoryID: string;
-            const QuantityPerUnit: string;
-            const UnitPrice: string;
-            const UnitsInStock: string;
-            const UnitsOnOrder: string;
-            const ReorderLevel: string;
-            const SupplierCompanyName: string;
-            const SupplierContactName: string;
-            const SupplierContactTitle: string;
-            const SupplierAddress: string;
-            const SupplierCity: string;
-            const SupplierRegion: string;
-            const SupplierPostalCode: string;
-            const SupplierCountry: string;
-            const SupplierPhone: string;
-            const SupplierFax: string;
-            const SupplierHomePage: string;
-            const CategoryName: string;
-            const CategoryDescription: string;
-            const CategoryPicture: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace ProductService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveWithLocalizationRequest<ProductRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveWithLocalizationRequest<ProductRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProductRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function RetrieveLocalization(request: Serenity.RetrieveLocalizationRequest, onSuccess?: (response: Serenity.RetrieveLocalizationResponse<ProductRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProductRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const RetrieveLocalization: string;
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    class RegionForm extends Serenity.PrefixedContext {
+declare namespace Cinema.Movie.Movie {
+    class TagForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
-    interface RegionForm {
-        RegionID: Serenity.IntegerEditor;
-        RegionDescription: Serenity.StringEditor;
+    interface TagForm {
+        Name: Serenity.StringEditor;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface RegionRow {
-        RegionID?: number;
-        RegionDescription?: string;
+declare namespace Cinema.Movie.Movie {
+    interface TagRow {
+        TagId?: number;
+        Name?: string;
     }
-    namespace RegionRow {
+    namespace TagRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<RegionRow>;
         namespace Fields {
-            const RegionID: string;
-            const RegionDescription: string;
+            const TagId: string;
+            const Name: string;
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    namespace RegionService {
+declare namespace Cinema.Movie.Movie {
+    namespace TagService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<RegionRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<TagRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<TagRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<RegionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<RegionRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<TagRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<TagRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2008,199 +1324,115 @@ declare namespace Cinema.Movie.Northwind {
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
+declare namespace Cinema.Movie.Movie {
 }
-declare namespace Cinema.Movie.Northwind {
-    interface SalesByCategoryRow {
-        CategoryId?: number;
-        CategoryName?: string;
-        ProductName?: string;
-        ProductSales?: number;
-    }
-    namespace SalesByCategoryRow {
-        const nameProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const CategoryId: string;
-            const CategoryName: string;
-            const ProductName: string;
-            const ProductSales: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace SalesByCategoryService {
-        const baseUrl: string;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SalesByCategoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    class ShipperForm extends Serenity.PrefixedContext {
+declare namespace Cinema.Movie.Movie {
+    class VideoForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
-    interface ShipperForm {
-        CompanyName: Serenity.StringEditor;
-        Phone: PhoneEditor;
+    interface VideoForm {
+        Path: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        Translation: Serenity.IntegerEditor;
+        Season: Serenity.IntegerEditor;
+        Serie: Serenity.IntegerEditor;
+        PlannePublishDate: Serenity.DateEditor;
+        ActualPublishDateTime: Serenity.DateEditor;
+        MovieId: Serenity.IntegerEditor;
+        ServiceId: Serenity.IntegerEditor;
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    interface ShipperRow {
-        ShipperID?: number;
-        CompanyName?: string;
-        Phone?: string;
+declare namespace Cinema.Movie.Movie {
+    interface VideoRow {
+        VudeoId?: number;
+        Path?: string;
+        Name?: string;
+        Translation?: number;
+        Season?: number;
+        Serie?: number;
+        PlannePublishDate?: string;
+        ActualPublishDateTime?: string;
+        MovieId?: number;
+        ServiceId?: number;
+        MovieTitleEn?: string;
+        MovieTitleOther?: string;
+        MovieDescription?: string;
+        MovieStoryline?: string;
+        MovieYearStart?: number;
+        MovieYearEnd?: number;
+        MovieReleaseWorldDate?: string;
+        MovieReleaseOtherDate?: string;
+        MovieReleaseDvd?: string;
+        MovieRuntime?: number;
+        MovieCreateDateTime?: string;
+        MovieUpdateDateTime?: string;
+        MoviePublishDateTime?: string;
+        MovieKind?: number;
+        MovieRating?: number;
+        MovieMpaa?: string;
+        MovieContSuffrage?: number;
+        MoviePathImage?: string;
+        MoviePathMiniImage?: string;
+        MovieNice?: boolean;
+        MovieContSeason?: number;
+        MovieLastEvent?: string;
+        MovieLastEventPublishDateTime?: string;
+        ServiceName?: string;
+        ServiceApi?: string;
+        ServiceMaxRating?: number;
     }
-    namespace ShipperRow {
+    namespace VideoRow {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<ShipperRow>;
         namespace Fields {
-            const ShipperID: string;
-            const CompanyName: string;
-            const Phone: string;
+            const VudeoId: string;
+            const Path: string;
+            const Name: string;
+            const Translation: string;
+            const Season: string;
+            const Serie: string;
+            const PlannePublishDate: string;
+            const ActualPublishDateTime: string;
+            const MovieId: string;
+            const ServiceId: string;
+            const MovieTitleEn: string;
+            const MovieTitleOther: string;
+            const MovieDescription: string;
+            const MovieStoryline: string;
+            const MovieYearStart: string;
+            const MovieYearEnd: string;
+            const MovieReleaseWorldDate: string;
+            const MovieReleaseOtherDate: string;
+            const MovieReleaseDvd: string;
+            const MovieRuntime: string;
+            const MovieCreateDateTime: string;
+            const MovieUpdateDateTime: string;
+            const MoviePublishDateTime: string;
+            const MovieKind: string;
+            const MovieRating: string;
+            const MovieMpaa: string;
+            const MovieContSuffrage: string;
+            const MoviePathImage: string;
+            const MoviePathMiniImage: string;
+            const MovieNice: string;
+            const MovieContSeason: string;
+            const MovieLastEvent: string;
+            const MovieLastEventPublishDateTime: string;
+            const ServiceName: string;
+            const ServiceApi: string;
+            const ServiceMaxRating: string;
         }
     }
 }
-declare namespace Cinema.Movie.Northwind {
-    namespace ShipperService {
+declare namespace Cinema.Movie.Movie {
+    namespace VideoService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<ShipperRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ShipperRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<VideoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<VideoRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ShipperRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ShipperRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    class SupplierForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface SupplierForm {
-        CompanyName: Serenity.StringEditor;
-        ContactName: Serenity.StringEditor;
-        ContactTitle: Serenity.StringEditor;
-        Address: Serenity.StringEditor;
-        Region: Serenity.StringEditor;
-        PostalCode: Serenity.StringEditor;
-        Country: Serenity.StringEditor;
-        City: Serenity.StringEditor;
-        Phone: Serenity.StringEditor;
-        Fax: Serenity.StringEditor;
-        HomePage: Serenity.StringEditor;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface SupplierRow {
-        SupplierID?: number;
-        CompanyName?: string;
-        ContactName?: string;
-        ContactTitle?: string;
-        Address?: string;
-        City?: string;
-        Region?: string;
-        PostalCode?: string;
-        Country?: string;
-        Phone?: string;
-        Fax?: string;
-        HomePage?: string;
-    }
-    namespace SupplierRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<SupplierRow>;
-        namespace Fields {
-            const SupplierID: string;
-            const CompanyName: string;
-            const ContactName: string;
-            const ContactTitle: string;
-            const Address: string;
-            const City: string;
-            const Region: string;
-            const PostalCode: string;
-            const Country: string;
-            const Phone: string;
-            const Fax: string;
-            const HomePage: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace SupplierService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<SupplierRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<SupplierRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SupplierRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SupplierRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-}
-declare namespace Cinema.Movie.Northwind {
-    class TerritoryForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface TerritoryForm {
-        TerritoryID: Serenity.StringEditor;
-        TerritoryDescription: Serenity.StringEditor;
-        RegionID: Serenity.LookupEditor;
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    interface TerritoryRow {
-        ID?: number;
-        TerritoryID?: string;
-        TerritoryDescription?: string;
-        RegionID?: number;
-        RegionDescription?: string;
-    }
-    namespace TerritoryRow {
-        const idProperty: string;
-        const nameProperty: string;
-        const localTextPrefix: string;
-        const lookupKey: string;
-        function getLookup(): Q.Lookup<TerritoryRow>;
-        namespace Fields {
-            const ID: string;
-            const TerritoryID: string;
-            const TerritoryDescription: string;
-            const RegionID: string;
-            const RegionDescription: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Northwind {
-    namespace TerritoryService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<TerritoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<TerritoryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<TerritoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<TerritoryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<VideoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VideoRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -2230,6 +1462,44 @@ declare namespace Cinema.Movie {
         getDialogOptions(): JQueryUI.DialogOptions;
         initDialog(): void;
         getTemplate(): string;
+    }
+}
+declare namespace Cinema.Movie.Common {
+    class BulkServiceAction {
+        protected keys: string[];
+        protected queue: string[];
+        protected queueIndex: number;
+        protected progressDialog: BasicProgressDialog;
+        protected pendingRequests: number;
+        protected completedRequests: number;
+        protected errorByKey: Q.Dictionary<Serenity.ServiceError>;
+        private successCount;
+        private errorCount;
+        done: () => void;
+        protected createProgressDialog(): void;
+        protected getConfirmationFormat(): string;
+        protected getConfirmationMessage(targetCount: any): string;
+        protected confirm(targetCount: any, action: any): void;
+        protected getNothingToProcessMessage(): string;
+        protected nothingToProcess(): void;
+        protected getParallelRequests(): number;
+        protected getBatchSize(): number;
+        protected startParallelExecution(): void;
+        protected serviceCallCleanup(): void;
+        protected executeForBatch(batch: string[]): void;
+        protected executeNextBatch(): void;
+        protected getAllHadErrorsFormat(): string;
+        protected showAllHadErrors(): void;
+        protected getSomeHadErrorsFormat(): string;
+        protected showSomeHadErrors(): void;
+        protected getAllSuccessFormat(): string;
+        protected showAllSuccess(): void;
+        protected showResults(): void;
+        execute(keys: string[]): void;
+        get_successCount(): any;
+        set_successCount(value: number): void;
+        get_errorCount(): any;
+        set_errorCount(value: number): void;
     }
 }
 declare namespace Cinema.Movie.DialogUtils {
@@ -2264,551 +1534,6 @@ declare namespace Cinema.Movie.Common {
     }
     namespace ReportHelper {
         function createToolButton(options: ReportButtonOptions): Serenity.ToolButton;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class VSGalleryQAGrid extends Serenity.EntityGrid<BasicSamples.VSGalleryQAThread, any> {
-        protected getColumnsKey(): string;
-        protected getIdProperty(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getButtons(): any[];
-        protected getSlickOptions(): Slick.GridOptions;
-        protected getColumns(): Slick.Column[];
-        protected getInitialTitle(): any;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ViewWithoutIDGrid extends Serenity.EntityGrid<Northwind.SalesByCategoryRow, any> {
-        protected getColumnsKey(): string;
-        protected getIdProperty(): string;
-        protected getNameProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        private nextId;
-        constructor(container: JQuery);
-        /**
-         * This method is called to preprocess data returned from the list service
-         */
-        protected onViewProcessData(response: Serenity.ListResponse<Northwind.SalesByCategoryRow>): Serenity.ListResponse<Northwind.SalesByCategoryRow>;
-        protected getButtons(): any[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class CustomerGrossSalesGrid extends Serenity.EntityGrid<CustomerGrossSalesRow, any> {
-        protected getColumnsKey(): string;
-        protected getIdProperty(): string;
-        protected getNameProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        private nextId;
-        constructor(container: JQuery);
-        /**
-         * This method is called to preprocess data returned from the list service
-         */
-        protected onViewProcessData(response: Serenity.ListResponse<Northwind.SalesByCategoryRow>): Serenity.ListResponse<Northwind.SalesByCategoryRow>;
-        protected getButtons(): any[];
-        protected createSlickGrid(): Slick.Grid;
-        protected getSlickOptions(): Slick.GridOptions;
-        protected usePager(): boolean;
-        protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class RemovingAddButton extends Northwind.SupplierGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called to get list of buttons to be created.
-         */
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ProductExcelImportDialog extends Serenity.PropertyDialog<any, any> {
-        private form;
-        constructor();
-        protected getDialogTitle(): string;
-        protected getDialogButtons(): Serenity.DialogButton[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ProductExcelImportGrid extends Northwind.ProductGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called to get list of buttons to be created.
-         */
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class InlineImageFormatter implements Slick.Formatter, Serenity.IInitializeColumn {
-        format(ctx: Slick.FormatterContext): string;
-        initializeColumn(column: Slick.Column): void;
-        fileProperty: string;
-        thumb: boolean;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class InlineImageInGrid extends Serenity.EntityGrid<Northwind.ProductRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        protected getSlickOptions(): Slick.GridOptions;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class InitialValuesForQuickFilters extends Northwind.OrderGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called to get list of quick filters to be created for this grid.
-         * By default, it returns quick filter objects corresponding to properties that
-         * have a [QuickFilter] attribute at server side OrderColumns.cs
-         */
-        protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
-        /**
-         * This method is another possible place to modify quick filter widgets.
-         * It is where the quick filter widgets are actually created.
-         *
-         * By default, it calls getQuickFilters() then renders UI for these
-         * quick filters.
-         *
-         * We could use getQuickFilters() method for ShipVia too,
-         * but this is for demonstration purposes
-         */
-        protected createQuickFilters(): void;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class GroupingAndSummariesInGrid extends Northwind.ProductGrid {
-        constructor(container: JQuery);
-        protected createSlickGrid(): Slick.Grid;
-        protected getColumns(): Slick.Column[];
-        protected getSlickOptions(): Slick.GridOptions;
-        protected usePager(): boolean;
-        protected getButtons(): {
-            title: string;
-            cssClass: string;
-            onClick: () => void;
-        }[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class GridFilteredByCriteria extends Northwind.ProductGrid {
-        constructor(container: JQuery);
-        protected onViewSubmit(): boolean;
-    }
-}
-declare namespace Cinema.Movie {
-    class SelectableEntityGrid<TItem, TOptions> extends Serenity.EntityGrid<TItem, TOptions> {
-        protected getSlickOptions(): Slick.GridOptions;
-        protected createSlickGrid(): Slick.Grid;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class RowSelectionGrid extends SelectableEntityGrid<Northwind.SupplierRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class CustomLinksInGrid extends Northwind.OrderGrid {
-        constructor(container: JQuery);
-        /**
-         * We override getColumns() to change format functions for some columns.
-         * You could also write them as formatter classes, and use them at server side
-         */
-        protected getColumns(): Slick.Column[];
-        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
-        /**
-         * This method is called for columns with [EditLink] attribute,
-         * but only for edit links of this grid's own item type.
-         * It is also called by Add Product button with a NULL entityOrId
-         * parameter so we should check that entityOrId is a string
-         * to be sure it is originating from a link.
-         *
-         * As we changed format for other columns, this will only be called
-         * for links in remaining OrderID column
-         */
-        protected editItem(entityOrId: any): void;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ConditionalFormattingGrid extends Serenity.EntityGrid<Northwind.ProductRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): any;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-        /**
-         * We override getColumns() to be able to add a custom CSS class to UnitPrice
-         * We could also add this class in ProductColumns.cs but didn't want to modify
-         * it solely for this sample.
-         */
-        protected getColumns(): Slick.Column[];
-        /**
-         * This method is called for all rows
-         * @param item Data item for current row
-         * @param index Index of the row in grid
-         */
-        protected getItemCssClass(item: Northwind.ProductRow, index: number): string;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class CancellableBulkActionGrid extends Northwind.OrderGrid {
-        private rowSelection;
-        constructor(container: JQuery);
-        protected createToolbarExtensions(): void;
-        protected getButtons(): {
-            title: string;
-            cssClass: string;
-            onClick: () => void;
-        }[];
-        protected getColumns(): Slick.Column[];
-        protected getViewOptions(): Slick.RemoteViewOptions;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class HardcodedValuesDialog extends Serenity.PropertyDialog<any, any> {
-        protected getFormKey(): string;
-        protected form: HardcodedValuesForm;
-        constructor();
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Our select editor with hardcoded values.
-     *
-     * When you define a new editor type, make sure you build
-     * and transform templates for it to be available
-     * in server side forms, e.g. [HardCodedValuesEditor]
-     */
-    class HardcodedValuesEditor extends Serenity.Select2Editor<any, any> {
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * This is our custom product dialog that uses a different product form
-     * (LookupFilterByMultipleForm) with our special category editor.
-     */
-    class LookupFilterByMultipleDialog extends Northwind.ProductDialog {
-        protected getFormKey(): string;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
-     */
-    class LookupFilterByMultipleGrid extends Northwind.ProductGrid {
-        protected getDialogType(): typeof LookupFilterByMultipleDialog;
-        constructor(container: JQuery);
-        /**
-         * This method is called just before List request is sent to service.
-         * You have an opportunity here to cancel request or modify it.
-         * Here we'll add a custom criteria to list request.
-         */
-        protected onViewSubmit(): boolean;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * This is our category editor that will show only categories of Produce and
-     * Seafood. We are subclassing LookupEditorBase which also LookupEditor
-     * derives from.
-     *
-     * After compiling and transforming templates, this editor type will be
-     * available in server side to use in our LookupFilterByMultipleForm,
-     * which is a version of ProductForm that uses our custom editor.
-     */
-    class ProduceSeafoodCategoryEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, Northwind.CategoryRow> {
-        constructor(container: JQuery, opt: Serenity.LookupEditorOptions);
-        /**
-         * Normally LookupEditor requires a lookup key to determine which set of
-         * lookup data to show in editor. As our editor will only show category
-         * data, we lock it to category lookup key.
-         */
-        protected getLookupKey(): string;
-        /**
-         * Here we are filtering by category name but you could filter by any field.
-         * Just make sure the fields you filter on has [LookupInclude] attribute on them,
-         * otherwise their value will be null in client side as they are not sent back
-         * from server in lookup script.
-         */
-        protected getItems(lookup: Q.Lookup<Northwind.CategoryRow>): Northwind.CategoryRow[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Our subclass of Order Details editor with a CategoryID property
-     */
-    class FilteredLookupDetailEditor extends Northwind.OrderDetailsEditor {
-        protected getDialogType(): typeof FilteredLookupOrderDetailDialog;
-        constructor(container: JQuery);
-        categoryID: number;
-        /**
-         * This method is called to initialize an edit dialog created by
-         * grid editor when Add button or an edit link is clicked
-         * We have an opportunity here to pass CategoryID to edit dialog
-         */
-        protected initEntityDialog(itemType: string, dialog: Serenity.Widget<any>): void;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Basic order dialog with a category selection
-     */
-    class FilteredLookupInDetailDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        private form;
-        constructor();
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of OrderGrid to override dialog type to FilteredLookupInDetailDialog
-     */
-    class FilteredLookupInDetailGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof FilteredLookupInDetailDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Our subclass of order detail dialog with a CategoryID property
-     * that will be used to set CascadeValue of product editor
-     */
-    class FilteredLookupOrderDetailDialog extends Northwind.OrderDetailDialog {
-        constructor();
-        /**
-         * This method is called just before an entity is loaded to dialog
-         * This is also called for new record mode with an empty entity
-         */
-        protected beforeLoadEntity(entity: any): void;
-        categoryID: number;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ChangingLookupTextDialog extends Common.GridEditorDialog<Northwind.OrderDetailRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: ChangingLookupTextForm;
-        constructor();
-        protected updateInterface(): void;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Our custom product editor type
-     */
-    class ChangingLookupTextEditor extends Serenity.LookupEditorBase<Serenity.LookupEditorOptions, Northwind.ProductRow> {
-        constructor(container: JQuery, options: Serenity.LookupEditorOptions);
-        protected getLookupKey(): string;
-        protected getItemText(item: Northwind.ProductRow, lookup: Q.Lookup<Northwind.ProductRow>): string;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class SerialAutoNumberDialog extends Northwind.CustomerDialog {
-        constructor();
-        protected afterLoadEntity(): void;
-        private getNextNumber();
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of CustomerGrid to override dialog type to SerialAutoNumberDialog
-     */
-    class SerialAutoNumberGrid extends Northwind.CustomerGrid {
-        protected getDialogType(): typeof SerialAutoNumberDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Adding Responsive attribute makes this dialog use full screen in mobile devices.
-     */
-    class ResponsiveDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        constructor();
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of OrderGrid to override dialog type to ResponsiveDialog
-     */
-    class ResponsiveGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof ResponsiveDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class ReadOnlyDialog extends Northwind.SupplierDialog {
-        /**
-         * This is the method that gets list of tool
-         * buttons to be created in a dialog.
-         *
-         * Here we'll remove save and close button, and
-         * apply changes buttons.
-         */
-        protected getToolbarButtons(): Serenity.ToolButton[];
-        /**
-         * This method is a good place to update states of
-         * interface elements. It is called after dialog
-         * is initialized and an entity is loaded into dialog.
-         * This is also called in new item mode.
-         */
-        protected updateInterface(): void;
-        /**
-         * This method is called when dialog title needs to be updated.
-         * Base class returns something like 'Edit xyz' for edit mode,
-         * and 'New xyz' for new record mode.
-         *
-         * But our dialog is readonly, so we should change it to 'View xyz'
-         */
-        protected getEntityTitle(): string;
-        /**
-         * This method is actually the one that calls getEntityTitle()
-         * and updates the dialog title. We could do it here too...
-         */
-        protected updateTitle(): void;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * A readonly grid that launches ReadOnlyDialog
-     */
-    class ReadOnlyGrid extends Northwind.SupplierGrid {
-        protected getDialogType(): typeof ReadOnlyDialog;
-        constructor(container: JQuery);
-        /**
-         * Removing add button from grid using its css class
-         */
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class PopulateLinkedDataDialog extends Serenity.EntityDialog<Northwind.OrderRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getNameProperty(): string;
-        protected getService(): string;
-        protected form: PopulateLinkedDataForm;
-        constructor();
-        private setCustomerDetails(details);
-        /**
-         * This dialog will have CSS class "s-PopulateLinkedDataDialog"
-         * We are changing it here to "s-OrderDialog", to make it use default OrderDialog styles
-         * This has no effect other than looks on populate linked data demonstration
-         */
-        protected getCssClass(): string;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * A subclass of OrderGrid that launches PopulateLinkedDataDialog
-     */
-    class PopulateLinkedDataGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof PopulateLinkedDataDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Styling for columns is done with CSS in site.basicsamples.less file.
-     * When comparing this to MultiColumnDialog sample, you may notice that
-     * this version requires much less JS and CSS code.
-     */
-    class MultiColumnResponsiveDialog extends Northwind.OrderDialog {
-        constructor();
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of OrderGrid to override dialog type to MultiColumnResponsiveDialog
-     */
-    class MultiColumnResponsiveGrid extends Northwind.OrderGrid {
-        protected getDialogType(): typeof MultiColumnResponsiveDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class GetInsertedRecordIdDialog extends Northwind.CategoryDialog {
-        /**
-         * This method is called after the save request to service
-         * is completed succesfully. This can be an insert or update.
-         *
-         * @param response Response that is returned from server
-         */
-        protected onSaveSuccess(response: Serenity.SaveResponse): void;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of CategoryGrid to override dialog type to GetInsertedRecordIdDialog
-     */
-    class GetInsertedRecordIdGrid extends Northwind.CategoryGrid {
-        protected getDialogType(): typeof GetInsertedRecordIdDialog;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.BasicSamples.DialogBoxes {
-    function initializePage(): void;
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class DefaultValuesInNewGrid extends Northwind.OrderGrid {
-        constructor(container: JQuery);
-        /**
-         * This method is called when New Item button is clicked.
-         * By default, it calls EditItem with an empty entity.
-         * This is a good place to fill in default values for New Item button.
-         */
-        protected addButtonClick(): void;
-        protected getButtons(): Serenity.ToolButton[];
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    class CloneableEntityDialog extends Northwind.ProductDialog {
-        protected updateInterface(): void;
-        /**
-         * Overriding this method is optional to customize cloned entity
-         */
-        protected getCloningEntity(): Northwind.ProductRow;
-    }
-}
-declare namespace Cinema.Movie.BasicSamples {
-    /**
-     * Subclass of ProductGrid to override dialog type to CloneableEntityDialog
-     */
-    class CloneableEntityGrid extends Northwind.ProductGrid {
-        protected getDialogType(): typeof CloneableEntityDialog;
-        constructor(container: JQuery);
-    }
-}
-declare var Morris: any;
-declare namespace Cinema.Movie.BasicSamples {
-    class ChartInDialog extends Serenity.TemplatedDialog<any> {
-        private areaChart;
-        static initializePage(): void;
-        protected onDialogOpen(): void;
-        protected arrange(): void;
-        protected getTemplate(): string;
-        protected getDialogOptions(): JQueryUI.DialogOptions;
     }
 }
 declare namespace Cinema.Movie.Administration {

@@ -1708,14 +1708,16 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
-}
-declare namespace Cinema.Movie.Movie {
     class ServiceForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface ServiceForm {
         Name: Serenity.StringEditor;
         Api: Serenity.StringEditor;
+        Active: Serenity.BooleanEditor;
+        IntervalRequest: Serenity.IntegerEditor;
+        LastEvent: Serenity.StringEditor;
+        LastEventPublishDateTime: Serenity.DateEditor;
         MaxRating: Serenity.IntegerEditor;
     }
 }
@@ -1771,12 +1773,14 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
+}
+declare namespace Cinema.Movie.Movie {
     class ServiceRatingForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface ServiceRatingForm {
         Rating: Serenity.IntegerEditor;
-        MovieId: Serenity.IntegerEditor;
+        MovieId: Serenity.StringEditor;
         ServiceId: Serenity.IntegerEditor;
     }
 }
@@ -1817,10 +1821,10 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const ServiceRatingId: any;
-            const Rating: any;
-            const MovieId: any;
-            const ServiceId: any;
+            const ServiceRatingId: string;
+            const Rating: string;
+            const MovieId: string;
+            const ServiceId: string;
             const MovieTitleEn: string;
             const MovieTitleOther: string;
             const MovieDescription: string;
@@ -1853,11 +1857,11 @@ declare namespace Cinema.Movie.Movie {
 declare namespace Cinema.Movie.Movie {
     namespace ServiceRatingService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<ServiceRatingRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ServiceRatingRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ServiceRatingRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ServiceRatingRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<ServiceRatingRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ServiceRatingRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ServiceRatingRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ServiceRatingRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1872,6 +1876,10 @@ declare namespace Cinema.Movie.Movie {
         ServiceId?: number;
         Name?: string;
         Api?: string;
+        Active?: boolean;
+        IntervalRequest?: number;
+        LastEvent?: string;
+        LastEventPublishDateTime?: string;
         MaxRating?: number;
     }
     namespace ServiceRow {
@@ -1879,21 +1887,25 @@ declare namespace Cinema.Movie.Movie {
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const ServiceId: string;
-            const Name: string;
-            const Api: string;
-            const MaxRating: string;
+            const ServiceId: any;
+            const Name: any;
+            const Api: any;
+            const Active: any;
+            const IntervalRequest: any;
+            const LastEvent: any;
+            const LastEventPublishDateTime: any;
+            const MaxRating: any;
         }
     }
 }
 declare namespace Cinema.Movie.Movie {
     namespace ServiceService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<ServiceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<ServiceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ServiceRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ServiceRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<ServiceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ServiceRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ServiceRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ServiceRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;

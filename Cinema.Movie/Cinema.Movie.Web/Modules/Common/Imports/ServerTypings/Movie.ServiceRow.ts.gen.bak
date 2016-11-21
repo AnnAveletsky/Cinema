@@ -4,6 +4,10 @@ namespace Cinema.Movie.Movie {
         ServiceId?: number;
         Name?: string;
         Api?: string;
+        Active?: boolean;
+        IntervalRequest?: number;
+        LastEvent?: string;
+        LastEventPublishDateTime?: string;
         MaxRating?: number;
     }
 
@@ -16,10 +20,14 @@ namespace Cinema.Movie.Movie {
             export declare const ServiceId;
             export declare const Name;
             export declare const Api;
+            export declare const Active;
+            export declare const IntervalRequest;
+            export declare const LastEvent;
+            export declare const LastEventPublishDateTime;
             export declare const MaxRating;
         }
 
-        ['ServiceId', 'Name', 'Api', 'MaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'LastEvent', 'LastEventPublishDateTime', 'MaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

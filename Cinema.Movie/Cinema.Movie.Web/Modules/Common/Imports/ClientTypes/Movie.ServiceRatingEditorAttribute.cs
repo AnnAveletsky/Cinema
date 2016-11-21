@@ -7,11 +7,11 @@ using System.ComponentModel;
 
 namespace Cinema.Movie.Movie
 {
-    public partial class ServiceEditorAttribute : CustomEditorAttribute
+    public partial class ServiceRatingEditorAttribute : CustomEditorAttribute
     {
-        public const string Key = "Cinema.Movie.Movie.ServiceEditor";
+        public const string Key = "Cinema.Movie.Movie.ServiceRatingEditor";
 
-        public ServiceEditorAttribute()
+        public ServiceRatingEditorAttribute()
             : base(Key)
         {
         }

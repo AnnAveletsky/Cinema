@@ -94,6 +94,10 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("ServiceId").AsInt16().Identity().PrimaryKey().NotNullable()
                 .WithColumn("Name").AsString(100).NotNullable()
                 .WithColumn("Api").AsString(300).NotNullable()
+                .WithColumn("Active").AsBoolean().NotNullable().WithDefaultValue(true)
+                .WithColumn("IntervalRequest").AsInt32().NotNullable().WithDefaultValue(24000)
+                .WithColumn("LastEvent").AsString(300).Nullable()
+                .WithColumn("LastEventPublishDateTime").AsDateTime().Nullable()
                 .WithColumn("MaxRating").AsInt16().Nullable();
 
             Create.Table("ServicePath").InSchema("mov")

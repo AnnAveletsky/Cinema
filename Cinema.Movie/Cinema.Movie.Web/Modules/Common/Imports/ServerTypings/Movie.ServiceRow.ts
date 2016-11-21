@@ -1,8 +1,13 @@
-﻿namespace Cinema.Movie.Movie {
+﻿
+namespace Cinema.Movie.Movie {
     export interface ServiceRow {
         ServiceId?: number;
         Name?: string;
         Api?: string;
+        Active?: boolean;
+        IntervalRequest?: number;
+        LastEvent?: string;
+        LastEventPublishDateTime?: string;
         MaxRating?: number;
     }
 
@@ -12,13 +17,17 @@
         export const localTextPrefix = 'Movie.Service';
 
         export namespace Fields {
-            export declare const ServiceId: string;
-            export declare const Name: string;
-            export declare const Api: string;
-            export declare const MaxRating: string;
+            export declare const ServiceId;
+            export declare const Name;
+            export declare const Api;
+            export declare const Active;
+            export declare const IntervalRequest;
+            export declare const LastEvent;
+            export declare const LastEventPublishDateTime;
+            export declare const MaxRating;
         }
 
-        ['ServiceId', 'Name', 'Api', 'MaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'LastEvent', 'LastEventPublishDateTime', 'MaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

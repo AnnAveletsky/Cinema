@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface ServiceRatingRow {
         ServiceRatingId?: number;
         Rating?: number;
@@ -38,10 +37,10 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.ServiceRating';
 
         export namespace Fields {
-            export declare const ServiceRatingId;
-            export declare const Rating;
-            export declare const MovieId;
-            export declare const ServiceId;
+            export declare const ServiceRatingId: string;
+            export declare const Rating: string;
+            export declare const MovieId: string;
+            export declare const ServiceId: string;
             export declare const MovieTitleEn: string;
             export declare const MovieTitleOther: string;
             export declare const MovieDescription: string;

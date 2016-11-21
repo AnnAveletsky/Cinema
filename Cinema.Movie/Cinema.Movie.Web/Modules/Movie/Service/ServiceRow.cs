@@ -37,6 +37,34 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Api[this] = value; }
         }
 
+        [DisplayName("Active"), NotNull]
+        public Boolean? Active
+        {
+            get { return Fields.Active[this]; }
+            set { Fields.Active[this] = value; }
+        }
+
+        [DisplayName("Interval Request"), NotNull]
+        public Int32? IntervalRequest
+        {
+            get { return Fields.IntervalRequest[this]; }
+            set { Fields.IntervalRequest[this] = value; }
+        }
+
+        [DisplayName("Last Event"), Size(300)]
+        public String LastEvent
+        {
+            get { return Fields.LastEvent[this]; }
+            set { Fields.LastEvent[this] = value; }
+        }
+
+        [DisplayName("Last Event Publish Date Time")]
+        public DateTime? LastEventPublishDateTime
+        {
+            get { return Fields.LastEventPublishDateTime[this]; }
+            set { Fields.LastEventPublishDateTime[this] = value; }
+        }
+
         [DisplayName("Max Rating")]
         public Int16? MaxRating
         {
@@ -66,6 +94,10 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field ServiceId;
             public StringField Name;
             public StringField Api;
+            public BooleanField Active;
+            public Int32Field IntervalRequest;
+            public StringField LastEvent;
+            public DateTimeField LastEventPublishDateTime;
             public Int16Field MaxRating;
 
             public RowFields()

@@ -18,6 +18,10 @@ namespace Cinema.Movie.Movie.Columns
         [EditLink]
         public String Name { get; set; }
         public String Api { get; set; }
+        public Boolean Active { get; set; }
+        public Int32 IntervalRequest { get; set; }
+        public String LastEvent { get; set; }
+        public DateTime LastEventPublishDateTime { get; set; }
         public Int16 MaxRating { get; set; }
     }
 }

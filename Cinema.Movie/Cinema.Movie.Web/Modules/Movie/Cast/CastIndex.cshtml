@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewData["Title"] = Serenity.LocalText.Get("Db.Movie.MovieCast.EntityPlural");
+    ViewData["Title"] = Serenity.LocalText.Get("Db.Movie.Cast.EntityPlural");
 }
 
 <div id="GridDiv"></div>
 
 <script type="text/javascript">
     jQuery(function () {
-        new Cinema.Movie.Movie.MovieCastGrid($('#GridDiv'), {}).init();
+        new Cinema.Movie.Movie.CastGrid($('#GridDiv'), {}).init();
 
         Q.initFullHeightGridPage($('#GridDiv'));
     });

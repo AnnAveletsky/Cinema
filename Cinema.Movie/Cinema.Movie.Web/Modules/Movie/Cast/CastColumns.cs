@@ -9,15 +9,13 @@ namespace Cinema.Movie.Movie.Columns
     using System.Collections.Generic;
     using System.IO;
 
-    [ColumnsScript("Movie.MovieCast")]
-    [BasedOnRow(typeof(Entities.MovieCastRow))]
-    public class MovieCastColumns
+    [ColumnsScript("Movie.Cast")]
+    [BasedOnRow(typeof(Entities.CastRow))]
+    public class CastColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int16 MovieCastId { get; set; }
+        public Int16 CastId { get; set; }
         [EditLink]
         public String Character { get; set; }
-        public Int64 MovieId { get; set; }
-        public Int64 PersonId { get; set; }
     }
 }

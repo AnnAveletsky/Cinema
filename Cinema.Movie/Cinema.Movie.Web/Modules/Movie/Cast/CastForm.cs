@@ -9,12 +9,10 @@ namespace Cinema.Movie.Movie.Forms
     using System.Collections.Generic;
     using System.IO;
 
-    [FormScript("Movie.MovieCast")]
-    [BasedOnRow(typeof(Entities.MovieCastRow))]
-    public class MovieCastForm
+    [FormScript("Movie.Cast")]
+    [BasedOnRow(typeof(Entities.CastRow))]
+    public class CastForm
     {
         public String Character { get; set; }
-        public Int64 MovieId { get; set; }
-        public Int64 PersonId { get; set; }
     }
 }

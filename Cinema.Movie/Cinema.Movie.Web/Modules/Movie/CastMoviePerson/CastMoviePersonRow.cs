@@ -11,23 +11,23 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("MovieCast"), InstanceName("MovieCast"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("CastMoviePerson"), InstanceName("CastMoviePerson"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    public sealed class MovieCastRow : Row, IIdRow, INameRow
+    public sealed class CastMoviePersonRow : Row, IIdRow
     {
-        [DisplayName("Movie Cast Id"), Identity]
-        public Int16? MovieCastId
+        [DisplayName("Movie Person Cast Id"), Identity]
+        public Int64? MoviePersonCastId
         {
-            get { return Fields.MovieCastId[this]; }
-            set { Fields.MovieCastId[this] = value; }
+            get { return Fields.MoviePersonCastId[this]; }
+            set { Fields.MoviePersonCastId[this] = value; }
         }
 
-        [DisplayName("Character"), Size(50), QuickSearch]
-        public String Character
+        [DisplayName("Cast"), NotNull, ForeignKey("[mov].[Cast]", "CastId"), LeftJoin("jCast"), TextualField("CastCharacter")]
+        public Int16? CastId
         {
-            get { return Fields.Character[this]; }
-            set { Fields.Character[this] = value; }
+            get { return Fields.CastId[this]; }
+            set { Fields.CastId[this] = value; }
         }
 
         [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("MovieTitleEn")]
@@ -42,6 +42,13 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.PersonId[this]; }
             set { Fields.PersonId[this] = value; }
+        }
+
+        [DisplayName("Cast Character"), Expression("jCast.[Character]")]
+        public String CastCharacter
+        {
+            get { return Fields.CastCharacter[this]; }
+            set { Fields.CastCharacter[this] = value; }
         }
 
         [DisplayName("Movie Title En"), Expression("jMovie.[TitleEn]")]
@@ -263,27 +270,24 @@ namespace Cinema.Movie.Movie.Entities
 
         IIdField IIdRow.IdField
         {
-            get { return Fields.MovieCastId; }
-        }
-
-        StringField INameRow.NameField
-        {
-            get { return Fields.Character; }
+            get { return Fields.MoviePersonCastId; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
 
-        public MovieCastRow()
+        public CastMoviePersonRow()
             : base(Fields)
         {
         }
 
         public class RowFields : RowFieldsBase
         {
-            public Int16Field MovieCastId;
-            public StringField Character;
+            public Int64Field MoviePersonCastId;
+            public Int16Field CastId;
             public Int64Field MovieId;
             public Int64Field PersonId;
+
+            public StringField CastCharacter;
 
             public StringField MovieTitleEn;
             public StringField MovieTitleOther;
@@ -319,9 +323,9 @@ namespace Cinema.Movie.Movie.Entities
             public StringField PersonPathImageMini;
 
             public RowFields()
-                : base("[mov].[MovieCast]")
+                : base("[mov].[CastMoviePerson]")
             {
-                LocalTextPrefix = "Movie.MovieCast";
+                LocalTextPrefix = "Movie.CastMoviePerson";
             }
         }
     }

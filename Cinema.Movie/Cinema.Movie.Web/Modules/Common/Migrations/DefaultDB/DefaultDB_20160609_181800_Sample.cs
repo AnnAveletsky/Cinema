@@ -32,6 +32,36 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 {
                     Name = "Documentary"
                 });
+
+            Insert.IntoTable("Cast").InSchema("mov")
+                .Row(new
+                {
+                    Character = "Producer"
+                })
+                .Row(new
+                {
+                    Character = "Scenario"
+                })
+                .Row(new
+                {
+                    Character = "Director"
+                })
+                .Row(new
+                {
+                    Character = "Operator"
+                })
+                .Row(new
+                {
+                    Character = "Composer"
+                })
+                .Row(new
+                {
+                    Character = "Painter"
+                })
+                .Row(new
+                {
+                    Character = "Montage"
+                });
         }
 
         public override void Down()

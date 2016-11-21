@@ -7,9 +7,9 @@ namespace Cinema.Movie.Movie.Repositories
     using Serenity.Services;
     using System;
     using System.Data;
-    using MyRow = Entities.MovieCastRow;
+    using MyRow = Entities.CastRow;
 
-    public class MovieCastRepository
+    public class CastRepository
     {
         private static MyRow.RowFields fld { get { return MyRow.Fields; } }
 

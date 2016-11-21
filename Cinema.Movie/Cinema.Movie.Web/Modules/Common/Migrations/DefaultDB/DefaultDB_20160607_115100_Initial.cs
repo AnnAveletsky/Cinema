@@ -69,13 +69,18 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("PathImage").AsString(300).Nullable()
                 .WithColumn("PathImageMini").AsString(300).NotNullable();
 
-            Create.Table("MovieCast").InSchema("mov")
-                .WithColumn("MovieCastId").AsInt16().Identity().PrimaryKey().NotNullable()
-                .WithColumn("Character").AsString(50).Nullable()
+            Create.Table("Cast").InSchema("mov")
+                .WithColumn("CastId").AsInt16().Identity().PrimaryKey().NotNullable()
+                .WithColumn("Character").AsString(50).Nullable();
+
+            Create.Table("CastMoviePerson").InSchema("mov")
+                .WithColumn("MoviePersonCastId").AsInt64().Identity().PrimaryKey().NotNullable()
+                .WithColumn("CastId").AsInt16().NotNullable()
+                    .ForeignKey("FK_CastMoviePerson_CastId", "mov", "Cast", "CastId")
                 .WithColumn("MovieId").AsInt64().NotNullable()
-                    .ForeignKey("FK_MovieCast_MovieId", "mov", "Movie", "MovieId")
+                    .ForeignKey("FK_CastMoviePerson_MovieId", "mov", "Movie", "MovieId")
                 .WithColumn("PersonId").AsInt64().NotNullable()
-                    .ForeignKey("FK_MovieCast_PersonId", "mov", "Person", "PersonId");
+                    .ForeignKey("FK_CastMoviePerson_PersonId", "mov", "Person", "PersonId");
                 
             Create.Table("Image").InSchema("mov")
                 .WithColumn("ImageId").AsInt64().Identity().PrimaryKey().NotNullable()

@@ -6,12 +6,12 @@ namespace Cinema.Movie.Movie.Endpoints
     using Serenity.Services;
     using System.Data;
     using System.Web.Mvc;
-    using MyRepository = Repositories.MovieCastRepository;
-    using MyRow = Entities.MovieCastRow;
+    using MyRepository = Repositories.CastRepository;
+    using MyRow = Entities.CastRow;
 
-    [RoutePrefix("Services/Movie/MovieCast"), Route("{action}")]
+    [RoutePrefix("Services/Movie/Cast"), Route("{action}")]
     [ConnectionKey("Default"), ServiceAuthorize("Administration")]
-    public class MovieCastController : ServiceEndpoint
+    public class CastController : ServiceEndpoint
     {
         [HttpPost]
         public SaveResponse Create(IUnitOfWork uow, SaveRequest<MyRow> request)

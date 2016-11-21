@@ -176,6 +176,42 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
+    class MovieCastDialog extends Serenity.EntityDialog<MovieCastRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MovieCastForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieCastEditor extends Common.GridEditorBase<MovieCastRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MovieCastEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieCastEditorDialog extends Common.GridEditorDialog<MovieCastRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: MovieCastForm;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieCastGrid extends Serenity.EntityGrid<MovieCastRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MovieCastDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Movie.Movie {
     class MovieDialog extends Serenity.EntityDialog<MovieRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -1049,6 +1085,114 @@ declare namespace Cinema.Movie.Movie {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<GenreRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<GenreRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    class MovieCastForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MovieCastForm {
+        Character: Serenity.StringEditor;
+        MovieId: Serenity.IntegerEditor;
+        PersonId: Serenity.IntegerEditor;
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    interface MovieCastRow {
+        MovieCastId?: number;
+        Character?: string;
+        MovieId?: number;
+        PersonId?: number;
+        MovieTitleEn?: string;
+        MovieTitleOther?: string;
+        MovieDescription?: string;
+        MovieYearStart?: number;
+        MovieYearEnd?: number;
+        MovieReleaseWorldDate?: string;
+        MovieReleaseOtherDate?: string;
+        MovieReleaseDvd?: string;
+        MovieRuntime?: number;
+        MovieCreateDateTime?: string;
+        MovieUpdateDateTime?: string;
+        MoviePublishDateTime?: string;
+        MovieKind?: number;
+        MovieRating?: number;
+        MovieMpaa?: string;
+        MoviePathImage?: string;
+        MoviePathMiniImage?: string;
+        MovieNice?: boolean;
+        MovieContSeason?: number;
+        MovieLastEvent?: string;
+        MovieLastEventPublishDateTime?: string;
+        MovieTagline?: string;
+        MovieBudget?: number;
+        PersonFirstname?: string;
+        PersonLastname?: string;
+        PersonBirthDate?: string;
+        PersonBirthPlace?: string;
+        PersonGender?: number;
+        PersonHeight?: number;
+        PersonPathImage?: string;
+        PersonPathImageMini?: string;
+    }
+    namespace MovieCastRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const MovieCastId: any;
+            const Character: any;
+            const MovieId: any;
+            const PersonId: any;
+            const MovieTitleEn: string;
+            const MovieTitleOther: string;
+            const MovieDescription: string;
+            const MovieYearStart: string;
+            const MovieYearEnd: string;
+            const MovieReleaseWorldDate: string;
+            const MovieReleaseOtherDate: string;
+            const MovieReleaseDvd: string;
+            const MovieRuntime: string;
+            const MovieCreateDateTime: string;
+            const MovieUpdateDateTime: string;
+            const MoviePublishDateTime: string;
+            const MovieKind: string;
+            const MovieRating: string;
+            const MovieMpaa: string;
+            const MoviePathImage: string;
+            const MoviePathMiniImage: string;
+            const MovieNice: string;
+            const MovieContSeason: string;
+            const MovieLastEvent: string;
+            const MovieLastEventPublishDateTime: string;
+            const MovieTagline: string;
+            const MovieBudget: string;
+            const PersonFirstname: string;
+            const PersonLastname: string;
+            const PersonBirthDate: string;
+            const PersonBirthPlace: string;
+            const PersonGender: string;
+            const PersonHeight: string;
+            const PersonPathImage: string;
+            const PersonPathImageMini: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    namespace MovieCastService {
+        const baseUrl: string;
+        function Create(request: Serenity.SaveRequest<MovieCastRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MovieCastRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MovieCastRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MovieCastRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;

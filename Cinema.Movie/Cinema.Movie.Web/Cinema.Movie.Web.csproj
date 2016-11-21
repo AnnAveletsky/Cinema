@@ -1282,6 +1282,7 @@
     <Content Include="Modules\Configuration\Background\BackgroundIndex.cshtml" />
     <Content Include="Modules\Configuration\Settings\SettingsIndex.cshtml" />
     <Content Include="Modules\Movie\Genre\_Genres.cshtml" />
+    <Content Include="Modules\Movie\MovieCast\MovieCastIndex.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1601,6 +1602,10 @@
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\MovieCast\MovieCastDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\MovieCast\MovieCastEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\MovieCast\MovieCastEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\MovieCast\MovieCastGrid.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditorDialog.ts" />
@@ -1808,6 +1813,12 @@
     <Compile Include="Modules\Movie\Genre\GenrePage.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRepository.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
+    <Compile Include="Modules\Movie\MovieCast\MovieCastColumns.cs" />
+    <Compile Include="Modules\Movie\MovieCast\MovieCastEndpoint.cs" />
+    <Compile Include="Modules\Movie\MovieCast\MovieCastForm.cs" />
+    <Compile Include="Modules\Movie\MovieCast\MovieCastPage.cs" />
+    <Compile Include="Modules\Movie\MovieCast\MovieCastRepository.cs" />
+    <Compile Include="Modules\Movie\MovieCast\MovieCastRow.cs" />
     <Compile Include="Modules\Movie\MovieGenres\MovieGenresRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />
     <Compile Include="Modules\Movie\Movie\MovieEndpoint.cs" />

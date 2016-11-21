@@ -1,6 +1,5 @@
 ﻿
 
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Movie/Cast", typeof(Cinema.Movie.Movie.Pages.CastController))]
 
 namespace Cinema.Movie.Movie.Pages
 {

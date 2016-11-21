@@ -1507,6 +1507,70 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
+    interface MovieTagRow {
+        MovieTagId?: number;
+        TagId?: number;
+        MovieId?: number;
+        TagName?: string;
+        MovieTitleEn?: string;
+        MovieTitleOther?: string;
+        MovieDescription?: string;
+        MovieYearStart?: number;
+        MovieYearEnd?: number;
+        MovieReleaseWorldDate?: string;
+        MovieReleaseOtherDate?: string;
+        MovieReleaseDvd?: string;
+        MovieRuntime?: number;
+        MovieCreateDateTime?: string;
+        MovieUpdateDateTime?: string;
+        MoviePublishDateTime?: string;
+        MovieKind?: number;
+        MovieRating?: number;
+        MovieMpaa?: string;
+        MoviePathImage?: string;
+        MoviePathMiniImage?: string;
+        MovieNice?: boolean;
+        MovieContSeason?: number;
+        MovieLastEvent?: string;
+        MovieLastEventPublishDateTime?: string;
+        MovieTagline?: string;
+        MovieBudget?: number;
+    }
+    namespace MovieTagRow {
+        const idProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const MovieTagId: any;
+            const TagId: any;
+            const MovieId: any;
+            const TagName: string;
+            const MovieTitleEn: string;
+            const MovieTitleOther: string;
+            const MovieDescription: string;
+            const MovieYearStart: string;
+            const MovieYearEnd: string;
+            const MovieReleaseWorldDate: string;
+            const MovieReleaseOtherDate: string;
+            const MovieReleaseDvd: string;
+            const MovieRuntime: string;
+            const MovieCreateDateTime: string;
+            const MovieUpdateDateTime: string;
+            const MoviePublishDateTime: string;
+            const MovieKind: string;
+            const MovieRating: string;
+            const MovieMpaa: string;
+            const MoviePathImage: string;
+            const MoviePathMiniImage: string;
+            const MovieNice: string;
+            const MovieContSeason: string;
+            const MovieLastEvent: string;
+            const MovieLastEventPublishDateTime: string;
+            const MovieTagline: string;
+            const MovieBudget: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
 }
 declare namespace Cinema.Movie.Movie {
     class PersonForm extends Serenity.PrefixedContext {

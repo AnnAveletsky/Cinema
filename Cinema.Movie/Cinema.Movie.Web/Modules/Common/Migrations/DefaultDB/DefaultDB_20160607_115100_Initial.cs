@@ -96,16 +96,15 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("Api").AsString(300).NotNullable()
                 .WithColumn("MaxRating").AsInt16().Nullable();
 
-            Create.Table("Service.Path").InSchema("mov")
+            Create.Table("ServicePath").InSchema("mov")
                .WithColumn("ServicePathId").AsInt16().Identity().PrimaryKey().NotNullable()
                .WithColumn("Path").AsString(300).NotNullable()
                .WithColumn("ServiceId").AsInt16()
                     .ForeignKey("FK_ServicePath_ServiceId", "mov", "Service", "ServiceId").NotNullable();
 
-            Create.Table("Service.Rating").InSchema("mov")
+            Create.Table("ServiceRating").InSchema("mov")
                .WithColumn("ServiceRatingId").AsInt16().Identity().PrimaryKey().NotNullable()
                .WithColumn("Rating").AsInt16().NotNullable().WithDefaultValue(0)
-               .WithColumn("ContSuffrage").AsInt16().NotNullable().WithDefaultValue(0)
                .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_ServiceRating_MovieId", "mov", "Movie", "MovieId")
                .WithColumn("ServiceId").AsInt16()
@@ -118,7 +117,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("Translation").AsInt16().Nullable().WithDefaultValue(1)
                 .WithColumn("Season").AsInt16().Nullable()
                 .WithColumn("Serie").AsInt16().Nullable()
-                .WithColumn("Storyline").AsString(Int32.MaxValue).Nullable()
+                .WithColumn("Storyline").AsString(Int16.MaxValue).Nullable()
                 .WithColumn("PlannePublishDate").AsDate().Nullable()
                 .WithColumn("ActualPublishDateTime").AsDateTime().Nullable()
                 .WithColumn("MovieId").AsInt64().NotNullable()

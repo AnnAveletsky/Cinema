@@ -7545,6 +7545,10 @@ section.content > .s-DataGrid {
   color: #009b86;
   border-color: #009b86;
 }
+.skin-modern .label.label-custom {
+  background: #009b86;
+  color: #f7ffbc;
+}
 .skin-sunset {
   /*
         #534255
@@ -8175,6 +8179,10 @@ section.content > .s-DataGrid {
   background-color: #f5ebe0;
   color: #f2b183;
   border-color: #f2b183;
+}
+.skin-sunset .label.label-custom {
+  background: #f2b183;
+  color: #f5ebe0;
 }
 .skin-tenderness {
   /*
@@ -8807,6 +8815,10 @@ section.content > .s-DataGrid {
   color: #46899b;
   border-color: #46899b;
 }
+.skin-tenderness .label.label-custom {
+  background: #46899b;
+  color: #f0f0f3;
+}
 .skin-grapefruit {
   /*
         #18171c
@@ -9437,6 +9449,10 @@ section.content > .s-DataGrid {
   background-color: #ded199;
   color: #50536a;
   border-color: #50536a;
+}
+.skin-grapefruit .label.label-custom {
+  background: #50536a;
+  color: #ded199;
 }
 .skin-nature {
   /*
@@ -10069,6 +10085,10 @@ section.content > .s-DataGrid {
   color: #487101;
   border-color: #487101;
 }
+.skin-nature .label.label-custom {
+  background: #487101;
+  color: #f1f2f8;
+}
 .sidebar-collapse .sidebar-menu > li {
   border-top: 0;
 }
@@ -10507,5 +10527,23 @@ section.content > .s-DataGrid {
   width: 650px;
 }
 .s-Configuration-BackgroundDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Movie-MovieCastDialog > .size {
+  width: 650px;
+}
+.s-Movie-MovieCastDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Movie-MovieCastDialog > .size {
+  width: 650px;
+}
+.s-Movie-MovieCastDialog .caption {
   width: 150px;
 }

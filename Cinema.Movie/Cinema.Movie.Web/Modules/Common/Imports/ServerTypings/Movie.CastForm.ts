@@ -1,8 +1,7 @@
-﻿
-
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export class CastForm extends Serenity.PrefixedContext {
         static formKey = 'Movie.Cast';
+
     }
 
     export interface CastForm {
@@ -11,3 +10,4 @@ namespace Cinema.Movie.Movie {
 
     [['Character', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(CastForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
+

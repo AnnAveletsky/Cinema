@@ -1,10 +1,10 @@
 ﻿namespace Cinema.Movie.Movie {
-    export interface CastMoviePersonRow {
-        MoviePersonCastId?: number;
-        CastId?: number;
+    export interface ServiceRatingRow {
+        ServiceRatingId?: number;
+        Rating?: number;
+        ContSuffrage?: number;
         MovieId?: number;
-        PersonId?: number;
-        CastCharacter?: string;
+        ServiceId?: number;
         MovieTitleEn?: string;
         MovieTitleOther?: string;
         MovieDescription?: string;
@@ -28,26 +28,21 @@
         MovieLastEventPublishDateTime?: string;
         MovieTagline?: string;
         MovieBudget?: number;
-        PersonFirstname?: string;
-        PersonLastname?: string;
-        PersonBirthDate?: string;
-        PersonBirthPlace?: string;
-        PersonGender?: number;
-        PersonHeight?: number;
-        PersonPathImage?: string;
-        PersonPathImageMini?: string;
+        ServiceName?: string;
+        ServiceApi?: string;
+        ServiceMaxRating?: number;
     }
 
-    export namespace CastMoviePersonRow {
-        export const idProperty = 'MoviePersonCastId';
-        export const localTextPrefix = 'Movie.CastMoviePerson';
+    export namespace ServiceRatingRow {
+        export const idProperty = 'ServiceRatingId';
+        export const localTextPrefix = 'Movie.ServiceRating';
 
         export namespace Fields {
-            export declare const MoviePersonCastId: string;
-            export declare const CastId: string;
+            export declare const ServiceRatingId: string;
+            export declare const Rating: string;
+            export declare const ContSuffrage: string;
             export declare const MovieId: string;
-            export declare const PersonId: string;
-            export declare const CastCharacter: string;
+            export declare const ServiceId: string;
             export declare const MovieTitleEn: string;
             export declare const MovieTitleOther: string;
             export declare const MovieDescription: string;
@@ -71,17 +66,12 @@
             export declare const MovieLastEventPublishDateTime: string;
             export declare const MovieTagline: string;
             export declare const MovieBudget: string;
-            export declare const PersonFirstname: string;
-            export declare const PersonLastname: string;
-            export declare const PersonBirthDate: string;
-            export declare const PersonBirthPlace: string;
-            export declare const PersonGender: string;
-            export declare const PersonHeight: string;
-            export declare const PersonPathImage: string;
-            export declare const PersonPathImageMini: string;
+            export declare const ServiceName: string;
+            export declare const ServiceApi: string;
+            export declare const ServiceMaxRating: string;
         }
 
-        ['MoviePersonCastId', 'CastId', 'MovieId', 'PersonId', 'CastCharacter', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'PersonFirstname', 'PersonLastname', 'PersonBirthDate', 'PersonBirthPlace', 'PersonGender', 'PersonHeight', 'PersonPathImage', 'PersonPathImageMini'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceRatingId', 'Rating', 'ContSuffrage', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface MovieTagRow {
         MovieTagId?: number;
         TagId?: number;
@@ -35,9 +34,9 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.MovieTag';
 
         export namespace Fields {
-            export declare const MovieTagId;
-            export declare const TagId;
-            export declare const MovieId;
+            export declare const MovieTagId: string;
+            export declare const TagId: string;
+            export declare const MovieId: string;
             export declare const TagName: string;
             export declare const MovieTitleEn: string;
             export declare const MovieTitleOther: string;

@@ -87,6 +87,11 @@ namespace MVC
 
         public static class Movie
         {
+            public static class Cast
+            {
+                public const string CastIndex = "~/Modules/Movie/Cast/CastIndex.cshtml";
+            }
+
             public static class Genre
             {
                 public const string _Genres = "~/Modules/Movie/Genre/_Genres.cshtml";
@@ -108,6 +113,11 @@ namespace MVC
             public static class Service
             {
                 public const string ServiceIndex = "~/Modules/Movie/Service/ServiceIndex.cshtml";
+            }
+
+            public static class ServicePath
+            {
+                public const string ServicePathIndex = "~/Modules/Movie/ServicePath/ServicePathIndex.cshtml";
             }
 
             public static class Tag

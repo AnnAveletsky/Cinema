@@ -1,5 +1,4 @@
-﻿
-namespace Cinema.Movie.Movie {
+﻿namespace Cinema.Movie.Movie {
     export interface CastRow {
         CastId?: number;
         Character?: string;
@@ -11,8 +10,8 @@ namespace Cinema.Movie.Movie {
         export const localTextPrefix = 'Movie.Cast';
 
         export namespace Fields {
-            export declare const CastId;
-            export declare const Character;
+            export declare const CastId: string;
+            export declare const Character: string;
         }
 
         ['CastId', 'Character'].forEach(x => (<any>Fields)[x] = x);

@@ -1324,6 +1324,7 @@
     <Content Include="Modules\Movie\ServicePath\ServicePathIndex.cshtml" />
     <Content Include="Modules\Movie\ServiceRating\ServiceRatingIndex.cshtml" />
     <Content Include="Modules\Movie\Service\ServiceIndex.cshtml" />
+    <Content Include="Modules\Configuration\ServiceUpdate\ServiceUpdateIndex.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1829,6 +1830,8 @@
     <Compile Include="Modules\Configuration\Background\BackgroundPage.cs" />
     <Compile Include="Modules\Configuration\Background\BackgroundRepository.cs" />
     <Compile Include="Modules\Configuration\Background\BackgroundRow.cs" />
+    <Compile Include="Modules\Configuration\ServiceUpdate\ServiceUpdatePage.cs" />
+    <Compile Include="Modules\Configuration\ServiceUpdate\ServiceUpdateModel.cs" />
     <Compile Include="Modules\Configuration\Settings\SettingsColumns.cs" />
     <Compile Include="Modules\Configuration\Settings\SettingsEndpoint.cs" />
     <Compile Include="Modules\Configuration\Settings\SettingsForm.cs" />

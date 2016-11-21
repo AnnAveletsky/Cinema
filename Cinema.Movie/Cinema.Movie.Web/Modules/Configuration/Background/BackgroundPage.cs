@@ -1,8 +1,4 @@
-﻿
-
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Configuration/Background", typeof(Cinema.Movie.Configuration.Pages.BackgroundController))]
-
-namespace Cinema.Movie.Configuration.Pages
+﻿namespace Cinema.Movie.Configuration.Pages
 {
     using Serenity;
     using Serenity.Web;

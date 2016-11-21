@@ -1,6 +1,7 @@
 ﻿using Serenity.Navigation;
 using Administration = Cinema.Movie.Administration.Pages;
 using Movie= Cinema.Movie.Movie.Pages;
+using Configuration = Cinema.Movie.Configuration.Pages;
 
 [assembly: NavigationLink(1000, "Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
 [assembly: NavigationLink(1100, "Dashboard/Dashboard", url: "~/", permission: "", icon: "icon-speedometer")]
@@ -25,3 +26,8 @@ using Movie= Cinema.Movie.Movie.Pages;
 [assembly: NavigationLink(10700, "Movie/Service", typeof(Movie.ServiceController), icon: "fa-gear")]
 [assembly: NavigationLink(10800, "Movie/ServicePath", typeof(Movie.ServicePathController), icon: "fa-gear")]
 [assembly: NavigationLink(10900, "Movie/ServiceRating", typeof(Movie.ServiceRatingController), icon: "fa-gear")]
+
+[assembly: NavigationMenu(11000, "Configuration", icon: "fa-gear")]
+[assembly: NavigationLink(11100, "Configuration/Background", typeof(Configuration.BackgroundController), icon: "fa-gear")]
+[assembly: NavigationLink(11200, "Configuration/Settings", typeof(Configuration.SettingsController), icon: "fa-gear")]
+[assembly: NavigationLink(11300, "Configuration/ServiceUpdate", typeof(Configuration.ServiceUpdateController), icon: "fa-users")]

@@ -30,4 +30,3 @@ using Configuration = Cinema.Movie.Configuration.Pages;
 [assembly: NavigationMenu(11000, "Configuration", icon: "fa-gear")]
 [assembly: NavigationLink(11100, "Configuration/Background", typeof(Configuration.BackgroundController), icon: "fa-gear")]
 [assembly: NavigationLink(11200, "Configuration/Settings", typeof(Configuration.SettingsController), icon: "fa-gear")]
-[assembly: NavigationLink(11300, "Configuration/ServiceUpdate", typeof(Configuration.ServiceUpdateController), icon: "fa-users")]

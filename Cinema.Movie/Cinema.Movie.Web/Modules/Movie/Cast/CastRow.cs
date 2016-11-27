@@ -12,7 +12,6 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Cast"), InstanceName("Cast"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class CastRow : Row, IIdRow, INameRow
     {

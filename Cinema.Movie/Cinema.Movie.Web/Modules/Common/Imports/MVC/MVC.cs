@@ -110,6 +110,11 @@ namespace MVC
                 public const string PersonIndex = "~/Modules/Movie/Person/PersonIndex.cshtml";
             }
 
+            public static class Service
+            {
+                public const string ServiceIndex = "~/Modules/Movie/Service/ServiceIndex.cshtml";
+            }
+
             public static class ServicePath
             {
                 public const string ServicePathIndex = "~/Modules/Movie/ServicePath/ServicePathIndex.cshtml";

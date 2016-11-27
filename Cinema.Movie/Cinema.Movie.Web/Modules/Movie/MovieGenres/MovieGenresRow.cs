@@ -12,7 +12,6 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("MovieGenres"), InstanceName("MovieGenres"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class MovieGenresRow : Row, IIdRow
     {

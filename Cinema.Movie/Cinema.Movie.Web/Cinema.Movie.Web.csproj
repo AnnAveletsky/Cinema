@@ -86,12 +86,12 @@
       <HintPath>..\..\packages\MsieJavaScriptEngine.1.7.0\lib\net40\MsieJavaScriptEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Core, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Serenity.Core.2.4.13\lib\net45\Serenity.Core.dll</HintPath>
+    <Reference Include="Serenity.Core, Version=2.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Serenity.Core.2.6.3\lib\net45\Serenity.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Serenity.Data, Version=2.4.13.0, Culture=neutral, processorArchitecture=MSIL">
@@ -1248,6 +1248,12 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.PersonColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServicePathColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1270,6 +1276,12 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceRatingService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.TagColumns.ts">
@@ -1324,7 +1336,6 @@
     <Content Include="Modules\Movie\ServicePath\ServicePathIndex.cshtml" />
     <Content Include="Modules\Movie\ServiceRating\ServiceRatingIndex.cshtml" />
     <Content Include="Modules\Movie\Service\ServiceIndex.cshtml" />
-    <Content Include="Modules\Configuration\ServiceUpdate\ServiceUpdateIndex.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -1779,6 +1790,9 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.PersonEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Imports\ClientTypes\Movie.ServiceEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.ServicePathEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -1830,8 +1844,6 @@
     <Compile Include="Modules\Configuration\Background\BackgroundPage.cs" />
     <Compile Include="Modules\Configuration\Background\BackgroundRepository.cs" />
     <Compile Include="Modules\Configuration\Background\BackgroundRow.cs" />
-    <Compile Include="Modules\Configuration\ServiceUpdate\ServiceUpdatePage.cs" />
-    <Compile Include="Modules\Configuration\ServiceUpdate\ServiceUpdateModel.cs" />
     <Compile Include="Modules\Configuration\Settings\SettingsColumns.cs" />
     <Compile Include="Modules\Configuration\Settings\SettingsEndpoint.cs" />
     <Compile Include="Modules\Configuration\Settings\SettingsForm.cs" />

@@ -12,7 +12,6 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Genre"), InstanceName("Genre"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     [JsonConverter(typeof(JsonRowConverter))]
     [LookupScript("Movie.Genre")]

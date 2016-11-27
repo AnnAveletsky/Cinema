@@ -676,6 +676,42 @@ var Cinema;
                 ServiceGrid.prototype.getIdProperty = function () { return Movie.ServiceRow.idProperty; };
                 ServiceGrid.prototype.getLocalTextPrefix = function () { return Movie.ServiceRow.localTextPrefix; };
                 ServiceGrid.prototype.getService = function () { return Movie.ServiceService.baseUrl; };
+                ServiceGrid.prototype.getColumns = function () {
+                    var columns = _super.prototype.getColumns.call(this);
+                    var fld = Movie.ServiceRow.Fields;
+                    Q.first(columns, function (x) { return x.field == fld.Api; }).format =
+                        function (ctx) { return ("<a href=\"javascript:;\" class=\"btn btn-info\">" + Q.htmlEncode(ctx.value) + "</a>"); };
+                    return columns;
+                };
+                ServiceGrid.prototype.onClick = function (e, row, cell) {
+                    // let base grid handle clicks for its edit links
+                    _super.prototype.onClick.call(this, e, row, cell);
+                    // if base grid already handled, we shouldn"t handle it again
+                    if (e.isDefaultPrevented()) {
+                        return;
+                    }
+                    // get reference to current item
+                    var item = this.itemAt(row);
+                    // get reference to clicked element
+                    var target = $(e.target);
+                    if (target.hasClass("btn-info")) {
+                        e.preventDefault();
+                        console.log("click");
+                        var data = Q.serviceCall({
+                            service: '/Movie/Service/GetMovies?id=' + item.ServiceId,
+                        }).done(function (data) {
+                            var message = Q.format("<p>Open session?</p>", Q.htmlEncode(item.Name));
+                            Q.confirm(message, function () {
+                                new Movie.MovieDialog().loadByIdAndOpenDialog(data);
+                            }, {
+                                htmlEncode: false,
+                                onNo: function () {
+                                    new Movie.MovieDialog().loadByIdAndOpenDialog(data);
+                                }
+                            });
+                        });
+                    }
+                };
                 ServiceGrid = __decorate([
                     Serenity.Decorators.registerClass()
                 ], ServiceGrid);

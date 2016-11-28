@@ -6,6 +6,7 @@
     using Serenity.Data;
     using System;
     using System.Configuration;
+    using Administration.Entities;
 
     public static partial class SiteInitialization
     {
@@ -33,12 +34,18 @@
                 ex.Log();
                 throw;
             }
+            EnsureDatabase(databaseDefaltKey);
+            RunMigrations(databaseDefaltKey);
+            var db = new Administration.Repositories.DataBaseRepository();
+            var connect = SqlConnections.NewFor<DataBaseRow>();
+            var databaseKeys = db.List(connect, new Serenity.Services.ListRequest());
 
-            foreach (var databaseKey in databaseKeys)
+            databaseKeys.Entities.ForEach((i) =>
             {
-                EnsureDatabase(databaseKey);
-                RunMigrations(databaseKey);
-            }
+                SqlConnections.SetConnection(i.Name, @i.ConnectionString, i.ProviderName);
+                EnsureDatabase(i.Name);
+                RunMigrations(i.Name);
+            });
         }
 
         public static void ApplicationEnd()

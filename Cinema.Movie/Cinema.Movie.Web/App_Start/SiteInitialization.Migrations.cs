@@ -11,7 +11,8 @@
 
     public static partial class SiteInitialization
     {
-        private static string[] databaseKeys = new[] { "Default" };
+        private static string databaseDefaltKey =  "Default";
+        private static string[] databaseKeys =new string[] { "Movie" };
 
         /// <summary>
         /// Automatically creates a database for the template if it doesn't already exists.

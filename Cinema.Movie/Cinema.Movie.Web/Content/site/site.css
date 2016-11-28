@@ -10637,3 +10637,21 @@ section.content > .s-DataGrid {
 .s-Movie-ServiceDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-DataBase-DbDialog > .size {
+  width: 650px;
+}
+.s-DataBase-DbDialog .caption {
+  width: 150px;
+}
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Administration-DataBaseDialog > .size {
+  width: 650px;
+}
+.s-Administration-DataBaseDialog .caption {
+  width: 150px;
+}

@@ -1969,6 +1969,64 @@ var Cinema;
     (function (Movie) {
         var Administration;
         (function (Administration) {
+            var DataBaseForm = (function (_super) {
+                __extends(DataBaseForm, _super);
+                function DataBaseForm() {
+                    _super.apply(this, arguments);
+                }
+                DataBaseForm.formKey = 'Administration.DataBase';
+                return DataBaseForm;
+            }(Serenity.PrefixedContext));
+            Administration.DataBaseForm = DataBaseForm;
+            [['DbId', function () { return Serenity.IntegerEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['ConnectionString', function () { return Serenity.StringEditor; }], ['ProviderName', function () { return Serenity.StringEditor; }], ['Active', function () { return Serenity.BooleanEditor; }], ['TagDataBaseMovie', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(DataBaseForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
+            var DataBaseRow;
+            (function (DataBaseRow) {
+                DataBaseRow.idProperty = 'DbId';
+                DataBaseRow.nameProperty = 'Name';
+                DataBaseRow.localTextPrefix = 'Administration.DataBase';
+                var Fields;
+                (function (Fields) {
+                })(Fields = DataBaseRow.Fields || (DataBaseRow.Fields = {}));
+                ['DbId', 'Name', 'ConnectionString', 'ProviderName', 'Active', 'TagDataBaseMovie'].forEach(function (x) { return Fields[x] = x; });
+            })(DataBaseRow = Administration.DataBaseRow || (Administration.DataBaseRow = {}));
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
+            var DataBaseService;
+            (function (DataBaseService) {
+                DataBaseService.baseUrl = 'Administration/DataBase';
+                var Methods;
+                (function (Methods) {
+                })(Methods = DataBaseService.Methods || (DataBaseService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    DataBaseService[x] = function (r, s, o) { return Q.serviceRequest(DataBaseService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = DataBaseService.baseUrl + '/' + x;
+                });
+            })(DataBaseService = Administration.DataBaseService || (Administration.DataBaseService = {}));
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
             var LanguageForm = (function (_super) {
                 __extends(LanguageForm, _super);
                 function LanguageForm() {
@@ -2437,6 +2495,64 @@ var Cinema;
                 });
             })(SettingsService = Configuration.SettingsService || (Configuration.SettingsService = {}));
         })(Configuration = Movie.Configuration || (Movie.Configuration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var DataBase;
+        (function (DataBase) {
+            var DbForm = (function (_super) {
+                __extends(DbForm, _super);
+                function DbForm() {
+                    _super.apply(this, arguments);
+                }
+                DbForm.formKey = 'DataBase.Db';
+                return DbForm;
+            }(Serenity.PrefixedContext));
+            DataBase.DbForm = DbForm;
+            [['DbId', function () { return Serenity.IntegerEditor; }], ['Name', function () { return Serenity.StringEditor; }], ['ConnectionString', function () { return Serenity.StringEditor; }], ['ProviderName', function () { return Serenity.StringEditor; }], ['Active', function () { return Serenity.BooleanEditor; }], ['TagDataBaseMovie', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(DbForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        })(DataBase = Movie.DataBase || (Movie.DataBase = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var DataBase;
+        (function (DataBase) {
+            var DbRow;
+            (function (DbRow) {
+                DbRow.idProperty = 'DbId';
+                DbRow.nameProperty = 'Name';
+                DbRow.localTextPrefix = 'DataBase.Db';
+                var Fields;
+                (function (Fields) {
+                })(Fields = DbRow.Fields || (DbRow.Fields = {}));
+                ['DbId', 'Name', 'ConnectionString', 'ProviderName', 'Active', 'TagDataBaseMovie'].forEach(function (x) { return Fields[x] = x; });
+            })(DbRow = DataBase.DbRow || (DataBase.DbRow = {}));
+        })(DataBase = Movie.DataBase || (Movie.DataBase = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var DataBase;
+        (function (DataBase) {
+            var DbService;
+            (function (DbService) {
+                DbService.baseUrl = 'DataBase/Db';
+                var Methods;
+                (function (Methods) {
+                })(Methods = DbService.Methods || (DbService.Methods = {}));
+                ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                    DbService[x] = function (r, s, o) { return Q.serviceRequest(DbService.baseUrl + '/' + x, r, s, o); };
+                    Methods[x] = DbService.baseUrl + '/' + x;
+                });
+            })(DbService = DataBase.DbService || (DataBase.DbService = {}));
+        })(DataBase = Movie.DataBase || (Movie.DataBase = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
@@ -4486,6 +4602,108 @@ var Cinema;
                 return LanguageGrid;
             }(Serenity.EntityGrid));
             Administration.LanguageGrid = LanguageGrid;
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
+            var DataBaseDialog = (function (_super) {
+                __extends(DataBaseDialog, _super);
+                function DataBaseDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Administration.DataBaseForm(this.idPrefix);
+                }
+                DataBaseDialog.prototype.getFormKey = function () { return Administration.DataBaseForm.formKey; };
+                DataBaseDialog.prototype.getIdProperty = function () { return Administration.DataBaseRow.idProperty; };
+                DataBaseDialog.prototype.getLocalTextPrefix = function () { return Administration.DataBaseRow.localTextPrefix; };
+                DataBaseDialog.prototype.getNameProperty = function () { return Administration.DataBaseRow.nameProperty; };
+                DataBaseDialog.prototype.getService = function () { return Administration.DataBaseService.baseUrl; };
+                DataBaseDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], DataBaseDialog);
+                return DataBaseDialog;
+            }(Serenity.EntityDialog));
+            Administration.DataBaseDialog = DataBaseDialog;
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorBase.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
+            var DataBaseEditor = (function (_super) {
+                __extends(DataBaseEditor, _super);
+                function DataBaseEditor(container) {
+                    _super.call(this, container);
+                }
+                DataBaseEditor.prototype.getColumnsKey = function () { return 'Administration.DataBase'; };
+                DataBaseEditor.prototype.getDialogType = function () { return Administration.DataBaseEditorDialog; };
+                DataBaseEditor.prototype.getLocalTextPrefix = function () { return Administration.DataBaseRow.localTextPrefix; };
+                DataBaseEditor = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], DataBaseEditor);
+                return DataBaseEditor;
+            }(Movie.Common.GridEditorBase));
+            Administration.DataBaseEditor = DataBaseEditor;
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+/// <reference path="../../Common/Helpers/GridEditorDialog.ts" />
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
+            var DataBaseEditorDialog = (function (_super) {
+                __extends(DataBaseEditorDialog, _super);
+                function DataBaseEditorDialog() {
+                    _super.apply(this, arguments);
+                    this.form = new Administration.DataBaseForm(this.idPrefix);
+                }
+                DataBaseEditorDialog.prototype.getFormKey = function () { return Administration.DataBaseForm.formKey; };
+                DataBaseEditorDialog.prototype.getLocalTextPrefix = function () { return Administration.DataBaseRow.localTextPrefix; };
+                DataBaseEditorDialog.prototype.getNameProperty = function () { return Administration.DataBaseRow.nameProperty; };
+                DataBaseEditorDialog = __decorate([
+                    Serenity.Decorators.registerClass(),
+                    Serenity.Decorators.responsive()
+                ], DataBaseEditorDialog);
+                return DataBaseEditorDialog;
+            }(Movie.Common.GridEditorDialog));
+            Administration.DataBaseEditorDialog = DataBaseEditorDialog;
+        })(Administration = Movie.Administration || (Movie.Administration = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var Administration;
+        (function (Administration) {
+            var DataBaseGrid = (function (_super) {
+                __extends(DataBaseGrid, _super);
+                function DataBaseGrid(container) {
+                    _super.call(this, container);
+                }
+                DataBaseGrid.prototype.getColumnsKey = function () { return 'Administration.DataBase'; };
+                DataBaseGrid.prototype.getDialogType = function () { return Administration.DataBaseDialog; };
+                DataBaseGrid.prototype.getIdProperty = function () { return Administration.DataBaseRow.idProperty; };
+                DataBaseGrid.prototype.getLocalTextPrefix = function () { return Administration.DataBaseRow.localTextPrefix; };
+                DataBaseGrid.prototype.getService = function () { return Administration.DataBaseService.baseUrl; };
+                DataBaseGrid = __decorate([
+                    Serenity.Decorators.registerClass()
+                ], DataBaseGrid);
+                return DataBaseGrid;
+            }(Serenity.EntityGrid));
+            Administration.DataBaseGrid = DataBaseGrid;
         })(Administration = Movie.Administration || (Movie.Administration = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));

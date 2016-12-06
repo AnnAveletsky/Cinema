@@ -2094,7 +2094,7 @@ var Cinema;
                         url: g.view.url,
                         request: request,
                         onSuccess: function (response) {
-                            var doc = new jsPDF('l', 'pt');
+                            var doc;
                             var srcColumns = gridColumns;
                             var columnStyles = {};
                             var columns = toAutoTableColumns(srcColumns, columnStyles, options.columnTitles);
@@ -2164,8 +2164,8 @@ var Cinema;
                 }
                 PdfExportHelper.createToolButton = createToolButton;
                 function includeJsPDF() {
-                    if (typeof jsPDF !== "undefined")
-                        return;
+                    //if (typeof jsPDF !== "undefined")
+                    //    return;
                     var script = $("jsPDFScript");
                     if (script.length > 0)
                         return;
@@ -2177,10 +2177,10 @@ var Cinema;
                 }
                 function includeAutoTable() {
                     includeJsPDF();
-                    if (typeof jsPDF === "undefined" ||
-                        typeof jsPDF.API == "undefined" ||
-                        typeof jsPDF.API.autoTable !== "undefined")
-                        return;
+                    //if (typeof jsPDF === "undefined" ||
+                    //    typeof (jsPDF as any).API == "undefined" ||
+                    //    typeof (jsPDF as any).API.autoTable !== "undefined")
+                    //    return;
                     var script = $("jsPDFAutoTableScript");
                     if (script.length > 0)
                         return;

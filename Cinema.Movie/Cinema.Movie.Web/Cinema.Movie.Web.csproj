@@ -1353,21 +1353,6 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Membership.SignUpRequest.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastColumns.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastForm.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastMoviePersonRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastService.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.Gender.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1511,7 +1496,6 @@
     <Content Include="Modules\Configuration\Background\BackgroundIndex.cshtml" />
     <Content Include="Modules\Configuration\Settings\SettingsIndex.cshtml" />
     <Content Include="Modules\Movie\Genre\_Genres.cshtml" />
-    <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
     <Content Include="Modules\Movie\ServicePath\ServicePathIndex.cshtml" />
     <Content Include="Modules\Movie\ServiceRating\ServiceRatingIndex.cshtml" />
     <Content Include="Modules\Movie\Service\ServiceIndex.cshtml" />
@@ -1545,6 +1529,7 @@
     <Content Include="Fonts\fontawesome-webfont.woff" />
     <Content Include="Fonts\fontawesome-webfont.ttf" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2054,7 +2039,6 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRow.cs" />
     <Compile Include="Modules\Common\Helpers\GetNextNumberHelper.cs" />
     <Compile Include="Modules\Common\Helpers\GetNextNumberRequest.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonRow.cs" />
     <Compile Include="Modules\Movie\Cast\CastColumns.cs" />
     <Compile Include="Modules\Movie\Cast\CastEndpoint.cs" />
     <Compile Include="Modules\Movie\Cast\CastForm.cs" />

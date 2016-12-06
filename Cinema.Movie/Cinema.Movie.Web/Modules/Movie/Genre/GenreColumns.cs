@@ -17,5 +17,6 @@ namespace Cinema.Movie.Movie.Columns
         public Int16 GenreId { get; set; }
         [EditLink]
         public String Name { get; set; }
+        public String Icon { get; set; }
     }
 }

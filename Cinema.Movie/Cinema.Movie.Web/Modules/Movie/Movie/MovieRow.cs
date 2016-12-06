@@ -198,7 +198,22 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.GenreListName[this]; }
             set { Fields.GenreListName[this] = value; }
         }
-
+        [DisplayName("Tags")]
+        [LookupEditor(typeof(TagRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(MovieTagRow), "MovieId", "TagId")]
+        public List<Int16> TagList
+        {
+            get { return Fields.TagList[this]; }
+            set { Fields.TagList[this] = value; }
+        }
+        [DisplayName("Tags")]
+        [LookupEditor(typeof(TagRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(MovieTagRow), "MovieId", "TagName")]
+        public List<string> TagListName
+        {
+            get { return Fields.TagListName[this]; }
+            set { Fields.TagListName[this] = value; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieId; }
@@ -244,6 +259,8 @@ namespace Cinema.Movie.Movie.Entities
             public Int32Field Budget;
             public ListField<Int16> GenreList;
             public ListField<string> GenreListName;
+            public ListField<Int16> TagList;
+            public ListField<string> TagListName;
 
             public RowFields()
                 : base("[mov].[Movie]")

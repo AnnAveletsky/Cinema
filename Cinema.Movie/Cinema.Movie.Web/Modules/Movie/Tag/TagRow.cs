@@ -12,7 +12,9 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Tag"), InstanceName("Tag"), TwoLevelCached]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.Tag")]
     public sealed class TagRow : Row, IIdRow, INameRow
     {
         [DisplayName("Tag Id"), Identity]

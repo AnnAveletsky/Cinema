@@ -1777,6 +1777,9 @@
     <Compile Include="Modules\Common\Dashboard\DashboardPageModel.cs" />
     <Compile Include="Modules\Common\File\FilePage.cs" />
     <Compile Include="Modules\Common\Helpers\DetailListSaveHandler.cs" />
+    <Compile Include="Modules\Common\Imports\ClientTypes\Administration.DataBaseEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Common\Imports\ClientTypes\Administration.PermissionCheckEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -1825,7 +1828,6 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115100_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160608_115100_Config.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160609_181800_Sample.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160610_181800_SampleMovie.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160611_181800_SampleServices.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
     <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160608_115100_Initial.cs" />

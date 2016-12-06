@@ -6,6 +6,11 @@ namespace MVC
     {
         public static class Administration
         {
+            public static class DataBase
+            {
+                public const string DataBaseIndex = "~/Modules/Administration/DataBase/DataBaseIndex.cshtml";
+            }
+
             public static class Language
             {
                 public const string LanguageIndex = "~/Modules/Administration/Language/LanguageIndex.cshtml";

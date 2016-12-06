@@ -83,6 +83,21 @@
                     }
                 }
             </div>
+            <div class="col-xs-12 no-padding">
+                @if (Model.TagListName != null && Model.TagListName.Count != 0)
+                {
+                    @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
+                foreach (var i in Model.TagListName)
+                {
+                    <div class="pull-right">
+                        <span class="label label-custom  ">@i </span>
+                    </div>
+                    }
+                }
+            </div>
+
+
+
 
         </div>
 

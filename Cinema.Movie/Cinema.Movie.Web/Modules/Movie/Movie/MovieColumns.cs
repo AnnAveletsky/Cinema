@@ -42,5 +42,7 @@ namespace Cinema.Movie.Movie.Columns
         public Int32 Budget { get; set; }
         public List<Int16> GenreList { get; set; }
         public List<string> GenreListName { get; set; }
+        public List<Int16> TagList { get; set; }
+        public List<string> TagListName { get; set; }
     }
 }

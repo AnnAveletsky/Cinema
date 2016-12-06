@@ -12,7 +12,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
 
             Create.Table("Genre").InSchema("mov")
                 .WithColumn("GenreId").AsInt16().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Name").AsString(100).NotNullable();
+                .WithColumn("Name").AsString(100).NotNullable()
+                .WithColumn("Icon").AsString(100).Nullable();
 
             Create.Table("Movie").InSchema("mov")
                 .WithColumn("MovieId").AsInt64().Identity().PrimaryKey().NotNullable()
@@ -59,15 +60,19 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     .ForeignKey("FK_MovieTag_MovieId", "mov", "Movie", "MovieId");
 
             Create.Table("Person").InSchema("mov")
-                .WithColumn("PersonId").AsInt64().Identity().PrimaryKey().NotNullable()
-                .WithColumn("Firstname").AsString(50).NotNullable()
-                .WithColumn("Lastname").AsString(50).NotNullable()
-                .WithColumn("BirthDate").AsDate().Nullable()
-                .WithColumn("BirthPlace").AsString(100).Nullable()
-                .WithColumn("Gender").AsInt16().Nullable()
-                .WithColumn("Height").AsInt16().Nullable()
-                .WithColumn("PathImage").AsString(300).Nullable()
-                .WithColumn("PathImageMini").AsString(300).NotNullable();
+               .WithColumn("PersonId").AsInt64().Identity().PrimaryKey().NotNullable()
+               .WithColumn("FirstNameEn").AsString(100).NotNullable()
+               .WithColumn("MiddleNameEn").AsString(100).Nullable()
+               .WithColumn("LastNameEn").AsString(100).NotNullable()
+               .WithColumn("FirstNameOther").AsString(100).NotNullable()
+               .WithColumn("MiddleNameOther").AsString(100).Nullable()
+               .WithColumn("LastNameOther").AsString(100).NotNullable()
+               .WithColumn("BirthDate").AsDate().NotNullable()
+               .WithColumn("DeathDate").AsDate().Nullable()
+               .WithColumn("BirthPlace").AsString(100).Nullable()
+               .WithColumn("Gender").AsInt16().NotNullable()
+               .WithColumn("About").AsString(1400).Nullable()
+               .WithColumn("PathImage").AsString(300).NotNullable();
 
             Create.Table("Cast").InSchema("mov")
                 .WithColumn("CastId").AsInt16().Identity().PrimaryKey().NotNullable()

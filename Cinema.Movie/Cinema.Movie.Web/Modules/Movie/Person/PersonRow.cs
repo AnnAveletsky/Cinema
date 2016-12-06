@@ -22,18 +22,44 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PersonId[this] = value; }
         }
 
-        [DisplayName("Firstname"), Size(50), NotNull, QuickSearch]
-        public String Firstname
+        [DisplayName("FirstNameEn"), Size(100), NotNull, QuickSearch]
+        public String FirstNameEn
         {
-            get { return Fields.Firstname[this]; }
-            set { Fields.Firstname[this] = value; }
+            get { return Fields.FirstNameEn[this]; }
+            set { Fields.FirstNameEn[this] = value; }
         }
 
-        [DisplayName("Lastname"), Size(50), NotNull]
-        public String Lastname
+        [DisplayName("MiddleNameEn"), Size(100), NotNull]
+        public String MiddleNameEn
         {
-            get { return Fields.Lastname[this]; }
-            set { Fields.Lastname[this] = value; }
+            get { return Fields.MiddleNameEn[this]; }
+            set { Fields.MiddleNameEn[this] = value; }
+        }
+        [DisplayName("LastNameEn"), Size(100), NotNull, QuickSearch]
+        public String LastNameEn
+        {
+            get { return Fields.LastNameEn[this]; }
+            set { Fields.LastNameEn[this] = value; }
+        }
+
+        [DisplayName("FirstNameOther"), Size(100), NotNull]
+        public String FirstNameOther
+        {
+            get { return Fields.FirstNameOther[this]; }
+            set { Fields.FirstNameOther[this] = value; }
+        }
+        [DisplayName("MiddleNameOther"), Size(100), NotNull, QuickSearch]
+        public String MiddleNameOther
+        {
+            get { return Fields.MiddleNameOther[this]; }
+            set { Fields.MiddleNameOther[this] = value; }
+        }
+
+        [DisplayName("LastNameOther"), Size(100), NotNull]
+        public String LastNameOther
+        {
+            get { return Fields.LastNameOther[this]; }
+            set { Fields.LastNameOther[this] = value; }
         }
 
         [DisplayName("Birth Date")]
@@ -41,6 +67,12 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.BirthDate[this]; }
             set { Fields.BirthDate[this] = value; }
+        }
+        [DisplayName("Death Date")]
+        public DateTime? DeathDate
+        {
+            get { return Fields.DeathDate[this]; }
+            set { Fields.DeathDate[this] = value; }
         }
 
         [DisplayName("Birth Place"), Size(100)]
@@ -57,11 +89,11 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Gender[this] = value; }
         }
 
-        [DisplayName("Height")]
-        public Int16? Height
+        [DisplayName("About"), Size(1400)]
+        public String About
         {
-            get { return Fields.Height[this]; }
-            set { Fields.Height[this] = value; }
+            get { return Fields.About[this]; }
+            set { Fields.About[this] = value; }
         }
 
         [DisplayName("Path Image"), Size(300)]
@@ -71,13 +103,6 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PathImage[this] = value; }
         }
 
-        [DisplayName("Path Image Mini"), Size(300), NotNull]
-        public String PathImageMini
-        {
-            get { return Fields.PathImageMini[this]; }
-            set { Fields.PathImageMini[this] = value; }
-        }
-
         IIdField IIdRow.IdField
         {
             get { return Fields.PersonId; }
@@ -85,7 +110,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.Firstname; }
+            get { return Fields.FirstNameOther; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -98,14 +123,18 @@ namespace Cinema.Movie.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int64Field PersonId;
-            public StringField Firstname;
-            public StringField Lastname;
+            public StringField FirstNameEn;
+            public StringField MiddleNameEn;
+            public StringField LastNameEn;
+            public StringField FirstNameOther;
+            public StringField MiddleNameOther;
+            public StringField LastNameOther;
             public DateTimeField BirthDate;
+            public DateTimeField DeathDate;
             public StringField BirthPlace;
             public Int16Field Gender;
-            public Int16Field Height;
+            public StringField About;
             public StringField PathImage;
-            public StringField PathImageMini;
 
             public RowFields()
                 : base("[mov].[Person]")

@@ -31,6 +31,13 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Name[this] = value; }
         }
 
+        [DisplayName("Icon"), Size(100), QuickSearch]
+        public String Icon
+        {
+            get { return Fields.Icon[this]; }
+            set { Fields.Icon[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.GenreId; }
@@ -52,6 +59,7 @@ namespace Cinema.Movie.Movie.Entities
         {
             public Int16Field GenreId;
             public StringField Name;
+            public StringField Icon;
 
             public RowFields()
                 : base("[mov].[Genre]")

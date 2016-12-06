@@ -14,5 +14,6 @@ namespace Cinema.Movie.Movie.Forms
     public class GenreForm
     {
         public String Name { get; set; }
+        public String Icon { get; set; }
     }
 }

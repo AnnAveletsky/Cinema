@@ -302,6 +302,15 @@
 	$Serenity_CheckTreeEditor.__typeName = 'Serenity.CheckTreeEditor';
 	global.Serenity.CheckTreeEditor = $Serenity_CheckTreeEditor;
 	////////////////////////////////////////////////////////////////////////////////
+	// Serenity.CollapsibleAttribute
+	var $Serenity_CollapsibleAttribute = function(value) {
+		this.value = false;
+		this.collapsed = false;
+		this.value = value;
+	};
+	$Serenity_CollapsibleAttribute.__typeName = 'Serenity.CollapsibleAttribute';
+	global.Serenity.CollapsibleAttribute = $Serenity_CollapsibleAttribute;
+	////////////////////////////////////////////////////////////////////////////////
 	// Serenity.CssClassAttribute
 	var $Serenity_CssClassAttribute = function(cssClass) {
 		this.cssClass = null;
@@ -361,7 +370,7 @@
 		if (!this.isAsyncWidget()) {
 			this.initialSettings = this.getCurrentSettings(null);
 			this.restoreSettings(null, null);
-			this.initialPopulate();
+			window.setTimeout(ss.mkdel(this, this.initialPopulate), 0);
 		}
 	};
 	$Serenity_DataGrid.__typeName = 'Serenity.DataGrid';
@@ -2884,7 +2893,7 @@
 		for (var i = 0; i < this.$items.length; i++) {
 			var item = this.$items[i];
 			if (this.options.useCategories && !ss.referenceEquals(priorCategory, item.category)) {
-				var categoryDiv = this.$createCategoryDiv(categoriesDiv, categoryIndexes, item.category);
+				var categoryDiv = this.$createCategoryDiv(categoriesDiv, categoryIndexes, item.category, ((item.collapsible !== true) ? null : ss.coalesce(item.collapsed, false)));
 				if (ss.isNullOrUndefined(priorCategory)) {
 					categoryDiv.addClass('first-category');
 				}
@@ -2900,6 +2909,9 @@
 	$Serenity_PropertyGrid.$categoryLinkClick = function(e) {
 		e.preventDefault();
 		var title = $('a[name=' + e.target.getAttribute('href').toString().substr(1) + ']');
+		if (title.closest('.category').hasClass('collapsed')) {
+			title.closest('.category').children('.category-title').click();
+		}
 		var animate = function() {
 			title.fadeTo(100, 0.5, function() {
 				title.fadeTo(100, 1, function() {
@@ -2996,21 +3008,12 @@
 			var displayNameAttribute = (member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $System_ComponentModel_DisplayNameAttribute);
 			});
-			if (displayNameAttribute.length > 1) {
-				throw new ss.Exception(ss.formatString('{0}.{1} için birden fazla başlık belirlenmiş!', ss.getTypeName(type), pi.name));
-			}
 			var hintAttribute = (member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $Serenity_HintAttribute);
 			});
-			if (hintAttribute.length > 1) {
-				throw new ss.Exception(ss.formatString('{0}.{1} için birden fazla ipucu belirlenmiş!', ss.getTypeName(type), pi.name));
-			}
 			var placeholderAttribute = (member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $Serenity_PlaceholderAttribute);
 			});
-			if (placeholderAttribute.length > 1) {
-				throw new ss.Exception(ss.formatString('{0}.{1} için birden fazla placeholder belirlenmiş!', ss.getTypeName(type), pi.name));
-			}
 			var memberType = ((member.type === 16) ? ss.cast(member, ss.isValue(member) && member.type === 16).returnType : ss.cast(member, ss.isValue(member) && member.type === 4).returnType);
 			if (member.type === 16) {
 				var p = ss.cast(member, ss.isValue(member) && member.type === 16);
@@ -3029,23 +3032,24 @@
 			var categoryAttribute = (member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $Serenity_CategoryAttribute);
 			});
-			if (categoryAttribute.length === 1) {
+			if (categoryAttribute.length > 0) {
 				pi.category = ss.cast(categoryAttribute[0], $Serenity_CategoryAttribute).category;
-			}
-			else if (categoryAttribute.length > 1) {
-				throw new ss.Exception(ss.formatString('{0}.{1} için birden fazla kategori belirlenmiş!', ss.getTypeName(type), pi.name));
 			}
 			else if (list.length > 0) {
 				pi.category = list[list.length - 1].category;
 			}
+			var collapsibleAttribute = (member.attr || []).filter(function(a) {
+				return ss.isInstanceOfType(a, $Serenity_CollapsibleAttribute);
+			});
+			if (collapsibleAttribute.length > 0 && ss.cast(collapsibleAttribute[0], $Serenity_CollapsibleAttribute).value) {
+				pi.collapsible = true;
+				pi.collapsed = ss.cast(collapsibleAttribute[0], $Serenity_CollapsibleAttribute).collapsed;
+			}
 			var cssClassAttr = (member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $Serenity_CssClassAttribute);
 			});
-			if (cssClassAttr.length === 1) {
+			if (cssClassAttr.length > 0) {
 				pi.cssClass = ss.cast(cssClassAttr[0], $Serenity_CssClassAttribute).cssClass;
-			}
-			else if (cssClassAttr.length > 1) {
-				throw new ss.Exception(ss.formatString('{0}.{1} için birden fazla css class belirlenmiş!', ss.getTypeName(type), pi.name));
 			}
 			if ((member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $Serenity_OneWayAttribute);
@@ -3096,9 +3100,6 @@
 			var typeAttrArray = (member.attr || []).filter(function(a) {
 				return ss.isInstanceOfType(a, $Serenity_EditorTypeAttribute);
 			});
-			if (typeAttrArray.length > 1) {
-				throw new ss.Exception(ss.formatString('{0}.{1} için birden fazla editör tipi belirlenmiş!', ss.getTypeName(type), pi.name));
-			}
 			var nullableType = memberType;
 			//Nullable.GetUnderlyingType(memberType);
 			var enumType = null;
@@ -3180,7 +3181,7 @@
 	$Serenity_PropertyItemSlickConverter.toSlickColumn = function(item) {
 		var result = {};
 		result.sourceItem = item;
-		result.visible = item.visible !== false && item.filterOnly !== true;
+		result.visible = item.visible !== false && item.filterOnly !== true && (ss.isNullOrUndefined(item.readPermission) || Q.Authorization.hasPermission(item.readPermission));
 		result.field = item.name;
 		var $t1 = Q.tryGetText(item.title);
 		if (ss.isNullOrUndefined($t1)) {
@@ -4779,6 +4780,7 @@
 			if (this.options.multiple) {
 				opt.multiple = true;
 			}
+			opt.allowClear = ss.coalesce(this.options.allowClear, true);
 			return opt;
 		},
 		get_cascadeFrom: function() {
@@ -5195,7 +5197,7 @@
 					var item = column.sourceItem;
 					var quick = {};
 					var filteringType = $Serenity_FilteringTypeRegistry.get(ss.coalesce(item.filteringType, 'String'));
-					if (ss.referenceEquals(filteringType, $Serenity_DateFiltering) || ss.referenceEquals(filteringType, $Serenity_DateTimeFiltering)) {
+					if (ss.referenceEquals(filteringType, $Serenity_DateFiltering)) {
 						var $t4 = item.name;
 						var $t3 = Q.tryGetText(item.title);
 						if (ss.isNullOrUndefined($t3)) {
@@ -5207,7 +5209,7 @@
 						}
 						quick = this.dateRangeQuickFilter($t4, $t3);
 					}
-					else if (ss.referenceEquals(filteringType, $Serenity_BooleanFiltering)) {
+					else if (ss.referenceEquals(filteringType, $Serenity_DateTimeFiltering)) {
 						var $t7 = item.name;
 						var $t6 = Q.tryGetText(item.title);
 						if (ss.isNullOrUndefined($t6)) {
@@ -5217,7 +5219,19 @@
 							}
 							$t6 = $t5;
 						}
-						quick = this.booleanQuickFilter($t7, $t6, null, null);
+						quick = this.dateTimeRangeQuickFilter($t7, $t6);
+					}
+					else if (ss.referenceEquals(filteringType, $Serenity_BooleanFiltering)) {
+						var $t10 = item.name;
+						var $t9 = Q.tryGetText(item.title);
+						if (ss.isNullOrUndefined($t9)) {
+							var $t8 = item.title;
+							if (ss.isNullOrUndefined($t8)) {
+								$t8 = item.name;
+							}
+							$t9 = $t8;
+						}
+						quick = this.booleanQuickFilter($t10, $t9, null, null);
 					}
 					else {
 						var filtering = ss.cast(ss.createInstance(filteringType), $Serenity_IFiltering);
@@ -5535,26 +5549,19 @@
 		},
 		setIncludeColumnsParameter: function() {
 			var include = {};
-			if (!!!ss.isNullOrUndefined(this.view.params.IncludeColumns)) {
-				var $t1 = ss.cast(this.view.params.IncludeColumns, Array);
-				for (var $t2 = 0; $t2 < $t1.length; $t2++) {
-					var key = $t1[$t2];
-					include[key] = true;
-				}
-			}
 			this.getIncludeColumns(include);
 			var array = null;
 			if (ss.getKeyCount(include) > 0) {
 				array = [];
-				var $t3 = ss.getEnumerator(Object.keys(include));
+				var $t1 = ss.getEnumerator(Object.keys(include));
 				try {
-					while ($t3.moveNext()) {
-						var key1 = $t3.current();
-						array.push(key1);
+					while ($t1.moveNext()) {
+						var key = $t1.current();
+						array.push(key);
 					}
 				}
 				finally {
-					$t3.dispose();
+					$t1.dispose();
 				}
 			}
 			this.view.params.IncludeColumns = array;
@@ -5903,29 +5910,15 @@
 					opt.handler(args);
 					quickFilter.toggleClass('quick-filter-active', args.active);
 					if (!args.handled) {
-						if ($.isArray(value)) {
-							if (value.length > 0) {
-								request.Criteria = Serenity.Criteria.join(request.Criteria, 'and', [[opt.field], 'in', [value]]);
-							}
-						}
-						else {
-							request.EqualityFilter[opt.field] = value;
-						}
+						request.EqualityFilter[opt.field] = value;
 					}
 				}
 				else {
-					if ($.isArray(value)) {
-						if (value.length > 0) {
-							request.Criteria = Serenity.Criteria.join(request.Criteria, 'and', [[opt.field], 'in', [value]]);
-						}
-					}
-					else {
-						request.EqualityFilter[opt.field] = value;
-					}
+					request.EqualityFilter[opt.field] = value;
 					quickFilter.toggleClass('quick-filter-active', active);
 				}
 			});
-			$Serenity_WX.change(widget, ss.mkdel(this, function(e1) {
+			$Serenity_WX.changeSelect2(widget, ss.mkdel(this, function(e1) {
 				this.quickFilterChange(e1);
 			}));
 			this.add_submitHandlers(submitHandler);
@@ -5958,14 +5951,77 @@
 					$('<span/>').addClass('range-separator').text('-').insertAfter(e1);
 				},
 				handler: function(args) {
-					args.active = !ss.isNullOrEmptyString(args.widget.get_value()) || !ss.isNullOrEmptyString(end.get_value());
-					if (!ss.isNullOrEmptyString(args.widget.get_value())) {
+					var active1 = !Q.isTrimmedEmpty(args.widget.get_value());
+					var active2 = !Q.isTrimmedEmpty(end.get_value());
+					if (active1 && !Q.parseDate(args.widget.element.val())) {
+						active1 = false;
+						Q.notifyWarning(Q.text('Validation.DateInvalid'), '', null);
+						args.widget.element.val('');
+					}
+					if (active2 && !Q.parseDate(end.element.val())) {
+						active2 = false;
+						Q.notifyWarning(Q.text('Validation.DateInvalid'), '', null);
+						end.element.val('');
+					}
+					args.active = active1 || active2;
+					if (active1) {
 						args.request.Criteria = Serenity.Criteria.join(args.request.Criteria, 'and', [[args.field], '>=', args.widget.get_value()]);
 					}
-					if (!ss.isNullOrEmptyString(end.get_value())) {
+					if (active2) {
 						var next = new Date(end.get_valueAsDate().valueOf());
 						next.setDate(next.getDate() + 1);
 						args.request.Criteria = Serenity.Criteria.join(args.request.Criteria, 'and', [[args.field], '<', Q.formatDate(next, 'yyyy-MM-dd')]);
+					}
+				}
+			};
+		},
+		addDateTimeRangeFilter: function(field, title) {
+			return ss.cast(this.addQuickFilter(this.dateTimeRangeQuickFilter(field, title)), $Serenity_DateTimeEditor);
+		},
+		dateTimeRangeQuickFilter: function(field, title) {
+			var end = null;
+			return {
+				field: field,
+				type: $Serenity_DateTimeEditor,
+				title: title,
+				element: function(e1) {
+					end = Serenity.Widget.create({
+						type: $Serenity_DateTimeEditor,
+						element: function(e2) {
+							e2.insertAfter(e1);
+						},
+						options: null,
+						init: null
+					});
+					end.element.change(function(x) {
+						e1.triggerHandler('change');
+					});
+					$('<span/>').addClass('range-separator').text('-').insertAfter(e1);
+				},
+				init: function(i) {
+					i.element.parent().find('.time').change(function(x1) {
+						i.element.triggerHandler('change');
+					});
+				},
+				handler: function(args) {
+					var active1 = !Q.isTrimmedEmpty(args.widget.get_value());
+					var active2 = !Q.isTrimmedEmpty(end.get_value());
+					if (active1 && !Q.parseDate(args.widget.element.val())) {
+						active1 = false;
+						Q.notifyWarning(Q.text('Validation.DateInvalid'), '', null);
+						args.widget.element.val('');
+					}
+					if (active2 && !Q.parseDate(end.element.val())) {
+						active2 = false;
+						Q.notifyWarning(Q.text('Validation.DateInvalid'), '', null);
+						end.element.val('');
+					}
+					args.active = active1 || active2;
+					if (active1) {
+						args.request.Criteria = Serenity.Criteria.join(args.request.Criteria, 'and', [[args.field], '>=', args.widget.get_value()]);
+					}
+					if (active2) {
+						args.request.Criteria = Serenity.Criteria.join(args.request.Criteria, 'and', [[args.field], '<=', end.get_value()]);
 					}
 				}
 			};
@@ -6020,6 +6076,22 @@
 		gridPersistanceFlags: function() {
 			return {};
 		},
+		$canShowColumn: function(column) {
+			if (ss.isNullOrUndefined(column)) {
+				return false;
+			}
+			var item = column.sourceItem;
+			if (ss.isNullOrUndefined(item)) {
+				return true;
+			}
+			if (item.filterOnly === true) {
+				return false;
+			}
+			if (ss.isNullOrUndefined(item.readPermission)) {
+				return true;
+			}
+			return Q.Authorization.hasPermission(item.readPermission);
+		},
 		restoreSettings: function(settings, flags) {
 			if (ss.isNullOrUndefined(settings)) {
 				var storage = this.getPersistanceStorage();
@@ -6059,7 +6131,7 @@
 							var x = settings.columns[$t2];
 							if (ss.isValue(x.id) && x.visible === true) {
 								var column = colById[x.id];
-								if (ss.isValue(column) && (ss.isNullOrUndefined(column.sourceItem) || column.sourceItem.filterOnly !== true)) {
+								if (this.$canShowColumn(column)) {
 									column.visible = true;
 									newColumns.push(column);
 									delete colById[x.id];
@@ -6527,6 +6599,7 @@
 			}
 		}
 	}, $Serenity_DataGrid, [$Serenity_IDataGrid, $Serenity_IGetEditValue, $Serenity_ISetEditValue]);
+	ss.initClass($Serenity_CollapsibleAttribute, $asm, {});
 	ss.initClass($Serenity_CssClassAttribute, $asm, {});
 	ss.initInterface($Serenity_IReadOnly, $asm, { get_readOnly: null, set_readOnly: null });
 	ss.initClass($Serenity_DateEditor, $asm, {
@@ -7269,7 +7342,9 @@
 			var action = ss.mkdel(this, function() {
 				if (ss.isNullOrUndefined(entityOrId)) {
 					this.loadResponse({});
-					done();
+					if (!ss.staticEquals(done, null)) {
+						done();
+					}
 					return;
 				}
 				var scriptType = typeof(entityOrId);
@@ -7277,13 +7352,17 @@
 					var self = this;
 					var entityId = entityOrId;
 					this.loadById(entityId, function(response) {
-						window.setTimeout(done, 0);
+						if (!ss.staticEquals(done, null)) {
+							window.setTimeout(done, 0);
+						}
 					}, null);
 					return;
 				}
 				var entity = entityOrId || new Object();
 				this.loadResponse({ Entity: entity });
-				done();
+				if (!ss.staticEquals(done, null)) {
+					done();
+				}
 			});
 			if (ss.staticEquals(fail, null)) {
 				action();
@@ -8633,13 +8712,16 @@
 			var activeCriteria = [''];
 			for (var i = 0; i < this.get_items().length; i++) {
 				var line = this.get_items()[i];
-				if (inParens && (line.rightParen || line.leftParen)) {
+				if (line.leftParen || inParens && line.rightParen) {
 					if (!Serenity.Criteria.isEmpty(currentBlock)) {
+						if (inParens) {
+							currentBlock = Serenity.Criteria.paren(currentBlock);
+						}
 						if (isBlockOr) {
-							activeCriteria = Serenity.Criteria.join(activeCriteria, 'or', Serenity.Criteria.paren(currentBlock));
+							activeCriteria = Serenity.Criteria.join(activeCriteria, 'or', currentBlock);
 						}
 						else {
-							activeCriteria = Serenity.Criteria.join(activeCriteria, 'and', Serenity.Criteria.paren(currentBlock));
+							activeCriteria = Serenity.Criteria.join(activeCriteria, 'and', currentBlock);
 						}
 						currentBlock = [''];
 					}
@@ -8684,6 +8766,9 @@
 						inParens = true;
 					}
 					this.$displayText += line.displayText;
+				}
+				if (inParens) {
+					this.$displayText += ')';
 				}
 			}
 			return this.$displayText;
@@ -8807,6 +8892,13 @@
 			ss.clearKeys(this.$include);
 			this.$updateSelectAll();
 		},
+		selectKeys: function(keys) {
+			for (var $t1 = 0; $t1 < keys.length; $t1++) {
+				var k = keys[$t1];
+				this.$include[k] = true;
+			}
+			this.$updateSelectAll();
+		},
 		resetCheckedAndRefresh: function() {
 			this.$include = {};
 			this.$updateSelectAll();
@@ -8830,6 +8922,14 @@
 			return Enumerable.from(Object.keys(this.$include)).select(function(x) {
 				return parseInt(x);
 			}).toArray();
+		},
+		setSelectedKeys: function(keys) {
+			this.clear();
+			for (var $t1 = 0; $t1 < keys.length; $t1++) {
+				var k = keys[$t1];
+				this.$include[k] = true;
+			}
+			this.$updateSelectAll();
 		}
 	});
 	ss.initClass($Serenity_GridSelectAllButtonHelper, $asm, {});
@@ -9446,11 +9546,19 @@
 			this.element.find('a.category-link').unbind('click', $Serenity_PropertyGrid.$categoryLinkClick).remove();
 			Serenity.Widget.prototype.destroy.call(this);
 		},
-		$createCategoryDiv: function(categoriesDiv, categoryIndexes, category) {
+		$createCategoryDiv: function(categoriesDiv, categoryIndexes, category, collapsed) {
 			var categoryDiv = $('<div/>').addClass('category').appendTo(categoriesDiv);
-			$('<div/>').addClass('category-title').append($('<a/>').addClass('category-anchor').text(this.$determineText(category, function(prefix) {
+			var title = $('<div/>').addClass('category-title').append($('<a/>').addClass('category-anchor').text(this.$determineText(category, function(prefix) {
 				return prefix + 'Categories.' + category;
 			})).attr('name', this.options.idPrefix + 'Category' + categoryIndexes[category].toString())).appendTo(categoryDiv);
+			if (ss.isValue(collapsed)) {
+				categoryDiv.addClass(((collapsed === true) ? 'collapsible collapsed' : 'collapsible'));
+				var img = $('<i/>').addClass(((collapsed === true) ? 'fa fa-plus' : 'fa fa-minus')).appendTo(title);
+				title.click(function(e) {
+					categoryDiv.toggleClass('collapsed');
+					img.toggleClass('fa-plus').toggleClass('fa-minus');
+				});
+			}
 			return categoryDiv;
 		},
 		$determineText: function(text, getKey) {
@@ -9648,21 +9756,42 @@
 		save: function(target) {
 			for (var i = 0; i < this.$editors.length; i++) {
 				var item = this.$items[i];
-				if (item.oneWay !== true && !(this.get_mode() === 0 && item.insertable === false) && !(this.get_mode() === 1 && item.updatable === false)) {
+				if (item.oneWay !== true && this.$canModifyItem(item)) {
 					var editor = this.$editors[i];
 					$Serenity_EditorUtils.saveValue(editor, item, target);
 				}
 			}
 		},
+		$canModifyItem: function(item) {
+			if (this.get_mode() === 0) {
+				if (item.insertable === false) {
+					return false;
+				}
+				if (ss.isNullOrUndefined(item.insertPermission)) {
+					return true;
+				}
+				return Q.Authorization.hasPermission(item.insertPermission);
+			}
+			else if (this.get_mode() === 1) {
+				if (item.updatable === false) {
+					return false;
+				}
+				if (ss.isNullOrUndefined(item.updatePermission)) {
+					return true;
+				}
+				return Q.Authorization.hasPermission(item.updatePermission);
+			}
+			return true;
+		},
 		$updateInterface: function() {
 			for (var i = 0; i < this.$editors.length; i++) {
 				var item = this.$items[i];
 				var editor = this.$editors[i];
-				var readOnly = item.readOnly === true || this.get_mode() === 0 && item.insertable === false || this.get_mode() === 1 && item.updatable === false;
+				var readOnly = item.readOnly === true || !this.$canModifyItem(item);
 				$Serenity_EditorUtils.setReadOnly(editor, readOnly);
 				$Serenity_EditorUtils.setRequired(editor, !readOnly && !!item.required && item.editorType !== 'Boolean');
-				if (item.visible === false || item.hideOnInsert === true || item.hideOnUpdate === true) {
-					var hidden = item.visible === false || this.get_mode() === 0 && item.hideOnInsert === true || this.get_mode() === 1 && item.hideOnUpdate === true;
+				if (item.visible === false || ss.isValue(item.readPermission) || ss.isValue(item.insertPermission) || ss.isValue(item.updatePermission) || item.hideOnInsert === true || item.hideOnUpdate === true) {
+					var hidden = ss.isValue(item.readPermission) && !Q.Authorization.hasPermission(item.readPermission) || item.visible === false || this.get_mode() === 0 && item.hideOnInsert === true || this.get_mode() === 1 && item.hideOnUpdate === true;
 					$Serenity_WX.getGridField(editor).toggle(!hidden);
 				}
 			}
@@ -10507,6 +10636,10 @@
 		$Serenity_FormatterTypeRegistry.$knownTypes = null;
 	})();
 	(function() {
+		Q.prop($Serenity_DateTimeEditor, 'value');
+		Q.prop($Serenity_DateTimeEditor, 'valueAsDate');
+	})();
+	(function() {
 		$Serenity_DataGrid.defaultPersistanceStorage = null;
 		$Serenity_DataGrid.defaultRowHeight = 0;
 		$Serenity_DataGrid.defaultHeaderHeight = 0;
@@ -10515,10 +10648,6 @@
 	})();
 	(function() {
 		Q.prop($Serenity_CheckTreeEditor, 'value');
-	})();
-	(function() {
-		Q.prop($Serenity_DateTimeEditor, 'value');
-		Q.prop($Serenity_DateTimeEditor, 'valueAsDate');
 	})();
 	(function() {
 		Q.prop($Serenity_DecimalEditor, 'value');

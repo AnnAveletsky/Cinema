@@ -29,7 +29,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.FirstNameEn[this] = value; }
         }
 
-        [DisplayName("MiddleNameEn"), Size(100), NotNull]
+        [DisplayName("MiddleNameEn"), Size(100), NotNull, QuickSearch]
         public String MiddleNameEn
         {
             get { return Fields.MiddleNameEn[this]; }
@@ -42,7 +42,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.LastNameEn[this] = value; }
         }
 
-        [DisplayName("FirstNameOther"), Size(100), NotNull]
+        [DisplayName("FirstNameOther"), Size(100), NotNull, QuickSearch]
         public String FirstNameOther
         {
             get { return Fields.FirstNameOther[this]; }
@@ -55,14 +55,14 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MiddleNameOther[this] = value; }
         }
 
-        [DisplayName("LastNameOther"), Size(100), NotNull]
+        [DisplayName("LastNameOther"), Size(100), NotNull, QuickSearch]
         public String LastNameOther
         {
             get { return Fields.LastNameOther[this]; }
             set { Fields.LastNameOther[this] = value; }
         }
 
-        [DisplayName("Birth Date")]
+        [DisplayName("Birth Date"), NotNull]
         public DateTime? BirthDate
         {
             get { return Fields.BirthDate[this]; }
@@ -82,11 +82,11 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.BirthPlace[this] = value; }
         }
 
-        [DisplayName("Gender")]
-        public Int16? Gender
+        [DisplayName("Gender"), NotNull, DefaultValue(Movie.Gender.Male)]
+        public Movie.Gender? Gender
         {
-            get { return Fields.Gender[this]; }
-            set { Fields.Gender[this] = value; }
+            get { return (Movie.Gender?)Fields.Gender[this]; }
+            set { Fields.Gender[this] = (Int16)value; }
         }
 
         [DisplayName("About"), Size(1400)]

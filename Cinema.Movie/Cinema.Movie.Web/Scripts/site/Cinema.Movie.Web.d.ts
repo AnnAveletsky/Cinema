@@ -513,6 +513,8 @@ declare namespace Cinema.Movie.Common {
     }
 }
 declare namespace Cinema.Movie.Administration {
+}
+declare namespace Cinema.Movie.Administration {
     class DataBaseForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -538,23 +540,23 @@ declare namespace Cinema.Movie.Administration {
         const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
-            const DbId: any;
-            const Name: any;
-            const ConnectionString: any;
-            const ProviderName: any;
-            const Active: any;
-            const TagDataBaseMovie: any;
+            const DbId: string;
+            const Name: string;
+            const ConnectionString: string;
+            const ProviderName: string;
+            const Active: string;
+            const TagDataBaseMovie: string;
         }
     }
 }
 declare namespace Cinema.Movie.Administration {
     namespace DataBaseService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<DataBaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<DataBaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DataBaseRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DataBaseRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<DataBaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<DataBaseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DataBaseRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DataBaseRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;
@@ -1266,14 +1268,12 @@ declare namespace Cinema.Movie.Movie {
         MovieLastEventPublishDateTime?: string;
         MovieTagline?: string;
         MovieBudget?: number;
-        PersonFirstname?: string;
-        PersonLastname?: string;
+        PersonFirstNameOther?: string;
+        PersonLastNameOther?: string;
         PersonBirthDate?: string;
-        PersonBirthPlace?: string;
-        PersonGender?: number;
-        PersonHeight?: number;
+        PersonDeathDate?: string;
+        PersonGender?: Gender;
         PersonPathImage?: string;
-        PersonPathImageMini?: string;
     }
     namespace CastMoviePersonRow {
         const idProperty: string;
@@ -1307,14 +1307,12 @@ declare namespace Cinema.Movie.Movie {
             const MovieLastEventPublishDateTime: string;
             const MovieTagline: string;
             const MovieBudget: string;
-            const PersonFirstname: string;
-            const PersonLastname: string;
+            const PersonFirstNameOther: string;
+            const PersonLastNameOther: string;
             const PersonBirthDate: string;
-            const PersonBirthPlace: string;
+            const PersonDeathDate: string;
             const PersonGender: string;
-            const PersonHeight: string;
             const PersonPathImage: string;
-            const PersonPathImageMini: string;
         }
     }
 }
@@ -1351,6 +1349,12 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
+    enum Gender {
+        Male = 0,
+        Female = 1,
+    }
+}
+declare namespace Cinema.Movie.Movie {
 }
 declare namespace Cinema.Movie.Movie {
     class GenreForm extends Serenity.PrefixedContext {
@@ -1358,12 +1362,14 @@ declare namespace Cinema.Movie.Movie {
     }
     interface GenreForm {
         Name: Serenity.StringEditor;
+        Icon: Serenity.StringEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
     interface GenreRow {
         GenreId?: number;
         Name?: string;
+        Icon?: string;
     }
     namespace GenreRow {
         const idProperty: string;
@@ -1374,6 +1380,7 @@ declare namespace Cinema.Movie.Movie {
         namespace Fields {
             const GenreId: string;
             const Name: string;
+            const Icon: string;
         }
     }
 }
@@ -1533,6 +1540,7 @@ declare namespace Cinema.Movie.Movie {
         Tagline: Serenity.StringEditor;
         Budget: Serenity.IntegerEditor;
         GenreList: Serenity.LookupEditor;
+        TagList: Serenity.LookupEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
@@ -1634,6 +1642,8 @@ declare namespace Cinema.Movie.Movie {
         Budget?: number;
         GenreList?: number[];
         GenreListName?: string[];
+        TagList?: number[];
+        TagListName?: string[];
     }
     namespace MovieRow {
         const idProperty: string;
@@ -1666,6 +1676,8 @@ declare namespace Cinema.Movie.Movie {
             const Budget: string;
             const GenreList: string;
             const GenreListName: string;
+            const TagList: string;
+            const TagListName: string;
         }
     }
 }
@@ -1757,27 +1769,35 @@ declare namespace Cinema.Movie.Movie {
         static formKey: string;
     }
     interface PersonForm {
-        Firstname: Serenity.StringEditor;
-        Lastname: Serenity.StringEditor;
+        FirstNameEn: Serenity.StringEditor;
+        MiddleNameEn: Serenity.StringEditor;
+        LastNameEn: Serenity.StringEditor;
+        FirstNameOther: Serenity.StringEditor;
+        MiddleNameOther: Serenity.StringEditor;
+        LastNameOther: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
+        DeathDate: Serenity.DateEditor;
         BirthPlace: Serenity.StringEditor;
-        Gender: Serenity.IntegerEditor;
-        Height: Serenity.IntegerEditor;
+        Gender: Serenity.EnumEditor;
+        About: Serenity.StringEditor;
         PathImage: Serenity.StringEditor;
-        PathImageMini: Serenity.StringEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
     interface PersonRow {
         PersonId?: number;
-        Firstname?: string;
-        Lastname?: string;
+        FirstNameEn?: string;
+        MiddleNameEn?: string;
+        LastNameEn?: string;
+        FirstNameOther?: string;
+        MiddleNameOther?: string;
+        LastNameOther?: string;
         BirthDate?: string;
+        DeathDate?: string;
         BirthPlace?: string;
-        Gender?: number;
-        Height?: number;
+        Gender?: Gender;
+        About?: string;
         PathImage?: string;
-        PathImageMini?: string;
     }
     namespace PersonRow {
         const idProperty: string;
@@ -1785,14 +1805,18 @@ declare namespace Cinema.Movie.Movie {
         const localTextPrefix: string;
         namespace Fields {
             const PersonId: string;
-            const Firstname: string;
-            const Lastname: string;
+            const FirstNameEn: string;
+            const MiddleNameEn: string;
+            const LastNameEn: string;
+            const FirstNameOther: string;
+            const MiddleNameOther: string;
+            const LastNameOther: string;
             const BirthDate: string;
+            const DeathDate: string;
             const BirthPlace: string;
             const Gender: string;
-            const Height: string;
+            const About: string;
             const PathImage: string;
-            const PathImageMini: string;
         }
     }
 }
@@ -2042,6 +2066,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<TagRow>;
         namespace Fields {
             const TagId: string;
             const Name: string;

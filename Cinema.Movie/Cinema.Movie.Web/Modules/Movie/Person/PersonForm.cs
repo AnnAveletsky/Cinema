@@ -8,6 +8,7 @@ namespace Cinema.Movie.Movie.Forms
     using System.ComponentModel;
     using System.Collections.Generic;
     using System.IO;
+    using Entities;
 
     [FormScript("Movie.Person")]
     [BasedOnRow(typeof(Entities.PersonRow))]
@@ -22,7 +23,7 @@ namespace Cinema.Movie.Movie.Forms
         public DateTime BirthDate { get; set; }
         public DateTime DeathDate { get; set; }
         public String BirthPlace { get; set; }
-        public Int16 Gender { get; set; }
+        public Movie.Gender Gender { get; set; }
         public String About { get; set; }
         public String PathImage { get; set; }
     }

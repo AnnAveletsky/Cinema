@@ -28,14 +28,12 @@
         MovieLastEventPublishDateTime?: string;
         MovieTagline?: string;
         MovieBudget?: number;
-        PersonFirstname?: string;
-        PersonLastname?: string;
+        PersonFirstNameOther?: string;
+        PersonLastNameOther?: string;
         PersonBirthDate?: string;
-        PersonBirthPlace?: string;
-        PersonGender?: number;
-        PersonHeight?: number;
+        PersonDeathDate?: string;
+        PersonGender?: Gender;
         PersonPathImage?: string;
-        PersonPathImageMini?: string;
     }
 
     export namespace CastMoviePersonRow {
@@ -71,17 +69,15 @@
             export declare const MovieLastEventPublishDateTime: string;
             export declare const MovieTagline: string;
             export declare const MovieBudget: string;
-            export declare const PersonFirstname: string;
-            export declare const PersonLastname: string;
+            export declare const PersonFirstNameOther: string;
+            export declare const PersonLastNameOther: string;
             export declare const PersonBirthDate: string;
-            export declare const PersonBirthPlace: string;
+            export declare const PersonDeathDate: string;
             export declare const PersonGender: string;
-            export declare const PersonHeight: string;
             export declare const PersonPathImage: string;
-            export declare const PersonPathImageMini: string;
         }
 
-        ['MoviePersonCastId', 'CastId', 'MovieId', 'PersonId', 'CastCharacter', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'PersonFirstname', 'PersonLastname', 'PersonBirthDate', 'PersonBirthPlace', 'PersonGender', 'PersonHeight', 'PersonPathImage', 'PersonPathImageMini'].forEach(x => (<any>Fields)[x] = x);
+        ['MoviePersonCastId', 'CastId', 'MovieId', 'PersonId', 'CastCharacter', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'PersonFirstNameOther', 'PersonLastNameOther', 'PersonBirthDate', 'PersonDeathDate', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

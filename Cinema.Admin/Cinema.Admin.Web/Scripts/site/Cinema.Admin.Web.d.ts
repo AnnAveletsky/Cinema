@@ -899,7 +899,7 @@ declare namespace Cinema.Admin.BasicSamples {
         static formKey: string;
     }
     interface FilteredLookupInDetailForm {
-        CustomerID: Northwind.CustomerEditor;
+        CustomerID: Admin.Northwind.CustomerEditor;
         OrderDate: Serenity.DateEditor;
         CategoryID: Serenity.LookupEditor;
         DetailList: FilteredLookupDetailEditor;
@@ -955,7 +955,7 @@ declare namespace Cinema.Admin.BasicSamples {
         static formKey: string;
     }
     interface PopulateLinkedDataForm {
-        CustomerID: Northwind.CustomerEditor;
+        CustomerID: Admin.Northwind.CustomerEditor;
         CustomerContactName: Serenity.StringEditor;
         CustomerContactTitle: Serenity.StringEditor;
         CustomerCity: Serenity.StringEditor;
@@ -966,7 +966,7 @@ declare namespace Cinema.Admin.BasicSamples {
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.DateEditor;
         EmployeeID: Serenity.LookupEditor;
-        DetailList: Northwind.OrderDetailsEditor;
+        DetailList: Admin.Northwind.OrderDetailsEditor;
     }
 }
 declare namespace Cinema.Admin.BasicSamples {

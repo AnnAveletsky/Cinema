@@ -2,6 +2,7 @@
     export interface GenreRow {
         GenreId?: number;
         Name?: string;
+        Icon?: string;
     }
 
     export namespace GenreRow {
@@ -17,9 +18,10 @@
         export namespace Fields {
             export declare const GenreId: string;
             export declare const Name: string;
+            export declare const Icon: string;
         }
 
-        ['GenreId', 'Name'].forEach(x => (<any>Fields)[x] = x);
+        ['GenreId', 'Name', 'Icon'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

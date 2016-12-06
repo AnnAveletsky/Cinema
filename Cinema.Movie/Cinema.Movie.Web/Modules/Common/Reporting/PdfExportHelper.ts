@@ -112,7 +112,7 @@
                 url: g.view.url,
                 request: request,
                 onSuccess: response => {
-                    let doc = new jsPDF('l', 'pt');
+                    let doc /*= new jsPDF('l', 'pt')*/;
                     let srcColumns = gridColumns;
                     let columnStyles: { [dataKey: string]: jsPDF.AutoTableStyles; } = {};
                     let columns = toAutoTableColumns(srcColumns, columnStyles, options.columnTitles);
@@ -198,8 +198,8 @@
         }
 
         function includeJsPDF() {
-            if (typeof jsPDF !== "undefined")
-                return;
+            //if (typeof jsPDF !== "undefined")
+            //    return;
 
             var script = $("jsPDFScript");
             if (script.length > 0)
@@ -215,10 +215,10 @@
         function includeAutoTable() {
             includeJsPDF();
 
-            if (typeof jsPDF === "undefined" ||
-                typeof (jsPDF as any).API == "undefined" ||
-                typeof (jsPDF as any).API.autoTable !== "undefined")
-                return;
+            //if (typeof jsPDF === "undefined" ||
+            //    typeof (jsPDF as any).API == "undefined" ||
+            //    typeof (jsPDF as any).API.autoTable !== "undefined")
+            //    return;
 
             var script = $("jsPDFAutoTableScript");
             if (script.length > 0)

@@ -5,16 +5,20 @@
     }
 
     export interface PersonForm {
-        Firstname: Serenity.StringEditor;
-        Lastname: Serenity.StringEditor;
+        FirstNameEn: Serenity.StringEditor;
+        MiddleNameEn: Serenity.StringEditor;
+        LastNameEn: Serenity.StringEditor;
+        FirstNameOther: Serenity.StringEditor;
+        MiddleNameOther: Serenity.StringEditor;
+        LastNameOther: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
+        DeathDate: Serenity.DateEditor;
         BirthPlace: Serenity.StringEditor;
-        Gender: Serenity.IntegerEditor;
-        Height: Serenity.IntegerEditor;
+        Gender: Serenity.EnumEditor;
+        About: Serenity.StringEditor;
         PathImage: Serenity.StringEditor;
-        PathImageMini: Serenity.StringEditor;
     }
 
-    [['Firstname', () => Serenity.StringEditor], ['Lastname', () => Serenity.StringEditor], ['BirthDate', () => Serenity.DateEditor], ['BirthPlace', () => Serenity.StringEditor], ['Gender', () => Serenity.IntegerEditor], ['Height', () => Serenity.IntegerEditor], ['PathImage', () => Serenity.StringEditor], ['PathImageMini', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(PersonForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['FirstNameEn', () => Serenity.StringEditor], ['MiddleNameEn', () => Serenity.StringEditor], ['LastNameEn', () => Serenity.StringEditor], ['FirstNameOther', () => Serenity.StringEditor], ['MiddleNameOther', () => Serenity.StringEditor], ['LastNameOther', () => Serenity.StringEditor], ['BirthDate', () => Serenity.DateEditor], ['DeathDate', () => Serenity.DateEditor], ['BirthPlace', () => Serenity.StringEditor], ['Gender', () => Serenity.EnumEditor], ['About', () => Serenity.StringEditor], ['PathImage', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(PersonForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
 

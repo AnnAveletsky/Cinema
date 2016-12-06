@@ -211,18 +211,18 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MovieBudget[this] = value; }
         }
 
-        [DisplayName("Person Firstname"), Expression("jPerson.[Firstname]")]
-        public String PersonFirstname
+        [DisplayName("Person PersonFirstNameOther"), Expression("jPerson.[PersonFirstNameOther]")]
+        public String PersonFirstNameOther
         {
-            get { return Fields.PersonFirstname[this]; }
-            set { Fields.PersonFirstname[this] = value; }
+            get { return Fields.PersonFirstNameOther[this]; }
+            set { Fields.PersonFirstNameOther[this] = value; }
         }
 
-        [DisplayName("Person Lastname"), Expression("jPerson.[Lastname]")]
-        public String PersonLastname
+        [DisplayName("Person PersonLastNameOther"), Expression("jPerson.[PersonLastNameOther]")]
+        public String PersonLastNameOther
         {
-            get { return Fields.PersonLastname[this]; }
-            set { Fields.PersonLastname[this] = value; }
+            get { return Fields.PersonLastNameOther[this]; }
+            set { Fields.PersonLastNameOther[this] = value; }
         }
 
         [DisplayName("Person Birth Date"), Expression("jPerson.[BirthDate]")]
@@ -231,40 +231,26 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.PersonBirthDate[this]; }
             set { Fields.PersonBirthDate[this] = value; }
         }
-
-        [DisplayName("Person Birth Place"), Expression("jPerson.[BirthPlace]")]
-        public String PersonBirthPlace
+        [DisplayName("Person Death Date"), Expression("jPerson.[DeathDate]")]
+        public DateTime? PersonDeathDate
         {
-            get { return Fields.PersonBirthPlace[this]; }
-            set { Fields.PersonBirthPlace[this] = value; }
+            get { return Fields.PersonDeathDate[this]; }
+            set { Fields.PersonDeathDate[this] = value; }
         }
 
         [DisplayName("Person Gender"), Expression("jPerson.[Gender]")]
-        public Int16? PersonGender
+        public Gender PersonGender
         {
-            get { return Fields.PersonGender[this]; }
-            set { Fields.PersonGender[this] = value; }
+            get { return (Gender)Fields.PersonGender[this]; }
+            set { Fields.PersonGender[this] = (Int16?)value; }
         }
 
-        [DisplayName("Person Height"), Expression("jPerson.[Height]")]
-        public Int16? PersonHeight
-        {
-            get { return Fields.PersonHeight[this]; }
-            set { Fields.PersonHeight[this] = value; }
-        }
 
         [DisplayName("Person Path Image"), Expression("jPerson.[PathImage]")]
         public String PersonPathImage
         {
             get { return Fields.PersonPathImage[this]; }
             set { Fields.PersonPathImage[this] = value; }
-        }
-
-        [DisplayName("Person Path Image Mini"), Expression("jPerson.[PathImageMini]")]
-        public String PersonPathImageMini
-        {
-            get { return Fields.PersonPathImageMini[this]; }
-            set { Fields.PersonPathImageMini[this] = value; }
         }
 
         IIdField IIdRow.IdField
@@ -312,14 +298,12 @@ namespace Cinema.Movie.Movie.Entities
             public StringField MovieTagline;
             public DecimalField MovieBudget;
 
-            public StringField PersonFirstname;
-            public StringField PersonLastname;
+            public StringField PersonFirstNameOther;
+            public StringField PersonLastNameOther;
             public DateTimeField PersonBirthDate;
-            public StringField PersonBirthPlace;
+            public DateTimeField PersonDeathDate;
             public Int16Field PersonGender;
-            public Int16Field PersonHeight;
             public StringField PersonPathImage;
-            public StringField PersonPathImageMini;
 
             public RowFields()
                 : base("[mov].[CastMoviePerson]")

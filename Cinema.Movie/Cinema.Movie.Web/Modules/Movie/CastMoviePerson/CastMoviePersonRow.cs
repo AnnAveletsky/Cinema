@@ -11,15 +11,16 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("CastMovie"), InstanceName("CastMovie"), TwoLevelCached]
+    [ConnectionKey("Default"), DisplayName("CastMoviePerson"), InstanceName("CastMoviePerson"), TwoLevelCached]
+    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    public sealed class CastMovieRow : Row, IIdRow
+    public sealed class CastMoviePersonRow : Row, IIdRow
     {
-        [DisplayName("Cast Movie Id"), Identity]
-        public Int32? CastMovieId
+        [DisplayName("Cast Movie Person Id"), Identity]
+        public Int32? CastMoviePersonId
         {
-            get { return Fields.CastMovieId[this]; }
-            set { Fields.CastMovieId[this] = value; }
+            get { return Fields.CastMoviePersonId[this]; }
+            set { Fields.CastMoviePersonId[this] = value; }
         }
 
         [DisplayName("Cast"), NotNull, ForeignKey("[mov].[Cast]", "CastId"), LeftJoin("jCast"), TextualField("CastCharacter")]
@@ -34,6 +35,13 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.MovieId[this]; }
             set { Fields.MovieId[this] = value; }
+        }
+
+        [DisplayName("Person"), NotNull, ForeignKey("[mov].[Person]", "PersonId"), LeftJoin("jPerson"), TextualField("PersonFirstNameEn")]
+        public Int64? PersonId
+        {
+            get { return Fields.PersonId[this]; }
+            set { Fields.PersonId[this] = value; }
         }
 
         [DisplayName("Cast Character"), Expression("jCast.[Character]")]
@@ -204,23 +212,108 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MovieBudget[this] = value; }
         }
 
+        [DisplayName("Person First Name En"), Expression("jPerson.[FirstNameEn]")]
+        public String PersonFirstNameEn
+        {
+            get { return Fields.PersonFirstNameEn[this]; }
+            set { Fields.PersonFirstNameEn[this] = value; }
+        }
+
+        [DisplayName("Person Middle Name En"), Expression("jPerson.[MiddleNameEn]")]
+        public String PersonMiddleNameEn
+        {
+            get { return Fields.PersonMiddleNameEn[this]; }
+            set { Fields.PersonMiddleNameEn[this] = value; }
+        }
+
+        [DisplayName("Person Last Name En"), Expression("jPerson.[LastNameEn]")]
+        public String PersonLastNameEn
+        {
+            get { return Fields.PersonLastNameEn[this]; }
+            set { Fields.PersonLastNameEn[this] = value; }
+        }
+
+        [DisplayName("Person First Name Other"), Expression("jPerson.[FirstNameOther]")]
+        public String PersonFirstNameOther
+        {
+            get { return Fields.PersonFirstNameOther[this]; }
+            set { Fields.PersonFirstNameOther[this] = value; }
+        }
+
+        [DisplayName("Person Middle Name Other"), Expression("jPerson.[MiddleNameOther]")]
+        public String PersonMiddleNameOther
+        {
+            get { return Fields.PersonMiddleNameOther[this]; }
+            set { Fields.PersonMiddleNameOther[this] = value; }
+        }
+
+        [DisplayName("Person Last Name Other"), Expression("jPerson.[LastNameOther]")]
+        public String PersonLastNameOther
+        {
+            get { return Fields.PersonLastNameOther[this]; }
+            set { Fields.PersonLastNameOther[this] = value; }
+        }
+
+        [DisplayName("Person Birth Date"), Expression("jPerson.[BirthDate]")]
+        public DateTime? PersonBirthDate
+        {
+            get { return Fields.PersonBirthDate[this]; }
+            set { Fields.PersonBirthDate[this] = value; }
+        }
+
+        [DisplayName("Person Death Date"), Expression("jPerson.[DeathDate]")]
+        public DateTime? PersonDeathDate
+        {
+            get { return Fields.PersonDeathDate[this]; }
+            set { Fields.PersonDeathDate[this] = value; }
+        }
+
+        [DisplayName("Person Birth Place"), Expression("jPerson.[BirthPlace]")]
+        public String PersonBirthPlace
+        {
+            get { return Fields.PersonBirthPlace[this]; }
+            set { Fields.PersonBirthPlace[this] = value; }
+        }
+
+        [DisplayName("Person Gender"), Expression("jPerson.[Gender]")]
+        public Int16? PersonGender
+        {
+            get { return Fields.PersonGender[this]; }
+            set { Fields.PersonGender[this] = value; }
+        }
+
+        [DisplayName("Person About"), Expression("jPerson.[About]")]
+        public String PersonAbout
+        {
+            get { return Fields.PersonAbout[this]; }
+            set { Fields.PersonAbout[this] = value; }
+        }
+
+        [DisplayName("Person Path Image"), Expression("jPerson.[PathImage]")]
+        public String PersonPathImage
+        {
+            get { return Fields.PersonPathImage[this]; }
+            set { Fields.PersonPathImage[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
-            get { return Fields.CastMovieId; }
+            get { return Fields.CastMoviePersonId; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
 
-        public CastMovieRow()
+        public CastMoviePersonRow()
             : base(Fields)
         {
         }
 
         public class RowFields : RowFieldsBase
         {
-            public Int32Field CastMovieId;
+            public Int32Field CastMoviePersonId;
             public Int16Field CastId;
             public Int64Field MovieId;
+            public Int64Field PersonId;
 
             public StringField CastCharacter;
 
@@ -248,10 +341,23 @@ namespace Cinema.Movie.Movie.Entities
             public StringField MovieTagline;
             public DecimalField MovieBudget;
 
+            public StringField PersonFirstNameEn;
+            public StringField PersonMiddleNameEn;
+            public StringField PersonLastNameEn;
+            public StringField PersonFirstNameOther;
+            public StringField PersonMiddleNameOther;
+            public StringField PersonLastNameOther;
+            public DateTimeField PersonBirthDate;
+            public DateTimeField PersonDeathDate;
+            public StringField PersonBirthPlace;
+            public Int16Field PersonGender;
+            public StringField PersonAbout;
+            public StringField PersonPathImage;
+
             public RowFields()
-                : base("[mov].[CastMovie]")
+                : base("[mov].[CastMoviePerson]")
             {
-                LocalTextPrefix = "Movie.CastMovie";
+                LocalTextPrefix = "Movie.CastMoviePerson";
             }
         }
     }

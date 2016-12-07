@@ -210,6 +210,15 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.TagListName[this]; }
             set { Fields.TagListName[this] = value; }
         }
+
+        [DisplayName("Cast")]
+        [LookupEditor(typeof(CastRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(CastMoviePersonRow), "MovieId", "CastId")]
+        public List<Int16> CastList
+        {
+            get { return Fields.CastList[this]; }
+            set { Fields.CastList[this] = value; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieId; }
@@ -257,6 +266,7 @@ namespace Cinema.Movie.Movie.Entities
             public ListField<string> GenreListName;
             public ListField<Int16> TagList;
             public ListField<string> TagListName;
+            public ListField<Int16> CastList;
 
             public RowFields()
                 : base("[mov].[Movie]")

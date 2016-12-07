@@ -1,9 +1,10 @@
 ﻿
 namespace Cinema.Movie.Movie {
-    export interface CastMovieRow {
-        CastMovieId?: number;
+    export interface CastMoviePersonRow {
+        CastMoviePersonId?: number;
         CastId?: number;
         MovieId?: number;
+        PersonId?: number;
         CastCharacter?: string;
         MovieTitleEn?: string;
         MovieTitleOther?: string;
@@ -28,16 +29,29 @@ namespace Cinema.Movie.Movie {
         MovieLastEventPublishDateTime?: string;
         MovieTagline?: string;
         MovieBudget?: number;
+        PersonFirstNameEn?: string;
+        PersonMiddleNameEn?: string;
+        PersonLastNameEn?: string;
+        PersonFirstNameOther?: string;
+        PersonMiddleNameOther?: string;
+        PersonLastNameOther?: string;
+        PersonBirthDate?: string;
+        PersonDeathDate?: string;
+        PersonBirthPlace?: string;
+        PersonGender?: number;
+        PersonAbout?: string;
+        PersonPathImage?: string;
     }
 
-    export namespace CastMovieRow {
-        export const idProperty = 'CastMovieId';
-        export const localTextPrefix = 'Movie.CastMovie';
+    export namespace CastMoviePersonRow {
+        export const idProperty = 'CastMoviePersonId';
+        export const localTextPrefix = 'Movie.CastMoviePerson';
 
         export namespace Fields {
-            export declare const CastMovieId;
+            export declare const CastMoviePersonId;
             export declare const CastId;
             export declare const MovieId;
+            export declare const PersonId;
             export declare const CastCharacter: string;
             export declare const MovieTitleEn: string;
             export declare const MovieTitleOther: string;
@@ -62,9 +76,21 @@ namespace Cinema.Movie.Movie {
             export declare const MovieLastEventPublishDateTime: string;
             export declare const MovieTagline: string;
             export declare const MovieBudget: string;
+            export declare const PersonFirstNameEn: string;
+            export declare const PersonMiddleNameEn: string;
+            export declare const PersonLastNameEn: string;
+            export declare const PersonFirstNameOther: string;
+            export declare const PersonMiddleNameOther: string;
+            export declare const PersonLastNameOther: string;
+            export declare const PersonBirthDate: string;
+            export declare const PersonDeathDate: string;
+            export declare const PersonBirthPlace: string;
+            export declare const PersonGender: string;
+            export declare const PersonAbout: string;
+            export declare const PersonPathImage: string;
         }
 
-        ['CastMovieId', 'CastId', 'MovieId', 'CastCharacter', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget'].forEach(x => (<any>Fields)[x] = x);
+        ['CastMoviePersonId', 'CastId', 'MovieId', 'PersonId', 'CastCharacter', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'PersonFirstNameEn', 'PersonMiddleNameEn', 'PersonLastNameEn', 'PersonFirstNameOther', 'PersonMiddleNameOther', 'PersonLastNameOther', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonAbout', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

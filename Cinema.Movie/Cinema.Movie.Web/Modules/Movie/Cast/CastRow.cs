@@ -12,7 +12,9 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Cast"), InstanceName("Cast"), TwoLevelCached]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.Cast")]
     public sealed class CastRow : Row, IIdRow, INameRow
     {
         [DisplayName("Cast Id"), Identity]

@@ -94,7 +94,13 @@ namespace MVC
         {
             public static class Cast
             {
+                public const string _Cast = "~/Modules/Movie/Cast/_Cast.cshtml";
                 public const string CastIndex = "~/Modules/Movie/Cast/CastIndex.cshtml";
+            }
+
+            public static class CastMoviePerson
+            {
+                public const string CastMoviePersonIndex = "~/Modules/Movie/CastMoviePerson/CastMoviePersonIndex.cshtml";
             }
 
             public static class Genre

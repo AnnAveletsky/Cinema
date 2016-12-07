@@ -87,13 +87,9 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     SELECT MovieId, TagId 
                     FROM mov.Movie, mov.Tag");
             Execute.Sql(
-               @"INSERT INTO mov.CastMovie (CastId, MovieId) 
-                    SELECT CastId, MovieId 
-                    FROM mov.Cast, mov.Movie");
-            Execute.Sql(
-              @"INSERT INTO mov.CastPerson (CastId, PersonId) 
-                    SELECT CastId, PersonId 
-                    FROM mov.Cast, mov.Person");
+               @"INSERT INTO mov.CastMoviePerson (CastId, MovieId, PersonId) 
+                    SELECT CastId, MovieId, PersonId 
+                    FROM mov.Cast, mov.Movie, mov.Person");
         }
 
         public override void Down()

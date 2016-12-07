@@ -44,5 +44,6 @@ namespace Cinema.Movie.Movie.Columns
         public List<string> GenreListName { get; set; }
         public List<Int16> TagList { get; set; }
         public List<string> TagListName { get; set; }
+        public List<Int16> CastList { get; set; }
     }
 }

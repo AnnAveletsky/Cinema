@@ -19,7 +19,7 @@ using Configuration = Cinema.Movie.Configuration.Pages;
 [assembly: NavigationMenu(10000, "Movie", icon: "fa-tv")]
 [assembly: NavigationLink(10100, "Movie/Genre", typeof(Movie.GenreController), icon: "fa-bars")]
 [assembly: NavigationLink(10200, "Movie/Movie", typeof(Movie.MovieController), icon: "fa-film")]
-[assembly: NavigationLink(10300, "Movie/Cast", typeof(Movie.CastController), icon: "fa-users")]
+//[assembly: NavigationLink(10300, "Movie/Cast", typeof(Movie.CastController), icon: "fa-users")]
 [assembly: NavigationLink(10400, "Movie/Person", typeof(Movie.PersonController), icon: "fa-user")]
 [assembly: NavigationLink(10500, "Movie/Tag", typeof(Movie.TagController), icon: "fa-tags")]
 [assembly: NavigationLink(10600, "Movie/Video", typeof(Movie.VideoController), icon: "fa-video-camera")]

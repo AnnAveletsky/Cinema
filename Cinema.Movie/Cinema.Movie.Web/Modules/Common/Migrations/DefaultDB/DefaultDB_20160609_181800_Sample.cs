@@ -16,6 +16,10 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .Row(new { Name = "Fantasy" })
                 .Row(new { Name = "Documentary" });
 
+            Insert.IntoTable("Cast").InSchema("mov")
+                .Row(new { Character = "Actor" })
+                .Row(new { Character = "Produser" })
+                .Row(new { Character = "Compositor" });
 
             Insert.IntoTable("Movie").InSchema("mov")
                 .Row(new
@@ -82,7 +86,14 @@ namespace Cinema.Movie.Migrations.DefaultDB
               @"INSERT INTO mov.MovieTag (MovieId, TagId) 
                     SELECT MovieId, TagId 
                     FROM mov.Movie, mov.Tag");
-            
+            Execute.Sql(
+               @"INSERT INTO mov.CastMovie (CastId, MovieId) 
+                    SELECT CastId, MovieId 
+                    FROM mov.Cast, mov.Movie");
+            Execute.Sql(
+              @"INSERT INTO mov.CastPerson (CastId, PersonId) 
+                    SELECT CastId, PersonId 
+                    FROM mov.Cast, mov.Person");
         }
 
         public override void Down()

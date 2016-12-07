@@ -1229,21 +1229,21 @@ declare namespace Cinema.Movie.Membership {
     }
 }
 declare namespace Cinema.Movie.Movie {
+}
+declare namespace Cinema.Movie.Movie {
     class CastForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
     interface CastForm {
         Character: Serenity.StringEditor;
-        MovieId: Serenity.IntegerEditor;
-        PersonId: Serenity.IntegerEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
-    interface CastRow {
+    interface CastMovieRow {
+        CastMovieId?: number;
         CastId?: number;
-        Character?: string;
         MovieId?: number;
-        PersonId?: number;
+        CastCharacter?: string;
         MovieTitleEn?: string;
         MovieTitleOther?: string;
         MovieDescription?: string;
@@ -1267,28 +1267,15 @@ declare namespace Cinema.Movie.Movie {
         MovieLastEventPublishDateTime?: string;
         MovieTagline?: string;
         MovieBudget?: number;
-        PersonFirstNameEn?: string;
-        PersonMiddleNameEn?: string;
-        PersonLastNameEn?: string;
-        PersonFirstNameOther?: string;
-        PersonMiddleNameOther?: string;
-        PersonLastNameOther?: string;
-        PersonBirthDate?: string;
-        PersonDeathDate?: string;
-        PersonBirthPlace?: string;
-        PersonGender?: number;
-        PersonAbout?: string;
-        PersonPathImage?: string;
     }
-    namespace CastRow {
+    namespace CastMovieRow {
         const idProperty: string;
-        const nameProperty: string;
         const localTextPrefix: string;
         namespace Fields {
+            const CastMovieId: any;
             const CastId: any;
-            const Character: any;
             const MovieId: any;
-            const PersonId: any;
+            const CastCharacter: string;
             const MovieTitleEn: string;
             const MovieTitleOther: string;
             const MovieDescription: string;
@@ -1312,6 +1299,36 @@ declare namespace Cinema.Movie.Movie {
             const MovieLastEventPublishDateTime: string;
             const MovieTagline: string;
             const MovieBudget: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
+    interface CastPersonRow {
+        CastPersonId?: number;
+        CastId?: number;
+        PersonId?: number;
+        CastCharacter?: string;
+        PersonFirstNameEn?: string;
+        PersonMiddleNameEn?: string;
+        PersonLastNameEn?: string;
+        PersonFirstNameOther?: string;
+        PersonMiddleNameOther?: string;
+        PersonLastNameOther?: string;
+        PersonBirthDate?: string;
+        PersonDeathDate?: string;
+        PersonBirthPlace?: string;
+        PersonGender?: number;
+        PersonAbout?: string;
+        PersonPathImage?: string;
+    }
+    namespace CastPersonRow {
+        const idProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const CastPersonId: any;
+            const CastId: any;
+            const PersonId: any;
+            const CastCharacter: string;
             const PersonFirstNameEn: string;
             const PersonMiddleNameEn: string;
             const PersonLastNameEn: string;
@@ -1328,13 +1345,28 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
+    interface CastRow {
+        CastId?: number;
+        Character?: string;
+    }
+    namespace CastRow {
+        const idProperty: string;
+        const nameProperty: string;
+        const localTextPrefix: string;
+        namespace Fields {
+            const CastId: string;
+            const Character: string;
+        }
+    }
+}
+declare namespace Cinema.Movie.Movie {
     namespace CastService {
         const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<CastRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<CastRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CastRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CastRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Create(request: Serenity.SaveRequest<CastRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<CastRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CastRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CastRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;

@@ -10,24 +10,13 @@ namespace Cinema.Movie.Common.Pages
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Movies = Movie.Pages.MovieController;
+    using Genres = Movie.Pages.GenreController;
 
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        private DashboardPageModel model = new DashboardPageModel() { Genres = Genres() };
-        
-
-        private static List<GenreRow> Genres()
-        {
-            return TwoLevelCache.GetLocalStoreOnly("Genres", TimeSpan.FromMinutes(200),
-              GenreRow.Fields.GenerationKey, () =>
-              {
-                  using (var connection = SqlConnections.NewFor<GenreRow>())
-                  {
-                      return connection.List<GenreRow>();
-                  }
-              });
-        }
+        private DashboardPageModel model = new DashboardPageModel() { Genres = Genres.List(new ListRequest()) };
+       
         
         [HttpGet, Route("~/")]
         public ActionResult Index(int count=10,int page=1,string genre="")

@@ -13,7 +13,7 @@ namespace Cinema.Movie.Movie.Forms
     [BasedOnRow(typeof(Entities.CastMoviePersonRow))]
     public class CastMoviePersonForm
     {
-        public Int16 CastId { get; set; }
+        public Int64 CastId { get; set; }
         public Int64 MovieId { get; set; }
         public Int64 PersonId { get; set; }
     }

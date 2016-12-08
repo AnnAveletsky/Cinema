@@ -9,6 +9,7 @@ namespace Cinema.Movie.Movie.Columns
     using System.Collections.Generic;
     using System.IO;
     using Migrations.DefaultDB;
+    using Entities;
 
     [ColumnsScript("Movie.Movie")]
     [BasedOnRow(typeof(Entities.MovieRow))]
@@ -44,6 +45,6 @@ namespace Cinema.Movie.Movie.Columns
         public List<string> GenreListName { get; set; }
         public List<Int16> TagList { get; set; }
         public List<string> TagListName { get; set; }
-        public List<Int16> CastList { get; set; }
+        public List<CastMoviePersonRow> CastPersonList { get; set; }
     }
 }

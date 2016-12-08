@@ -79,7 +79,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("Character").AsString(50).NotNullable();
 
             Create.Table("CastMoviePerson").InSchema("mov")
-                .WithColumn("CastMoviePersonId").AsInt32().Identity().PrimaryKey().NotNullable()
+                .WithColumn("CastMoviePersonId").AsInt64().Identity().PrimaryKey().NotNullable()
                 .WithColumn("CastId").AsInt16().NotNullable()
                     .ForeignKey("FK_CastMoviePerson_CastId", "mov", "Cast", "CastId")
                 .WithColumn("MovieId").AsInt64().NotNullable()

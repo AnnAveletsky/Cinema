@@ -14,7 +14,7 @@ namespace Cinema.Movie.Movie.Columns
     public class CastMoviePersonColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int32 CastMoviePersonId { get; set; }
+        public Int64 CastMoviePersonId { get; set; }
         public Int16 CastId { get; set; }
         public Int64 MovieId { get; set; }
         public Int64 PersonId { get; set; }

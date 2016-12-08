@@ -12,12 +12,13 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("CastMoviePerson"), InstanceName("CastMoviePerson"), TwoLevelCached]
-    [ReadPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.CastMoviePerson")]
     public sealed class CastMoviePersonRow : Row, IIdRow
     {
         [DisplayName("Cast Movie Person Id"), Identity]
-        public Int32? CastMoviePersonId
+        public Int64? CastMoviePersonId
         {
             get { return Fields.CastMoviePersonId[this]; }
             set { Fields.CastMoviePersonId[this] = value; }
@@ -310,7 +311,7 @@ namespace Cinema.Movie.Movie.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int32Field CastMoviePersonId;
+            public Int64Field CastMoviePersonId;
             public Int16Field CastId;
             public Int64Field MovieId;
             public Int64Field PersonId;

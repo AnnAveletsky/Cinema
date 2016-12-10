@@ -6720,6 +6720,9 @@ body {
 .uppercase {
   text-transform: uppercase;
 }
+.text-indent {
+  text-indent: 20px;
+}
 .ui-front {
   z-index: 1100;
 }

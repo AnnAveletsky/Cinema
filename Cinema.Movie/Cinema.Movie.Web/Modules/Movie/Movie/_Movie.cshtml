@@ -3,7 +3,7 @@
 
 <div class="box box-custom">
     <div class="box-header with-border box-with-backgrond">
-        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/"+(Model.TitleOther!=null?Model.TitleOther.Replace(" ",""):Model.TitleEn.Replace(" ","").Replace("'", ""))+"?id=" + Model.MovieId : "")>
+        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + (Model.TitleOther != null ? Model.TitleOther.Replace(" ", "") : Model.TitleEn.Replace(" ", "").Replace("'", "")) + "?id=" + Model.MovieId : "")>
             <h3 class="box-title">
                 @if (Model.TitleOther != null)
                 {
@@ -17,11 +17,29 @@
                 }
 
             </h3>
-            <span class="pull-right">
-                @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
+
+        </a>
+        <span class="pull-right">
+            @if (Model.Nice == true)
             {
-                if (i < Model.Rating)
+                <span class="fa fa-thumbs-o-up fa-2x"></span>
+            }
+        </span>
+    </div>
+    <div class="box-body box-profile">
+        <div class="col-xs-4 no-padding">
+
+            <a href="#" class="thumbnail">
+                <img class="img-responsive" src="@Model.PathImage" />
+            </a>
+        </div>
+
+        <div class="col-xs-8">
+            <div class="pull-right">
+                @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
                 {
+                    if (i < Model.Rating)
+                    {
                         <span class="fa fa-star"></span>
                     }
                     else if (i + 1 < Model.Rating)
@@ -33,23 +51,22 @@
                         <span class="fa fa-star-o"></span>
                     }
                 }
-            </span>
-        </a>
-        <span class="pull-right">
-            @if (Model.Nice == true)
-            {
-                <span class="fa fa-thumbs-o-up fa-2x"></span>
-            }
-        </span>
-    </div>
-    <div class="box-body box-profile">
+            </div>
+            <div class="col-xs-12 no-padding">
+                @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
+                {
+                    <p>
+                        @foreach (var i in Model.ServiceRatingList)
+                        {
 
+                            @i.ServiceName
+                            <span class="label label-custom">@i.Rating </span>
 
-        <a href="#" class="thumbnail col-xs-4">
-            <img class="img-responsive" src="@Model.PathImage" />
-        </a>
-        <div class="col-xs-8">
-
+                        }
+                    </p>
+                }
+            </div>
+            
             @if (Model.Tagline != null)
             {
                 <div class="col-xs-12 no-padding text-center">
@@ -66,53 +83,41 @@
                     <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Budget $</i></p>
                 </div>
             }
-            
-            <div class="col-xs-12 no-padding">
-                @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
-                {
-                    @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
-                foreach (var i in Model.GenreListName)
-                {
-                    <div class="pull-right">
-                        <span class="label label-custom  ">@i </span>
-                    </div>
-                    }
-                }
-            </div>
-            
+
+
+
             <div class="col-xs-12 no-padding">
                 @if (Model.CastList != null && Model.CastList.Count != 0)
                 {
                     foreach (var i in Model.CastList.Select(j => j.Character).Distinct())
                     {
-                        <div>
+                        <p>
                             <span>@i </span>
                             @foreach (var k in Model.CastList)
                             {
                                 if (k.Character == i)
                                 {
-                                    <span class="label label-custom"> @(k.PersonNameOther!=null? k.PersonNameOther: k.PersonNameEn) </span>
+                                    <span class="label label-custom"> @(k.PersonNameOther != null ? k.PersonNameOther : k.PersonNameEn) </span>
                                 }
                             }
-                        </div>
+                        </p>
                     }
                 }
             </div>
             <div class="col-xs-12 no-padding">
-                @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
+                @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
                 {
-                    @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
-                foreach (var i in Model.ServiceRatingList)
-                {
-                    <div class="pull-right">
-                        @i.ServiceName
-                        <span class="label label-custom">@i.Rating </span>
-                    </div>
+                    <span> @LocalText.Get("Db.Movie.Movie.GenreListName"):</span>
+                    foreach (var i in Model.GenreListName)
+                    {
+                        <p class="pull-right">
+                            <span class="label label-custom">@i </span>
+                        </p>
                     }
                 }
             </div>
             <div class="col-xs-12 no-padding text-justify">
-                <p>
+                <p class="text-indent">
                     @Model.Description
                 </p>
             </div>
@@ -124,20 +129,29 @@
                 foreach (var i in Model.TagListName)
                 {
                     <div class="pull-right">
-                        <span class="label label-custom  ">@i </span>
+                        <span class="label label-custom">@i </span>
                     </div>
                     }
                 }
             </div>
+            @if ((string)ViewData["PageId"] == "Dashboard/Movie")
+            {
+                <div class="col-xs-8 no-padding">
+                    <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
+                    <a>@Model.Mpaa</a>
+                </div>
+                if (Model.Kind == Cinema.Movie.Movie.MovieKind.TvSeries)
+                {
+                    <div class="col-xs-8 no-padding">
+                        <span>@LocalText.Get("Db.Movie.Movie.ContSeason")</span>
+                        <a>@Model.ContSeason</a>
+                    </div>
+                }
+            }
         </div>
 
         @if ((string)ViewData["PageId"] == "Dashboard/Movie")
         {
-            <a>@Model.Mpaa</a>
-            if (Model.Kind == Cinema.Movie.Movie.MovieKind.TvSeries)
-            {
-                <a>@Model.ContSeason</a>
-            }
             <div class="col-xs-12 no-padding">
                 <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
                 <span>@Model.PublishDateTime.Value.ToLongDateString()</span>
@@ -146,8 +160,6 @@
                 <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
                 <span>@Model.UpdateDateTime.Value.ToLongDateString()</span>
             </div>
-
-
         }
     </div>
 </div>

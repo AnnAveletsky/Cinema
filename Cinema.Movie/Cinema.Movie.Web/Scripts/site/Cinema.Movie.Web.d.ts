@@ -1477,7 +1477,6 @@ declare namespace Cinema.Movie.Movie {
     }
     interface MovieForm {
         TitleEn: Serenity.StringEditor;
-        Url: Serenity.StringEditor;
         TitleOther: Serenity.StringEditor;
         Description: Serenity.StringEditor;
         YearStart: Serenity.IntegerEditor;
@@ -1603,7 +1602,6 @@ declare namespace Cinema.Movie.Movie {
 declare namespace Cinema.Movie.Movie {
     interface MovieRow {
         MovieId?: number;
-        Url?: string;
         TitleEn?: string;
         TitleOther?: string;
         Description?: string;
@@ -1639,7 +1637,6 @@ declare namespace Cinema.Movie.Movie {
         function getLookup(): Q.Lookup<MovieRow>;
         namespace Fields {
             const MovieId: string;
-            const Url: string;
             const TitleEn: string;
             const TitleOther: string;
             const Description: string;

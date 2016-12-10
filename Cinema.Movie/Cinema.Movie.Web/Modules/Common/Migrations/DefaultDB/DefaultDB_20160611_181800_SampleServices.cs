@@ -15,6 +15,13 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Api = "http://kinopoisk.cf/",
                     MaxRating = 10,
                 });
+            Insert.IntoTable("ServiceRating").InSchema("mov")
+               .Row(new
+               {
+                   Rating = 5,
+                   MovieId = 1,
+                   ServiceId = 1,
+               });
         }
 
         public override void Down()

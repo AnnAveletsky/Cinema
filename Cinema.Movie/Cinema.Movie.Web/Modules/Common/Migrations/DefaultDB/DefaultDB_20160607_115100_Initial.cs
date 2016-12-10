@@ -112,8 +112,9 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     .ForeignKey("FK_ServiceRating_ServiceId", "mov", "Service", "ServiceId").NotNullable();
 
             Create.Table("Video").InSchema("mov")
-                .WithColumn("VudeoId").AsInt64().Identity().PrimaryKey().NotNullable()
+                .WithColumn("VideoId").AsInt64().Identity().PrimaryKey().NotNullable()
                 .WithColumn("Path").AsString(300).Nullable()
+                .WithColumn("PathTorrent").AsString(300).Nullable()
                 .WithColumn("Name").AsString(300).Nullable()
                 .WithColumn("Translation").AsInt16().Nullable().WithDefaultValue(1)
                 .WithColumn("Season").AsInt16().Nullable()

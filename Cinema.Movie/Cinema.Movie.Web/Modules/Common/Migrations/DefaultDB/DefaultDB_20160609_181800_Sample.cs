@@ -77,7 +77,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
               @"INSERT INTO mov.MovieTag (MovieId, TagId) 
                     SELECT MovieId, TagId 
                     FROM mov.Movie, mov.Tag");
-
         }
         public override void Down()
         {

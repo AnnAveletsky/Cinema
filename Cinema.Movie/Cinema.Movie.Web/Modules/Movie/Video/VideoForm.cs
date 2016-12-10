@@ -14,6 +14,7 @@ namespace Cinema.Movie.Movie.Forms
     public class VideoForm
     {
         public String Path { get; set; }
+        public String PathTorrent { get; set; }
         public String Name { get; set; }
         public Int16 Translation { get; set; }
         public Int16 Season { get; set; }

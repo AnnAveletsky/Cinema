@@ -15,11 +15,11 @@ namespace Cinema.Movie.Movie.Entities
     [ModifyPermission("Administration")]
     public sealed class VideoRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Vudeo Id"), Identity]
-        public Int64? VudeoId
+        [DisplayName("Video Id"), Identity]
+        public Int64? VideoId
         {
-            get { return Fields.VudeoId[this]; }
-            set { Fields.VudeoId[this] = value; }
+            get { return Fields.VideoId[this]; }
+            set { Fields.VideoId[this] = value; }
         }
 
         [DisplayName("Path"), Size(300), QuickSearch]
@@ -28,7 +28,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Path[this]; }
             set { Fields.Path[this] = value; }
         }
-
+        [DisplayName("PathTorrent"), Size(300), QuickSearch]
+        public String PathTorrent
+        {
+            get { return Fields.PathTorrent[this]; }
+            set { Fields.PathTorrent[this] = value; }
+        }
         [DisplayName("Name"), Size(300)]
         public String Name
         {
@@ -262,7 +267,7 @@ namespace Cinema.Movie.Movie.Entities
 
         IIdField IIdRow.IdField
         {
-            get { return Fields.VudeoId; }
+            get { return Fields.VideoId; }
         }
 
         StringField INameRow.NameField
@@ -279,8 +284,9 @@ namespace Cinema.Movie.Movie.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int64Field VudeoId;
+            public Int64Field VideoId;
             public StringField Path;
+            public StringField PathTorrent;
             public StringField Name;
             public Int16Field Translation;
             public Int16Field Season;

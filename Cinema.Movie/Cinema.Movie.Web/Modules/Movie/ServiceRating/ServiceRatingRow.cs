@@ -154,14 +154,7 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.MoviePathImage[this]; }
             set { Fields.MoviePathImage[this] = value; }
         }
-
-        [DisplayName("Movie Path Mini Image"), Expression("jMovie.[PathMiniImage]")]
-        public String MoviePathMiniImage
-        {
-            get { return Fields.MoviePathMiniImage[this]; }
-            set { Fields.MoviePathMiniImage[this] = value; }
-        }
-
+        
         [DisplayName("Movie Nice"), Expression("jMovie.[Nice]")]
         public Boolean? MovieNice
         {
@@ -260,7 +253,6 @@ namespace Cinema.Movie.Movie.Entities
             public Int32Field MovieRating;
             public StringField MovieMpaa;
             public StringField MoviePathImage;
-            public StringField MoviePathMiniImage;
             public BooleanField MovieNice;
             public Int16Field MovieContSeason;
             public StringField MovieLastEvent;

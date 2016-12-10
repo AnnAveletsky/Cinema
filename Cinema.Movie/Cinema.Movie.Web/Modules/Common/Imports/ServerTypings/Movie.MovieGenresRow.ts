@@ -19,7 +19,6 @@
         MovieRating?: number;
         MovieMpaa?: string;
         MoviePathImage?: string;
-        MoviePathMiniImage?: string;
         MovieNice?: boolean;
         MovieContSeason?: number;
         MovieLastEvent?: string;
@@ -53,7 +52,6 @@
             export declare const MovieRating: string;
             export declare const MovieMpaa: string;
             export declare const MoviePathImage: string;
-            export declare const MoviePathMiniImage: string;
             export declare const MovieNice: string;
             export declare const MovieContSeason: string;
             export declare const MovieLastEvent: string;
@@ -63,7 +61,7 @@
             export declare const GenreName: string;
         }
 
-        ['MovieGenreId', 'MovieId', 'GenreId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'GenreName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieGenreId', 'MovieId', 'GenreId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'GenreName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

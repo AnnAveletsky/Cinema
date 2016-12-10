@@ -30,7 +30,6 @@ namespace Cinema.Movie.Movie.Forms
         public Int16 Rating { get; set; }
         public String Mpaa { get; set; }
         public String PathImage { get; set; }
-        public String PathMiniImage { get; set; }
         public Boolean Nice { get; set; }
         public Int16 ContSeason { get; set; }
         public String LastEvent { get; set; }

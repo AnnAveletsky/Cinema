@@ -10736,3 +10736,12 @@ section.content > .s-DataGrid {
 .s-Movie-CastMoviePersonDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Movie-CastDialog > .size {
+  width: 650px;
+}
+.s-Movie-CastDialog .caption {
+  width: 150px;
+}

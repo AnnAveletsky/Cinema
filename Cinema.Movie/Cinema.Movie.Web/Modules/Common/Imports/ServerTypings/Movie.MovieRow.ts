@@ -17,7 +17,6 @@
         Rating?: number;
         Mpaa?: string;
         PathImage?: string;
-        PathMiniImage?: string;
         Nice?: boolean;
         ContSeason?: number;
         LastEvent?: string;
@@ -34,6 +33,11 @@
         export const idProperty = 'MovieId';
         export const nameProperty = 'TitleEn';
         export const localTextPrefix = 'Movie.Movie';
+        export const lookupKey = 'Movie.Movie';
+
+        export function getLookup(): Q.Lookup<MovieRow> {
+            return Q.getLookup<MovieRow>('Movie.Movie');
+        }
 
         export namespace Fields {
             export declare const MovieId: string;
@@ -53,7 +57,6 @@
             export declare const Rating: string;
             export declare const Mpaa: string;
             export declare const PathImage: string;
-            export declare const PathMiniImage: string;
             export declare const Nice: string;
             export declare const ContSeason: string;
             export declare const LastEvent: string;
@@ -66,7 +69,7 @@
             export declare const TagListName: string;
         }
 
-        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'PathMiniImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

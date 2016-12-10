@@ -1542,8 +1542,6 @@
     <Content Include="Fonts\fontawesome-webfont.ttf" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
-    <Content Include="Modules\Movie\Cast\_Cast.cshtml" />
-    <Content Include="Modules\Movie\CastMoviePerson\CastMoviePersonIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1859,10 +1857,6 @@
     <TypeScriptCompile Include="Modules\Common\Helpers\ExcelExportHelper.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\BasicProgressDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\BulkServiceAction.ts" />
-    <TypeScriptCompile Include="Modules\Movie\CastMoviePerson\CastMoviePersonDialog.ts" />
-    <TypeScriptCompile Include="Modules\Movie\CastMoviePerson\CastMoviePersonEditor.ts" />
-    <TypeScriptCompile Include="Modules\Movie\CastMoviePerson\CastMoviePersonEditorDialog.ts" />
-    <TypeScriptCompile Include="Modules\Movie\CastMoviePerson\CastMoviePersonGrid.ts" />
     <TypeScriptCompile Include="Modules\Movie\Cast\CastDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Cast\CastEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Cast\CastEditorDialog.ts" />
@@ -1968,9 +1962,6 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.CastEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Common\Imports\ClientTypes\Movie.CastMoviePersonEditorAttribute.cs">
-      <DependentUpon>ClientTypes.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.GenreEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -2060,12 +2051,6 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRow.cs" />
     <Compile Include="Modules\Common\Helpers\GetNextNumberHelper.cs" />
     <Compile Include="Modules\Common\Helpers\GetNextNumberRequest.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonColumns.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonEndpoint.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonForm.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonPage.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonRepository.cs" />
-    <Compile Include="Modules\Movie\CastMoviePerson\CastMoviePersonRow.cs" />
     <Compile Include="Modules\Movie\Cast\CastColumns.cs" />
     <Compile Include="Modules\Movie\Cast\CastEndpoint.cs" />
     <Compile Include="Modules\Movie\Cast\CastForm.cs" />

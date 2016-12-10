@@ -28,7 +28,6 @@
         MovieMpaa?: string;
         MovieContSuffrage?: number;
         MoviePathImage?: string;
-        MoviePathMiniImage?: string;
         MovieNice?: boolean;
         MovieContSeason?: number;
         MovieLastEvent?: string;
@@ -72,7 +71,6 @@
             export declare const MovieMpaa: string;
             export declare const MovieContSuffrage: string;
             export declare const MoviePathImage: string;
-            export declare const MoviePathMiniImage: string;
             export declare const MovieNice: string;
             export declare const MovieContSeason: string;
             export declare const MovieLastEvent: string;
@@ -82,7 +80,7 @@
             export declare const ServiceMaxRating: string;
         }
 
-        ['VudeoId', 'Path', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MoviePathMiniImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['VudeoId', 'Path', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

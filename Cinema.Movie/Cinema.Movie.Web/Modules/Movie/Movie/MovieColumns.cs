@@ -34,7 +34,6 @@ namespace Cinema.Movie.Movie.Columns
         public Int16 Rating { get; set; }
         public String Mpaa { get; set; }
         public String PathImage { get; set; }
-        public String PathMiniImage { get; set; }
         public Boolean Nice { get; set; }
         public Int16 ContSeason { get; set; }
         public String LastEvent { get; set; }
@@ -45,6 +44,6 @@ namespace Cinema.Movie.Movie.Columns
         public List<string> GenreListName { get; set; }
         public List<Int16> TagList { get; set; }
         public List<string> TagListName { get; set; }
-        public List<CastMoviePersonRow> CastPersonList { get; set; }
+        public List<CastRow> CastList { get; set; }
     }
 }

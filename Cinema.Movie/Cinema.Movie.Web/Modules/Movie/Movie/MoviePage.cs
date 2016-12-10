@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Pages
     using Movies = Repositories.MovieRepository;
     using System.Collections.Generic;
     using System;
-    using CastMoviePersons = Movie.Pages.CastMoviePersonController;
+    using Casts = Movie.Pages.CastController;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -28,10 +28,11 @@ namespace Cinema.Movie.Movie.Pages
                 List<MovieRow> movie = new Movies().List(connection, listRequest).Entities;
                 movie.ForEach((i) =>
                 {
-                    i.CastPersonList = CastMoviePersons.List(
+                    i.CastList = Casts.List(
                         new ListRequest()
                         {
-                            Criteria = new Criteria("MovieId") == i.MovieId.Value
+                            Criteria = new Criteria("MovieId") == i.MovieId.Value,
+                            Sort = new[] { new SortBy("Character")}
                         });
                 });
                 return movie;

@@ -1,12 +1,10 @@
 ﻿namespace Cinema.Movie.Movie {
     export interface PersonRow {
         PersonId?: number;
-        FirstNameEn?: string;
-        MiddleNameEn?: string;
-        LastNameEn?: string;
-        FirstNameOther?: string;
-        MiddleNameOther?: string;
-        LastNameOther?: string;
+        NameEn?: string;
+        FullNameEn?: string;
+        NameOther?: string;
+        FullNameOther?: string;
         BirthDate?: string;
         DeathDate?: string;
         BirthPlace?: string;
@@ -17,17 +15,20 @@
 
     export namespace PersonRow {
         export const idProperty = 'PersonId';
-        export const nameProperty = 'FirstNameOther';
+        export const nameProperty = 'NameEn';
         export const localTextPrefix = 'Movie.Person';
+        export const lookupKey = 'Movie.Person';
+
+        export function getLookup(): Q.Lookup<PersonRow> {
+            return Q.getLookup<PersonRow>('Movie.Person');
+        }
 
         export namespace Fields {
             export declare const PersonId: string;
-            export declare const FirstNameEn: string;
-            export declare const MiddleNameEn: string;
-            export declare const LastNameEn: string;
-            export declare const FirstNameOther: string;
-            export declare const MiddleNameOther: string;
-            export declare const LastNameOther: string;
+            export declare const NameEn: string;
+            export declare const FullNameEn: string;
+            export declare const NameOther: string;
+            export declare const FullNameOther: string;
             export declare const BirthDate: string;
             export declare const DeathDate: string;
             export declare const BirthPlace: string;
@@ -36,7 +37,7 @@
             export declare const PathImage: string;
         }
 
-        ['PersonId', 'FirstNameEn', 'MiddleNameEn', 'LastNameEn', 'FirstNameOther', 'MiddleNameOther', 'LastNameOther', 'BirthDate', 'DeathDate', 'BirthPlace', 'Gender', 'About', 'PathImage'].forEach(x => (<any>Fields)[x] = x);
+        ['PersonId', 'NameEn', 'FullNameEn', 'NameOther', 'FullNameOther', 'BirthDate', 'DeathDate', 'BirthPlace', 'Gender', 'About', 'PathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

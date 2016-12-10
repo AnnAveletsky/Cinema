@@ -1,5 +1,7 @@
 ﻿using FluentMigrator;
+using Serenity;
 using System;
+using System.Data.SqlClient;
 
 namespace Cinema.Movie.Migrations.DefaultDB
 {
@@ -15,11 +17,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .Row(new { Name = "Sci-fi" })
                 .Row(new { Name = "Fantasy" })
                 .Row(new { Name = "Documentary" });
-
-            Insert.IntoTable("Cast").InSchema("mov")
-                .Row(new { Character = "Actor" })
-                .Row(new { Character = "Produser" })
-                .Row(new { Character = "Compositor" });
 
             Insert.IntoTable("Movie").InSchema("mov")
                 .Row(new
@@ -38,7 +35,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Rating = 10,
                     MPAA = 12,
                     PathImage = "https://www.kinopoisk.ru/images/film_big/689.jpg",
-                    PathMiniImage = "https://www.kinopoisk.ru/images/film_big/689.jpg",
                     Nice = true,
                 })
                 .Row(new
@@ -57,7 +53,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Rating = 10,
                     MPAA = 12,
                     PathImage = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_.jpg",
-                    PathMiniImage = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTcxODgwMDkxNV5BMl5BanBnXkFtZTYwMDk2MDg3._V1_.jpg",
                     Nice = true,
                 });
             Insert.IntoTable("Tag").InSchema("mov").Row(new { Name = "Madgic" });
@@ -65,12 +60,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Insert.IntoTable("Person").InSchema("mov")
                 .Row(new
                 {
-                    FirstNameEn = "Rupert",
-                    MiddleNameEn = "Alexander Lloyd",
-                    LastNameEn = "Grint",
-                    FirstNameOther = "Гринт",
-                    MiddleNameOther = "Александр Ллойд",
-                    LastNameOther = "Руперт",
+                    NameEn = "Rupert Grint",
+                    FullNameEn = "Rupert Alexander Lloyd Grint",
                     BirthDate = new DateTime(2002, 8, 28),
                     BirthPlace = "Harlow, Essex, England",
                     Gender = 0,
@@ -86,12 +77,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
               @"INSERT INTO mov.MovieTag (MovieId, TagId) 
                     SELECT MovieId, TagId 
                     FROM mov.Movie, mov.Tag");
-            Execute.Sql(
-               @"INSERT INTO mov.CastMoviePerson (CastId, MovieId, PersonId) 
-                    SELECT CastId, MovieId, PersonId 
-                    FROM mov.Cast, mov.Movie, mov.Person");
-        }
 
+        }
         public override void Down()
         {
         }

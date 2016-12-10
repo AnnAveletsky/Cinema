@@ -12,7 +12,9 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Person"), InstanceName("Person"), TwoLevelCached]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.Person")]
     public sealed class PersonRow : Row, IIdRow, INameRow
     {
         [DisplayName("Person Id"), Identity]
@@ -22,44 +24,31 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PersonId[this] = value; }
         }
 
-        [DisplayName("FirstNameEn"), Size(100), NotNull, QuickSearch]
-        public String FirstNameEn
+        [DisplayName("NameEn"), Size(100), NotNull, QuickSearch]
+        public String NameEn
         {
-            get { return Fields.FirstNameEn[this]; }
-            set { Fields.FirstNameEn[this] = value; }
+            get { return Fields.NameEn[this]; }
+            set { Fields.NameEn[this] = value; }
         }
 
-        [DisplayName("MiddleNameEn"), Size(100), NotNull, QuickSearch]
-        public String MiddleNameEn
+        [DisplayName("FullNameEn"), Size(100), NotNull, QuickSearch]
+        public String FullNameEn
         {
-            get { return Fields.MiddleNameEn[this]; }
-            set { Fields.MiddleNameEn[this] = value; }
-        }
-        [DisplayName("LastNameEn"), Size(100), NotNull, QuickSearch]
-        public String LastNameEn
-        {
-            get { return Fields.LastNameEn[this]; }
-            set { Fields.LastNameEn[this] = value; }
+            get { return Fields.FullNameEn[this]; }
+            set { Fields.FullNameEn[this] = value; }
         }
 
-        [DisplayName("FirstNameOther"), Size(100), NotNull, QuickSearch]
-        public String FirstNameOther
+        [DisplayName("NameOther"), Size(100), QuickSearch]
+        public String NameOther
         {
-            get { return Fields.FirstNameOther[this]; }
-            set { Fields.FirstNameOther[this] = value; }
+            get { return Fields.NameOther[this]; }
+            set { Fields.NameOther[this] = value; }
         }
-        [DisplayName("MiddleNameOther"), Size(100), NotNull, QuickSearch]
-        public String MiddleNameOther
+        [DisplayName("FullNameOther"), Size(100), QuickSearch]
+        public String FullNameOther
         {
-            get { return Fields.MiddleNameOther[this]; }
-            set { Fields.MiddleNameOther[this] = value; }
-        }
-
-        [DisplayName("LastNameOther"), Size(100), NotNull, QuickSearch]
-        public String LastNameOther
-        {
-            get { return Fields.LastNameOther[this]; }
-            set { Fields.LastNameOther[this] = value; }
+            get { return Fields.FullNameOther[this]; }
+            set { Fields.FullNameOther[this] = value; }
         }
 
         [DisplayName("Birth Date"), NotNull]
@@ -110,7 +99,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.FirstNameOther; }
+            get { return Fields.NameEn; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -123,12 +112,10 @@ namespace Cinema.Movie.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int64Field PersonId;
-            public StringField FirstNameEn;
-            public StringField MiddleNameEn;
-            public StringField LastNameEn;
-            public StringField FirstNameOther;
-            public StringField MiddleNameOther;
-            public StringField LastNameOther;
+            public StringField NameEn;
+            public StringField FullNameEn;
+            public StringField NameOther;
+            public StringField FullNameOther;
             public DateTimeField BirthDate;
             public DateTimeField DeathDate;
             public StringField BirthPlace;

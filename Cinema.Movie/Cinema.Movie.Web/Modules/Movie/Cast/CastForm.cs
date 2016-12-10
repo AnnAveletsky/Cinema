@@ -14,5 +14,7 @@ namespace Cinema.Movie.Movie.Forms
     public class CastForm
     {
         public String Character { get; set; }
+        public Int64 MovieId { get; set; }
+        public Int64 PersonId { get; set; }
     }
 }

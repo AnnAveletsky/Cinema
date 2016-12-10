@@ -320,40 +320,6 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
-    class CastMoviePersonDialog extends Serenity.EntityDialog<CastMoviePersonRow, any> {
-        protected getFormKey(): string;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        protected form: CastMoviePersonForm;
-    }
-}
-declare namespace Cinema.Movie.Movie {
-    class CastMoviePersonEditor extends Common.GridEditorBase<CastMoviePersonRow> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof CastMoviePersonEditorDialog;
-        protected getLocalTextPrefix(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.Movie {
-    class CastMoviePersonEditorDialog extends Common.GridEditorDialog<CastMoviePersonRow> {
-        protected getFormKey(): string;
-        protected getLocalTextPrefix(): string;
-        protected form: CastMoviePersonForm;
-    }
-}
-declare namespace Cinema.Movie.Movie {
-    class CastMoviePersonGrid extends Serenity.EntityGrid<CastMoviePersonRow, any> {
-        protected getColumnsKey(): string;
-        protected getDialogType(): typeof CastMoviePersonDialog;
-        protected getIdProperty(): string;
-        protected getLocalTextPrefix(): string;
-        protected getService(): string;
-        constructor(container: JQuery);
-    }
-}
-declare namespace Cinema.Movie.Movie {
     class CastDialog extends Serenity.EntityDialog<CastRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -1270,129 +1236,30 @@ declare namespace Cinema.Movie.Movie {
     }
     interface CastForm {
         Character: Serenity.StringEditor;
-    }
-}
-declare namespace Cinema.Movie.Movie {
-    class CastMoviePersonForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
-    interface CastMoviePersonForm {
-        CastId: Serenity.IntegerEditor;
-        MovieId: Serenity.IntegerEditor;
-        PersonId: Serenity.IntegerEditor;
-    }
-}
-declare namespace Cinema.Movie.Movie {
-    interface CastMoviePersonRow {
-        CastMoviePersonId?: number;
-        CastId?: number;
-        MovieId?: number;
-        PersonId?: number;
-        CastCharacter?: string;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
-        MovieDescription?: string;
-        MovieYearStart?: number;
-        MovieYearEnd?: number;
-        MovieReleaseWorldDate?: string;
-        MovieReleaseOtherDate?: string;
-        MovieReleaseDvd?: string;
-        MovieRuntime?: number;
-        MovieCreateDateTime?: string;
-        MovieUpdateDateTime?: string;
-        MoviePublishDateTime?: string;
-        MovieKind?: number;
-        MovieRating?: number;
-        MovieMpaa?: string;
-        MoviePathImage?: string;
-        MoviePathMiniImage?: string;
-        MovieNice?: boolean;
-        MovieContSeason?: number;
-        MovieLastEvent?: string;
-        MovieLastEventPublishDateTime?: string;
-        MovieTagline?: string;
-        MovieBudget?: number;
-        PersonFirstNameEn?: string;
-        PersonMiddleNameEn?: string;
-        PersonLastNameEn?: string;
-        PersonFirstNameOther?: string;
-        PersonMiddleNameOther?: string;
-        PersonLastNameOther?: string;
-        PersonBirthDate?: string;
-        PersonDeathDate?: string;
-        PersonBirthPlace?: string;
-        PersonGender?: number;
-        PersonAbout?: string;
-        PersonPathImage?: string;
-    }
-    namespace CastMoviePersonRow {
-        const idProperty: string;
-        const localTextPrefix: string;
-        namespace Fields {
-            const CastMoviePersonId: any;
-            const CastId: any;
-            const MovieId: any;
-            const PersonId: any;
-            const CastCharacter: string;
-            const MovieTitleEn: string;
-            const MovieTitleOther: string;
-            const MovieDescription: string;
-            const MovieYearStart: string;
-            const MovieYearEnd: string;
-            const MovieReleaseWorldDate: string;
-            const MovieReleaseOtherDate: string;
-            const MovieReleaseDvd: string;
-            const MovieRuntime: string;
-            const MovieCreateDateTime: string;
-            const MovieUpdateDateTime: string;
-            const MoviePublishDateTime: string;
-            const MovieKind: string;
-            const MovieRating: string;
-            const MovieMpaa: string;
-            const MoviePathImage: string;
-            const MoviePathMiniImage: string;
-            const MovieNice: string;
-            const MovieContSeason: string;
-            const MovieLastEvent: string;
-            const MovieLastEventPublishDateTime: string;
-            const MovieTagline: string;
-            const MovieBudget: string;
-            const PersonFirstNameEn: string;
-            const PersonMiddleNameEn: string;
-            const PersonLastNameEn: string;
-            const PersonFirstNameOther: string;
-            const PersonMiddleNameOther: string;
-            const PersonLastNameOther: string;
-            const PersonBirthDate: string;
-            const PersonDeathDate: string;
-            const PersonBirthPlace: string;
-            const PersonGender: string;
-            const PersonAbout: string;
-            const PersonPathImage: string;
-        }
-    }
-}
-declare namespace Cinema.Movie.Movie {
-    namespace CastMoviePersonService {
-        const baseUrl: string;
-        function Create(request: Serenity.SaveRequest<CastMoviePersonRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Update(request: Serenity.SaveRequest<CastMoviePersonRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CastMoviePersonRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CastMoviePersonRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
-        }
+        MovieId: Serenity.StringEditor;
+        PersonId: Serenity.LookupEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
     interface CastRow {
         CastId?: number;
         Character?: string;
+        MovieId?: number;
+        PersonId?: number;
+        MovieTitleEn?: string;
+        MovieTitleOther?: string;
+        MovieYearStart?: number;
+        MovieYearEnd?: number;
+        MoviePathImage?: string;
+        PersonNameEn?: string;
+        PersonFullNameEn?: string;
+        PersonNameOther?: string;
+        PersonFullNameOther?: string;
+        PersonBirthDate?: string;
+        PersonDeathDate?: string;
+        PersonBirthPlace?: string;
+        PersonGender?: number;
+        PersonPathImage?: string;
     }
     namespace CastRow {
         const idProperty: string;
@@ -1403,6 +1270,22 @@ declare namespace Cinema.Movie.Movie {
         namespace Fields {
             const CastId: string;
             const Character: string;
+            const MovieId: string;
+            const PersonId: string;
+            const MovieTitleEn: string;
+            const MovieTitleOther: string;
+            const MovieYearStart: string;
+            const MovieYearEnd: string;
+            const MoviePathImage: string;
+            const PersonNameEn: string;
+            const PersonFullNameEn: string;
+            const PersonNameOther: string;
+            const PersonFullNameOther: string;
+            const PersonBirthDate: string;
+            const PersonDeathDate: string;
+            const PersonBirthPlace: string;
+            const PersonGender: string;
+            const PersonPathImage: string;
         }
     }
 }
@@ -1607,7 +1490,6 @@ declare namespace Cinema.Movie.Movie {
         Rating: Serenity.IntegerEditor;
         Mpaa: Serenity.StringEditor;
         PathImage: Serenity.StringEditor;
-        PathMiniImage: Serenity.StringEditor;
         Nice: Serenity.BooleanEditor;
         ContSeason: Serenity.IntegerEditor;
         LastEvent: Serenity.StringEditor;
@@ -1639,7 +1521,6 @@ declare namespace Cinema.Movie.Movie {
         MovieRating?: number;
         MovieMpaa?: string;
         MoviePathImage?: string;
-        MoviePathMiniImage?: string;
         MovieNice?: boolean;
         MovieContSeason?: number;
         MovieLastEvent?: string;
@@ -1671,7 +1552,6 @@ declare namespace Cinema.Movie.Movie {
             const MovieRating: string;
             const MovieMpaa: string;
             const MoviePathImage: string;
-            const MoviePathMiniImage: string;
             const MovieNice: string;
             const MovieContSeason: string;
             const MovieLastEvent: string;
@@ -1708,7 +1588,6 @@ declare namespace Cinema.Movie.Movie {
         Rating?: number;
         Mpaa?: string;
         PathImage?: string;
-        PathMiniImage?: string;
         Nice?: boolean;
         ContSeason?: number;
         LastEvent?: string;
@@ -1724,6 +1603,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<MovieRow>;
         namespace Fields {
             const MovieId: string;
             const TitleEn: string;
@@ -1742,7 +1623,6 @@ declare namespace Cinema.Movie.Movie {
             const Rating: string;
             const Mpaa: string;
             const PathImage: string;
-            const PathMiniImage: string;
             const Nice: string;
             const ContSeason: string;
             const LastEvent: string;
@@ -1795,7 +1675,6 @@ declare namespace Cinema.Movie.Movie {
         MovieRating?: number;
         MovieMpaa?: string;
         MoviePathImage?: string;
-        MoviePathMiniImage?: string;
         MovieNice?: boolean;
         MovieContSeason?: number;
         MovieLastEvent?: string;
@@ -1827,7 +1706,6 @@ declare namespace Cinema.Movie.Movie {
             const MovieRating: string;
             const MovieMpaa: string;
             const MoviePathImage: string;
-            const MoviePathMiniImage: string;
             const MovieNice: string;
             const MovieContSeason: string;
             const MovieLastEvent: string;
@@ -1844,12 +1722,10 @@ declare namespace Cinema.Movie.Movie {
         static formKey: string;
     }
     interface PersonForm {
-        FirstNameEn: Serenity.StringEditor;
-        MiddleNameEn: Serenity.StringEditor;
-        LastNameEn: Serenity.StringEditor;
-        FirstNameOther: Serenity.StringEditor;
-        MiddleNameOther: Serenity.StringEditor;
-        LastNameOther: Serenity.StringEditor;
+        NameEn: Serenity.StringEditor;
+        FullNameEn: Serenity.StringEditor;
+        NameOther: Serenity.StringEditor;
+        FullNameOther: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
         DeathDate: Serenity.DateEditor;
         BirthPlace: Serenity.StringEditor;
@@ -1861,12 +1737,10 @@ declare namespace Cinema.Movie.Movie {
 declare namespace Cinema.Movie.Movie {
     interface PersonRow {
         PersonId?: number;
-        FirstNameEn?: string;
-        MiddleNameEn?: string;
-        LastNameEn?: string;
-        FirstNameOther?: string;
-        MiddleNameOther?: string;
-        LastNameOther?: string;
+        NameEn?: string;
+        FullNameEn?: string;
+        NameOther?: string;
+        FullNameOther?: string;
         BirthDate?: string;
         DeathDate?: string;
         BirthPlace?: string;
@@ -1878,14 +1752,14 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<PersonRow>;
         namespace Fields {
             const PersonId: string;
-            const FirstNameEn: string;
-            const MiddleNameEn: string;
-            const LastNameEn: string;
-            const FirstNameOther: string;
-            const MiddleNameOther: string;
-            const LastNameOther: string;
+            const NameEn: string;
+            const FullNameEn: string;
+            const NameOther: string;
+            const FullNameOther: string;
             const BirthDate: string;
             const DeathDate: string;
             const BirthPlace: string;
@@ -2013,7 +1887,6 @@ declare namespace Cinema.Movie.Movie {
         MovieRating?: number;
         MovieMpaa?: string;
         MoviePathImage?: string;
-        MoviePathMiniImage?: string;
         MovieNice?: boolean;
         MovieContSeason?: number;
         MovieLastEvent?: string;
@@ -2048,7 +1921,6 @@ declare namespace Cinema.Movie.Movie {
             const MovieRating: string;
             const MovieMpaa: string;
             const MoviePathImage: string;
-            const MoviePathMiniImage: string;
             const MovieNice: string;
             const MovieContSeason: string;
             const MovieLastEvent: string;
@@ -2214,7 +2086,6 @@ declare namespace Cinema.Movie.Movie {
         MovieMpaa?: string;
         MovieContSuffrage?: number;
         MoviePathImage?: string;
-        MoviePathMiniImage?: string;
         MovieNice?: boolean;
         MovieContSeason?: number;
         MovieLastEvent?: string;
@@ -2256,7 +2127,6 @@ declare namespace Cinema.Movie.Movie {
             const MovieMpaa: string;
             const MovieContSuffrage: string;
             const MoviePathImage: string;
-            const MoviePathMiniImage: string;
             const MovieNice: string;
             const MovieContSeason: string;
             const MovieLastEvent: string;

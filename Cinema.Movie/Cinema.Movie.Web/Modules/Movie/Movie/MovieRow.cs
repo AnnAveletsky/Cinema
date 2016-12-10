@@ -2,6 +2,7 @@
 
 namespace Cinema.Movie.Movie.Entities
 {
+    using Newtonsoft.Json;
     using Repositories;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -11,7 +12,9 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
 
     [ConnectionKey("Default"), DisplayName("Movie"), InstanceName("Movie"), TwoLevelCached]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.Movie")]
     public sealed class MovieRow : Row, IIdRow, INameRow
     {
         [DisplayName("Movie Id"), Identity]
@@ -133,13 +136,6 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PathImage[this] = value; }
         }
 
-        [DisplayName("Path Mini Image"), Size(300), NotNull]
-        public String PathMiniImage
-        {
-            get { return Fields.PathMiniImage[this]; }
-            set { Fields.PathMiniImage[this] = value; }
-        }
-
         [DisplayName("Nice"), NotNull]
         public Boolean? Nice
         {
@@ -212,7 +208,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.TagListName[this] = value; }
         }
         
-        public List<CastMoviePersonRow> CastPersonList { get; set; }
+        public List<CastRow> CastList { get; set; }
 
         IIdField IIdRow.IdField
         {
@@ -250,7 +246,6 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field Rating;
             public StringField Mpaa;
             public StringField PathImage;
-            public StringField PathMiniImage;
             public BooleanField Nice;
             public Int16Field ContSeason;
             public StringField LastEvent;

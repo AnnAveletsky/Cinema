@@ -75,14 +75,36 @@
                 @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
                 {
                     @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
-                    foreach (var i in Model.GenreListName)
+                foreach (var i in Model.GenreListName)
+                {
+                    <div class="pull-right">
+                        <span class="label label-custom  ">@i </span>
+                    </div>
+                    }
+                }
+            </div>
+
+            <div class="col-xs-12 no-padding">
+                @if (Model.CastList != null && Model.CastList.Count != 0)
+                {
+                    foreach (var i in Model.CastList.Select(j => j.Character).Distinct())
                     {
-                        <div class="pull-right">
-                            <span class="label label-custom  ">@i </span>
+                        <div>
+                            <span>@i </span>
+                            @foreach (var k in Model.CastList)
+                            {
+                                if (k.Character == i)
+                                {
+                                    <span class="label label-custom">@k.PersonNameOther </span>
+                                }
+                            }
                         </div>
                     }
                 }
             </div>
+
+
+
             <div class="col-xs-12 no-padding">
                 @if (Model.TagListName != null && Model.TagListName.Count != 0)
                 {
@@ -96,7 +118,7 @@
                 }
             </div>
 
-
+            
 
 
         </div>

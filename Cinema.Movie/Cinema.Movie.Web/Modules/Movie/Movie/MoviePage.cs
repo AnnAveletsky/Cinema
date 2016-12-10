@@ -31,6 +31,7 @@ namespace Cinema.Movie.Movie.Pages
                     i.CastList = Casts.List(
                         new ListRequest()
                         {
+                            IncludeColumns=new HashSet<string> { "PersonNameEn", "PersonNameOther" },
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
                             Sort = new[] { new SortBy("Character")}
                         });

@@ -23,5 +23,6 @@ namespace Cinema.Movie.Movie.Columns
         public Int64 PersonId { get; set; }
         [EditLink, Width(200)]
         public String PersonNameEn { get; set; }
+        public String PersonNameOther { get; set; }
     }
 }

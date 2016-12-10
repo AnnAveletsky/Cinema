@@ -1236,7 +1236,7 @@ declare namespace Cinema.Movie.Movie {
     }
     interface CastForm {
         Character: Serenity.StringEditor;
-        MovieId: Serenity.StringEditor;
+        MovieId: Serenity.LookupEditor;
         PersonId: Serenity.LookupEditor;
     }
 }

@@ -2665,7 +2665,7 @@ var Cinema;
                 return CastForm;
             }(Serenity.PrefixedContext));
             Movie.CastForm = CastForm;
-            [['Character', function () { return Serenity.StringEditor; }], ['MovieId', function () { return Serenity.StringEditor; }], ['PersonId', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(CastForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['Character', function () { return Serenity.StringEditor; }], ['MovieId', function () { return Serenity.LookupEditor; }], ['PersonId', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(CastForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Movie = Movie_37.Movie || (Movie_37.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));

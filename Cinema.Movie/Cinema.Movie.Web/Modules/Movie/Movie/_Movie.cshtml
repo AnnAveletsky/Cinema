@@ -66,11 +66,7 @@
                     <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Budget $</i></p>
                 </div>
             }
-            <div class="col-xs-12 no-padding text-justify">
-                <p>
-                    @Model.Description
-                </p>
-            </div>
+            
             <div class="col-xs-12 no-padding">
                 @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
                 {
@@ -83,7 +79,7 @@
                     }
                 }
             </div>
-
+            
             <div class="col-xs-12 no-padding">
                 @if (Model.CastList != null && Model.CastList.Count != 0)
                 {
@@ -95,7 +91,7 @@
                             {
                                 if (k.Character == i)
                                 {
-                                    <span class="label label-custom">@k.PersonNameOther </span>
+                                    <span class="label label-custom"> @(k.PersonNameOther!=null? k.PersonNameOther: k.PersonNameEn) </span>
                                 }
                             }
                         </div>
@@ -103,7 +99,11 @@
                 }
             </div>
 
-
+            <div class="col-xs-12 no-padding text-justify">
+                <p>
+                    @Model.Description
+                </p>
+            </div>
 
             <div class="col-xs-12 no-padding">
                 @if (Model.TagListName != null && Model.TagListName.Count != 0)

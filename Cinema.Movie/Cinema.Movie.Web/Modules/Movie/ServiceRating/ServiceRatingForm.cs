@@ -13,7 +13,7 @@ namespace Cinema.Movie.Movie.Forms
     [BasedOnRow(typeof(Entities.ServiceRatingRow))]
     public class ServiceRatingForm
     {
-        public Int16 Rating { get; set; }
+        public Double Rating { get; set; }
         public Int64 MovieId { get; set; }
         public Int16 ServiceId { get; set; }
     }

@@ -12,11 +12,13 @@ namespace Cinema.Movie.Movie.Pages
     using System.Collections.Generic;
     using System;
     using Casts = Movie.Pages.CastController;
+    using ServiceRatings = Movie.Pages.ServiceRatingController;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
     {
-        public static HashSet<string> IncludeColumns = new HashSet<string> { "PersonNameEn", "PersonNameOther" };
+        public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonNameEn", "PersonNameOther" };
+        public static HashSet<string> IncludeColumnsServiceRating = new HashSet<string> { "ServiceName" };
         public static SortBy[] Sort = new[] { new SortBy("Character") };
         [PageAuthorize("Administration")]
         public ActionResult Index()
@@ -33,9 +35,14 @@ namespace Cinema.Movie.Movie.Pages
                     i.CastList = Casts.List(
                         new ListRequest()
                         {
-                            IncludeColumns= IncludeColumns,
+                            IncludeColumns= IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
                             Sort = Sort
+                        });
+                    i.ServiceRatingList = ServiceRatings.List(
+                        new ListRequest() {
+                            IncludeColumns = IncludeColumnsServiceRating,
+                            Criteria = new Criteria("MovieId") == i.MovieId.Value
                         });
                 });
                 return movie;
@@ -49,10 +56,16 @@ namespace Cinema.Movie.Movie.Pages
                 movie.CastList = Casts.List(
                         new ListRequest()
                         {
-                            IncludeColumns = IncludeColumns,
+                            IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == movie.MovieId.Value,
                             Sort = Sort
                         });
+                movie.ServiceRatingList = ServiceRatings.List(
+                       new ListRequest()
+                       {
+                           IncludeColumns = IncludeColumnsServiceRating,
+                           Criteria = new Criteria("MovieId") == movie.MovieId.Value
+                       });
                 return movie;
             }
         }

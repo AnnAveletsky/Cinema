@@ -209,6 +209,7 @@ namespace Cinema.Movie.Movie.Entities
         }
         
         public List<CastRow> CastList { get; set; }
+        public List<ServiceRatingRow> ServiceRatingList { get; set; }
 
         IIdField IIdRow.IdField
         {

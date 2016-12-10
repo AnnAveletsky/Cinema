@@ -98,7 +98,19 @@
                     }
                 }
             </div>
-
+            <div class="col-xs-12 no-padding">
+                @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
+                {
+                    @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
+                foreach (var i in Model.ServiceRatingList)
+                {
+                    <div class="pull-right">
+                        @i.ServiceName
+                        <span class="label label-custom">@i.Rating </span>
+                    </div>
+                    }
+                }
+            </div>
             <div class="col-xs-12 no-padding text-justify">
                 <p>
                     @Model.Description

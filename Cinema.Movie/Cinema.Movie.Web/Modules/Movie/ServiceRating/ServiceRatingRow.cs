@@ -23,7 +23,7 @@ namespace Cinema.Movie.Movie.Entities
         }
 
         [DisplayName("Rating"), NotNull]
-        public Int16? Rating
+        public Double? Rating
         {
             get { return Fields.Rating[this]; }
             set { Fields.Rating[this] = value; }
@@ -233,7 +233,7 @@ namespace Cinema.Movie.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int16Field ServiceRatingId;
-            public Int16Field Rating;
+            public DoubleField Rating;
             public Int64Field MovieId;
             public Int16Field ServiceId;
 

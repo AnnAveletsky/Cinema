@@ -1,6 +1,7 @@
 ﻿namespace Cinema.Movie.Movie {
     export interface MovieRow {
         MovieId?: number;
+        Url?: string;
         TitleEn?: string;
         TitleOther?: string;
         Description?: string;
@@ -41,6 +42,7 @@
 
         export namespace Fields {
             export declare const MovieId: string;
+            export declare const Url: string;
             export declare const TitleEn: string;
             export declare const TitleOther: string;
             export declare const Description: string;
@@ -69,7 +71,7 @@
             export declare const TagListName: string;
         }
 
-        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'Url', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

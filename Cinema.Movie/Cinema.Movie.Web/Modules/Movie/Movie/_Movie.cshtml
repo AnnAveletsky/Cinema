@@ -3,7 +3,7 @@
 
 <div class="box box-custom">
     <div class="box-header with-border box-with-backgrond">
-        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = movie?id=" + @Model.MovieId : "")>
+        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/"+(Model.TitleOther!=null?Model.TitleOther.Replace(" ",""):Model.TitleEn.Replace(" ","").Replace("'", ""))+"?id=" + Model.MovieId : "")>
             <h3 class="box-title">
                 @if (Model.TitleOther != null)
                 {
@@ -117,10 +117,6 @@
                     }
                 }
             </div>
-
-            
-
-
         </div>
 
         @if ((string)ViewData["PageId"] == "Dashboard/Movie")
@@ -130,6 +126,16 @@
             {
                 <a>@Model.ContSeason</a>
             }
+            <div class="col-xs-12 no-padding">
+                <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
+                <span>@Model.PublishDateTime.Value.ToLongDateString()</span>
+            </div>
+            <div class="col-xs-12 no-padding">
+                <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
+                <span>@Model.UpdateDateTime.Value.ToLongDateString()</span>
+            </div>
+
+
         }
     </div>
 </div>

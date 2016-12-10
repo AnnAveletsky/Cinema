@@ -3,6 +3,7 @@
         GenreId?: number;
         Name?: string;
         Icon?: string;
+        MovieList?: number[];
     }
 
     export namespace GenreRow {
@@ -19,9 +20,10 @@
             export declare const GenreId: string;
             export declare const Name: string;
             export declare const Icon: string;
+            export declare const MovieList: string;
         }
 
-        ['GenreId', 'Name', 'Icon'].forEach(x => (<any>Fields)[x] = x);
+        ['GenreId', 'Name', 'Icon', 'MovieList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

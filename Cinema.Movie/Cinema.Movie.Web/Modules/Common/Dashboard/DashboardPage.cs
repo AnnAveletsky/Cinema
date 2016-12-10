@@ -19,7 +19,26 @@ namespace Cinema.Movie.Common.Pages
        
         
         [HttpGet, Route("~/")]
-        public ActionResult Index(int count=10,int page=1,string genre="")
+        public ActionResult Index(int count=10,int page=1)
+        {
+            model.Content = TwoLevelCache.GetLocalStoreOnly("Dashboard/Dashboard", TimeSpan.FromMinutes(200),
+            GenreRow.Fields.GenerationKey, () =>
+            {
+                return LocalText.Get("Site.Dashboard.HTMLDashboard");
+            });
+            model.Movies = Movies.Page(new ListRequest
+            {
+                Skip = (page - 1) * count,
+                Take = count
+            });
+            ViewData["MaxRating"] = 10;
+            ViewData["Title"] = "";
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/Dashboard";
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
+        }
+        [HttpGet, Route("~/genres/{genre}")]
+        public ActionResult Genre(int count = 10, int page = 1, string genre = "")
         {
             model.Content = TwoLevelCache.GetLocalStoreOnly("Dashboard/Dashboard", TimeSpan.FromMinutes(200),
             GenreRow.Fields.GenerationKey, () =>
@@ -28,7 +47,7 @@ namespace Cinema.Movie.Common.Pages
             });
             if (genre != "")
             {
-                BaseCriteria criteria = new Criteria("MovieId").In(model.Genres.Find(i=>i.Name==genre).MovieList);
+                BaseCriteria criteria = new Criteria("MovieId").In(model.Genres.Find(i => i.Name == genre).MovieList);
                 model.Movies = Movies.Page(new ListRequest
                 {
                     Criteria = criteria,
@@ -114,7 +133,7 @@ namespace Cinema.Movie.Common.Pages
             return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
         }
 
-        [HttpGet, Route("~/movie")]
+        [HttpGet, Route("~/movies/{name}")]
         public ActionResult Movie(Int64? id,string name="")
         {
             if (id != null)

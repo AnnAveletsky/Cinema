@@ -8,6 +8,7 @@ namespace Cinema.Movie.Movie.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -37,7 +38,14 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Icon[this]; }
             set { Fields.Icon[this] = value; }
         }
-
+        [DisplayName("Movies")]
+        [LookupEditor(typeof(MovieRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(MovieGenresRow), "GenreId", "MovieId")]
+        public List<Int64> MovieList
+        {
+            get { return Fields.MovieList[this]; }
+            set { Fields.MovieList[this] = value; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.GenreId; }
@@ -60,6 +68,7 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field GenreId;
             public StringField Name;
             public StringField Icon;
+            public ListField<Int64> MovieList;
 
             public RowFields()
                 : base("[mov].[Genre]")

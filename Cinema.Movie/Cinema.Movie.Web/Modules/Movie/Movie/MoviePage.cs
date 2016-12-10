@@ -16,6 +16,8 @@ namespace Cinema.Movie.Movie.Pages
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
     {
+        public static HashSet<string> IncludeColumns = new HashSet<string> { "PersonNameEn", "PersonNameOther" };
+        public static SortBy[] Sort = new[] { new SortBy("Character") };
         [PageAuthorize("Administration")]
         public ActionResult Index()
         {
@@ -31,9 +33,9 @@ namespace Cinema.Movie.Movie.Pages
                     i.CastList = Casts.List(
                         new ListRequest()
                         {
-                            IncludeColumns=new HashSet<string> { "PersonNameEn", "PersonNameOther" },
+                            IncludeColumns= IncludeColumns,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
-                            Sort = new[] { new SortBy("Character")}
+                            Sort = Sort
                         });
                 });
                 return movie;
@@ -43,7 +45,15 @@ namespace Cinema.Movie.Movie.Pages
         {
             using (var connection = SqlConnections.NewFor<MovieRow>())
             {
-                return new Movies().Retrieve(connection, retrieveRequest).Entity;
+                MovieRow movie = new Movies().Retrieve(connection, retrieveRequest).Entity;
+                movie.CastList = Casts.List(
+                        new ListRequest()
+                        {
+                            IncludeColumns = IncludeColumns,
+                            Criteria = new Criteria("MovieId") == movie.MovieId.Value,
+                            Sort = Sort
+                        });
+                return movie;
             }
         }
     }

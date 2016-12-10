@@ -1542,6 +1542,7 @@
     <Content Include="Fonts\fontawesome-webfont.ttf" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
+    <Content Include="Modules\Movie\MovieGenres\MovieGenresIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2063,6 +2064,11 @@
     <Compile Include="Modules\Movie\Genre\GenrePage.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRepository.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
+    <Compile Include="Modules\Movie\MovieGenres\MovieGenresColumns.cs" />
+    <Compile Include="Modules\Movie\MovieGenres\MovieGenresEndpoint.cs" />
+    <Compile Include="Modules\Movie\MovieGenres\MovieGenresForm.cs" />
+    <Compile Include="Modules\Movie\MovieGenres\MovieGenresPage.cs" />
+    <Compile Include="Modules\Movie\MovieGenres\MovieGenresRepository.cs" />
     <Compile Include="Modules\Movie\MovieGenres\MovieGenresRow.cs" />
     <Compile Include="Modules\Movie\MovieTag\MovieTagRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />

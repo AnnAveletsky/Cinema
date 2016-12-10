@@ -11,12 +11,12 @@ namespace Cinema.Movie.Migrations.DefaultDB
         public override void Up()
         {
             Insert.IntoTable("Genre").InSchema("mov")
-                .Row(new { Name = "Action" })
-                .Row(new { Name = "Drama" })
-                .Row(new { Name = "Comedy" })
-                .Row(new { Name = "Sci-fi" })
-                .Row(new { Name = "Fantasy" })
-                .Row(new { Name = "Documentary" });
+                .Row(new { Name = "Action", Icon="" })
+                .Row(new { Name = "Drama", Icon = "" })
+                .Row(new { Name = "Comedy", Icon = "" })
+                .Row(new { Name = "Sci-fi", Icon = "" })
+                .Row(new { Name = "Fantasy", Icon = "" })
+                .Row(new { Name = "Documentary", Icon = "" });
 
             Insert.IntoTable("Movie").InSchema("mov")
                 .Row(new

@@ -26,13 +26,24 @@ namespace Cinema.Movie.Common.Pages
             {
                 return LocalText.Get("Site.Dashboard.HTMLDashboard");
             });
-            //BaseCriteria criteria = new Criteria("c").StartsWith("S");
-            model.Movies = Movies.Page(new ListRequest
+            if (genre != "")
             {
-                //Criteria = criteria,
-                Skip = (page - 1) * count,
-                Take = count
-            });
+                BaseCriteria criteria = new Criteria("MovieId").In(model.Genres.Find(i=>i.Name==genre).MovieList);
+                model.Movies = Movies.Page(new ListRequest
+                {
+                    Criteria = criteria,
+                    Skip = (page - 1) * count,
+                    Take = count
+                });
+            }
+            else
+            {
+                model.Movies = Movies.Page(new ListRequest
+                {
+                    Skip = (page - 1) * count,
+                    Take = count
+                });
+            }
             ViewData["MaxRating"] = 10;
             ViewData["Title"] = "";
             ViewData["Footer"] = "";

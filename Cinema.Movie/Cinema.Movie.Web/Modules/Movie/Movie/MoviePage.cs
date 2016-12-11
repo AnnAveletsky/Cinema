@@ -71,8 +71,9 @@ namespace Cinema.Movie.Movie.Pages
                     new ListRequest()
                     {
                         IncludeColumns= new HashSet<string> { "ServiceName" },
-                        Criteria = new Criteria("MovieId") == movie.MovieId.Value
-                    });
+                        Criteria = new Criteria("MovieId") == movie.MovieId.Value,
+                        Sort= new[] { new SortBy("ServiceName") }
+            });
                 return movie;
             }
         }

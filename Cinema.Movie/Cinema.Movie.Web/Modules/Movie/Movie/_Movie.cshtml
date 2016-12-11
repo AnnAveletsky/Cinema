@@ -165,43 +165,99 @@
 
         @if ((string)ViewData["PageId"] == "Dashboard/Movie")
         {
-            <div class="col-xs-12 no-padding">
-                @if (Model.VideoList != null && Model.VideoList.Count != 0)
-                {
-                    var ServiceNames = Model.VideoList.Select(j => j.ServiceName);
-                    var count = 0;
-                    <ul class="nav nav-tabs">
-                        @foreach (var i in ServiceNames)
-                        {
-                            <li class="@(i==""||count==0?"active":"")"><a href="#@i.Replace(".","").Replace(" ","")"  data-toggle="tab" aria-expanded=@(i==""||count==0? "true":"false")>@(i==""?"Other":i)</a></li>
-                            count++;
-                        }
-                    </ul>
-                    count = 0;
-                    <div class="tab-content">
-                        @foreach (var i in ServiceNames)
-                        {
-                            foreach (var k in Model.VideoList)
+            if (Model.VideoList != null && Model.VideoList.Count != 0)
+            {
+                <div class="col-xs-12 no-padding">
+                    @{
+                        var ServiceNames = Model.VideoList.Select(j => j.ServiceName).Distinct();
+                        var count = 0;
+                    }
+
+                    @if (ServiceNames != null && ServiceNames.Count() != 0)
+                    {
+                        <ul class="nav nav-tabs">
+                            @foreach (var i in ServiceNames)
                             {
-                                if (k.ServiceName == i)
+                                if (ServiceNames.Contains(null))
                                 {
-                                    <div class="tab-pane @(i==""||count==0?"active":"")" id="@i.Replace(".","").Replace(" ","")">
-                                        <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
-                                    </div>
+                                    if (i == null)
+                                    {
+                                        <li class="active"><a href="#Other" data-toggle="tab">Other</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#@i.Replace(".", "").Replace(" ", " ")" data-toggle="tab">@i</a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    if (count == 0)
+                                    {
+                                        <li class="active"><a href="#@i.Replace(".", "").Replace(" ", " ")" data-toggle="tab">@i</a></li>
+                                        count++;
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#@i.Replace(".", "").Replace(" ", " ")" data-toggle="tab">@i</a></li>
+                                    }
                                 }
                             }
-                        }
-                    </div>
+                        </ul>
+                        count = 0;
+                        <div class="tab-content">
+                            @foreach (var i in ServiceNames)
+                            {
+                                foreach (var k in Model.VideoList)
+                                {
+                                    if (k.ServiceName == i)
+                                    {
+                                        if (ServiceNames.Contains(null))
+                                        {
+                                            if (i == null)
+                                            {
+                                                <div class="tab-pane active" id="Other">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="tab-pane" id="@i.Replace(".", "").Replace(" ", "")">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (count == 0)
+                                            {
+                                                <div class="tab-pane active" id="@i.Replace(".", "").Replace(" ", "")">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                                count++;
+                                            }
+                                            else
+                                            {
+                                                <div class="tab-pane" id="@i.Replace(".", "").Replace(" ", "")">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+                </div>
                 }
-            </div>
-            <div class="col-xs-12 no-padding">
-                <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
-                <span>@Model.PublishDateTime.Value.ToLongDateString()</span>
-            </div>
-            <div class="col-xs-12 no-padding">
-                <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
-                <span>@Model.UpdateDateTime.Value.ToLongDateString()</span>
-            </div>
+                <div class="col-xs-12 no-padding">
+                    <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
+                    <span>@Model.PublishDateTime.Value.ToLongDateString()</span>
+                </div>
+                <div class="col-xs-12 no-padding">
+                    <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
+                    <span>@Model.UpdateDateTime.Value.ToLongDateString()</span>
+                </div>
         }
     </div>
 </div>

@@ -97,6 +97,11 @@ namespace MVC
                 public const string CastIndex = "~/Modules/Movie/Cast/CastIndex.cshtml";
             }
 
+            public static class Country
+            {
+                public const string CountryIndex = "~/Modules/Movie/Country/CountryIndex.cshtml";
+            }
+
             public static class Genre
             {
                 public const string _Genres = "~/Modules/Movie/Genre/_Genres.cshtml";
@@ -108,11 +113,6 @@ namespace MVC
                 public const string _Movie = "~/Modules/Movie/Movie/_Movie.cshtml";
                 public const string _Movies = "~/Modules/Movie/Movie/_Movies.cshtml";
                 public const string MovieIndex = "~/Modules/Movie/Movie/MovieIndex.cshtml";
-            }
-
-            public static class MovieGenres
-            {
-                public const string MovieGenresIndex = "~/Modules/Movie/MovieGenres/MovieGenresIndex.cshtml";
             }
 
             public static class Person

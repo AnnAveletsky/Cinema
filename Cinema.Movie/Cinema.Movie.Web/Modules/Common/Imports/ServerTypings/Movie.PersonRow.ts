@@ -7,7 +7,6 @@
         FullNameOther?: string;
         BirthDate?: string;
         DeathDate?: string;
-        BirthPlace?: string;
         Gender?: Gender;
         About?: string;
         PathImage?: string;
@@ -31,13 +30,12 @@
             export declare const FullNameOther: string;
             export declare const BirthDate: string;
             export declare const DeathDate: string;
-            export declare const BirthPlace: string;
             export declare const Gender: string;
             export declare const About: string;
             export declare const PathImage: string;
         }
 
-        ['PersonId', 'NameEn', 'FullNameEn', 'NameOther', 'FullNameOther', 'BirthDate', 'DeathDate', 'BirthPlace', 'Gender', 'About', 'PathImage'].forEach(x => (<any>Fields)[x] = x);
+        ['PersonId', 'NameEn', 'FullNameEn', 'NameOther', 'FullNameOther', 'BirthDate', 'DeathDate', 'Gender', 'About', 'PathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

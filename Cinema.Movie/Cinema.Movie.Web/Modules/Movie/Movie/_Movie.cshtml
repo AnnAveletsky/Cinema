@@ -116,6 +116,18 @@
                     }
                 }
             </div>
+            <div class="col-xs-12 no-padding">
+                @if (Model.CountryListName != null && Model.CountryListName.Count != 0)
+                {
+                    <span> @LocalText.Get("Db.Movie.Movie.CountryListName"):</span>
+                    foreach (var i in Model.CountryListName)
+                    {
+                        <p class="pull-right">
+                            <span class="label label-custom">@i </span>
+                        </p>
+                    }
+                }
+            </div>
             <div class="col-xs-12 no-padding text-justify">
                 <p class="text-indent">
                     @Model.Description

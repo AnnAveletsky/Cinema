@@ -38,5 +38,6 @@ namespace Cinema.Movie.Movie.Forms
         public Int32 Budget { get; set; }
         public List<Int16> GenreList { get; set; }
         public List<Int16> TagList { get; set; }
+        public List<Int32> CountryList { get; set; }
     }
 }

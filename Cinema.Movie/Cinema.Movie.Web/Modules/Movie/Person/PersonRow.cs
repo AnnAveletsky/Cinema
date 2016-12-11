@@ -64,12 +64,6 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.DeathDate[this] = value; }
         }
 
-        [DisplayName("Birth Place"), Size(100)]
-        public String BirthPlace
-        {
-            get { return Fields.BirthPlace[this]; }
-            set { Fields.BirthPlace[this] = value; }
-        }
 
         [DisplayName("Gender"), NotNull, DefaultValue(Movie.Gender.Male)]
         public Movie.Gender? Gender
@@ -118,7 +112,6 @@ namespace Cinema.Movie.Movie.Entities
             public StringField FullNameOther;
             public DateTimeField BirthDate;
             public DateTimeField DeathDate;
-            public StringField BirthPlace;
             public Int16Field Gender;
             public StringField About;
             public StringField PathImage;

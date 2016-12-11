@@ -63,7 +63,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     NameEn = "Rupert Grint",
                     FullNameEn = "Rupert Alexander Lloyd Grint",
                     BirthDate = new DateTime(2002, 8, 28),
-                    BirthPlace = "Harlow, Essex, England",
                     Gender = 0,
                     About = "Actor who rose to prominence playing Ron Weasley, one of the three main characters in the Harry Potter film series. Grint was cast as Ron Weasley at the age of 11, having previously acted only in school plays and at his local theatre group. From 2001 to 2011, he starred in all eight Harry Potter films alongside Daniel Radcliffe playing as Harry Potter and Emma Watson playing as Hermione Granger",
                     PathImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Rupert_Grint_2012.jpg/220px-Rupert_Grint_2012.jpg"

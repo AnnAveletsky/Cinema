@@ -1,7 +1,8 @@
 ﻿namespace Cinema.Movie.Movie {
     export interface VideoRow {
-        VudeoId?: number;
+        VideoId?: number;
         Path?: string;
+        PathTorrent?: string;
         Name?: string;
         Translation?: number;
         Season?: number;
@@ -38,13 +39,14 @@
     }
 
     export namespace VideoRow {
-        export const idProperty = 'VudeoId';
+        export const idProperty = 'VideoId';
         export const nameProperty = 'Path';
         export const localTextPrefix = 'Movie.Video';
 
         export namespace Fields {
-            export declare const VudeoId: string;
+            export declare const VideoId: string;
             export declare const Path: string;
+            export declare const PathTorrent: string;
             export declare const Name: string;
             export declare const Translation: string;
             export declare const Season: string;
@@ -80,7 +82,7 @@
             export declare const ServiceMaxRating: string;
         }
 
-        ['VudeoId', 'Path', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['VideoId', 'Path', 'PathTorrent', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

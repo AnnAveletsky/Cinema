@@ -40,6 +40,18 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("Tagline").AsString(400).Nullable()
                 .WithColumn("Budget").AsCurrency().Nullable();
 
+
+            Create.Table("Country").InSchema("mov")
+                .WithColumn("CountryId").AsInt32().NotNullable().PrimaryKey().Identity()
+                .WithColumn("Name").AsString(300).NotNullable();
+
+            Create.Table("MovieCountry").InSchema("mov")
+                .WithColumn("MovieCountryId").AsInt64().Identity().PrimaryKey().NotNullable()
+                .WithColumn("MovieId").AsInt64().NotNullable()
+                    .ForeignKey("FK_MovieCountry_MovieId", "mov", "Movie", "MovieId")
+                .WithColumn("CountryId").AsInt32().NotNullable()
+                    .ForeignKey("FK_MovieCountry_CountryId", "mov", "Country", "CountryId");
+
             Create.Table("MovieGenres").InSchema("mov")
                 .WithColumn("MovieGenreId").AsInt64().Identity().PrimaryKey().NotNullable()
                 .WithColumn("MovieId").AsInt64().NotNullable()
@@ -66,7 +78,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                .WithColumn("FullNameOther").AsString(100).Nullable()
                .WithColumn("BirthDate").AsDate().NotNullable()
                .WithColumn("DeathDate").AsDate().Nullable()
-               .WithColumn("BirthPlace").AsString(100).Nullable()
                .WithColumn("Gender").AsInt16().NotNullable()
                .WithColumn("About").AsString(1400).Nullable()
                .WithColumn("PathImage").AsString(300).NotNullable();

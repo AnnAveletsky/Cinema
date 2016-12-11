@@ -23,7 +23,6 @@ namespace Cinema.Movie.Movie.Columns
         public String FullNameOther { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime DeathDate { get; set; }
-        public String BirthPlace { get; set; }
         public Movie.Gender Gender { get; set; }
         public String About { get; set; }
         public String PathImage { get; set; }

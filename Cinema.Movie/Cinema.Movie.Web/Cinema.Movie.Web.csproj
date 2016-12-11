@@ -1365,6 +1365,18 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.Gender.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1386,19 +1398,13 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCountryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenresColumns.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenresForm.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenresRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenresService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieKind.ts">
@@ -1551,6 +1557,7 @@
     <Content Include="Fonts\fontawesome-webfont.ttf" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
+    <Content Include="Modules\Movie\Country\CountryIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1870,6 +1877,10 @@
     <TypeScriptCompile Include="Modules\Movie\Cast\CastEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Cast\CastEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Cast\CastGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Country\CountryDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Country\CountryEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Country\CountryEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Country\CountryGrid.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreEditorDialog.ts" />
@@ -1971,6 +1982,9 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.CastEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Imports\ClientTypes\Movie.CountryEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.GenreEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -2066,12 +2080,19 @@
     <Compile Include="Modules\Movie\Cast\CastPage.cs" />
     <Compile Include="Modules\Movie\Cast\CastRepository.cs" />
     <Compile Include="Modules\Movie\Cast\CastRow.cs" />
+    <Compile Include="Modules\Movie\Country\CountryColumns.cs" />
+    <Compile Include="Modules\Movie\Country\CountryEndpoint.cs" />
+    <Compile Include="Modules\Movie\Country\CountryForm.cs" />
+    <Compile Include="Modules\Movie\Country\CountryPage.cs" />
+    <Compile Include="Modules\Movie\Country\CountryRepository.cs" />
+    <Compile Include="Modules\Movie\Country\CountryRow.cs" />
     <Compile Include="Modules\Movie\Genre\GenreColumns.cs" />
     <Compile Include="Modules\Movie\Genre\GenreEndpoint.cs" />
     <Compile Include="Modules\Movie\Genre\GenreForm.cs" />
     <Compile Include="Modules\Movie\Genre\GenrePage.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRepository.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryRow.cs" />
     <Compile Include="Modules\Movie\MovieGenres\MovieGenresRow.cs" />
     <Compile Include="Modules\Movie\MovieTag\MovieTagRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />

@@ -46,6 +46,7 @@ namespace Cinema.Movie.Movie.Columns
         public List<string> TagListName { get; set; }
         public List<Int32> CountryList { get; set; }
         public List<string> CountryListName { get; set; }
+        public List<VideoRow> VideoList { get; set; }
         public List<CastRow> CastList { get; set; }
     }
 }

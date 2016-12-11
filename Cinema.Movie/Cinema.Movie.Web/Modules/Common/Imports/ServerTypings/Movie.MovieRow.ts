@@ -27,6 +27,8 @@
         GenreListName?: string[];
         TagList?: number[];
         TagListName?: string[];
+        CountryList?: number[];
+        CountryListName?: string[];
     }
 
     export namespace MovieRow {
@@ -67,9 +69,11 @@
             export declare const GenreListName: string;
             export declare const TagList: string;
             export declare const TagListName: string;
+            export declare const CountryList: string;
+            export declare const CountryListName: string;
         }
 
-        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName', 'CountryList', 'CountryListName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

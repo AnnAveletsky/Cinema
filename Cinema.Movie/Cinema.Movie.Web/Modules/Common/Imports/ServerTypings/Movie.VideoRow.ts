@@ -7,6 +7,7 @@
         Translation?: number;
         Season?: number;
         Serie?: number;
+        Storyline?: string;
         PlannePublishDate?: string;
         ActualPublishDateTime?: string;
         MovieId?: number;
@@ -42,6 +43,11 @@
         export const idProperty = 'VideoId';
         export const nameProperty = 'Path';
         export const localTextPrefix = 'Movie.Video';
+        export const lookupKey = 'Movie.Video';
+
+        export function getLookup(): Q.Lookup<VideoRow> {
+            return Q.getLookup<VideoRow>('Movie.Video');
+        }
 
         export namespace Fields {
             export declare const VideoId: string;
@@ -51,6 +57,7 @@
             export declare const Translation: string;
             export declare const Season: string;
             export declare const Serie: string;
+            export declare const Storyline: string;
             export declare const PlannePublishDate: string;
             export declare const ActualPublishDateTime: string;
             export declare const MovieId: string;
@@ -82,7 +89,7 @@
             export declare const ServiceMaxRating: string;
         }
 
-        ['VideoId', 'Path', 'PathTorrent', 'Name', 'Translation', 'Season', 'Serie', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['VideoId', 'Path', 'PathTorrent', 'Name', 'Translation', 'Season', 'Serie', 'Storyline', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieStoryline', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MovieContSuffrage', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

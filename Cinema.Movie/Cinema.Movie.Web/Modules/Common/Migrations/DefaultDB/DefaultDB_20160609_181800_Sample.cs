@@ -98,6 +98,12 @@ namespace Cinema.Movie.Migrations.DefaultDB
                    MovieId = 1,
                    PersonId = 1,
                });
+            Insert.IntoTable("Video").InSchema("mov")
+               .Row(new
+               {
+                   Path = "//vk.com/video_ext.php?oid=-58275610&id=456239152&hash=7c907eb0445d0b45&hd=2",
+                   MovieId = 1,
+               });
         }
         public override void Down()
         {

@@ -14,6 +14,11 @@
         export const idProperty = 'ServiceId';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Movie.Service';
+        export const lookupKey = 'Movie.Service';
+
+        export function getLookup(): Q.Lookup<ServiceRow> {
+            return Q.getLookup<ServiceRow>('Movie.Service');
+        }
 
         export namespace Fields {
             export declare const ServiceId: string;

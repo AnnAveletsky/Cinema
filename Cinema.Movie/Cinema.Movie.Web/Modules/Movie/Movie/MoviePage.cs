@@ -13,6 +13,7 @@ namespace Cinema.Movie.Movie.Pages
     using System;
     using Casts = Movie.Pages.CastController;
     using ServiceRatings = Movie.Pages.ServiceRatingController;
+    using Videos = Movie.Pages.VideoController;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -66,6 +67,11 @@ namespace Cinema.Movie.Movie.Pages
                            IncludeColumns = IncludeColumnsServiceRating,
                            Criteria = new Criteria("MovieId") == movie.MovieId.Value
                        });
+                movie.VideoList = Videos.List(
+                    new ListRequest()
+                    {
+                        Criteria = new Criteria("MovieId") == movie.MovieId.Value
+                    });
                 return movie;
             }
         }

@@ -223,8 +223,8 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.CountryListName[this]; }
             set { Fields.CountryListName[this] = value; }
         }
-
         public List<CastRow> CastList { get; set; }
+        public List<VideoRow> VideoList { get; set; }
         public List<ServiceRatingRow> ServiceRatingList { get; set; }
 
         IIdField IIdRow.IdField

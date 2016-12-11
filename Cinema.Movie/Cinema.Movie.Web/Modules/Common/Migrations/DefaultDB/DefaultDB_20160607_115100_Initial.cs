@@ -124,7 +124,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
 
             Create.Table("Video").InSchema("mov")
                 .WithColumn("VideoId").AsInt64().Identity().PrimaryKey().NotNullable()
-                .WithColumn("Path").AsString(300).Nullable()
+                .WithColumn("Path").AsString(Int32.MaxValue).Nullable()
+                .WithColumn("Player").AsInt16().Nullable()
                 .WithColumn("PathTorrent").AsString(300).Nullable()
                 .WithColumn("Name").AsString(300).Nullable()
                 .WithColumn("Translation").AsInt16().Nullable().WithDefaultValue(1)
@@ -136,7 +137,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_Video_MovieId", "mov", "Movie", "MovieId")
                 .WithColumn("ServiceId").AsInt16()
-                    .ForeignKey("FK_Video_ServiceId", "mov", "Service", "ServiceId").NotNullable();
+                    .ForeignKey("FK_Video_ServiceId", "mov", "Service", "ServiceId").Nullable();
             
         }
         public override void Down()

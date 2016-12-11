@@ -22,6 +22,13 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Api = "https://www.themoviedb.org/",
                     MaxRating = 10,
                 });
+            Insert.IntoTable("Service").InSchema("mov")
+                .Row(new
+                {
+                    Name = "ColdFilm",
+                    Api = "http://coldfilm.ru/",
+                    MaxRating = 10,
+                });
             Insert.IntoTable("ServiceRating").InSchema("mov")
                .Row(new
                {

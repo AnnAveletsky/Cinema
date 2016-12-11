@@ -8,6 +8,11 @@
         export const idProperty = 'CountryId';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Movie.Country';
+        export const lookupKey = 'Movie.Country';
+
+        export function getLookup(): Q.Lookup<CountryRow> {
+            return Q.getLookup<CountryRow>('Movie.Country');
+        }
 
         export namespace Fields {
             export declare const CountryId: string;

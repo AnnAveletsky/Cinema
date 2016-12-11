@@ -12,7 +12,9 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("ServicePath"), InstanceName("ServicePath"), TwoLevelCached]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.ServicePath")]
     public sealed class ServicePathRow : Row, IIdRow, INameRow
     {
         [DisplayName("Service Path Id"), Identity]

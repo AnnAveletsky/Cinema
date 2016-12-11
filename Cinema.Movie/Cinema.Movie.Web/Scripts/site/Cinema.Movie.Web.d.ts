@@ -1361,6 +1361,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<CountryRow>;
         namespace Fields {
             const CountryId: string;
             const Name: string;
@@ -1554,62 +1556,18 @@ declare namespace Cinema.Movie.Movie {
         MovieCountryId?: number;
         MovieId?: number;
         CountryId?: number;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
-        MovieDescription?: string;
-        MovieYearStart?: number;
-        MovieYearEnd?: number;
-        MovieReleaseWorldDate?: string;
-        MovieReleaseOtherDate?: string;
-        MovieReleaseDvd?: string;
-        MovieRuntime?: number;
-        MovieCreateDateTime?: string;
-        MovieUpdateDateTime?: string;
-        MoviePublishDateTime?: string;
-        MovieKind?: number;
-        MovieRating?: number;
-        MovieMpaa?: string;
-        MoviePathImage?: string;
-        MovieNice?: boolean;
-        MovieContSeason?: number;
-        MovieLastEvent?: string;
-        MovieLastEventPublishDateTime?: string;
-        MovieTagline?: string;
-        MovieBudget?: number;
-        CountryNameEn?: string;
-        CountryNameOther?: string;
+        CountryName?: string;
     }
     namespace MovieCountryRow {
         const idProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<MovieCountryRow>;
         namespace Fields {
             const MovieCountryId: string;
             const MovieId: string;
             const CountryId: string;
-            const MovieTitleEn: string;
-            const MovieTitleOther: string;
-            const MovieDescription: string;
-            const MovieYearStart: string;
-            const MovieYearEnd: string;
-            const MovieReleaseWorldDate: string;
-            const MovieReleaseOtherDate: string;
-            const MovieReleaseDvd: string;
-            const MovieRuntime: string;
-            const MovieCreateDateTime: string;
-            const MovieUpdateDateTime: string;
-            const MoviePublishDateTime: string;
-            const MovieKind: string;
-            const MovieRating: string;
-            const MovieMpaa: string;
-            const MoviePathImage: string;
-            const MovieNice: string;
-            const MovieContSeason: string;
-            const MovieLastEvent: string;
-            const MovieLastEventPublishDateTime: string;
-            const MovieTagline: string;
-            const MovieBudget: string;
-            const CountryNameEn: string;
-            const CountryNameOther: string;
+            const CountryName: string;
         }
     }
 }
@@ -1642,6 +1600,7 @@ declare namespace Cinema.Movie.Movie {
         Budget: Serenity.IntegerEditor;
         GenreList: Serenity.LookupEditor;
         TagList: Serenity.LookupEditor;
+        CountryList: Serenity.LookupEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
@@ -1742,6 +1701,8 @@ declare namespace Cinema.Movie.Movie {
         GenreListName?: string[];
         TagList?: number[];
         TagListName?: string[];
+        CountryList?: number[];
+        CountryListName?: string[];
     }
     namespace MovieRow {
         const idProperty: string;
@@ -1777,6 +1738,8 @@ declare namespace Cinema.Movie.Movie {
             const GenreListName: string;
             const TagList: string;
             const TagListName: string;
+            const CountryList: string;
+            const CountryListName: string;
         }
     }
 }
@@ -1967,6 +1930,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<ServicePathRow>;
         namespace Fields {
             const ServicePathId: string;
             const Path: string;
@@ -2106,6 +2071,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<ServiceRow>;
         namespace Fields {
             const ServiceId: string;
             const Name: string;
@@ -2192,6 +2159,7 @@ declare namespace Cinema.Movie.Movie {
         Translation: Serenity.IntegerEditor;
         Season: Serenity.IntegerEditor;
         Serie: Serenity.IntegerEditor;
+        Storyline: Serenity.StringEditor;
         PlannePublishDate: Serenity.DateEditor;
         ActualPublishDateTime: Serenity.DateEditor;
         MovieId: Serenity.IntegerEditor;
@@ -2207,6 +2175,7 @@ declare namespace Cinema.Movie.Movie {
         Translation?: number;
         Season?: number;
         Serie?: number;
+        Storyline?: string;
         PlannePublishDate?: string;
         ActualPublishDateTime?: string;
         MovieId?: number;
@@ -2241,6 +2210,8 @@ declare namespace Cinema.Movie.Movie {
         const idProperty: string;
         const nameProperty: string;
         const localTextPrefix: string;
+        const lookupKey: string;
+        function getLookup(): Q.Lookup<VideoRow>;
         namespace Fields {
             const VideoId: string;
             const Path: string;
@@ -2249,6 +2220,7 @@ declare namespace Cinema.Movie.Movie {
             const Translation: string;
             const Season: string;
             const Serie: string;
+            const Storyline: string;
             const PlannePublishDate: string;
             const ActualPublishDateTime: string;
             const MovieId: string;

@@ -19,6 +19,7 @@ namespace Cinema.Movie.Movie.Forms
         public Int16 Translation { get; set; }
         public Int16 Season { get; set; }
         public Int16 Serie { get; set; }
+        public String Storyline { get; set; }
         public DateTime PlannePublishDate { get; set; }
         public DateTime ActualPublishDateTime { get; set; }
         public Int16 MovieId { get; set; }

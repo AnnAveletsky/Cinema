@@ -70,6 +70,7 @@ namespace Cinema.Movie.Movie.Pages
                 movie.VideoList = Videos.List(
                     new ListRequest()
                     {
+                        IncludeColumns= new HashSet<string> { "ServiceName" },
                         Criteria = new Criteria("MovieId") == movie.MovieId.Value
                     });
                 return movie;

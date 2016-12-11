@@ -48,7 +48,7 @@
                     }
                 }
             </div>
-           
+
             @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
             {
                 <div class="col-xs-12 no-padding">
@@ -57,7 +57,7 @@
                         {
 
                             @i.ServiceName
-                            
+
                             <span class="label label-custom">@i.Rating </span>
 
                         }
@@ -81,27 +81,27 @@
                     <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Budget $</i></p>
                 </div>
             }
-            
+
             @if (Model.CastList != null && Model.CastList.Count != 0)
             {
                 <div class="col-xs-12 no-padding">
                     @foreach (var i in Model.CastList.Select(j => j.Character).Distinct())
                     {
-                    <p>
-                        <span>@i </span>
-                        @foreach (var k in Model.CastList)
-                        {
-                            if (k.Character == i)
+                        <p>
+                            <span>@i </span>
+                            @foreach (var k in Model.CastList)
                             {
-                                <span class="label label-custom"> @(k.PersonNameOther != null ? k.PersonNameOther : k.PersonNameEn) </span>
+                                if (k.Character == i)
+                                {
+                                    <span class="label label-custom"> @(k.PersonNameOther != null ? k.PersonNameOther : k.PersonNameEn) </span>
+                                }
                             }
-                        }
-                    </p>
+                        </p>
                     }
                 </div>
             }
-           
-            
+
+
             @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
             {
                 <div class="col-xs-12 no-padding">
@@ -127,13 +127,13 @@
                     }
                 </div>
             }
-                    
+
             <div class="col-xs-12 no-padding text-justify">
                 <p class="text-indent">
                     @Model.Description
                 </p>
             </div>
-            
+
             @if (Model.TagListName != null && Model.TagListName.Count != 0)
             {
                 <div class="col-xs-12 no-padding">
@@ -146,7 +146,7 @@
                     }
                 </div>
             }
-                    
+
             @if ((string)ViewData["PageId"] == "Dashboard/Movie")
             {
                 <div class="col-xs-8 no-padding">
@@ -168,11 +168,30 @@
             <div class="col-xs-12 no-padding">
                 @if (Model.VideoList != null && Model.VideoList.Count != 0)
                 {
-                    foreach (var i in Model.VideoList)
-                    {
-                        @i.ServiceName
-                        <iframe src="@i.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
-                    }
+                    var ServiceNames = Model.VideoList.Select(j => j.ServiceName);
+                    var count = 0;
+                    <ul class="nav nav-tabs">
+                        @foreach (var i in ServiceNames)
+                        {
+                            <li class="@(i==""||count==0?"active":"")"><a href="#@i.Replace(".","").Replace(" ","")"  data-toggle="tab" aria-expanded=@(i==""||count==0? "true":"false")>@(i==""?"Other":i)</a></li>
+                            count++;
+                        }
+                    </ul>
+                    count = 0;
+                    <div class="tab-content">
+                        @foreach (var i in ServiceNames)
+                        {
+                            foreach (var k in Model.VideoList)
+                            {
+                                if (k.ServiceName == i)
+                                {
+                                    <div class="tab-pane @(i==""||count==0?"active":"")" id="@i.Replace(".","").Replace(" ","")">
+                                        <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
                 }
             </div>
             <div class="col-xs-12 no-padding">

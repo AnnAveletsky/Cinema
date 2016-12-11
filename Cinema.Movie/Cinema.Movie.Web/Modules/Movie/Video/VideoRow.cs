@@ -30,6 +30,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Path[this]; }
             set { Fields.Path[this] = value; }
         }
+        [DisplayName("Player")]
+        public Int16? Player
+        {
+            get { return Fields.Player[this]; }
+            set { Fields.Player[this] = value; }
+        }
         [DisplayName("PathTorrent"), Size(300), QuickSearch]
         public String PathTorrent
         {
@@ -127,6 +133,7 @@ namespace Cinema.Movie.Movie.Entities
         {
             public Int64Field VideoId;
             public StringField Path;
+            public Int16Field Player;
             public StringField PathTorrent;
             public StringField Name;
             public Int16Field Translation;

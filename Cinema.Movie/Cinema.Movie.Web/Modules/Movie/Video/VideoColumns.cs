@@ -17,6 +17,7 @@ namespace Cinema.Movie.Movie.Columns
         public Int64 VideoId { get; set; }
         [EditLink]
         public String Path { get; set; }
+        public Int16? Player { get; set; }
         public String PathTorrent { get; set; }
         public String Name { get; set; }
         public Int16 Translation { get; set; }

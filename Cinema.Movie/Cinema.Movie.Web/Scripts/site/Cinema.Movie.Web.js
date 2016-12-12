@@ -700,15 +700,20 @@ var Cinema;
                         var data = Q.serviceCall({
                             service: '/Movie/Service/GetMovies?id=' + item.ServiceId,
                         }).done(function (data) {
-                            var message = Q.format("<p>Open session?</p>", Q.htmlEncode(item.Name));
-                            Q.confirm(message, function () {
-                                new Movie.MovieDialog().loadByIdAndOpenDialog(data);
-                            }, {
-                                htmlEncode: false,
-                                onNo: function () {
-                                    new Movie.MovieDialog().loadByIdAndOpenDialog(data);
-                                }
-                            });
+                            if (data != null) {
+                                var message = Q.format("<p>No data</p>" + data, Q.htmlEncode(item.Name));
+                                Q.confirm(message, function () {
+                                }, {
+                                    htmlEncode: false,
+                                });
+                            }
+                            else {
+                                var message = Q.format("<p>No data</p>", Q.htmlEncode(item.Name));
+                                Q.confirm(message, function () {
+                                }, {
+                                    htmlEncode: false,
+                                });
+                            }
                         });
                     }
                 };

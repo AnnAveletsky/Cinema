@@ -12,7 +12,6 @@ namespace Cinema.Movie.Configuration.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Background"), InstanceName("Background"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class BackgroundRow : Row, IIdRow, INameRow
     {

@@ -11,9 +11,15 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Insert.IntoTable("Service").InSchema("mov")
                 .Row(new
                 {
-                    Name = "kinopoisk.ru",
-                    Api = "http://kinopoisk.cf/",
+                    Name = "hdkinoteatr",
+                    Api = "http://www.hdkinoteatr.com/",
                     MaxRating = 10,
+                });
+            Insert.IntoTable("ServicePath").InSchema("mov")
+                .Row(new
+                {
+                    Path = "drama/28645-equity.html",
+                    ServiceId = 1,
                 });
             Insert.IntoTable("Service").InSchema("mov")
                 .Row(new

@@ -40,6 +40,12 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Setting = "MaxRaiting",
                     Value = "10",
                     Type = "Int32"
+                })
+                .Row(new
+                {
+                    Setting = "Init",
+                    Value = "true",
+                    Type = "bool"
                 });
         }
         public override void Down()

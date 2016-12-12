@@ -23,5 +23,7 @@ namespace Cinema.Movie.Movie.Columns
         public String LastEvent { get; set; }
         public DateTime LastEventPublishDateTime { get; set; }
         public Int16 MaxRating { get; set; }
+        public List<Int16> PathList { get; set; }
+        public List<string> PathListPath { get; set; }
     }
 }

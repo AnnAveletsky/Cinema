@@ -22,13 +22,18 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.ServiceRatingId[this] = value; }
         }
 
-        [DisplayName("Rating"), NotNull]
+        [DisplayName("Rating")]
         public Double? Rating
         {
             get { return Fields.Rating[this]; }
             set { Fields.Rating[this] = value; }
         }
-
+        [DisplayName("Id")]
+        public Int64? Id
+        {
+            get { return Fields.Id[this]; }
+            set { Fields.Id[this] = value; }
+        }
         [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("MovieTitleEn")]
         public Int64? MovieId
         {
@@ -234,6 +239,7 @@ namespace Cinema.Movie.Movie.Entities
         {
             public Int16Field ServiceRatingId;
             public DoubleField Rating;
+            public Int64Field Id;
             public Int64Field MovieId;
             public Int16Field ServiceId;
 

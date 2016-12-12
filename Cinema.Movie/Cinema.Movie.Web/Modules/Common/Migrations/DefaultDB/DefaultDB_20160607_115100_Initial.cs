@@ -107,6 +107,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("LastEvent").AsString(300).Nullable()
                 .WithColumn("LastEventPublishDateTime").AsDateTime().Nullable()
                 .WithColumn("MaxRating").AsInt16().Nullable();
+            
 
             Create.Table("ServicePath").InSchema("mov")
                .WithColumn("ServicePathId").AsInt16().Identity().PrimaryKey().NotNullable()
@@ -116,7 +117,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
 
             Create.Table("ServiceRating").InSchema("mov")
                .WithColumn("ServiceRatingId").AsInt16().Identity().PrimaryKey().NotNullable()
-               .WithColumn("Rating").AsDouble().NotNullable().WithDefaultValue(0)
+               .WithColumn("Rating").AsDouble().Nullable().WithDefaultValue(0)
+               .WithColumn("Id").AsInt64().Nullable()
                .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_ServiceRating_MovieId", "mov", "Movie", "MovieId")
                .WithColumn("ServiceId").AsInt16()

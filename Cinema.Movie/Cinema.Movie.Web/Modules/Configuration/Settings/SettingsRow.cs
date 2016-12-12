@@ -12,7 +12,6 @@ namespace Cinema.Movie.Configuration.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("Settings"), InstanceName("Settings"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class SettingsRow : Row, IIdRow, INameRow
     {

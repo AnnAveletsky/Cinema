@@ -7,8 +7,11 @@
     using Serenity.Web;
     using System;
     using System.Collections.Generic;
+    using System.Net.Http;
     using System.Web.Mvc;
     using Services = Repositories.ServiceRepository;
+    using Movies = MovieController;
+    using System.Threading.Tasks;
 
     [RoutePrefix("Movie/Service"), Route("{action=index}")]
     public class ServiceController : Controller
@@ -32,9 +35,29 @@
                 return new Services().Retrieve(connection, retrieveRequest).Entity;
             }
         }
-        public Int64 GetMovies(Int16 id)
+        public async Task<string> GetMovies(Int16 id)
         {
-            
+            var service = Service(new RetrieveRequest() { EntityId = id });
+            return await GetSevice(service);
+        }
+        public async Task<string> GetSevice(ServiceRow service)
+        {
+            using (var httpClient = new HttpClient { BaseAddress = new Uri(service.Api) })
+            {
+                using (var response = await httpClient.GetAsync("undefined"))
+                {
+                    return await response.Content.ReadAsStringAsync();
+                }
+            }
+        }
+        public Int64? Kinopoisk(ServiceRow service)
+        {
+            //return Movies.Create(new SaveRequest<MovieRow>() { Entity = new MovieRow() { } });
+            return 1;
+        }
+        public Int64? HDKinoteatr(ServiceRow service)
+        {
+            //return Movies.Create(new SaveRequest<MovieRow>() { Entity = new MovieRow() { } });
             return 1;
         }
     }

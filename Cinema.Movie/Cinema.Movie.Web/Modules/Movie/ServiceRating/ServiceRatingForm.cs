@@ -14,6 +14,7 @@ namespace Cinema.Movie.Movie.Forms
     public class ServiceRatingForm
     {
         public Double Rating { get; set; }
+        public Int64? Id { get; set; }
         public Int64 MovieId { get; set; }
         public Int16 ServiceId { get; set; }
     }

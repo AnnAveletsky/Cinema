@@ -76,6 +76,32 @@ namespace Cinema.Movie.Movie.Pages
             });
                 return movie;
             }
+            
+        }
+        public static bool InitJson(string Path)
+        {
+            try
+            {
+                System.IO.StreamReader file = new System.IO.StreamReader(Path);
+                string line= file.ReadToEnd();
+                //Create(new SaveRequest<MovieRow>() { Entity = new MovieRow() { } });
+                file.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static Int64? Create(SaveRequest<MovieRow> request)
+        {
+            using (var connection = SqlConnections.NewFor<MovieRow>())
+            using (var uow = new UnitOfWork(connection))
+            {
+                var result = new Movies().Create(uow, request).EntityId;
+                uow.Commit();
+                return (Int64?)result;
+            }
         }
     }
 }

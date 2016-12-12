@@ -44,21 +44,28 @@
                 var data = Q.serviceCall({
                     service: '/Movie/Service/GetMovies?id=' + item.ServiceId,
                 }).done((data) => {
-                    let message = Q.format(
-                        "<p>Open session?</p>",
-                        Q.htmlEncode(item.Name));
+                    if (data != null) {
+                        let message = Q.format(
+                            "<p>No data</p>"+data,
+                            Q.htmlEncode(item.Name));
 
-                    Q.confirm(message, () => {
+                        Q.confirm(message, () => {
+                        },
+                            {
+                                htmlEncode: false,
+                            });
+                        //new Movie.MovieDialog().loadByIdAndOpenDialog(data);
+                    } else {
+                        let message = Q.format(
+                            "<p>No data</p>",
+                            Q.htmlEncode(item.Name));
 
-                        new Movie.MovieDialog().loadByIdAndOpenDialog(data);
-                    },
-                        {
-                            htmlEncode: false,
-                            onNo: () => {
-                                new Movie.MovieDialog().loadByIdAndOpenDialog(data);
-                            }
-                        });
-                  
+                        Q.confirm(message, () => {
+                        },
+                            {
+                                htmlEncode: false,
+                            });
+                    }
                     });
 
                 

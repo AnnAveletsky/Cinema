@@ -8,6 +8,7 @@ namespace Cinema.Movie.Movie.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -23,7 +24,7 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.ServiceId[this]; }
             set { Fields.ServiceId[this] = value; }
         }
-
+        
         [DisplayName("Name"), Size(100), NotNull, QuickSearch]
         public String Name
         {
@@ -65,6 +66,22 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.LastEventPublishDateTime[this]; }
             set { Fields.LastEventPublishDateTime[this] = value; }
         }
+        [DisplayName("ServicePath")]
+        [LookupEditor(typeof(ServicePathRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(ServicePathRow), "ServiceId", "ServicePathId")]
+        public List<Int16> PathList
+        {
+            get { return Fields.PathList[this]; }
+            set { Fields.PathList[this] = value; }
+        }
+        [DisplayName("ServicePath")]
+        [LookupEditor(typeof(ServicePathRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(ServicePathRow), "ServiceId", "Path")]
+        public List<string> PathListPath
+        {
+            get { return Fields.PathListPath[this]; }
+            set { Fields.PathListPath[this] = value; }
+        }
 
         [DisplayName("Max Rating")]
         public Int16? MaxRating
@@ -100,6 +117,8 @@ namespace Cinema.Movie.Movie.Entities
             public StringField LastEvent;
             public DateTimeField LastEventPublishDateTime;
             public Int16Field MaxRating;
+            public ListField<string> PathListPath;
+            public ListField<Int16> PathList;
 
             public RowFields()
                 : base("[mov].[Service]")

@@ -2,6 +2,7 @@
     export interface ServiceRatingRow {
         ServiceRatingId?: number;
         Rating?: number;
+        Id?: number;
         MovieId?: number;
         ServiceId?: number;
         MovieTitleEn?: string;
@@ -38,6 +39,7 @@
         export namespace Fields {
             export declare const ServiceRatingId: string;
             export declare const Rating: string;
+            export declare const Id: string;
             export declare const MovieId: string;
             export declare const ServiceId: string;
             export declare const MovieTitleEn: string;
@@ -67,7 +69,7 @@
             export declare const ServiceMaxRating: string;
         }
 
-        ['ServiceRatingId', 'Rating', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceRatingId', 'Rating', 'Id', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -14,8 +14,9 @@ namespace Cinema.Movie.Movie.Forms
     [BasedOnRow(typeof(Entities.MovieRow))]
     public class MovieForm
     {
-        public String TitleEn { get; set; }
-        public String TitleOther { get; set; }
+        public String TitleOriginal { get; set; }
+        public String TitleTranslation { get; set; }
+        public String Url { get; set; }
         public String Description { get; set; }
         public Int16 YearStart { get; set; }
         public Int16 YearEnd { get; set; }

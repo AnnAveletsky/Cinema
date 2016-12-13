@@ -13,7 +13,7 @@ namespace Cinema.Movie.Movie.Entities
 
     [ConnectionKey("Default"), DisplayName("Movie"), InstanceName("Movie"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
-    [ModifyPermission("Administration")]
+    //[ModifyPermission("Administration")]
     [LookupScript("Movie.Movie")]
     public sealed class MovieRow : Row, IIdRow, INameRow
     {
@@ -24,20 +24,26 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MovieId[this] = value; }
         }
 
-        [DisplayName("Title En"), Size(200), NotNull, QuickSearch]
-        public String TitleEn
+        [DisplayName("Title Original"), Size(400), NotNull, QuickSearch]
+        public String TitleOriginal
         {
-            get { return Fields.TitleEn[this]; }
-            set { Fields.TitleEn[this] = value; }
+            get { return Fields.TitleOriginal[this]; }
+            set { Fields.TitleOriginal[this] = value; }
         }
 
-        [DisplayName("Title Other"), Size(200)]
-        public String TitleOther
+        [DisplayName("Title Translation"), Size(400)]
+        public String TitleTranslation
         {
-            get { return Fields.TitleOther[this]; }
-            set { Fields.TitleOther[this] = value; }
+            get { return Fields.TitleTranslation[this]; }
+            set { Fields.TitleTranslation[this] = value; }
         }
 
+        [DisplayName("Url"), Size(400), NotNull]
+        public String Url
+        {
+            get { return Fields.Url[this]; }
+            set { Fields.Url[this] = value; }
+        }
         [DisplayName("Description"), Size(1000)]
         public String Description
         {
@@ -129,14 +135,14 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Mpaa[this] = value; }
         }
 
-        [DisplayName("Path Image"), Size(300), NotNull]
+        [DisplayName("Path Image"), Size(300)]
         public String PathImage
         {
             get { return Fields.PathImage[this]; }
             set { Fields.PathImage[this] = value; }
         }
 
-        [DisplayName("Nice"), NotNull]
+        [DisplayName("Nice"), NotNull, DefaultValue(false)]
         public Boolean? Nice
         {
             get { return Fields.Nice[this]; }
@@ -234,7 +240,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.TitleEn; }
+            get { return Fields.TitleOriginal; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -247,8 +253,9 @@ namespace Cinema.Movie.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int64Field MovieId;
-            public StringField TitleEn;
-            public StringField TitleOther;
+            public StringField TitleOriginal;
+            public StringField TitleTranslation;
+            public StringField Url;
             public StringField Description;
             public Int16Field YearStart;
             public Int16Field YearEnd;

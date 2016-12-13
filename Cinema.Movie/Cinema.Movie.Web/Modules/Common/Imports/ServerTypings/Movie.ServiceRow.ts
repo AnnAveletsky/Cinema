@@ -8,6 +8,8 @@
         LastEvent?: string;
         LastEventPublishDateTime?: string;
         MaxRating?: number;
+        PathListPath?: string[];
+        PathList?: number[];
     }
 
     export namespace ServiceRow {
@@ -29,9 +31,11 @@
             export declare const LastEvent: string;
             export declare const LastEventPublishDateTime: string;
             export declare const MaxRating: string;
+            export declare const PathListPath: string;
+            export declare const PathList: string;
         }
 
-        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'LastEvent', 'LastEventPublishDateTime', 'MaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'LastEvent', 'LastEventPublishDateTime', 'MaxRating', 'PathListPath', 'PathList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

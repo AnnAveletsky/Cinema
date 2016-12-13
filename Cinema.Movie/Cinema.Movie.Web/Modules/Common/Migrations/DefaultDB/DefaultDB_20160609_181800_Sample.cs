@@ -21,7 +21,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Insert.IntoTable("Movie").InSchema("mov")
                 .Row(new
                 {
-                    TitleEn = "Harry Potter and the Sorcerer's Stone",
+                    TitleOriginal = "Harry Potter and the Sorcerer's Stone",
+                    Url=Movie.Translit.GetUrl("Harry Potter and the Sorcerer's Stone"),
                     Description = "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.",
                     YearStart = 2001,
                     YearEnd = 2001,
@@ -39,7 +40,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 })
                 .Row(new
                 {
-                    TitleEn = "Harry Potter and the Chamber of Secrets",
+                    TitleOriginal = "Harry Potter and the Chamber of Secrets",
+                    Url = Movie.Translit.GetUrl("Harry Potter and the Chamber of Secrets"),
                     Description = "Harry ignores warnings not to return to Hogwarts, only to find the school plagued by a series of mysterious attacks and a strange voice haunting him.",
                     YearStart = 2002,
                     YearEnd = 2002,

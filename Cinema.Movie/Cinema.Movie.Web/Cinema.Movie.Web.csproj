@@ -2106,6 +2106,7 @@
     <Compile Include="Modules\Movie\Movie\MoviePage.cs" />
     <Compile Include="Modules\Movie\Movie\MovieRepository.cs" />
     <Compile Include="Modules\Movie\Movie\MovieRow.cs" />
+    <Compile Include="Modules\Movie\Movie\Translit.cs" />
     <Compile Include="Modules\Movie\Person\Gender.cs" />
     <Compile Include="Modules\Movie\Person\PersonColumns.cs" />
     <Compile Include="Modules\Movie\Person\PersonEndpoint.cs" />

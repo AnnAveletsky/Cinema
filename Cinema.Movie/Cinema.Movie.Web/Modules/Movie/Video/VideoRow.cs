@@ -13,7 +13,7 @@ namespace Cinema.Movie.Movie.Entities
 
     [ConnectionKey("Default"), DisplayName("Video"), InstanceName("Video"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
-    [ModifyPermission("Administration")]
+    //[ModifyPermission("Administration")]
     [LookupScript("Movie.Video")]
     public sealed class VideoRow : Row, IIdRow, INameRow
     {
@@ -90,7 +90,7 @@ namespace Cinema.Movie.Movie.Entities
         }
 
         [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("MovieTitleEn")]
-        public Int16? MovieId
+        public Int64? MovieId
         {
             get { return Fields.MovieId[this]; }
             set { Fields.MovieId[this] = value; }
@@ -142,7 +142,7 @@ namespace Cinema.Movie.Movie.Entities
             public StringField Storyline;
             public DateTimeField PlannePublishDate;
             public DateTimeField ActualPublishDateTime;
-            public Int16Field MovieId;
+            public Int64Field MovieId;
             public Int16Field ServiceId;
             
 

@@ -2,17 +2,17 @@
 
 <div class="box box-custom">
     <div class="box-header with-border box-with-backgrond">
-        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + (Model.TitleOther != null ? Model.TitleOther.Replace(" ", "") : Model.TitleEn.Replace(" ", "").Replace("'", "")) + "?id=" + Model.MovieId : "")>
+        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Url + "?id=" + Model.MovieId : "")>
             <h3 class="box-title">
-                @if (Model.TitleOther != null)
+                @if (Model.TitleOriginal != null)
                 {
-                    @(Model.TitleOther + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                    @(Model.TitleOriginal + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
                     <br />
-                    @Model.TitleEn
+                    @Model.TitleTranslation
                 }
                 else
                 {
-                    @(Model.TitleEn + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                    @(Model.TitleTranslation + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
                 }
             </h3>
         </a>

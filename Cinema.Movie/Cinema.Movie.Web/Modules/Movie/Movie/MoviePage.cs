@@ -14,6 +14,8 @@ namespace Cinema.Movie.Movie.Pages
     using Casts = Movie.Pages.CastController;
     using ServiceRatings = Movie.Pages.ServiceRatingController;
     using Videos = Movie.Pages.VideoController;
+    using Serenity.Abstractions;
+    using Newtonsoft.Json;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -78,20 +80,72 @@ namespace Cinema.Movie.Movie.Pages
             }
             
         }
-        public static bool InitJson(string Path)
+
+        class Item
         {
-            try
+            public string name_eng;
+            public string name;
+            public string year;
+            public string url;
+            public string sub_type;
+            public string kinopoisk_id;
+
+            public override string ToString()
             {
-                System.IO.StreamReader file = new System.IO.StreamReader(Path);
-                string line= file.ReadToEnd();
-                //Create(new SaveRequest<MovieRow>() { Entity = new MovieRow() { } });
-                file.Close();
-                return true;
+                return string.Format("{0} ({1})", name, url);
             }
-            catch
+        }
+
+        public static bool InitJson(string Path, MovieKind movieKind)
+        {
+            //try
+            //{
+            System.IO.StreamReader file = new System.IO.StreamReader(Path);
+            string line = file.ReadToEnd();
+            Item[] data = JsonConvert.DeserializeObject<Item[]>(line);
+            foreach (Item item in data)
             {
-                return false;
+                var Movie = new MovieRow();
+                var Video = new VideoRow();
+                Movie.Kind = movieKind;
+                Movie.YearEnd = Int16.Parse(item.year);
+                Movie.YearStart = Int16.Parse(item.year);
+                if (item.name_eng == null || item.name_eng == "" || item.name_eng == item.name)
+                {
+                    Movie.TitleOriginal = item.name;
+                    Movie.Url = Translit.GetTranslit(item.name);
+                }
+                else
+                {
+                    Movie.TitleOriginal = item.name_eng;
+                    Movie.TitleTranslation = item.name;
+                    if (item.name == null || item.name == "")
+                    {
+                        Movie.Url = Translit.GetUrl(item.name_eng);
+                    }
+                    else
+                    {
+                        Movie.Url = Translit.GetTranslit(item.name);
+                    }
+                }
+                if (Movie.Url == null || Movie.Url == "")
+                {
+                    Movie.Url = item.kinopoisk_id;
+                }
+                
+                Video.Path = item.url;
+                Video.Translation = item.sub_type!=""? Int16.Parse(item.sub_type):(Int16)0;
+                Video.MovieId = Create(new SaveRequest<MovieRow>() { Entity = Movie });
+                Videos.Create(new SaveRequest<VideoRow>() { Entity = Video });
             }
+
+            file.Close();
+            return true;
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
         public static Int64? Create(SaveRequest<MovieRow> request)
         {

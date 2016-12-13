@@ -1,8 +1,9 @@
 ﻿namespace Cinema.Movie.Movie {
     export interface MovieRow {
         MovieId?: number;
-        TitleEn?: string;
-        TitleOther?: string;
+        TitleOriginal?: string;
+        TitleTranslation?: string;
+        Url?: string;
         Description?: string;
         YearStart?: number;
         YearEnd?: number;
@@ -33,7 +34,7 @@
 
     export namespace MovieRow {
         export const idProperty = 'MovieId';
-        export const nameProperty = 'TitleEn';
+        export const nameProperty = 'TitleOriginal';
         export const localTextPrefix = 'Movie.Movie';
         export const lookupKey = 'Movie.Movie';
 
@@ -43,8 +44,9 @@
 
         export namespace Fields {
             export declare const MovieId: string;
-            export declare const TitleEn: string;
-            export declare const TitleOther: string;
+            export declare const TitleOriginal: string;
+            export declare const TitleTranslation: string;
+            export declare const Url: string;
             export declare const Description: string;
             export declare const YearStart: string;
             export declare const YearEnd: string;
@@ -73,7 +75,7 @@
             export declare const CountryListName: string;
         }
 
-        ['MovieId', 'TitleEn', 'TitleOther', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName', 'CountryList', 'CountryListName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName', 'CountryList', 'CountryListName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

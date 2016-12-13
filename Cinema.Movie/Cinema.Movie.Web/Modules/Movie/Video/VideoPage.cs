@@ -5,6 +5,7 @@
     using Serenity.Data;
     using Serenity.Services;
     using Serenity.Web;
+    using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Videos = Repositories.VideoRepository;
@@ -22,6 +23,16 @@
             using (var connection = SqlConnections.NewFor<VideoRow>())
             {
                 return new Videos().List(connection, listRequest).Entities;
+            }
+        }
+        public static Int64? Create(SaveRequest<VideoRow> request)
+        {
+            using (var connection = SqlConnections.NewFor<VideoRow>())
+            using (var uow = new UnitOfWork(connection))
+            {
+                var result = new Videos().Create(uow, request).EntityId;
+                uow.Commit();
+                return (Int64?)result;
             }
         }
     }

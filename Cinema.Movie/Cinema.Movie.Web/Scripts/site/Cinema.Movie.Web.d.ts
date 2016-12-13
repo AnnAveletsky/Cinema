@@ -1576,8 +1576,9 @@ declare namespace Cinema.Movie.Movie {
         static formKey: string;
     }
     interface MovieForm {
-        TitleEn: Serenity.StringEditor;
-        TitleOther: Serenity.StringEditor;
+        TitleOriginal: Serenity.StringEditor;
+        TitleTranslation: Serenity.StringEditor;
+        Url: Serenity.StringEditor;
         Description: Serenity.StringEditor;
         YearStart: Serenity.IntegerEditor;
         YearEnd: Serenity.IntegerEditor;
@@ -1675,8 +1676,9 @@ declare namespace Cinema.Movie.Movie {
 declare namespace Cinema.Movie.Movie {
     interface MovieRow {
         MovieId?: number;
-        TitleEn?: string;
-        TitleOther?: string;
+        TitleOriginal?: string;
+        TitleTranslation?: string;
+        Url?: string;
         Description?: string;
         YearStart?: number;
         YearEnd?: number;
@@ -1712,8 +1714,9 @@ declare namespace Cinema.Movie.Movie {
         function getLookup(): Q.Lookup<MovieRow>;
         namespace Fields {
             const MovieId: string;
-            const TitleEn: string;
-            const TitleOther: string;
+            const TitleOriginal: string;
+            const TitleTranslation: string;
+            const Url: string;
             const Description: string;
             const YearStart: string;
             const YearEnd: string;
@@ -1967,6 +1970,7 @@ declare namespace Cinema.Movie.Movie {
     }
     interface ServiceRatingForm {
         Rating: Serenity.DecimalEditor;
+        Id: Serenity.StringEditor;
         MovieId: Serenity.StringEditor;
         ServiceId: Serenity.IntegerEditor;
     }
@@ -1975,6 +1979,7 @@ declare namespace Cinema.Movie.Movie {
     interface ServiceRatingRow {
         ServiceRatingId?: number;
         Rating?: number;
+        Id?: number;
         MovieId?: number;
         ServiceId?: number;
         MovieTitleEn?: string;
@@ -2009,6 +2014,7 @@ declare namespace Cinema.Movie.Movie {
         namespace Fields {
             const ServiceRatingId: string;
             const Rating: string;
+            const Id: string;
             const MovieId: string;
             const ServiceId: string;
             const MovieTitleEn: string;
@@ -2066,6 +2072,8 @@ declare namespace Cinema.Movie.Movie {
         LastEvent?: string;
         LastEventPublishDateTime?: string;
         MaxRating?: number;
+        PathListPath?: string[];
+        PathList?: number[];
     }
     namespace ServiceRow {
         const idProperty: string;
@@ -2082,6 +2090,8 @@ declare namespace Cinema.Movie.Movie {
             const LastEvent: string;
             const LastEventPublishDateTime: string;
             const MaxRating: string;
+            const PathListPath: string;
+            const PathList: string;
         }
     }
 }
@@ -2154,6 +2164,7 @@ declare namespace Cinema.Movie.Movie {
     }
     interface VideoForm {
         Path: Serenity.StringEditor;
+        Player: Serenity.IntegerEditor;
         PathTorrent: Serenity.StringEditor;
         Name: Serenity.StringEditor;
         Translation: Serenity.IntegerEditor;
@@ -2162,7 +2173,7 @@ declare namespace Cinema.Movie.Movie {
         Storyline: Serenity.StringEditor;
         PlannePublishDate: Serenity.DateEditor;
         ActualPublishDateTime: Serenity.DateEditor;
-        MovieId: Serenity.IntegerEditor;
+        MovieId: Serenity.StringEditor;
         ServiceId: Serenity.IntegerEditor;
     }
 }
@@ -2170,6 +2181,7 @@ declare namespace Cinema.Movie.Movie {
     interface VideoRow {
         VideoId?: number;
         Path?: string;
+        Player?: number;
         PathTorrent?: string;
         Name?: string;
         Translation?: number;
@@ -2180,31 +2192,7 @@ declare namespace Cinema.Movie.Movie {
         ActualPublishDateTime?: string;
         MovieId?: number;
         ServiceId?: number;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
-        MovieDescription?: string;
-        MovieStoryline?: string;
-        MovieYearStart?: number;
-        MovieYearEnd?: number;
-        MovieReleaseWorldDate?: string;
-        MovieReleaseOtherDate?: string;
-        MovieReleaseDvd?: string;
-        MovieRuntime?: number;
-        MovieCreateDateTime?: string;
-        MovieUpdateDateTime?: string;
-        MoviePublishDateTime?: string;
-        MovieKind?: number;
-        MovieRating?: number;
-        MovieMpaa?: string;
-        MovieContSuffrage?: number;
-        MoviePathImage?: string;
-        MovieNice?: boolean;
-        MovieContSeason?: number;
-        MovieLastEvent?: string;
-        MovieLastEventPublishDateTime?: string;
         ServiceName?: string;
-        ServiceApi?: string;
-        ServiceMaxRating?: number;
     }
     namespace VideoRow {
         const idProperty: string;
@@ -2215,6 +2203,7 @@ declare namespace Cinema.Movie.Movie {
         namespace Fields {
             const VideoId: string;
             const Path: string;
+            const Player: string;
             const PathTorrent: string;
             const Name: string;
             const Translation: string;
@@ -2225,31 +2214,7 @@ declare namespace Cinema.Movie.Movie {
             const ActualPublishDateTime: string;
             const MovieId: string;
             const ServiceId: string;
-            const MovieTitleEn: string;
-            const MovieTitleOther: string;
-            const MovieDescription: string;
-            const MovieStoryline: string;
-            const MovieYearStart: string;
-            const MovieYearEnd: string;
-            const MovieReleaseWorldDate: string;
-            const MovieReleaseOtherDate: string;
-            const MovieReleaseDvd: string;
-            const MovieRuntime: string;
-            const MovieCreateDateTime: string;
-            const MovieUpdateDateTime: string;
-            const MoviePublishDateTime: string;
-            const MovieKind: string;
-            const MovieRating: string;
-            const MovieMpaa: string;
-            const MovieContSuffrage: string;
-            const MoviePathImage: string;
-            const MovieNice: string;
-            const MovieContSeason: string;
-            const MovieLastEvent: string;
-            const MovieLastEventPublishDateTime: string;
             const ServiceName: string;
-            const ServiceApi: string;
-            const ServiceMaxRating: string;
         }
     }
 }

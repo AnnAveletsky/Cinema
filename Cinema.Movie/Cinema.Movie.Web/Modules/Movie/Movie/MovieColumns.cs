@@ -18,8 +18,9 @@ namespace Cinema.Movie.Movie.Columns
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int64 MovieId { get; set; }
         [EditLink]
-        public String TitleEn { get; set; }
-        public String TitleOther { get; set; }
+        public String TitleOriginal { get; set; }
+        public String TitleTranslation { get; set; }
+        public String Url { get; set; }
         public String Description { get; set; }
         public Int16 YearStart { get; set; }
         public Int16 YearEnd { get; set; }

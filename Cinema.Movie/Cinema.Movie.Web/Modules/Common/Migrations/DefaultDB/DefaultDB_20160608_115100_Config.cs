@@ -26,7 +26,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .Row(new
                 {
                     Setting = "Language",
-                    Value = "en",
+                    Value = "ru",
                     Type = "string"
                 })
                 .Row(new
@@ -40,12 +40,6 @@ namespace Cinema.Movie.Migrations.DefaultDB
                     Setting = "MaxRaiting",
                     Value = "10",
                     Type = "Int32"
-                })
-                .Row(new
-                {
-                    Setting = "Init",
-                    Value = "true",
-                    Type = "bool"
                 });
         }
         public override void Down()

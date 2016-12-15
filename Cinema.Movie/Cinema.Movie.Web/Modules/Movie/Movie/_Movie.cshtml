@@ -4,15 +4,15 @@
     <div class="box-header with-border box-with-backgrond">
         <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Url + "?id=" + Model.MovieId : "")>
             <h3 class="box-title">
-                @if (Model.TitleOriginal != null)
+                @if (Model.TitleTranslation != null)
                 {
-                    @(Model.TitleOriginal + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                    @(Model.TitleTranslation + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
                     <br />
-                    @Model.TitleTranslation
+                    @Model.TitleOriginal
                 }
                 else
                 {
-                    @(Model.TitleTranslation + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
+                    @(Model.TitleOriginal + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
                 }
             </h3>
         </a>
@@ -24,13 +24,16 @@
         </span>
     </div>
     <div class="box-body box-profile">
-        <div class="col-xs-4 no-padding">
-            <a href="#" class="thumbnail">
-                <img class="img-responsive" src="@Model.PathImage" />
-            </a>
-        </div>
-
+        @if (Model.PathImage != null)
+        {
+            <div class="col-xs-4 no-padding">
+                <a href="#" class="thumbnail">
+                    <img class="img-responsive" src="@Model.PathImage" />
+                </a>
+            </div>
+        }
         <div class="col-xs-8">
+            @if (Model.Rating!=null) {
             <div class="pull-right">
                 @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
                 {
@@ -48,18 +51,15 @@
                     }
                 }
             </div>
-
+            }
             @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
             {
                 <div class="col-xs-12 no-padding">
                     <p>
                         @foreach (var i in Model.ServiceRatingList)
                         {
-
                             @i.ServiceName
-
                             <span class="label label-custom">@i.Rating </span>
-
                         }
                     </p>
                 </div>
@@ -127,12 +127,14 @@
                     }
                 </div>
             }
-
-            <div class="col-xs-12 no-padding text-justify">
-                <p class="text-indent">
-                    @Model.Description
-                </p>
-            </div>
+            @if (Model.Description != null)
+            {
+                <div class="col-xs-12 no-padding text-justify">
+                    <p class="text-indent">
+                        @Model.Description
+                    </p>
+                </div>
+            }
 
             @if (Model.TagListName != null && Model.TagListName.Count != 0)
             {
@@ -149,10 +151,13 @@
 
             @if ((string)ViewData["PageId"] == "Dashboard/Movie")
             {
-                <div class="col-xs-8 no-padding">
-                    <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
-                    <a>@Model.Mpaa</a>
-                </div>
+                if (Model.Mpaa!=null)
+                {
+                    <div class="col-xs-8 no-padding">
+                        <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
+                        <a>@Model.Mpaa</a>
+                    </div>
+                }
                 if (Model.Kind == Cinema.Movie.Movie.MovieKind.TvSeries)
                 {
                     <div class="col-xs-8 no-padding">

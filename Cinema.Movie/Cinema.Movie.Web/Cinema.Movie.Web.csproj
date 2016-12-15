@@ -2013,6 +2013,7 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.VideoEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Init\JsonObject.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141003_140000_DB.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160606_212900_UserImage.cs" />
@@ -2021,8 +2022,6 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115100_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160608_115100_Config.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160609_181800_Sample.cs" />
-    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160611_181800_SampleServices.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
     <Compile Include="Modules\Common\Migrations\MovieDB\MovieDB_20160608_115100_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
@@ -2106,7 +2105,6 @@
     <Compile Include="Modules\Movie\Movie\MoviePage.cs" />
     <Compile Include="Modules\Movie\Movie\MovieRepository.cs" />
     <Compile Include="Modules\Movie\Movie\MovieRow.cs" />
-    <Compile Include="Modules\Movie\Movie\Translit.cs" />
     <Compile Include="Modules\Movie\Person\Gender.cs" />
     <Compile Include="Modules\Movie\Person\PersonColumns.cs" />
     <Compile Include="Modules\Movie\Person\PersonEndpoint.cs" />

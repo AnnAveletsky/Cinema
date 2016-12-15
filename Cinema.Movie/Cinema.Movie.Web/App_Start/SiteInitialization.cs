@@ -50,17 +50,6 @@
                 EnsureDatabase(i.Name);
                 RunMigrations(i.Name);
             });
-            var settings = new Configuration.Repositories.SettingsRepository();
-            var connectSettings = SqlConnections.NewFor<SettingsRow>();
-            List<SettingsRow> Settings = settings.List(connectSettings, new Serenity.Services.ListRequest()).Entities;
-            Settings.ForEach((i) =>
-            {
-                if (i.Setting == "Init" && i.Value == "true")
-                {
-                    Movie.Pages.MovieController.InitJson(Path.Combine(HostingEnvironment.MapPath("~/App_Data/films.json")), Movie.MovieKind.Film);
-                    Movie.Pages.MovieController.InitJson(Path.Combine(HostingEnvironment.MapPath("~/App_Data/serials.json")), Movie.MovieKind.TvSeries);
-                }
-            });
         }
 
         public static void ApplicationEnd()

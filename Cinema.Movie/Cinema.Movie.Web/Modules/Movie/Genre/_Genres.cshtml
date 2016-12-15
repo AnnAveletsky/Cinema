@@ -1,5 +1,6 @@
 ﻿@model List<Cinema.Movie.Movie.Entities.GenreRow>
 
+@if (Model!=null&&Model.Count>0) {
 <div class="box box-custom">
     <div class="box-header with-border box-with-backgrond">
         <b class="uppercase header">@LocalText.Get("Db.Movie.Genre.EntityPlural")</b>
@@ -19,3 +20,4 @@
         </ul>
     </div>
 </div>
+}

@@ -25,14 +25,14 @@
                 return new Videos().List(connection, listRequest).Entities;
             }
         }
-        public static Int64? Create(SaveRequest<VideoRow> request)
+        public static SaveResponse Create(SaveRequest<VideoRow> request)
         {
             using (var connection = SqlConnections.NewFor<VideoRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                var result = new Videos().Create(uow, request).EntityId;
+                var result = new Videos().Create(uow, request);
                 uow.Commit();
-                return (Int64?)result;
+                return result;
             }
         }
     }

@@ -13,7 +13,7 @@ namespace Cinema.Movie.Movie.Entities
 
     [ConnectionKey("Default"), DisplayName("Movie"), InstanceName("Movie"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
-    //[ModifyPermission("Administration")]
+    [ModifyPermission("Administration")]
     [LookupScript("Movie.Movie")]
     public sealed class MovieRow : Row, IIdRow, INameRow
     {

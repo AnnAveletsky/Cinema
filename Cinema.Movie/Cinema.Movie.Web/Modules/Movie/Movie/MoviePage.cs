@@ -16,6 +16,8 @@ namespace Cinema.Movie.Movie.Pages
     using Videos = Movie.Pages.VideoController;
     using Serenity.Abstractions;
     using Newtonsoft.Json;
+    using System.IO;
+    using System.Web.Hosting;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -28,6 +30,7 @@ namespace Cinema.Movie.Movie.Pages
         {
             return View("~/Modules/Movie/Movie/MovieIndex.cshtml");
         }
+
         public static List<MovieRow> Page(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<MovieRow>())
@@ -38,12 +41,13 @@ namespace Cinema.Movie.Movie.Pages
                     i.CastList = Casts.List(
                         new ListRequest()
                         {
-                            IncludeColumns= IncludeColumnsCast,
+                            IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
                             Sort = Sort
                         });
                     i.ServiceRatingList = ServiceRatings.List(
-                        new ListRequest() {
+                        new ListRequest()
+                        {
                             IncludeColumns = IncludeColumnsServiceRating,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value
                         });
@@ -72,89 +76,22 @@ namespace Cinema.Movie.Movie.Pages
                 movie.VideoList = Videos.List(
                     new ListRequest()
                     {
-                        IncludeColumns= new HashSet<string> { "ServiceName" },
+                        IncludeColumns = new HashSet<string> { "ServiceName" },
                         Criteria = new Criteria("MovieId") == movie.MovieId.Value,
-                        Sort= new[] { new SortBy("ServiceName") }
-            });
+                        Sort = new[] { new SortBy("ServiceName") }
+                    });
                 return movie;
             }
-            
         }
-
-        class Item
-        {
-            public string name_eng;
-            public string name;
-            public string year;
-            public string url;
-            public string sub_type;
-            public string kinopoisk_id;
-
-            public override string ToString()
-            {
-                return string.Format("{0} ({1})", name, url);
-            }
-        }
-
-        public static bool InitJson(string Path, MovieKind movieKind)
-        {
-            //try
-            //{
-            System.IO.StreamReader file = new System.IO.StreamReader(Path);
-            string line = file.ReadToEnd();
-            Item[] data = JsonConvert.DeserializeObject<Item[]>(line);
-            foreach (Item item in data)
-            {
-                var Movie = new MovieRow();
-                var Video = new VideoRow();
-                Movie.Kind = movieKind;
-                Movie.YearEnd = Int16.Parse(item.year);
-                Movie.YearStart = Int16.Parse(item.year);
-                if (item.name_eng == null || item.name_eng == "" || item.name_eng == item.name)
-                {
-                    Movie.TitleOriginal = item.name;
-                    Movie.Url = Translit.GetTranslit(item.name);
-                }
-                else
-                {
-                    Movie.TitleOriginal = item.name_eng;
-                    Movie.TitleTranslation = item.name;
-                    if (item.name == null || item.name == "")
-                    {
-                        Movie.Url = Translit.GetUrl(item.name_eng);
-                    }
-                    else
-                    {
-                        Movie.Url = Translit.GetTranslit(item.name);
-                    }
-                }
-                if (Movie.Url == null || Movie.Url == "")
-                {
-                    Movie.Url = item.kinopoisk_id;
-                }
-                
-                Video.Path = item.url;
-                Video.Translation = item.sub_type!=""? Int16.Parse(item.sub_type):(Int16)0;
-                Video.MovieId = Create(new SaveRequest<MovieRow>() { Entity = Movie });
-                Videos.Create(new SaveRequest<VideoRow>() { Entity = Video });
-            }
-
-            file.Close();
-            return true;
-            //}
-            //catch
-            //{
-            //    return false;
-            //}
-        }
-        public static Int64? Create(SaveRequest<MovieRow> request)
+        public static SaveResponse Create(SaveRequest<MovieRow> request)
         {
             using (var connection = SqlConnections.NewFor<MovieRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                var result = new Movies().Create(uow, request).EntityId;
+                var response = new Movies().Create(uow, request);
                 uow.Commit();
-                return (Int64?)result;
+                connection.Close();
+                return response;
             }
         }
     }

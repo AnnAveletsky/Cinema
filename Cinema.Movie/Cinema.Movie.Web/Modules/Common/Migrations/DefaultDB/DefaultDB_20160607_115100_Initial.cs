@@ -118,7 +118,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
 
             Create.Table("ServiceRating").InSchema("mov")
                .WithColumn("ServiceRatingId").AsInt16().Identity().PrimaryKey().NotNullable()
-               .WithColumn("Rating").AsDouble().Nullable().WithDefaultValue(0)
+               .WithColumn("Rating").AsDouble().Nullable()
                .WithColumn("Id").AsInt64().Nullable()
                .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_ServiceRating_MovieId", "mov", "Movie", "MovieId")

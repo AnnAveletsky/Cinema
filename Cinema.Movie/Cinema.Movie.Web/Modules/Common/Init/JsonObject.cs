@@ -1,11 +1,67 @@
-﻿using System;
+﻿using Cinema.Movie.Movie;
+using Cinema.Movie.Movie.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web;
 
-namespace Cinema.Movie.Movie
+namespace Cinema.Movie.Common.Init
 {
+    public class JsonObject
+    {
+        public string name;
+    }
+    public class MovieJson:JsonObject
+    {
+        public string name_eng;
+        public string year;
+        public string url;
+        public string sub_type;
+        public string kinopoisk_id;
+
+        public override string ToString()
+        {
+            return string.Format("{0} ({1})", name, url);
+        }
+        public MovieRow ToMovie(MovieKind movieKind)
+        {
+            MovieRow Movie = new MovieRow();
+            Movie.Kind = movieKind;
+            Movie.YearEnd = Int16.Parse(year);
+            Movie.YearStart = Int16.Parse(year);
+            if (name_eng == null || name_eng == "" || name_eng == name)
+            {
+                Movie.TitleOriginal = name;
+                Movie.Url = Translit.GetTranslit(name);
+            }
+            else
+            {
+                Movie.TitleOriginal = name_eng;
+                Movie.TitleTranslation = name;
+                if (name == null || name == "")
+                {
+                    Movie.Url = Translit.GetUrl(name_eng);
+                }
+                else
+                {
+                    Movie.Url = Translit.GetTranslit(name);
+                }
+            }
+            if (Movie.Url == null || Movie.Url == "")
+            {
+                Movie.Url = kinopoisk_id;
+            }
+            Movie.Url += '-' + year;
+            return Movie;
+        }
+        public VideoRow ToVideo()
+        {
+            VideoRow Video = new VideoRow();
+            Video.Path = url;
+            Video.Translation = sub_type != "" ? Int16.Parse(sub_type) : (Int16)0;
+            return Video;
+        }
+    }
     public class Translit
     {
         private static Dictionary<string, string> transliter = new Dictionary<string, string>();
@@ -84,16 +140,20 @@ namespace Cinema.Movie.Movie
         }
         public static string GetTranslit(string sourceText)
         {
-            StringBuilder ans = new StringBuilder();
+            string ans = "";
             for (int i = 0; i < sourceText.Length; i++)
             {
                 if (transliter.ContainsKey(sourceText[i].ToString()))
                 {
-                    ans.Append(transliter[sourceText[i].ToString()]);
+                    ans = ans + transliter[sourceText[i].ToString()];
                 }
-                else
+                else if (char.IsNumber(sourceText[i]))
                 {
-                    //ans.Append(sourceText[i].ToString());
+                    ans = ans + sourceText[i].ToString();
+                }
+                else if (char.IsWhiteSpace(sourceText[i]))
+                {
+                    ans = ans + '-';
                 }
             }
             return ans.ToString();
@@ -103,9 +163,17 @@ namespace Cinema.Movie.Movie
             string ans = "";
             for (int i = 0; i < sourceText.Length; i++)
             {
-                if (char.IsSymbol(sourceText[i])||char.IsNumber(sourceText[i]))
+                if (char.IsWhiteSpace(sourceText[i]))
                 {
-                    ans=ans+sourceText[i].ToString();
+                    ans = ans + '-';
+                }
+                else if (char.IsSymbol(sourceText[i]))
+                {
+                    ans = ans + sourceText[i].ToString();
+                }
+                else if (char.IsNumber(sourceText[i]))
+                {
+                    ans = ans + sourceText[i].ToString();
                 }
             }
             return ans;

@@ -29,8 +29,15 @@ namespace Cinema.Movie.Common.Pages
             model.Movies = Movies.Page(new ListRequest
             {
                 Skip = (page - 1) * count,
-                Take = count
+                Take = count,
+                Sort= new[] {new SortBy("PublishDateTime", true),
+                    new SortBy("UpdateDateTime", true),
+                    new SortBy("Rating"),
+                    new SortBy("TitleOriginal"),
+                    new SortBy("TitleTranslation") }
             });
+            ViewData["Page"] = page;
+            ViewData["Count"] = count;
             ViewData["MaxRating"] = 10;
             ViewData["Title"] = "";
             ViewData["Footer"] = "";
@@ -63,6 +70,8 @@ namespace Cinema.Movie.Common.Pages
                     Take = count
                 });
             }
+            ViewData["Page"] = page;
+            ViewData["Count"] = count;
             ViewData["MaxRating"] = 10;
             ViewData["Title"] = "";
             ViewData["Footer"] = "";
@@ -82,6 +91,8 @@ namespace Cinema.Movie.Common.Pages
                 Skip = (page - 1) * count,
                 Take = count
             });
+            ViewData["Page"] = page;
+            ViewData["Count"] = count;
             ViewData["MaxRating"] = 10;
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/CatalogFilms");
             ViewData["Footer"] = "";
@@ -101,6 +112,8 @@ namespace Cinema.Movie.Common.Pages
                 Skip = (page - 1) * count,
                 Take = count
             });
+            ViewData["Page"] = page;
+            ViewData["Count"] = count;
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Top");
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Top";

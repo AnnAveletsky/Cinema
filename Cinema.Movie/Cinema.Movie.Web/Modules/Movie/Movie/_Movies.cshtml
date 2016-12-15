@@ -1,8 +1,43 @@
-﻿@model List<Cinema.Movie.Movie.Entities.MovieRow>
-
-
-@foreach (Cinema.Movie.Movie.Entities.MovieRow item in Model)
-{
-   {Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", item);}
-   
+﻿@model Serenity.Services.ListResponse<Cinema.Movie.Movie.Entities.MovieRow>
+@{
+    var count = 4;
+    var totalCount = Model.TotalCount / (int)ViewData["Count"];
 }
+
+@foreach (Cinema.Movie.Movie.Entities.MovieRow item in Model.Entities)
+{
+    { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", item); }
+}
+<div class="box box-custom">
+    <div class="box-body">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                @if ((int)ViewData["Page"] > 1)
+                {
+                    <li>
+                        <a href="@("/?page=1&&count="+(int)ViewData["Count"])" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                }
+                @for (int i = 1; i <= totalCount; i++)
+                {
+                    if (i <= (int)ViewData["Page"] + count && i >= (int)ViewData["Page"] - count)
+                    {
+                        <li class="@(i == (int)ViewData["Page"] ? "active" : "")">
+                            <a href="@(i == (int)ViewData["Page"] ? "" : "/?page="+i+"&&count="+(int)ViewData["Count"])">@i</a>
+                        </li>
+                    }
+                }
+                @if ((int)ViewData["Page"] < totalCount)
+                {
+                    <li>
+                        <a href="@("/?page="+totalCount+"&&count="+(int)ViewData["Count"])" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

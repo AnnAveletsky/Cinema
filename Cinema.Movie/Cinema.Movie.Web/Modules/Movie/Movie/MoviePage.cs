@@ -31,12 +31,12 @@ namespace Cinema.Movie.Movie.Pages
             return View("~/Modules/Movie/Movie/MovieIndex.cshtml");
         }
 
-        public static List<MovieRow> Page(ListRequest listRequest)
+        public static ListResponse<MovieRow> Page(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<MovieRow>())
             {
-                List<MovieRow> movie = new Movies().List(connection, listRequest).Entities;
-                movie.ForEach((i) =>
+                ListResponse<MovieRow> movies = new Movies().List(connection, listRequest);
+                movies.Entities.ForEach((i) =>
                 {
                     i.CastList = Casts.List(
                         new ListRequest()
@@ -52,7 +52,7 @@ namespace Cinema.Movie.Movie.Pages
                             Criteria = new Criteria("MovieId") == i.MovieId.Value
                         });
                 });
-                return movie;
+                return movies;
             }
         }
         public static MovieRow Movie(RetrieveRequest retrieveRequest)

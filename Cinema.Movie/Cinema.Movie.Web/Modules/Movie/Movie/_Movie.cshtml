@@ -4,7 +4,7 @@
     <div class="box-header with-border box-with-backgrond">
         <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Url + "?id=" + Model.MovieId : "")>
             <h3 class="box-title">
-                @if (Model.TitleTranslation != null)
+                @if (Model.TitleTranslation != null&& Model.TitleTranslation!= Model.TitleOriginal)
                 {
                     @(Model.TitleTranslation + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
                     <br />

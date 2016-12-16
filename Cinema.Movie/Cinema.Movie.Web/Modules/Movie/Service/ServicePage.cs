@@ -21,24 +21,39 @@
         {
             return View("~/Modules/Movie/Service/ServiceIndex.cshtml");
         }
-        public static List<ServiceRow> All(ListRequest listRequest)
+        public static ListResponse<ServiceRow> All(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<MovieRow>())
             {
-                return new Services().List(connection, listRequest).Entities;
+                return new Services().List(connection, listRequest);
             }
         }
-        public static ServiceRow Service(RetrieveRequest retrieveRequest)
+        public static RetrieveResponse<ServiceRow> Service(RetrieveRequest retrieveRequest)
         {
             using (var connection = SqlConnections.NewFor<ServiceRow>())
             {
-                return new Services().Retrieve(connection, retrieveRequest).Entity;
+                return new Services().Retrieve(connection, retrieveRequest);
+            }
+        }
+        public static SaveResponse Create(SaveRequest<ServiceRow> request)
+        {
+            var searchServices = All(new ListRequest { Criteria = new Criteria("Name").Contains(request.Entity.Name) }).Entities;
+            if (searchServices.Count > 0)
+            {
+                return new SaveResponse() { EntityId = searchServices.Find(i => i.Name.Contains(request.Entity.Name)).ServiceId};
+            }
+            using (var connection = SqlConnections.NewFor<ServiceRow>())
+            using (var uow = new UnitOfWork(connection))
+            {
+                var result = new Services().Create(uow, request);
+                uow.Commit();
+                return result;
             }
         }
         public async Task<string> GetMovies(Int16 id)
         {
             var service = Service(new RetrieveRequest() { EntityId = id });
-            return await GetSevice(service);
+            return await GetSevice(service.Entity);
         }
         public async Task<string> GetSevice(ServiceRow service)
         {

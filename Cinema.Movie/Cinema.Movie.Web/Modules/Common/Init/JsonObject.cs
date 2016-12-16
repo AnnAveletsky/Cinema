@@ -1,5 +1,6 @@
 ﻿using Cinema.Movie.Movie;
 using Cinema.Movie.Movie.Entities;
+using Serenity.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,14 @@ namespace Cinema.Movie.Common.Init
             Video.Path = url;
             Video.Translation = sub_type != "" ? Int16.Parse(sub_type) : (Int16)0;
             return Video;
+        }
+        public ServicePathRow ToServicePath(ServiceRow service)
+        {
+            return new ServicePathRow() { };
+        }
+        public ServiceRatingRow ToServiceRating(ServiceRow service)
+        {
+            return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id) };
         }
     }
     public class Translit

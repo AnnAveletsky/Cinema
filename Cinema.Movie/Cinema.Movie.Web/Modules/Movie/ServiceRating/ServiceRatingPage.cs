@@ -24,5 +24,15 @@
                 return new ServiceRatings().List(connection, listRequest).Entities;
             }
         }
+        public static SaveResponse Create(SaveRequest<ServiceRatingRow> request)
+        {
+            using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
+            using (var uow = new UnitOfWork(connection))
+            {
+                var result = new ServiceRatings().Create(uow, request);
+                uow.Commit();
+                return result;
+            }
+        }
     }
 }

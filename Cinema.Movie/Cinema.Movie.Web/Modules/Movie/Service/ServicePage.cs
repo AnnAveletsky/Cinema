@@ -35,7 +35,7 @@
                 return new Services().Retrieve(connection, retrieveRequest);
             }
         }
-        public static SaveResponse Create(SaveRequest<ServiceRow> request)
+        public static SaveResponse CreateUpdate(SaveRequest<ServiceRow> request)
         {
             var searchServices = All(new ListRequest { Criteria = new Criteria("Name").Contains(request.Entity.Name) }).Entities;
             if (searchServices.Count > 0)

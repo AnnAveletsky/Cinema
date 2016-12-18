@@ -50,7 +50,7 @@ namespace Cinema.Movie.Movie.Pages
                         {
                             IncludeColumns = IncludeColumnsServiceRating,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value
-                        });
+                        }).Entities;
                 });
                 return movies;
             }
@@ -72,7 +72,7 @@ namespace Cinema.Movie.Movie.Pages
                        {
                            IncludeColumns = IncludeColumnsServiceRating,
                            Criteria = new Criteria("MovieId") == movie.MovieId.Value
-                       });
+                       }).Entities;
                 movie.VideoList = Videos.List(
                     new ListRequest()
                     {
@@ -83,8 +83,51 @@ namespace Cinema.Movie.Movie.Pages
                 return movie;
             }
         }
-        public static SaveResponse Create(SaveRequest<MovieRow> request)
+        public static SaveResponse CreateUpdate(SaveRequest<MovieRow> request,SaveRequest<ServiceRatingRow> serviceRating)
         {
+            ListResponse<MovieRow> movies = null;
+            using (var connection = SqlConnections.NewFor<MovieRow>())
+            {
+                movies = new Movies().List(connection, new ListRequest
+                {
+                    Criteria = new Criteria("TitleOriginal").Contains(request.Entity.TitleOriginal) &&
+                        new Criteria("YearEnd").In(request.Entity.YearEnd)
+                });
+            }
+            if (movies.Entities.Count > 0)
+            {
+                var movie = movies.Entities.Find(i => i.TitleOriginal.Contains(request.Entity.TitleOriginal) && i.YearEnd == request.Entity.YearEnd);
+                if (movie != null)
+                {
+                    using (var connection = SqlConnections.NewFor<MovieRow>())
+                    using (var uow = new UnitOfWork(connection))
+                    {
+                        request.Entity.MovieId = movie.MovieId;
+                        var result = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
+                        uow.Commit();
+                        return result;
+                    }
+                }
+            }
+            if (serviceRating.Entity.Id != null)
+            {
+                ListResponse<ServiceRatingRow> serviceRatings = ServiceRatings.List(new ListRequest() { Criteria = new Criteria("Id").In(serviceRating.Entity.Id) });
+                if (serviceRatings.Entities.Count > 0)
+                {
+                    var movie = movies.Entities.Find(i => i.MovieId == serviceRatings.Entities.Find(j => j.Id != null && j.Id == serviceRating.Entity.Id).MovieId);
+                    if (movie != null)
+                    {
+                        using (var connection = SqlConnections.NewFor<MovieRow>())
+                        using (var uow = new UnitOfWork(connection))
+                        {
+                            request.Entity.MovieId = movie.MovieId;
+                            var result = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
+                            uow.Commit();
+                            return result;
+                        }
+                    }
+                }
+            }
             using (var connection = SqlConnections.NewFor<MovieRow>())
             using (var uow = new UnitOfWork(connection))
             {

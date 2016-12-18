@@ -27,7 +27,7 @@ namespace Cinema.Movie.Movie.Columns
         public DateTime ReleaseWorldDate { get; set; }
         public DateTime ReleaseOtherDate { get; set; }
         public DateTime ReleaseDvd { get; set; }
-        public Int16 Runtime { get; set; }
+        public String Runtime { get; set; }
         public DateTime CreateDateTime { get; set; }
         public DateTime UpdateDateTime { get; set; }
         public DateTime PublishDateTime { get; set; }

@@ -44,7 +44,7 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Url[this]; }
             set { Fields.Url[this] = value; }
         }
-        [DisplayName("Description"), Size(1000)]
+        [DisplayName("Description"), Size(10000)]
         public String Description
         {
             get { return Fields.Description[this]; }
@@ -86,8 +86,8 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.ReleaseDvd[this] = value; }
         }
 
-        [DisplayName("Runtime (mins)")]
-        public Int16? Runtime
+        [DisplayName("Runtime"), Size(300)]
+        public String Runtime
         {
             get { return Fields.Runtime[this]; }
             set { Fields.Runtime[this] = value; }
@@ -262,7 +262,7 @@ namespace Cinema.Movie.Movie.Entities
             public DateTimeField ReleaseWorldDate;
             public DateTimeField ReleaseOtherDate;
             public DateTimeField ReleaseDvd;
-            public Int16Field Runtime;
+            public StringField Runtime;
             public DateTimeField CreateDateTime;
             public DateTimeField UpdateDateTime;
             public DateTimeField PublishDateTime;

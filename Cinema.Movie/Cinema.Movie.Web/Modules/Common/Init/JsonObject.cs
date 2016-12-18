@@ -19,47 +19,82 @@ namespace Cinema.Movie.Common.Init
         public string url;
         public string sub_type;
         public string kinopoisk_id;
-
-        public override string ToString()
-        {
-            return string.Format("{0} ({1})", name, url);
-        }
+        public string player;
+        public string trailer;
+        public string poster_big;
+        public string poster_small;
+        public string title_ru;
+        public string title_en;
+        public string description;
+        public string actors;
+        public string country;
+        public string director;
+        public string screenwriter;
+        public string producer;
+        public string Operator;
+        public string design;
+        public string editor;
+        public string composer;
+        public string genre;
+        public string time;
+        
         public MovieRow ToMovie(MovieKind movieKind)
         {
             MovieRow Movie = new MovieRow();
             Movie.Kind = movieKind;
-            Movie.YearEnd = Int16.Parse(year);
-            Movie.YearStart = Int16.Parse(year);
-            if (name_eng == null || name_eng == "" || name_eng == name)
-            {
-                Movie.TitleOriginal = name;
-                Movie.Url = Translit.GetTranslit(name);
-            }
-            else
-            {
-                Movie.TitleOriginal = name_eng;
-                Movie.TitleTranslation = name;
-                if (name == null || name == "")
+            if (year != ""&&(title_en!=null|| name_eng!=null|| title_ru!=null|| name!=null))
+            { 
+                Movie.YearEnd = Int16.Parse(year);
+                Movie.YearStart = Int16.Parse(year);
+
+                if (title_en != null)
                 {
-                    Movie.Url = Translit.GetUrl(name_eng);
+                    name_eng = title_en;
+                }
+                if (title_ru != null)
+                {
+                    name = title_ru;
+                }
+
+                if (name_eng == null || name_eng == "" || name_eng == name)
+                {
+                    Movie.TitleOriginal = name;
+                    Movie.Url = Translit.GetTranslit(name);
                 }
                 else
                 {
-                    Movie.Url = Translit.GetTranslit(name);
+                    Movie.TitleOriginal = name_eng;
+                    Movie.TitleTranslation = name;
+                    if (name == null || name == "")
+                    {
+                        Movie.Url = Translit.GetUrl(name_eng);
+                    }
+                    else
+                    {
+                        Movie.Url = Translit.GetTranslit(name);
+                    }
                 }
+                if (Movie.Url == null || Movie.Url == "")
+                {
+                    Movie.Url = kinopoisk_id;
+                }
+                Movie.Url += '-' + year;
+                Movie.PathImage = poster_big == null ? poster_small : poster_big;
+                Movie.Description = description;
+                Movie.Runtime = time;
+                return Movie;
             }
-            if (Movie.Url == null || Movie.Url == "")
-            {
-                Movie.Url = kinopoisk_id;
-            }
-            Movie.Url += '-' + year;
-            return Movie;
+            return null;
         }
         public VideoRow ToVideo()
         {
             VideoRow Video = new VideoRow();
+            if (player != null)
+            {
+                url = player;
+            }
             Video.Path = url;
-            Video.Translation = sub_type != "" ? Int16.Parse(sub_type) : (Int16)0;
+            Video.Translation = sub_type != null ? Int16.Parse(sub_type) : (Int16)0;
             return Video;
         }
         public ServicePathRow ToServicePath(ServiceRow service)
@@ -68,8 +103,23 @@ namespace Cinema.Movie.Common.Init
         }
         public ServiceRatingRow ToServiceRating(ServiceRow service)
         {
-            return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id) };
+            try
+            {
+                return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id) };
+            }catch(Exception e)
+            {
+                return null;
+            }
         }
+    }
+    public class XmlObject
+    {
+        public Content content;
+    }
+    public class Content
+    {
+        public MovieJson[] Movie;
+        public MovieJson[] Serial;
     }
     public class Translit
     {

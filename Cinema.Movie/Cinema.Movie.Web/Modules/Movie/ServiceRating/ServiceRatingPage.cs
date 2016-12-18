@@ -17,15 +17,29 @@
         {
             return View("~/Modules/Movie/ServiceRating/ServiceRatingIndex.cshtml");
         }
-        public static List<ServiceRatingRow> List(ListRequest listRequest)
+        public static ListResponse<ServiceRatingRow> List(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
             {
-                return new ServiceRatings().List(connection, listRequest).Entities;
+                return new ServiceRatings().List(connection, listRequest);
             }
         }
-        public static SaveResponse Create(SaveRequest<ServiceRatingRow> request)
+        public static SaveResponse CreateUpdate(SaveRequest<ServiceRatingRow> request)
         {
+            var searchServices = List(new ListRequest { Criteria = new Criteria("Id").In(request.Entity.Id) });
+            
+            if (searchServices.Entities.Count > 0)
+            {
+                var service = searchServices.Entities.Find(i => i.Id == request.Entity.Id);
+                using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
+                using (var uow = new UnitOfWork(connection))
+                {
+                    request.Entity.ServiceRatingId = service.ServiceRatingId;
+                    var result = new ServiceRatings().Update(uow, new SaveRequest<ServiceRatingRow>() { EntityId = service.ServiceRatingId, Entity = request.Entity });
+                    uow.Commit();
+                    return result;
+                }
+            }
             using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
             using (var uow = new UnitOfWork(connection))
             {

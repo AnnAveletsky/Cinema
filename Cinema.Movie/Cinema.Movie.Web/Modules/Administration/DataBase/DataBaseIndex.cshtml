@@ -1,9 +1,26 @@
-﻿
+﻿@model Cinema.Movie.Modules.Administration.DataBase.FilesModel
 @{
     ViewData["Title"] = Serenity.LocalText.Get("Db.Administration.DataBase.EntityPlural");
 }
-
 <div id="GridDiv"></div>
+<div class="col-xs-12">
+    <div class="box box-primary">
+        <div class="box-body">
+            @for (int i = 0; i < Model.files.Count; i++)
+            {
+                <div class="col-xs-12">
+                    <span>@Model.files[i].Name</span>
+                    <span>@Model.files[i].Service</span>
+                    @if (Model.files[i].MovieKind!=0) {
+                    <span>@Model.files[i].MovieKind</span>
+                    }
+                    <a href="/Administration/DataBase/Init?name=@Model.files[i].Name&&service=@Model.files[i].Service" class="btn btn-primary">Init</a>
+                </div>
+                
+            }
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     jQuery(function () {

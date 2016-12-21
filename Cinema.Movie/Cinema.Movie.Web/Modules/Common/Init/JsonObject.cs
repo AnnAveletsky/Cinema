@@ -137,12 +137,6 @@ namespace Cinema.Movie.Common.Init
         public MovieJson[] Movie;
         public MovieJson[] Serial;
     }
-    public class Files
-    {
-        public string Name { get; set; }
-        public MovieKind MovieKind { get; set; }
-        public string Service { get; set; }
-    }
     public class StatusTask
     {
         public static List<Task> tasks = new List<Task>();

@@ -1950,6 +1950,7 @@
     <Compile Include="Modules\Administration\DataBase\DataBasePage.cs" />
     <Compile Include="Modules\Administration\DataBase\DataBaseRepository.cs" />
     <Compile Include="Modules\Administration\DataBase\DataBaseRow.cs" />
+    <Compile Include="Modules\Administration\DataBase\FileModel.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -2016,6 +2017,7 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.VideoEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Init\JsonObjectSerialization.cs" />
     <Compile Include="Modules\Common\Init\JsonObject.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141003_140000_DB.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />

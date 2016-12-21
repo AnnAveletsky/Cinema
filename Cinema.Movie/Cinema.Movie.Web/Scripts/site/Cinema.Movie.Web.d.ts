@@ -1282,8 +1282,8 @@ declare namespace Cinema.Movie.Movie {
         Character?: string;
         MovieId?: number;
         PersonId?: number;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
+        MovieTitleOriginal?: string;
+        MovieTitleTranslation?: string;
         MovieYearStart?: number;
         MovieYearEnd?: number;
         MoviePathImage?: string;
@@ -1308,8 +1308,8 @@ declare namespace Cinema.Movie.Movie {
             const Character: string;
             const MovieId: string;
             const PersonId: string;
-            const MovieTitleEn: string;
-            const MovieTitleOther: string;
+            const MovieTitleOriginal: string;
+            const MovieTitleTranslation: string;
             const MovieYearStart: string;
             const MovieYearEnd: string;
             const MoviePathImage: string;
@@ -1585,7 +1585,7 @@ declare namespace Cinema.Movie.Movie {
         ReleaseWorldDate: Serenity.DateEditor;
         ReleaseOtherDate: Serenity.DateEditor;
         ReleaseDvd: Serenity.DateEditor;
-        Runtime: Serenity.IntegerEditor;
+        Runtime: Serenity.StringEditor;
         CreateDateTime: Serenity.DateEditor;
         UpdateDateTime: Serenity.DateEditor;
         PublishDateTime: Serenity.DateEditor;
@@ -1605,63 +1605,19 @@ declare namespace Cinema.Movie.Movie {
     }
 }
 declare namespace Cinema.Movie.Movie {
-    interface MovieGenresRow {
+    interface MovieGenreRow {
         MovieGenreId?: number;
         MovieId?: number;
         GenreId?: number;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
-        MovieDescription?: string;
-        MovieYearStart?: number;
-        MovieYearEnd?: number;
-        MovieReleaseWorldDate?: string;
-        MovieReleaseOtherDate?: string;
-        MovieReleaseDvd?: string;
-        MovieRuntime?: number;
-        MovieCreateDateTime?: string;
-        MovieUpdateDateTime?: string;
-        MoviePublishDateTime?: string;
-        MovieKind?: number;
-        MovieRating?: number;
-        MovieMpaa?: string;
-        MoviePathImage?: string;
-        MovieNice?: boolean;
-        MovieContSeason?: number;
-        MovieLastEvent?: string;
-        MovieLastEventPublishDateTime?: string;
-        MovieTagline?: string;
-        MovieBudget?: number;
         GenreName?: string;
     }
-    namespace MovieGenresRow {
+    namespace MovieGenreRow {
         const idProperty: string;
         const localTextPrefix: string;
         namespace Fields {
             const MovieGenreId: string;
             const MovieId: string;
             const GenreId: string;
-            const MovieTitleEn: string;
-            const MovieTitleOther: string;
-            const MovieDescription: string;
-            const MovieYearStart: string;
-            const MovieYearEnd: string;
-            const MovieReleaseWorldDate: string;
-            const MovieReleaseOtherDate: string;
-            const MovieReleaseDvd: string;
-            const MovieRuntime: string;
-            const MovieCreateDateTime: string;
-            const MovieUpdateDateTime: string;
-            const MoviePublishDateTime: string;
-            const MovieKind: string;
-            const MovieRating: string;
-            const MovieMpaa: string;
-            const MoviePathImage: string;
-            const MovieNice: string;
-            const MovieContSeason: string;
-            const MovieLastEvent: string;
-            const MovieLastEventPublishDateTime: string;
-            const MovieTagline: string;
-            const MovieBudget: string;
             const GenreName: string;
         }
     }
@@ -1685,7 +1641,7 @@ declare namespace Cinema.Movie.Movie {
         ReleaseWorldDate?: string;
         ReleaseOtherDate?: string;
         ReleaseDvd?: string;
-        Runtime?: number;
+        Runtime?: string;
         CreateDateTime?: string;
         UpdateDateTime?: string;
         PublishDateTime?: string;
@@ -1769,28 +1725,6 @@ declare namespace Cinema.Movie.Movie {
         TagId?: number;
         MovieId?: number;
         TagName?: string;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
-        MovieDescription?: string;
-        MovieYearStart?: number;
-        MovieYearEnd?: number;
-        MovieReleaseWorldDate?: string;
-        MovieReleaseOtherDate?: string;
-        MovieReleaseDvd?: string;
-        MovieRuntime?: number;
-        MovieCreateDateTime?: string;
-        MovieUpdateDateTime?: string;
-        MoviePublishDateTime?: string;
-        MovieKind?: number;
-        MovieRating?: number;
-        MovieMpaa?: string;
-        MoviePathImage?: string;
-        MovieNice?: boolean;
-        MovieContSeason?: number;
-        MovieLastEvent?: string;
-        MovieLastEventPublishDateTime?: string;
-        MovieTagline?: string;
-        MovieBudget?: number;
     }
     namespace MovieTagRow {
         const idProperty: string;
@@ -1800,28 +1734,6 @@ declare namespace Cinema.Movie.Movie {
             const TagId: string;
             const MovieId: string;
             const TagName: string;
-            const MovieTitleEn: string;
-            const MovieTitleOther: string;
-            const MovieDescription: string;
-            const MovieYearStart: string;
-            const MovieYearEnd: string;
-            const MovieReleaseWorldDate: string;
-            const MovieReleaseOtherDate: string;
-            const MovieReleaseDvd: string;
-            const MovieRuntime: string;
-            const MovieCreateDateTime: string;
-            const MovieUpdateDateTime: string;
-            const MoviePublishDateTime: string;
-            const MovieKind: string;
-            const MovieRating: string;
-            const MovieMpaa: string;
-            const MoviePathImage: string;
-            const MovieNice: string;
-            const MovieContSeason: string;
-            const MovieLastEvent: string;
-            const MovieLastEventPublishDateTime: string;
-            const MovieTagline: string;
-            const MovieBudget: string;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Cinema.Movie.Administration.Pages
     using System.Collections.Generic;
     using Common.Init;
     using System.Xml;
+    using System.Threading.Tasks;
 
     [RoutePrefix("Administration/DataBase"), Route("{action=index}")]
     public class DataBaseController : Controller
@@ -30,15 +31,36 @@ namespace Cinema.Movie.Administration.Pages
         {
             return View("~/Modules/Administration/DataBase/DataBaseIndex.cshtml");
         }
+
         [PageAuthorize("Administration")]
-        public ActionResult Init()
+        public void InitKodikFilms(string name, string service)
         {
-            //InitKodik();
-            InitGetMovieCC();
-            return View("~/Modules/Administration/DataBase/DataBaseIndex.cshtml");
+            StatusTask.TimeStart = DateTime.UtcNow;
+            var file = files.Find(i => i.Name == name);
+            if (service == "Kodik")
+            {
+                InitKodik("~/App_Data/" + file.Name, MovieKind.Film);
+            }
+            else if (service == "GetMovieCC")
+            {
+                InitGetMovieCC("~/App_Data/" + file.Name);
+            }
+            StatusTask.TimeEnd = DateTime.UtcNow;
         }
-        
-        public static void InitKodik()
+        public static List<Files> files = new List<Files>();
+        public static List<Files> GetFiles()
+        {
+            files.Add(new Files() { Name = "films.json", MovieKind = MovieKind.Film, Service = "Kodik" });
+            files.Add(new Files() { Name = "serials.json", MovieKind = MovieKind.TvSeries, Service = "Kodik" });
+            files.Add(new Files() { Name = "movies-word.xml", Service = "GetMovieCC" });
+            files.Add(new Files() { Name = "movies-russian.xml", Service = "GetMovieCC" });
+            files.Add(new Files() { Name = "movies-anime.xml", Service = "GetMovieCC" });
+            files.Add(new Files() { Name = "serials-word.xml", Service = "GetMovieCC" });
+            files.Add(new Files() { Name = "serials-russian.xml", Service = "GetMovieCC" });
+            files.Add(new Files() { Name = "serials-anime.xml", Service = "GetMovieCC" });
+            return files;
+        }
+        public static void InitKodik(string path,MovieKind movieKind)
         {
             var serviceKinopoisk = Services.Service(new RetrieveRequest()
             {
@@ -54,10 +76,9 @@ namespace Cinema.Movie.Administration.Pages
                     Entity = new ServiceRow() { Name = "kodik", Api = "http://kodik.top/" }
                 }).EntityId
             });
-            InitJson(JsonConvert.DeserializeObject<MovieJson[]>(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/films.json")))), MovieKind.Film, serviceKinopoisk.Entity, serviceKodik.Entity);
-            InitJson(JsonConvert.DeserializeObject<MovieJson[]>(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/serials.json")))), MovieKind.TvSeries, serviceKinopoisk.Entity, serviceKodik.Entity);
+            InitJson(JsonConvert.DeserializeObject<MovieJson[]>(FileRead(Path.Combine(HostingEnvironment.MapPath(path)))), movieKind, serviceKinopoisk.Entity, serviceKodik.Entity);
         }
-        public static void InitGetMovieCC()
+        public static void InitGetMovieCC(string path)
         {
             var serviceKinopoisk = Services.Service(new RetrieveRequest()
             {
@@ -76,37 +97,7 @@ namespace Cinema.Movie.Administration.Pages
             XmlDocument doc = new XmlDocument();
             MovieJson[] movies = null;
             MovieJson[] serials = null;
-            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/movies-word.xml"))));
-            movies = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Movie;
-            serials = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Serial;
-            InitJson(movies, MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-            InitJson(serials, MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-
-            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/movies-russian.xml"))));
-            movies = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Movie;
-            serials = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Serial;
-            InitJson(movies, MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-            InitJson(serials, MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-
-            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/movies-anime.xml"))));
-            movies = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Movie;
-            serials = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Serial;
-            InitJson(movies, MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-            InitJson(serials, MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-
-            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/serials-word.xml"))));
-            movies = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Movie;
-            serials = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Serial;
-            InitJson(movies, MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-            InitJson(serials, MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-
-            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/serials-russian.xml"))));
-            movies = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Movie;
-            serials = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Serial;
-            InitJson(movies, MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-            InitJson(serials, MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
-
-            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath("~/App_Data/serials-anime.xml"))));
+            doc.LoadXml(FileRead(Path.Combine(HostingEnvironment.MapPath(path))));
             movies = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Movie;
             serials = JsonConvert.DeserializeObject<XmlObject>(JsonConvert.SerializeXmlNode(doc)).content.Serial;
             InitJson(movies, MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity);
@@ -119,34 +110,36 @@ namespace Cinema.Movie.Administration.Pages
             file.Close();
             return line;
         }
-        
-        public static void ToLogFile(string line)
+        public static void InitJson(MovieJson[] data, MovieKind movieKind, ServiceRow serviceKinopoisk, ServiceRow service)
         {
             var filename = Path.Combine(HostingEnvironment.MapPath("~/App_Data/LogDB.txt"));
-            StreamWriter sw = new StreamWriter(filename);
-            sw.WriteLine(line);
-            sw.Close();
-        }
-        public static bool InitJson(MovieJson[] data, MovieKind movieKind,ServiceRow serviceKinopoisk,ServiceRow service)
-        {
-            ToLogFile(DateTime.UtcNow.ToString());
+            StreamWriter sw = new StreamWriter(filename, true);
+            StatusTask.Count = data.Length;
             foreach (MovieJson item in data)
             {
-                var res= CreateMovieVideo(
-                    new SaveRequest<MovieRow>() { Entity = item.ToMovie(movieKind) },
-                    new SaveRequest<VideoRow>() { Entity = item.ToVideo() },
-                    new SaveRequest<ServiceRow>() { Entity = serviceKinopoisk, EntityId = serviceKinopoisk.ServiceId, },
-                    new SaveRequest<ServiceRow>() { Entity = service, EntityId = service.ServiceId },
-                    new SaveRequest<ServiceRatingRow>() { Entity = item.ToServiceRating(service) });
-                if (res.Error != null)
-                {
-                    ToLogFile(res.Error.Message);
-                }
+                var i = new Task(() =>
+                    {
+                        var res = CreateMovieVideo(
+                                new SaveRequest<MovieRow>() { Entity = item.ToMovie(movieKind) },
+                                new SaveRequest<VideoRow>() { Entity = item.ToVideo() },
+                                new SaveRequest<ServiceRow>() { Entity = serviceKinopoisk, EntityId = serviceKinopoisk.ServiceId, },
+                                new SaveRequest<ServiceRow>() { Entity = service, EntityId = service.ServiceId },
+                                new SaveRequest<ServiceRatingRow>() { Entity = item.ToServiceRating(service) });
+                        if (res.Error != null)
+                        {
+                            sw.WriteLine(DateTime.UtcNow.ToString() + "\n" + res.Error.Message + "\n" + item.ToJson() + "\n");
+                        }
+                    });
+                StatusTask.tasks.Add(i);
             }
-            return true;
+            sw.Close();
         }
-        public static SaveResponse CreateMovieVideo(SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video,SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating)
+        public static SaveResponse CreateMovieVideo(SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video, SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating)
         {
+            if (movie == null || video == null || serviceKinopoisk == null || service == null || serviceRating == null)
+            {
+                return new SaveResponse() { Error = new ServiceError() { Message = "null object" } };
+            }
             try
             {
                 SaveResponse response = Movies.CreateUpdate(movie, serviceRating);

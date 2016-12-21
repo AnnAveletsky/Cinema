@@ -31,7 +31,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Character[this] = value; }
         }
 
-        [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("MovieTitleEn")]
+        [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("TitleOriginal")]
         [LookupEditor(typeof(MovieRow))]
         public Int64? MovieId
         {
@@ -47,17 +47,17 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PersonId[this] = value; }
         }
 
-        [DisplayName("Movie Title En"), Expression("jMovie.[TitleEn]")]
-        public String MovieTitleEn
+        [DisplayName("Movie Title En"), Expression("jMovie.[TitleOriginal]")]
+        public String MovieTitleOriginal
         {
-            get { return Fields.MovieTitleEn[this]; }
-            set { Fields.MovieTitleEn[this] = value; }
+            get { return Fields.MovieTitleOriginal[this]; }
+            set { Fields.MovieTitleOriginal[this] = value; }
         }
-        [DisplayName("Movie Title Other"), Expression("jMovie.[TitleOther]")]
-        public String MovieTitleOther
+        [DisplayName("Movie Title Other"), Expression("jMovie.[TitleTranslation]")]
+        public String MovieTitleTranslation
         {
-            get { return Fields.MovieTitleOther[this]; }
-            set { Fields.MovieTitleOther[this] = value; }
+            get { return Fields.MovieTitleTranslation[this]; }
+            set { Fields.MovieTitleTranslation[this] = value; }
         }
 
         [DisplayName("Movie Year Start"), Expression("jMovie.[YearStart]")]
@@ -167,8 +167,8 @@ namespace Cinema.Movie.Movie.Entities
             public Int64Field MovieId;
             public Int64Field PersonId;
 
-            public StringField MovieTitleEn;
-            public StringField MovieTitleOther;
+            public StringField MovieTitleOriginal;
+            public StringField MovieTitleTranslation;
             public Int16Field MovieYearStart;
             public Int16Field MovieYearEnd;
             public StringField MoviePathImage;

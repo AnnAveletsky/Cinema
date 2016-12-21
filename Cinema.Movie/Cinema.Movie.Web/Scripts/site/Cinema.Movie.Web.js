@@ -2795,7 +2795,7 @@ var Cinema;
                 var Fields;
                 (function (Fields) {
                 })(Fields = CastRow.Fields || (CastRow.Fields = {}));
-                ['CastId', 'Character', 'MovieId', 'PersonId', 'MovieTitleEn', 'MovieTitleOther', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'PersonNameEn', 'PersonFullNameEn', 'PersonNameOther', 'PersonFullNameOther', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(function (x) { return Fields[x] = x; });
+                ['CastId', 'Character', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'PersonNameEn', 'PersonFullNameEn', 'PersonNameOther', 'PersonFullNameOther', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(function (x) { return Fields[x] = x; });
             })(CastRow = Movie.CastRow || (Movie.CastRow = {}));
         })(Movie = Movie_42.Movie || (Movie_42.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
@@ -3057,7 +3057,7 @@ var Cinema;
                 return MovieForm;
             }(Serenity.PrefixedContext));
             Movie.MovieForm = MovieForm;
-            [['TitleOriginal', function () { return Serenity.StringEditor; }], ['TitleTranslation', function () { return Serenity.StringEditor; }], ['Url', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.IntegerEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.EnumEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }], ['Tagline', function () { return Serenity.StringEditor; }], ['Budget', function () { return Serenity.IntegerEditor; }], ['GenreList', function () { return Serenity.LookupEditor; }], ['TagList', function () { return Serenity.LookupEditor; }], ['CountryList', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['TitleOriginal', function () { return Serenity.StringEditor; }], ['TitleTranslation', function () { return Serenity.StringEditor; }], ['Url', function () { return Serenity.StringEditor; }], ['Description', function () { return Serenity.StringEditor; }], ['YearStart', function () { return Serenity.IntegerEditor; }], ['YearEnd', function () { return Serenity.IntegerEditor; }], ['ReleaseWorldDate', function () { return Serenity.DateEditor; }], ['ReleaseOtherDate', function () { return Serenity.DateEditor; }], ['ReleaseDvd', function () { return Serenity.DateEditor; }], ['Runtime', function () { return Serenity.StringEditor; }], ['CreateDateTime', function () { return Serenity.DateEditor; }], ['UpdateDateTime', function () { return Serenity.DateEditor; }], ['PublishDateTime', function () { return Serenity.DateEditor; }], ['Kind', function () { return Serenity.EnumEditor; }], ['Rating', function () { return Serenity.IntegerEditor; }], ['Mpaa', function () { return Serenity.StringEditor; }], ['PathImage', function () { return Serenity.StringEditor; }], ['Nice', function () { return Serenity.BooleanEditor; }], ['ContSeason', function () { return Serenity.IntegerEditor; }], ['LastEvent', function () { return Serenity.StringEditor; }], ['LastEventPublishDateTime', function () { return Serenity.DateEditor; }], ['Tagline', function () { return Serenity.StringEditor; }], ['Budget', function () { return Serenity.IntegerEditor; }], ['GenreList', function () { return Serenity.LookupEditor; }], ['TagList', function () { return Serenity.LookupEditor; }], ['CountryList', function () { return Serenity.LookupEditor; }]].forEach(function (x) { return Object.defineProperty(MovieForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Movie = Movie_55.Movie || (Movie_55.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -3067,15 +3067,15 @@ var Cinema;
     (function (Movie_56) {
         var Movie;
         (function (Movie) {
-            var MovieGenresRow;
-            (function (MovieGenresRow) {
-                MovieGenresRow.idProperty = 'MovieGenreId';
-                MovieGenresRow.localTextPrefix = 'Movie.MovieGenres';
+            var MovieGenreRow;
+            (function (MovieGenreRow) {
+                MovieGenreRow.idProperty = 'MovieGenreId';
+                MovieGenreRow.localTextPrefix = 'Movie.MovieGenre';
                 var Fields;
                 (function (Fields) {
-                })(Fields = MovieGenresRow.Fields || (MovieGenresRow.Fields = {}));
-                ['MovieGenreId', 'MovieId', 'GenreId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'GenreName'].forEach(function (x) { return Fields[x] = x; });
-            })(MovieGenresRow = Movie.MovieGenresRow || (Movie.MovieGenresRow = {}));
+                })(Fields = MovieGenreRow.Fields || (MovieGenreRow.Fields = {}));
+                ['MovieGenreId', 'MovieId', 'GenreId', 'GenreName'].forEach(function (x) { return Fields[x] = x; });
+            })(MovieGenreRow = Movie.MovieGenreRow || (Movie.MovieGenreRow = {}));
         })(Movie = Movie_56.Movie || (Movie_56.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -3152,7 +3152,7 @@ var Cinema;
                 var Fields;
                 (function (Fields) {
                 })(Fields = MovieTagRow.Fields || (MovieTagRow.Fields = {}));
-                ['MovieTagId', 'TagId', 'MovieId', 'TagName', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget'].forEach(function (x) { return Fields[x] = x; });
+                ['MovieTagId', 'TagId', 'MovieId', 'TagName'].forEach(function (x) { return Fields[x] = x; });
             })(MovieTagRow = Movie.MovieTagRow || (Movie.MovieTagRow = {}));
         })(Movie = Movie_60.Movie || (Movie_60.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));

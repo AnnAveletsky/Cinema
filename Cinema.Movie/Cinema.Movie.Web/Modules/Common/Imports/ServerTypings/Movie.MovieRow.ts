@@ -10,7 +10,7 @@
         ReleaseWorldDate?: string;
         ReleaseOtherDate?: string;
         ReleaseDvd?: string;
-        Runtime?: number;
+        Runtime?: string;
         CreateDateTime?: string;
         UpdateDateTime?: string;
         PublishDateTime?: string;

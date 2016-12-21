@@ -18,7 +18,7 @@ namespace Cinema.Movie.Movie.Entities
     public sealed class TagRow : Row, IIdRow, INameRow
     {
         [DisplayName("Tag Id"), Identity]
-        public Int16? TagId
+        public Int64? TagId
         {
             get { return Fields.TagId[this]; }
             set { Fields.TagId[this] = value; }
@@ -50,7 +50,7 @@ namespace Cinema.Movie.Movie.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int16Field TagId;
+            public Int64Field TagId;
             public StringField Name;
 
             public RowFields()

@@ -183,7 +183,7 @@ namespace Cinema.Movie.Movie.Entities
         }
         [DisplayName("Genres")]
         [LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
-        [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreId")]
+        [LinkingSetRelation(typeof(MovieGenreRow), "MovieId", "GenreId")]
         public List<Int16> GenreList
         {
             get { return Fields.GenreList[this]; }
@@ -191,7 +191,7 @@ namespace Cinema.Movie.Movie.Entities
         }
         [DisplayName("Genres")]
         [LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
-        [LinkingSetRelation(typeof(MovieGenresRow), "MovieId", "GenreName")]
+        [LinkingSetRelation(typeof(MovieGenreRow), "MovieId", "GenreName")]
         public List<string> GenreListName
         {
             get { return Fields.GenreListName[this]; }
@@ -200,7 +200,7 @@ namespace Cinema.Movie.Movie.Entities
         [DisplayName("Tags")]
         [LookupEditor(typeof(TagRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(MovieTagRow), "MovieId", "TagId")]
-        public List<Int16> TagList
+        public List<Int64> TagList
         {
             get { return Fields.TagList[this]; }
             set { Fields.TagList[this] = value; }
@@ -278,7 +278,7 @@ namespace Cinema.Movie.Movie.Entities
             public Int32Field Budget;
             public ListField<Int16> GenreList;
             public ListField<string> GenreListName;
-            public ListField<Int16> TagList;
+            public ListField<Int64> TagList;
             public ListField<string> TagListName;
             public ListField<Int32> CountryList;
             public ListField<string> CountryListName;

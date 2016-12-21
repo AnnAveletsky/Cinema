@@ -40,7 +40,7 @@ namespace Cinema.Movie.Movie.Entities
         }
         [DisplayName("Movies")]
         [LookupEditor(typeof(MovieRow), Multiple = true), NotMapped]
-        [LinkingSetRelation(typeof(MovieGenresRow), "GenreId", "MovieId")]
+        [LinkingSetRelation(typeof(MovieGenreRow), "GenreId", "MovieId")]
         public List<Int64> MovieList
         {
             get { return Fields.MovieList[this]; }

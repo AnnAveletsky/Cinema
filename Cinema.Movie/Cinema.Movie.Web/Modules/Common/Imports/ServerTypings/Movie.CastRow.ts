@@ -4,8 +4,8 @@
         Character?: string;
         MovieId?: number;
         PersonId?: number;
-        MovieTitleEn?: string;
-        MovieTitleOther?: string;
+        MovieTitleOriginal?: string;
+        MovieTitleTranslation?: string;
         MovieYearStart?: number;
         MovieYearEnd?: number;
         MoviePathImage?: string;
@@ -35,8 +35,8 @@
             export declare const Character: string;
             export declare const MovieId: string;
             export declare const PersonId: string;
-            export declare const MovieTitleEn: string;
-            export declare const MovieTitleOther: string;
+            export declare const MovieTitleOriginal: string;
+            export declare const MovieTitleTranslation: string;
             export declare const MovieYearStart: string;
             export declare const MovieYearEnd: string;
             export declare const MoviePathImage: string;
@@ -51,7 +51,7 @@
             export declare const PersonPathImage: string;
         }
 
-        ['CastId', 'Character', 'MovieId', 'PersonId', 'MovieTitleEn', 'MovieTitleOther', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'PersonNameEn', 'PersonFullNameEn', 'PersonNameOther', 'PersonFullNameOther', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
+        ['CastId', 'Character', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'PersonNameEn', 'PersonFullNameEn', 'PersonNameOther', 'PersonFullNameOther', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

@@ -38,7 +38,7 @@ namespace Cinema.Movie.Movie.Forms
         public String Tagline { get; set; }
         public Int32 Budget { get; set; }
         public List<Int16> GenreList { get; set; }
-        public List<Int16> TagList { get; set; }
+        public List<Int64> TagList { get; set; }
         public List<Int32> CountryList { get; set; }
     }
 }

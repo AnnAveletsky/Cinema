@@ -14,7 +14,7 @@ namespace Cinema.Movie.Movie.Columns
     public class TagColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int16 TagId { get; set; }
+        public Int64 TagId { get; set; }
         [EditLink]
         public String Name { get; set; }
     }

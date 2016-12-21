@@ -4,6 +4,7 @@ using Serenity.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Cinema.Movie.Common.Init
@@ -37,65 +38,79 @@ namespace Cinema.Movie.Common.Init
         public string composer;
         public string genre;
         public string time;
-        
         public MovieRow ToMovie(MovieKind movieKind)
         {
-            MovieRow Movie = new MovieRow();
-            Movie.Kind = movieKind;
-            if (year != ""&&(title_en!=null|| name_eng!=null|| title_ru!=null|| name!=null))
-            { 
-                Movie.YearEnd = Int16.Parse(year);
-                Movie.YearStart = Int16.Parse(year);
+            try
+            {
+                MovieRow Movie = new MovieRow();
+                Movie.Kind = movieKind;
+                if (year != "" && (title_en != null || name_eng != null || title_ru != null || name != null))
+                {
+                    Movie.YearEnd = Int16.Parse(year);
+                    Movie.YearStart = Int16.Parse(year);
 
-                if (title_en != null)
-                {
-                    name_eng = title_en;
-                }
-                if (title_ru != null)
-                {
-                    name = title_ru;
-                }
-
-                if (name_eng == null || name_eng == "" || name_eng == name)
-                {
-                    Movie.TitleOriginal = name;
-                    Movie.Url = Translit.GetTranslit(name);
-                }
-                else
-                {
-                    Movie.TitleOriginal = name_eng;
-                    Movie.TitleTranslation = name;
-                    if (name == null || name == "")
+                    if (title_en != null)
                     {
-                        Movie.Url = Translit.GetUrl(name_eng);
+                        name_eng = title_en;
+                    }
+                    if (title_ru != null)
+                    {
+                        name = title_ru;
+                    }
+
+                    if (name_eng == null || name_eng == "" || name_eng == name)
+                    {
+                        Movie.TitleOriginal = name;
+                        Movie.Url = Translit.GetTranslit(name);
                     }
                     else
                     {
-                        Movie.Url = Translit.GetTranslit(name);
+                        Movie.TitleOriginal = name_eng;
+                        Movie.TitleTranslation = name;
+                        if (name == null || name == "")
+                        {
+                            Movie.Url = Translit.GetUrl(name_eng);
+                        }
+                        else
+                        {
+                            Movie.Url = Translit.GetTranslit(name);
+                        }
                     }
+                    if (Movie.Url == null || Movie.Url == "")
+                    {
+                        Movie.Url = kinopoisk_id;
+                    }
+                    Movie.Url += '-' + year;
+                    Movie.PathImage = poster_big == null ? poster_small : poster_big;
+                    Movie.Description = description;
+                    Movie.Runtime = time;
+                    return Movie;
                 }
-                if (Movie.Url == null || Movie.Url == "")
-                {
-                    Movie.Url = kinopoisk_id;
-                }
-                Movie.Url += '-' + year;
-                Movie.PathImage = poster_big == null ? poster_small : poster_big;
-                Movie.Description = description;
-                Movie.Runtime = time;
-                return Movie;
+                return null;
             }
-            return null;
+            catch
+            {
+                return null;
+            }
+            
         }
         public VideoRow ToVideo()
         {
-            VideoRow Video = new VideoRow();
-            if (player != null)
+            try
             {
-                url = player;
+                VideoRow Video = new VideoRow();
+                if (player != null)
+                {
+                    url = player;
+                }
+                Video.Path = url;
+                Video.Translation = sub_type != null ? Int16.Parse(sub_type) : (Int16)0;
+                return Video;
             }
-            Video.Path = url;
-            Video.Translation = sub_type != null ? Int16.Parse(sub_type) : (Int16)0;
-            return Video;
+            catch (Exception e)
+            {
+                return null;
+            }
         }
         public ServicePathRow ToServicePath(ServiceRow service)
         {
@@ -106,7 +121,8 @@ namespace Cinema.Movie.Common.Init
             try
             {
                 return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id) };
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return null;
             }
@@ -120,6 +136,19 @@ namespace Cinema.Movie.Common.Init
     {
         public MovieJson[] Movie;
         public MovieJson[] Serial;
+    }
+    public class Files
+    {
+        public string Name { get; set; }
+        public MovieKind MovieKind { get; set; }
+        public string Service { get; set; }
+    }
+    public class StatusTask
+    {
+        public static List<Task> tasks = new List<Task>();
+        public static int Count = 0;
+        public static DateTime TimeStart;
+        public static DateTime TimeEnd;
     }
     public class Translit
     {

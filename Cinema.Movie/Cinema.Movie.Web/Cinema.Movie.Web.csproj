@@ -2020,6 +2020,10 @@
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160605_215300_Granted.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151217_000600_LastDirectoryUpdate.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20151111_133500_UserPermissionGrant.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115103_Video.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115104_History.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115102_Service.cs" />
+    <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115101_Movie.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160607_115100_Initial.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160608_115100_Config.cs" />
     <Compile Include="Modules\Common\Migrations\MigrationUtils.cs" />
@@ -2096,7 +2100,7 @@
     <Compile Include="Modules\Movie\Genre\GenreRepository.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
     <Compile Include="Modules\Movie\MovieCountry\MovieCountryRow.cs" />
-    <Compile Include="Modules\Movie\MovieGenres\MovieGenresRow.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenreRow.cs" />
     <Compile Include="Modules\Movie\MovieTag\MovieTagRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />
     <Compile Include="Modules\Movie\Movie\MovieEndpoint.cs" />

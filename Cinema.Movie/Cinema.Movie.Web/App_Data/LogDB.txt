@@ -1,1 +1,5 @@
+18.12.2016 23:19:34
+19.12.2016 17:52:28
 Ссылка на объект не указывает на экземпляр объекта.
+{"year":"","url":"http://getmovie.cc/movies/31627/","kinopoisk_id":"763976","player":"http://getmovie.cc/movies/31627/","trailer":"","poster_big":"","poster_small":"","title_ru":"Отклонение","title_en":"Aberration","description":"","actors":"","country":"","director":"","screenwriter":"","producer":"","Operator":"","design":"","editor":"","composer":"","genre":"","time":""}
+

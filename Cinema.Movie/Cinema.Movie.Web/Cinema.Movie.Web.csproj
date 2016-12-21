@@ -1408,7 +1408,7 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenresRow.ts">
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenreRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieKind.ts">
@@ -1562,6 +1562,7 @@
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
     <Content Include="Modules\Movie\Country\CountryIndex.cshtml" />
+    <Content Include="Modules\Movie\History\HistoryIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1889,6 +1890,8 @@
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Genre\GenreGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\History\HistoryDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\History\HistoryGrid.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditorDialog.ts" />
@@ -2099,6 +2102,12 @@
     <Compile Include="Modules\Movie\Genre\GenrePage.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRepository.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
+    <Compile Include="Modules\Movie\History\HistoryColumns.cs" />
+    <Compile Include="Modules\Movie\History\HistoryEndpoint.cs" />
+    <Compile Include="Modules\Movie\History\HistoryForm.cs" />
+    <Compile Include="Modules\Movie\History\HistoryPage.cs" />
+    <Compile Include="Modules\Movie\History\HistoryRepository.cs" />
+    <Compile Include="Modules\Movie\History\HistoryRow.cs" />
     <Compile Include="Modules\Movie\MovieCountry\MovieCountryRow.cs" />
     <Compile Include="Modules\Movie\MovieGenre\MovieGenreRow.cs" />
     <Compile Include="Modules\Movie\MovieTag\MovieTagRow.cs" />

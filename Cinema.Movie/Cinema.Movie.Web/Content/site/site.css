@@ -10757,3 +10757,12 @@ section.content > .s-DataGrid {
 .s-Movie-CountryDialog .caption {
   width: 150px;
 }
+/* ------------------------------------------------------------------------- */
+/* APPENDED BY CODE GENERATOR, MOVE TO CORRECT PLACE AND REMOVE THIS COMMENT */
+/* ------------------------------------------------------------------------- */
+.s-Movie-HistoryDialog > .size {
+  width: 650px;
+}
+.s-Movie-HistoryDialog .caption {
+  width: 150px;
+}

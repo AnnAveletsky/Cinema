@@ -16,7 +16,7 @@ namespace Cinema.Movie.Movie.Entities
     public sealed class ServiceRatingRow : Row, IIdRow
     {
         [DisplayName("Service Rating Id"), Identity]
-        public Int16? ServiceRatingId
+        public Int64? ServiceRatingId
         {
             get { return Fields.ServiceRatingId[this]; }
             set { Fields.ServiceRatingId[this] = value; }
@@ -237,7 +237,7 @@ namespace Cinema.Movie.Movie.Entities
 
         public class RowFields : RowFieldsBase
         {
-            public Int16Field ServiceRatingId;
+            public Int64Field ServiceRatingId;
             public DoubleField Rating;
             public Int64Field Id;
             public Int64Field MovieId;

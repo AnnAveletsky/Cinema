@@ -14,7 +14,7 @@ namespace Cinema.Movie.Movie.Columns
     public class ServiceRatingColumns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public Int16 ServiceRatingId { get; set; }
+        public Int64 ServiceRatingId { get; set; }
         public Double Rating { get; set; }
         public Int64? Id { get; set; }
         public Int64 MovieId { get; set; }

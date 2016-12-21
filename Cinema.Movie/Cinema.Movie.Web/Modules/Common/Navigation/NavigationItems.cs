@@ -27,6 +27,7 @@ using Configuration = Cinema.Movie.Configuration.Pages;
 [assembly: NavigationLink(10800, "Movie/Service", typeof(Movie.ServiceController), icon: "fa-gear")]
 [assembly: NavigationLink(10900, "Movie/ServicePath", typeof(Movie.ServicePathController), icon: "fa-gear")]
 [assembly: NavigationLink(11000, "Movie/ServiceRating", typeof(Movie.ServiceRatingController), icon: "fa-gear")]
+[assembly: NavigationLink(11100, "Movie/History", typeof(Movie.HistoryController), icon: "fa-gear")]
 
 [assembly: NavigationMenu(11000, "Configuration", icon: "fa-gear")]
 [assembly: NavigationLink(11100, "Configuration/Background", typeof(Configuration.BackgroundController), icon: "fa-gear")]

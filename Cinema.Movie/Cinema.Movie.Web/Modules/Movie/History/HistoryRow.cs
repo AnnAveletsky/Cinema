@@ -12,8 +12,9 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("History"), InstanceName("History"), TwoLevelCached]
-    [ReadPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
+    [LookupScript("Movie.History")]
     public sealed class HistoryRow : Row, IIdRow, INameRow
     {
         [DisplayName("History Id"), Identity]
@@ -28,6 +29,12 @@ namespace Cinema.Movie.Movie.Entities
         {
             get { return Fields.UserName[this]; }
             set { Fields.UserName[this] = value; }
+        }
+        [DisplayName("EventDataTime"), Size(100), NotNull, QuickSearch]
+        public DateTime? EventDataTime
+        {
+            get { return Fields.EventDataTime[this]; }
+            set { Fields.EventDataTime[this] = value; }
         }
 
         [DisplayName("Message"), NotNull]
@@ -220,7 +227,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.UserName; }
+            get { return Fields.Message; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -234,6 +241,7 @@ namespace Cinema.Movie.Movie.Entities
         {
             public Int64Field HistoryId;
             public StringField UserName;
+            public DateTimeField EventDataTime;
             public StringField Message;
             public BooleanField Status;
             public Int64Field CastId;

@@ -7,17 +7,13 @@ namespace Cinema.Movie.Movie.Pages
     using Serenity.Services;
     using Serenity.Web;
     using System.Web.Mvc;
-    using Modules.Common.Navigation;
     using Movies = Repositories.MovieRepository;
     using System.Collections.Generic;
     using System;
-    using Casts = Movie.Pages.CastController;
-    using ServiceRatings = Movie.Pages.ServiceRatingController;
-    using Videos = Movie.Pages.VideoController;
-    using Serenity.Abstractions;
-    using Newtonsoft.Json;
-    using System.IO;
-    using System.Web.Hosting;
+    using Casts = CastController;
+    using ServiceRatings = ServiceRatingController;
+    using Videos = VideoController;
+    using Histories = HistoryController;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -83,6 +79,7 @@ namespace Cinema.Movie.Movie.Pages
                 return movie;
             }
         }
+        [PageAuthorize("Administration")]
         public static SaveResponse CreateUpdate(SaveRequest<MovieRow> request,SaveRequest<ServiceRatingRow> serviceRating)
         {
             ListResponse<MovieRow> movies = null;
@@ -103,8 +100,22 @@ namespace Cinema.Movie.Movie.Pages
                     using (var uow = new UnitOfWork(connection))
                     {
                         request.Entity.MovieId = movie.MovieId;
-                        var result = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
+                        var result = new Movies().Update(uow, new SaveRequest<MovieRow>()
+                        {
+                            EntityId = movie.MovieId,
+                            Entity = request.Entity
+                        });
                         uow.Commit();
+                        Histories.Create(new SaveRequest<HistoryRow>()
+                        {
+                            Entity = new HistoryRow()
+                            {
+                                Status = true,
+                                Message = "Update Movie",
+                                UserName = Authorization.Username,
+                                MovieId = movie.MovieId,
+                            }
+                        });
                         return result;
                     }
                 }
@@ -123,6 +134,17 @@ namespace Cinema.Movie.Movie.Pages
                             request.Entity.MovieId = movie.MovieId;
                             var result = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
                             uow.Commit();
+                            Histories.Create(new SaveRequest<HistoryRow>()
+                            {
+                                Entity = new HistoryRow()
+                                {
+                                    Status = true,
+                                    Message = "Update Movie",
+                                    UserName = Authorization.Username,
+                                    MovieId = movie.MovieId,
+                                    ServiceRatingId= (Int64)serviceRating.EntityId
+                                }
+                            });
                             return result;
                         }
                     }
@@ -134,6 +156,16 @@ namespace Cinema.Movie.Movie.Pages
                 var response = new Movies().Create(uow, request);
                 uow.Commit();
                 connection.Close();
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = true,
+                        Message = "Add Movie",
+                        UserName = Authorization.Username,
+                        MovieId=(Int64)response.EntityId,
+                    }
+                });
                 return response;
             }
         }

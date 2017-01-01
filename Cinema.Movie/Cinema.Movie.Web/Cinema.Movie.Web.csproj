@@ -1396,6 +1396,18 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.GenreService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.HistoryColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.HistoryForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.HistoryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.HistoryService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCastForm.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCastRow.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCastService.ts" />
@@ -2017,7 +2029,6 @@
     <Compile Include="Modules\Common\Imports\ClientTypes\Movie.VideoEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Common\Init\JsonObjectSerialization.cs" />
     <Compile Include="Modules\Common\Init\JsonObject.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20141003_140000_DB.cs" />
     <Compile Include="Modules\Common\Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />

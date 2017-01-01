@@ -108,6 +108,11 @@ namespace MVC
                 public const string GenreIndex = "~/Modules/Movie/Genre/GenreIndex.cshtml";
             }
 
+            public static class History
+            {
+                public const string HistoryIndex = "~/Modules/Movie/History/HistoryIndex.cshtml";
+            }
+
             public static class Movie_
             {
                 public const string _Movie = "~/Modules/Movie/Movie/_Movie.cshtml";

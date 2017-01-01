@@ -12,6 +12,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Create.Table("History").InSchema("mov")
                 .WithColumn("HistoryId").AsInt64().NotNullable().PrimaryKey().Identity()
                 .WithColumn("UserName").AsString(100).NotNullable()
+                .WithColumn("EventDataTime").AsDateTime().NotNullable().WithDefaultValue(DateTime.UtcNow)
                 .WithColumn("Message").AsString(10000).NotNullable()
                 .WithColumn("Status").AsBoolean().NotNullable()
                 .WithColumn("CastId").AsInt64().ForeignKey("FK_History_CastId", "mov", "Cast", "CastId").Nullable()

@@ -139,7 +139,7 @@ namespace Cinema.Movie.Common.Init
     }
     public class StatusTask
     {
-        public static List<Task> tasks = new List<Task>();
+        public static List<HistoryRow> tasks = new List<HistoryRow>();
         public static int Count = 0;
         public static DateTime TimeStart;
         public static DateTime TimeEnd;

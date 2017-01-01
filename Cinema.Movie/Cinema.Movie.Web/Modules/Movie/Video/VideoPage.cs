@@ -9,6 +9,7 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Videos = Repositories.VideoRepository;
+    using Histories = HistoryController;
 
     [RoutePrefix("Movie/Video"), Route("{action=index}")]
     public class VideoController : Controller
@@ -32,6 +33,16 @@
             {
                 var result = new Videos().Create(uow, request);
                 uow.Commit();
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = true,
+                        Message = "Add Video",
+                        UserName = Authorization.Username,
+                        VideoId = (Int64)result.EntityId,
+                    }
+                });
                 return result;
             }
         }

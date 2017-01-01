@@ -12,6 +12,7 @@
     using Services = Repositories.ServiceRepository;
     using Movies = MovieController;
     using System.Threading.Tasks;
+    using Histories = HistoryController;
 
     [RoutePrefix("Movie/Service"), Route("{action=index}")]
     public class ServiceController : Controller
@@ -47,6 +48,16 @@
             {
                 var result = new Services().Create(uow, request);
                 uow.Commit();
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = true,
+                        Message = "Add Service",
+                        UserName = Authorization.Username,
+                        ServiceId= (Int16)result.EntityId
+                    }
+                });
                 return result;
             }
         }

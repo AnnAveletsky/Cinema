@@ -12,9 +12,8 @@ namespace Cinema.Movie.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("History"), InstanceName("History"), TwoLevelCached]
-    [JsonConverter(typeof(JsonRowConverter))]
+    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
-    [LookupScript("Movie.History")]
     public sealed class HistoryRow : Row, IIdRow, INameRow
     {
         [DisplayName("History Id"), Identity]
@@ -30,12 +29,6 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.UserName[this]; }
             set { Fields.UserName[this] = value; }
         }
-        [DisplayName("EventDataTime"), Size(100), NotNull, QuickSearch]
-        public DateTime? EventDataTime
-        {
-            get { return Fields.EventDataTime[this]; }
-            set { Fields.EventDataTime[this] = value; }
-        }
 
         [DisplayName("Message"), NotNull]
         public String Message
@@ -43,7 +36,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Message[this]; }
             set { Fields.Message[this] = value; }
         }
-
+        [DisplayName("Event Data Time"), NotNull]
+        public DateTime? EventDataTime
+        {
+            get { return Fields.EventDataTime[this]; }
+            set { Fields.EventDataTime[this] = value; }
+        }
         [DisplayName("Status"), NotNull]
         public Boolean? Status
         {
@@ -148,77 +146,7 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.MovieGenreId[this]; }
             set { Fields.MovieGenreId[this] = value; }
         }
-
-        [DisplayName("Cast Character"), Expression("jCast.[Character]")]
-        public String CastCharacter
-        {
-            get { return Fields.CastCharacter[this]; }
-            set { Fields.CastCharacter[this] = value; }
-        }
-
-        [DisplayName("Country Name"), Expression("jCountry.[Name]")]
-        public String CountryName
-        {
-            get { return Fields.CountryName[this]; }
-            set { Fields.CountryName[this] = value; }
-        }
-
-        [DisplayName("Genre Name"), Expression("jGenre.[Name]")]
-        public String GenreName
-        {
-            get { return Fields.GenreName[this]; }
-            set { Fields.GenreName[this] = value; }
-        }
         
-        [DisplayName("Service Name"), Expression("jService.[Name]")]
-        public String ServiceName
-        {
-            get { return Fields.ServiceName[this]; }
-            set { Fields.ServiceName[this] = value; }
-        }
-
-        [DisplayName("Movie Title Original"), Expression("jMovie.[TitleOriginal]")]
-        public String MovieTitleOriginal
-        {
-            get { return Fields.MovieTitleOriginal[this]; }
-            set { Fields.MovieTitleOriginal[this] = value; }
-        }
-       
-        [DisplayName("Person Name En"), Expression("jPerson.[NameEn]")]
-        public String PersonNameEn
-        {
-            get { return Fields.PersonNameEn[this]; }
-            set { Fields.PersonNameEn[this] = value; }
-        }
-        
-
-        [DisplayName("Image Path"), Expression("jImage.[Path]")]
-        public String ImagePath
-        {
-            get { return Fields.ImagePath[this]; }
-            set { Fields.ImagePath[this] = value; }
-        }
-
-        [DisplayName("Service Path Path"), Expression("jServicePath.[Path]")]
-        public String ServicePathPath
-        {
-            get { return Fields.ServicePathPath[this]; }
-            set { Fields.ServicePathPath[this] = value; }
-        }
-
-        [DisplayName("Tag Name"), Expression("jTag.[Name]")]
-        public String TagName
-        {
-            get { return Fields.TagName[this]; }
-            set { Fields.TagName[this] = value; }
-        }
-
-        [DisplayName("Video Path"), Expression("jVideo.[Path]")]
-        public String VideoPath
-        {
-            get { return Fields.VideoPath[this]; }
-            set { Fields.VideoPath[this] = value; }
-        }
 
         IIdField IIdRow.IdField
         {
@@ -227,7 +155,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.Message; }
+            get { return Fields.UserName; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -241,8 +169,8 @@ namespace Cinema.Movie.Movie.Entities
         {
             public Int64Field HistoryId;
             public StringField UserName;
-            public DateTimeField EventDataTime;
             public StringField Message;
+            public DateTimeField EventDataTime;
             public BooleanField Status;
             public Int64Field CastId;
             public Int32Field CountryId;
@@ -259,25 +187,7 @@ namespace Cinema.Movie.Movie.Entities
             public Int64Field VideoId;
             public Int64Field MovieGenreId;
 
-            public StringField CastCharacter;
-
-            public StringField CountryName;
-
-            public StringField GenreName;
-
-            public StringField ServiceName;
-
-            public StringField MovieTitleOriginal;
-
-            public StringField PersonNameEn;
-
-            public StringField ImagePath;
-
-            public StringField ServicePathPath;
             
-            public StringField TagName;
-
-            public StringField VideoPath;
 
             public RowFields()
                 : base("[mov].[History]")

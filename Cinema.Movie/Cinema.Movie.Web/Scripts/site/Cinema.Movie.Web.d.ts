@@ -1469,8 +1469,8 @@ declare namespace Cinema.Movie.Movie {
     }
     interface HistoryForm {
         UserName: Serenity.StringEditor;
-        EventDataTime: Serenity.DateEditor;
         Message: Serenity.StringEditor;
+        EventDataTime: Serenity.DateEditor;
         Status: Serenity.BooleanEditor;
         CastId: Serenity.StringEditor;
         CountryId: Serenity.IntegerEditor;
@@ -1492,8 +1492,8 @@ declare namespace Cinema.Movie.Movie {
     interface HistoryRow {
         HistoryId?: number;
         UserName?: string;
-        EventDataTime?: string;
         Message?: string;
+        EventDataTime?: string;
         Status?: boolean;
         CastId?: number;
         CountryId?: number;
@@ -1509,16 +1509,6 @@ declare namespace Cinema.Movie.Movie {
         TagId?: number;
         VideoId?: number;
         MovieGenreId?: number;
-        CastCharacter?: string;
-        CountryName?: string;
-        GenreName?: string;
-        ServiceName?: string;
-        MovieTitleOriginal?: string;
-        PersonNameEn?: string;
-        ImagePath?: string;
-        ServicePathPath?: string;
-        TagName?: string;
-        VideoPath?: string;
     }
     namespace HistoryRow {
         const idProperty: string;
@@ -1527,8 +1517,8 @@ declare namespace Cinema.Movie.Movie {
         namespace Fields {
             const HistoryId: string;
             const UserName: string;
-            const EventDataTime: string;
             const Message: string;
+            const EventDataTime: string;
             const Status: string;
             const CastId: string;
             const CountryId: string;
@@ -1544,16 +1534,6 @@ declare namespace Cinema.Movie.Movie {
             const TagId: string;
             const VideoId: string;
             const MovieGenreId: string;
-            const CastCharacter: string;
-            const CountryName: string;
-            const GenreName: string;
-            const ServiceName: string;
-            const MovieTitleOriginal: string;
-            const PersonNameEn: string;
-            const ImagePath: string;
-            const ServicePathPath: string;
-            const TagName: string;
-            const VideoPath: string;
         }
     }
 }

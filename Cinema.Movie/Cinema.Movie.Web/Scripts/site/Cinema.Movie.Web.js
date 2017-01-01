@@ -3028,7 +3028,7 @@ var Cinema;
                 return HistoryForm;
             }(Serenity.PrefixedContext));
             Movie.HistoryForm = HistoryForm;
-            [['UserName', function () { return Serenity.StringEditor; }], ['EventDataTime', function () { return Serenity.DateEditor; }], ['Message', function () { return Serenity.StringEditor; }], ['Status', function () { return Serenity.BooleanEditor; }], ['CastId', function () { return Serenity.StringEditor; }], ['CountryId', function () { return Serenity.IntegerEditor; }], ['GenreId', function () { return Serenity.IntegerEditor; }], ['ServiceId', function () { return Serenity.IntegerEditor; }], ['MovieId', function () { return Serenity.StringEditor; }], ['PersonId', function () { return Serenity.StringEditor; }], ['ImageId', function () { return Serenity.StringEditor; }], ['MovieCountryId', function () { return Serenity.StringEditor; }], ['ServicePathId', function () { return Serenity.IntegerEditor; }], ['ServiceRatingId', function () { return Serenity.StringEditor; }], ['MovieTagId', function () { return Serenity.StringEditor; }], ['TagId', function () { return Serenity.StringEditor; }], ['VideoId', function () { return Serenity.StringEditor; }], ['MovieGenreId', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(HistoryForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['UserName', function () { return Serenity.StringEditor; }], ['Message', function () { return Serenity.StringEditor; }], ['EventDataTime', function () { return Serenity.DateEditor; }], ['Status', function () { return Serenity.BooleanEditor; }], ['CastId', function () { return Serenity.StringEditor; }], ['CountryId', function () { return Serenity.IntegerEditor; }], ['GenreId', function () { return Serenity.IntegerEditor; }], ['ServiceId', function () { return Serenity.IntegerEditor; }], ['MovieId', function () { return Serenity.StringEditor; }], ['PersonId', function () { return Serenity.StringEditor; }], ['ImageId', function () { return Serenity.StringEditor; }], ['MovieCountryId', function () { return Serenity.StringEditor; }], ['ServicePathId', function () { return Serenity.IntegerEditor; }], ['ServiceRatingId', function () { return Serenity.StringEditor; }], ['MovieTagId', function () { return Serenity.StringEditor; }], ['TagId', function () { return Serenity.StringEditor; }], ['VideoId', function () { return Serenity.StringEditor; }], ['MovieGenreId', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(HistoryForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Movie = Movie_53.Movie || (Movie_53.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -3041,12 +3041,12 @@ var Cinema;
             var HistoryRow;
             (function (HistoryRow) {
                 HistoryRow.idProperty = 'HistoryId';
-                HistoryRow.nameProperty = 'Message';
+                HistoryRow.nameProperty = 'UserName';
                 HistoryRow.localTextPrefix = 'Movie.History';
                 var Fields;
                 (function (Fields) {
                 })(Fields = HistoryRow.Fields || (HistoryRow.Fields = {}));
-                ['HistoryId', 'UserName', 'EventDataTime', 'Message', 'Status', 'CastId', 'CountryId', 'GenreId', 'ServiceId', 'MovieId', 'PersonId', 'ImageId', 'MovieCountryId', 'ServicePathId', 'ServiceRatingId', 'MovieTagId', 'TagId', 'VideoId', 'MovieGenreId', 'CastCharacter', 'CountryName', 'GenreName', 'ServiceName', 'MovieTitleOriginal', 'PersonNameEn', 'ImagePath', 'ServicePathPath', 'TagName', 'VideoPath'].forEach(function (x) { return Fields[x] = x; });
+                ['HistoryId', 'UserName', 'Message', 'EventDataTime', 'Status', 'CastId', 'CountryId', 'GenreId', 'ServiceId', 'MovieId', 'PersonId', 'ImageId', 'MovieCountryId', 'ServicePathId', 'ServiceRatingId', 'MovieTagId', 'TagId', 'VideoId', 'MovieGenreId'].forEach(function (x) { return Fields[x] = x; });
             })(HistoryRow = Movie.HistoryRow || (Movie.HistoryRow = {}));
         })(Movie = Movie_54.Movie || (Movie_54.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));

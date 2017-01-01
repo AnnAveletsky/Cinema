@@ -17,8 +17,8 @@ namespace Cinema.Movie.Movie.Columns
         public Int64 HistoryId { get; set; }
         [EditLink]
         public String UserName { get; set; }
-        public DateTime? EventDataTime { get; set; }
         public String Message { get; set; }
+        public DateTime EventDataTime { get; set; }
         public Boolean Status { get; set; }
         public Int64 CastId { get; set; }
         public Int32 CountryId { get; set; }

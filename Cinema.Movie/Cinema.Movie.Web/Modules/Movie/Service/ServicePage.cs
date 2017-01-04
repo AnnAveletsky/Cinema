@@ -6,11 +6,9 @@
     using Serenity.Services;
     using Serenity.Web;
     using System;
-    using System.Collections.Generic;
     using System.Net.Http;
     using System.Web.Mvc;
     using Services = Repositories.ServiceRepository;
-    using Movies = MovieController;
     using System.Threading.Tasks;
     using Histories = HistoryController;
 
@@ -43,23 +41,25 @@
             {
                 return new SaveResponse() { EntityId = searchServices.Find(i => i.Name.Contains(request.Entity.Name)).ServiceId};
             }
+            SaveResponse result = null;
             using (var connection = SqlConnections.NewFor<ServiceRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                var result = new Services().Create(uow, request);
+                result = new Services().Create(uow, request);
                 uow.Commit();
-                Histories.Create(new SaveRequest<HistoryRow>()
-                {
-                    Entity = new HistoryRow()
-                    {
-                        Status = true,
-                        Message = "Add Service",
-                        UserName = Authorization.Username,
-                        ServiceId= (Int16)result.EntityId
-                    }
-                });
-                return result;
+                connection.Close();
             }
+            Histories.Create(new SaveRequest<HistoryRow>()
+            {
+                Entity = new HistoryRow()
+                {
+                    Status = true,
+                    Message = "Add Service",
+                    UserName = Authorization.Username,
+                    ServiceId = Int16.Parse(result.EntityId.ToString())
+                }
+            });
+            return result;
         }
         public async Task<string> GetMovies(Int16 id)
         {

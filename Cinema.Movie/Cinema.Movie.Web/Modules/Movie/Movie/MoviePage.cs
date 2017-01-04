@@ -82,6 +82,7 @@ namespace Cinema.Movie.Movie.Pages
         [PageAuthorize("Administration")]
         public static SaveResponse CreateUpdate(SaveRequest<MovieRow> request,SaveRequest<ServiceRatingRow> serviceRating)
         {
+            SaveResponse response = null;
             ListResponse<MovieRow> movies = null;
             using (var connection = SqlConnections.NewFor<MovieRow>())
             {
@@ -100,24 +101,25 @@ namespace Cinema.Movie.Movie.Pages
                     using (var uow = new UnitOfWork(connection))
                     {
                         request.Entity.MovieId = movie.MovieId;
-                        var result = new Movies().Update(uow, new SaveRequest<MovieRow>()
+                        response = new Movies().Update(uow, new SaveRequest<MovieRow>()
                         {
                             EntityId = movie.MovieId,
                             Entity = request.Entity
                         });
                         uow.Commit();
-                        Histories.Create(new SaveRequest<HistoryRow>()
-                        {
-                            Entity = new HistoryRow()
-                            {
-                                Status = true,
-                                Message = "Update Movie",
-                                UserName = Authorization.Username,
-                                MovieId = movie.MovieId,
-                            }
-                        });
-                        return result;
+                        connection.Close();
                     }
+                    Histories.Create(new SaveRequest<HistoryRow>()
+                    {
+                        Entity = new HistoryRow()
+                        {
+                            Status = true,
+                            Message = "Update Movie",
+                            UserName = Authorization.Username,
+                            MovieId = movie.MovieId,
+                        }
+                    });
+                    return response;
                 }
             }
             if (serviceRating.Entity.Id != null)
@@ -132,42 +134,43 @@ namespace Cinema.Movie.Movie.Pages
                         using (var uow = new UnitOfWork(connection))
                         {
                             request.Entity.MovieId = movie.MovieId;
-                            var result = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
+                            response = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
                             uow.Commit();
-                            Histories.Create(new SaveRequest<HistoryRow>()
-                            {
-                                Entity = new HistoryRow()
-                                {
-                                    Status = true,
-                                    Message = "Update Movie",
-                                    UserName = Authorization.Username,
-                                    MovieId = movie.MovieId,
-                                    ServiceRatingId= (Int64)serviceRating.EntityId
-                                }
-                            });
-                            return result;
+                            connection.Close();
                         }
+                        Histories.Create(new SaveRequest<HistoryRow>()
+                        {
+                            Entity = new HistoryRow()
+                            {
+                                Status = true,
+                                Message = "Update Movie",
+                                UserName = Authorization.Username,
+                                MovieId = movie.MovieId,
+                                ServiceRatingId = (Int64)serviceRating.EntityId
+                            }
+                        });
+                        return response;
                     }
                 }
             }
             using (var connection = SqlConnections.NewFor<MovieRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                var response = new Movies().Create(uow, request);
+                response = new Movies().Create(uow, request);
                 uow.Commit();
                 connection.Close();
-                Histories.Create(new SaveRequest<HistoryRow>()
-                {
-                    Entity = new HistoryRow()
-                    {
-                        Status = true,
-                        Message = "Add Movie",
-                        UserName = Authorization.Username,
-                        MovieId=(Int64)response.EntityId,
-                    }
-                });
-                return response;
             }
+            Histories.Create(new SaveRequest<HistoryRow>()
+            {
+                Entity = new HistoryRow()
+                {
+                    Status = true,
+                    Message = "Add Movie",
+                    UserName = Authorization.Username,
+                    MovieId = (Int64)response.EntityId,
+                }
+            });
+            return response;
         }
     }
 }

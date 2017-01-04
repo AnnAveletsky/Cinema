@@ -45,10 +45,10 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.Url[this] = value; }
         }
         [DisplayName("Description"), Size(10000)]
-        public String Description
+        public String[] Description
         {
-            get { return Fields.Description[this]; }
-            set { Fields.Description[this] = value; }
+            get { return !String.IsNullOrWhiteSpace(Fields.Description[this])?Fields.Description[this].Split(new[] { "<br>", "<br />" }, StringSplitOptions.None):new string[0]; }
+            set { Fields.Description[this] =String.Join("<br>", value); }
         }
 
         [DisplayName("Year Start")]

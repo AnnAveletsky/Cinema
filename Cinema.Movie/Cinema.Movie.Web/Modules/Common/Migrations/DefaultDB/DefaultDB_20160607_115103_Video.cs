@@ -23,8 +23,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("ActualPublishDateTime").AsDateTime().Nullable()
                 .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_Video_MovieId", "mov", "Movie", "MovieId")
-                .WithColumn("ServiceId").AsInt16()
-                    .ForeignKey("FK_Video_ServiceId", "mov", "Service", "ServiceId").Nullable();
+                .WithColumn("ServiceId").AsInt16().Nullable()
+                    .ForeignKey("FK_Video_ServiceId", "mov", "Service", "ServiceId");
             
         }
         public override void Down()

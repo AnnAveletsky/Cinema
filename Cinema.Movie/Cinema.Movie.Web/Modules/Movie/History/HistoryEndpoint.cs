@@ -38,6 +38,7 @@ namespace Cinema.Movie.Movie.Endpoints
 
         public ListResponse<MyRow> List(IDbConnection connection, ListRequest request)
         {
+            request.Sort = new[] { new SortBy("HistoryId", true) };
             return new MyRepository().List(connection, request);
         }
     }

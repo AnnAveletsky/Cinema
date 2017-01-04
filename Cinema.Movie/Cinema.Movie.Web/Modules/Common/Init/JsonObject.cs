@@ -76,13 +76,13 @@ namespace Cinema.Movie.Common.Init
                             Movie.Url = Translit.GetTranslit(name);
                         }
                     }
-                    if (Movie.Url == null || Movie.Url == "")
+                    if (String.IsNullOrWhiteSpace(Movie.Url))
                     {
                         Movie.Url = kinopoisk_id;
                     }
                     Movie.Url += '-' + year;
-                    Movie.PathImage = poster_big == null ? poster_small : poster_big;
-                    Movie.Description = description;
+                    Movie.PathImage = String.IsNullOrWhiteSpace(poster_big) ? poster_small : poster_big;
+                    Movie.Description =new string[] { description };
                     Movie.Runtime = time;
                     return Movie;
                 }
@@ -104,7 +104,7 @@ namespace Cinema.Movie.Common.Init
                     url = player;
                 }
                 Video.Path = url;
-                Video.Translation = sub_type != null ? Int16.Parse(sub_type) : (Int16)0;
+                Video.Translation = sub_type != null&&sub_type!="" ? Int16.Parse(sub_type) : (Int16)0;
                 return Video;
             }
             catch (Exception e)

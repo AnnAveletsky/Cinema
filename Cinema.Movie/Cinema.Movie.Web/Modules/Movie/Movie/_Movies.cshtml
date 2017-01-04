@@ -25,7 +25,7 @@
                     if (i <= (int)ViewData["Page"] + count && i >= (int)ViewData["Page"] - count)
                     {
                         <li class="@(i == (int)ViewData["Page"] ? "active" : "")">
-                            <a href="@(i == (int)ViewData["Page"] ? "" : "/?page="+i+"&&count="+(int)ViewData["Count"])">@i</a>
+                            <a href="@(i == (int)ViewData["Page"] ? "#" : "/?page="+i+"&&count="+(int)ViewData["Count"])">@i</a>
                         </li>
                     }
                 }

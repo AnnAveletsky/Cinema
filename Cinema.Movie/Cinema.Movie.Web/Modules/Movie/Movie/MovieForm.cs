@@ -17,7 +17,7 @@ namespace Cinema.Movie.Movie.Forms
         public String TitleOriginal { get; set; }
         public String TitleTranslation { get; set; }
         public String Url { get; set; }
-        public String Description { get; set; }
+        public String[] Description { get; set; }
         public Int16 YearStart { get; set; }
         public Int16 YearEnd { get; set; }
         public DateTime ReleaseWorldDate { get; set; }

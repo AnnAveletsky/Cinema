@@ -6717,6 +6717,18 @@ body {
   color: #000;
   -ms-overflow-style: scrollbar;
 }
+.no-padding-left {
+  padding-left: 0;
+}
+.no-padding-right {
+  padding-right: 0;
+}
+.no-padding-top {
+  padding-top: 0;
+}
+.no-padding-bottom {
+  padding-bottom: 0;
+}
 .uppercase {
   text-transform: uppercase;
 }

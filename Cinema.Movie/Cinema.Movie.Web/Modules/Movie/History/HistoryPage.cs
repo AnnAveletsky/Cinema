@@ -21,14 +21,11 @@ namespace Cinema.Movie.Movie.Pages
         public static SaveResponse Create(SaveRequest<HistoryRow> request)
         {
             using (var connection = SqlConnections.NewFor<ServiceRow>())
+            using (var uow = new UnitOfWork(connection))
             {
-                using (var uow = new UnitOfWork(connection))
-                {
-                    var result = new Histories().Create(uow, request);
-                    uow.Commit();
-
-                    return result;
-                }
+                var result = new Histories().Create(uow, request);
+                uow.Commit();
+                return result;
             }
         }
     }

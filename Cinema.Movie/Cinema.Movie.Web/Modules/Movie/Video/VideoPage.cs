@@ -28,23 +28,25 @@
         }
         public static SaveResponse Create(SaveRequest<VideoRow> request)
         {
+            SaveResponse result = null;
             using (var connection = SqlConnections.NewFor<VideoRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                var result = new Videos().Create(uow, request);
+                result = new Videos().Create(uow, request);
                 uow.Commit();
-                Histories.Create(new SaveRequest<HistoryRow>()
-                {
-                    Entity = new HistoryRow()
-                    {
-                        Status = true,
-                        Message = "Add Video",
-                        UserName = Authorization.Username,
-                        VideoId = (Int64)result.EntityId,
-                    }
-                });
-                return result;
+                connection.Close();
             }
+            Histories.Create(new SaveRequest<HistoryRow>()
+            {
+                Entity = new HistoryRow()
+                {
+                    Status = true,
+                    Message = "Add Video",
+                    UserName = Authorization.Username,
+                    VideoId = (Int64)result.EntityId,
+                }
+            });
+            return result;
         }
     }
 }

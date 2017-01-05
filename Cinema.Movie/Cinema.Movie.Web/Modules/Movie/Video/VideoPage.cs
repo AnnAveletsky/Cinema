@@ -26,6 +26,7 @@
                 return new Videos().List(connection, listRequest).Entities;
             }
         }
+        [PageAuthorize("Administration")]
         public static SaveResponse Create(SaveRequest<VideoRow> request)
         {
             SaveResponse result = null;

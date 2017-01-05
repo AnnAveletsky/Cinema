@@ -79,8 +79,37 @@ namespace Cinema.Movie.Movie.Pages
                 return movie;
             }
         }
+        public static SaveResponse Update(SaveRequest<MovieRow> request,MovieRow movie)
+        {
+            SaveResponse response = null;
+            using (var connection = SqlConnections.NewFor<MovieRow>())
+            using (var uow = new UnitOfWork(connection))
+            {
+                request.Entity.MovieId = movie.MovieId;
+                response = new Movies().Update(uow, new SaveRequest<MovieRow>()
+                {
+                    EntityId = movie.MovieId,
+                    Entity = request.Entity
+                });
+                uow.Commit();
+                connection.Close();
+            }
+            return response;
+        }
+        public static SaveResponse Create(SaveRequest<MovieRow> request)
+        {
+            SaveResponse response = null;
+            using (var connection = SqlConnections.NewFor<MovieRow>())
+            using (var uow = new UnitOfWork(connection))
+            {
+                response = new Movies().Create(uow, request);
+                uow.Commit();
+                connection.Close();
+            }
+            return response;
+        }
         [PageAuthorize("Administration")]
-        public static SaveResponse CreateUpdate(SaveRequest<MovieRow> request,SaveRequest<ServiceRatingRow> serviceRating)
+        public static SaveResponse CreateUpdate(SaveRequest<MovieRow> request, SaveRequest<ServiceRatingRow> serviceRating)
         {
             SaveResponse response = null;
             ListResponse<MovieRow> movies = null;
@@ -97,18 +126,7 @@ namespace Cinema.Movie.Movie.Pages
                 var movie = movies.Entities.Find(i => i.TitleOriginal.Contains(request.Entity.TitleOriginal) && i.YearEnd == request.Entity.YearEnd);
                 if (movie != null)
                 {
-                    using (var connection = SqlConnections.NewFor<MovieRow>())
-                    using (var uow = new UnitOfWork(connection))
-                    {
-                        request.Entity.MovieId = movie.MovieId;
-                        response = new Movies().Update(uow, new SaveRequest<MovieRow>()
-                        {
-                            EntityId = movie.MovieId,
-                            Entity = request.Entity
-                        });
-                        uow.Commit();
-                        connection.Close();
-                    }
+                    response = Update(request, movie);
                     Histories.Create(new SaveRequest<HistoryRow>()
                     {
                         Entity = new HistoryRow()
@@ -130,14 +148,7 @@ namespace Cinema.Movie.Movie.Pages
                     var movie = movies.Entities.Find(i => i.MovieId == serviceRatings.Entities.Find(j => j.Id != null && j.Id == serviceRating.Entity.Id).MovieId);
                     if (movie != null)
                     {
-                        using (var connection = SqlConnections.NewFor<MovieRow>())
-                        using (var uow = new UnitOfWork(connection))
-                        {
-                            request.Entity.MovieId = movie.MovieId;
-                            response = new Movies().Update(uow, new SaveRequest<MovieRow>() { EntityId = movie.MovieId, Entity = request.Entity });
-                            uow.Commit();
-                            connection.Close();
-                        }
+                        response = Update(request, movie);
                         Histories.Create(new SaveRequest<HistoryRow>()
                         {
                             Entity = new HistoryRow()
@@ -153,13 +164,7 @@ namespace Cinema.Movie.Movie.Pages
                     }
                 }
             }
-            using (var connection = SqlConnections.NewFor<MovieRow>())
-            using (var uow = new UnitOfWork(connection))
-            {
-                response = new Movies().Create(uow, request);
-                uow.Commit();
-                connection.Close();
-            }
+            response = Create(request);
             Histories.Create(new SaveRequest<HistoryRow>()
             {
                 Entity = new HistoryRow()

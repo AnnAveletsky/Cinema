@@ -94,6 +94,21 @@ namespace Cinema.Movie.Common.Init
             }
             
         }
+        public List<GenreRow> ToGenres()
+        {
+            List<GenreRow> result = new List<GenreRow>();
+            foreach (var i in genre.Split(new[] { ", " }, StringSplitOptions.None))
+            {
+                if (!String.IsNullOrWhiteSpace(i) && i != "-")
+                {
+                    result.Add(new GenreRow()
+                    {
+                        Name = String.Concat(i[0].ToString().ToUpper(), i.Substring(1).ToLower())
+                    });
+                }
+            }
+            return result;
+        }
         public VideoRow ToVideo()
         {
             try

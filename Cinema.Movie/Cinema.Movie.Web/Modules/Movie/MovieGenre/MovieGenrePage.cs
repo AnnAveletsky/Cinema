@@ -25,14 +25,14 @@ namespace Cinema.Movie.Movie.Pages
             SaveResponse result = null;
             using (var connection = SqlConnections.NewFor<MovieGenreRow>())
             {
-                var genre = new MovieGenres().List(connection,
+                var movieGenre = new MovieGenres().List(connection,
                     new ListRequest()).Entities.Find(i => i.GenreId == request.Entity.GenreId && i.MovieId == request.Entity.MovieId);
 
-                if (genre != null)
+                if (movieGenre != null)
                 {
                     return new SaveResponse()
                     {
-                        EntityId = genre.MovieGenreId
+                        EntityId = movieGenre.MovieGenreId
                     };
                 }
             }

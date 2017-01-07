@@ -24,11 +24,17 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.CastId[this] = value; }
         }
 
-        [DisplayName("Character"), Size(50), NotNull, QuickSearch]
-        public String Character
+        [DisplayName("CharacterEn"), Size(100), NotNull, QuickSearch]
+        public String CharacterEn
         {
-            get { return Fields.Character[this]; }
-            set { Fields.Character[this] = value; }
+            get { return Fields.CharacterEn[this]; }
+            set { Fields.CharacterEn[this] = value; }
+        }
+        [DisplayName("CharacterOther"), Size(100), NotNull, QuickSearch]
+        public String CharacterOther
+        {
+            get { return Fields.CharacterOther[this]; }
+            set { Fields.CharacterOther[this] = value; }
         }
 
         [DisplayName("Movie"), NotNull, ForeignKey("[mov].[Movie]", "MovieId"), LeftJoin("jMovie"), TextualField("TitleOriginal")]
@@ -39,7 +45,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MovieId[this] = value; }
         }
 
-        [DisplayName("Person"), NotNull, ForeignKey("[mov].[Person]", "PersonId"), LeftJoin("jPerson"), TextualField("PersonNameEn")]
+        [DisplayName("Person"), NotNull, ForeignKey("[mov].[Person]", "PersonId"), LeftJoin("jPerson"), TextualField("PersonName")]
         [LookupEditor(typeof(PersonRow))]
         public Int64? PersonId
         {
@@ -80,18 +86,18 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.MoviePathImage[this]; }
             set { Fields.MoviePathImage[this] = value; }
         }
-        [DisplayName("Person Name En"), Expression("jPerson.[NameEn]")]
-        public String PersonNameEn
+        [DisplayName("Person Name"), Expression("jPerson.[Name]")]
+        public String PersonName
         {
-            get { return Fields.PersonNameEn[this]; }
-            set { Fields.PersonNameEn[this] = value; }
+            get { return Fields.PersonName[this]; }
+            set { Fields.PersonName[this] = value; }
         }
 
-        [DisplayName("Person Full Name En"), Expression("jPerson.[FullNameEn]")]
-        public String PersonFullNameEn
+        [DisplayName("Person Full Name"), Expression("jPerson.[FullName]")]
+        public String PersonFullName
         {
-            get { return Fields.PersonFullNameEn[this]; }
-            set { Fields.PersonFullNameEn[this] = value; }
+            get { return Fields.PersonFullName[this]; }
+            set { Fields.PersonFullName[this] = value; }
         }
         
         [DisplayName("Person Name Other"), Expression("jPerson.[NameOther]")]
@@ -150,7 +156,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.Character; }
+            get { return Fields.CharacterEn; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -163,7 +169,8 @@ namespace Cinema.Movie.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int64Field CastId;
-            public StringField Character;
+            public StringField CharacterEn;
+            public StringField CharacterOther;
             public Int64Field MovieId;
             public Int64Field PersonId;
 
@@ -173,8 +180,8 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field MovieYearEnd;
             public StringField MoviePathImage;
 
-            public StringField PersonNameEn;
-            public StringField PersonFullNameEn;
+            public StringField PersonName;
+            public StringField PersonFullName;
             public StringField PersonNameOther;
             public StringField PersonFullNameOther;
             public DateTimeField PersonBirthDate;

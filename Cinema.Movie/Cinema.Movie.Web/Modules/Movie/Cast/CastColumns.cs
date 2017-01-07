@@ -16,13 +16,15 @@ namespace Cinema.Movie.Movie.Columns
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int64 CastId { get; set; }
         [EditLink]
-        public String Character { get; set; }
+        public String CharacterEn { get; set; }
+        [EditLink]
+        public String CharacterOther { get; set; }
         public Int64 MovieId { get; set; }
         [EditLink, Width(200)]
         public String MovieTitleOriginal { get; set; }
         public Int64 PersonId { get; set; }
         [EditLink, Width(200)]
-        public String PersonNameEn { get; set; }
+        public String PersonName { get; set; }
         public String PersonNameOther { get; set; }
     }
 }

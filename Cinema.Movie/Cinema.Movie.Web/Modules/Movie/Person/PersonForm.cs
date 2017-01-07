@@ -14,8 +14,8 @@ namespace Cinema.Movie.Movie.Forms
     [BasedOnRow(typeof(Entities.PersonRow))]
     public class PersonForm
     {
-        public String NameEn { get; set; }
-        public String FullNameEn { get; set; }
+        public String Name { get; set; }
+        public String FullName { get; set; }
         public String NameOther { get; set; }
         public String FullNameOther { get; set; }
         public DateTime BirthDate { get; set; }

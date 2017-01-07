@@ -18,7 +18,7 @@ namespace Cinema.Movie.Movie.Pages
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
     {
-        public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonNameEn", "PersonNameOther" };
+        public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonName", "PersonNameOther" };
         public static HashSet<string> IncludeColumnsServiceRating = new HashSet<string> { "ServiceName" };
         public static SortBy[] Sort = new[] { new SortBy("Character") };
         [PageAuthorize("Administration")]

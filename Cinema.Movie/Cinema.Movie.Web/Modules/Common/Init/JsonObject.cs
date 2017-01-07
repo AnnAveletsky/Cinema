@@ -4,6 +4,7 @@ using Serenity.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -105,6 +106,123 @@ namespace Cinema.Movie.Common.Init
                     {
                         Name = String.Concat(i[0].ToString().ToUpper(), i.Substring(1).ToLower())
                     });
+                }
+            }
+            return result;
+        }
+        public List<CountryRow> ToCountries()
+        {
+            List<CountryRow> result = new List<CountryRow>();
+            foreach (var i in country.Split(new[] { ", " }, StringSplitOptions.None))
+            {
+                if (!String.IsNullOrWhiteSpace(i) && i != "-")
+                {
+                    result.Add(new CountryRow()
+                    {
+                        Name = String.Concat(i)
+                    });
+                }
+            }
+            return result;
+        }
+        public List<CastRow> ToCast(SaveResponse movie, PersonRow person)
+        {
+            List<CastRow> casts = new List<CastRow>(); 
+            if (actors.Contains(person.Name)|| !String.IsNullOrWhiteSpace(person.NameOther) && actors.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Actors",
+                    CharacterOther = "Актёры",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (director.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther)&& director.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Director",
+                    CharacterOther = "Режисёры",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (screenwriter.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && screenwriter.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Screenwriter",
+                    CharacterOther = "Сценаристы",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (producer.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && producer.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Producer",
+                    CharacterOther = "Продюсеры",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (Operator.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && Operator.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Operator",
+                    CharacterOther = "Орераторы",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (design.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && design.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Design",
+                    CharacterOther = "Дизайнеры",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (editor.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && editor.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Editor",
+                    CharacterOther = "Редакторы",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            if (composer.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && composer.Contains(person.NameOther))
+            {
+                casts.Add(new CastRow()
+                {
+                    CharacterEn = "Composer",
+                    CharacterOther = "Композиторы",
+                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    PersonId = person.PersonId
+                });
+            }
+            return casts;
+        }
+        public List<PersonRow> ToPersons()
+        {
+            List<PersonRow> result = new List<PersonRow>();
+            string persons = actors+", "+ director+ ", "+ screenwriter+ ", "+ producer+ ", "+ Operator+ ", "+ design+ ", " + editor+ ", " + composer;
+            foreach (var i in persons.Split(new[] { ", " }, StringSplitOptions.None))
+            {
+                if (!String.IsNullOrWhiteSpace(i) && i != "-")
+                {
+                        result.Add(new PersonRow()
+                        {
+                            Name = i
+                        });
+                    
                 }
             }
             return result;

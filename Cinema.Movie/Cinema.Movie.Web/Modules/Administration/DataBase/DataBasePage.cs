@@ -13,9 +13,12 @@
     using ServicesRatings = Movie.Pages.ServiceRatingController;
     using Histories = Movie.Pages.HistoryController;
     using Genres = Movie.Pages.GenreController;
+    using Countries = Movie.Pages.CountryController;
+    using MovieCountries = Movie.Pages.MovieCountryController;
+    using Persons = Movie.Pages.PersonController;
+    using Casts = Movie.Pages.CastController;
     using Movie.Entities;
     using Serenity.Services;
-    using System.Threading.Tasks;
     using Newtonsoft.Json;
     using System.Web.Hosting;
     using System.IO;
@@ -174,7 +177,19 @@
                         {
                             Entity = item.ToServiceRating(service)
                         },
-                        item.ToGenres());
+                        item.ToGenres(),
+                        item.ToCountries());
+                foreach (var i in item.ToPersons())
+                {
+                    i.PersonId = Int64.Parse(Persons.CreateUpdate(new SaveRequest<PersonRow>() { Entity = i }).EntityId.ToString());
+                    foreach (var j in item.ToCast(res, i))
+                    {
+                        Casts.CreateUpdate(new SaveRequest<CastRow>()
+                        {
+                            Entity = j
+                        });
+                    }
+                }
                 if (res.Error != null)
                 {
                     Histories.Create(new SaveRequest<HistoryRow>()
@@ -202,7 +217,7 @@
             }
         }
         [PageAuthorize("Administration")]
-        public static SaveResponse CreateMovieVideo(string username, SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video, SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating, List<GenreRow> genres)
+        public static SaveResponse CreateMovieVideo(string username, SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video, SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating, List<GenreRow> genres,List<CountryRow> countries)
         {
             if (movie == null || video == null || serviceKinopoisk == null || service == null || serviceRating == null)
             {
@@ -223,20 +238,40 @@
             {
                 return new SaveResponse() { Error = new ServiceError() { Message = e.Message } };
             }
-            for (int i = 0; i < genres.Count; i++)
+            foreach (var i in genres)
             {
                 try
                 {
-                    var genre = Genres.CreateUpdate(new SaveRequest<GenreRow>()
-                    {
-                        Entity = genres[i]
-                    });
                     MovieGenres.CreateUpdate(new SaveRequest<MovieGenreRow>()
                     {
                         Entity = new MovieGenreRow()
                         {
                             MovieId = Int64.Parse(response.EntityId.ToString()),
-                            GenreId = Int16.Parse(genre.EntityId.ToString())
+                            GenreId = Int16.Parse(Genres.CreateUpdate(new SaveRequest<GenreRow>()
+                            {
+                                Entity = i
+                            }).EntityId.ToString())
+                        }
+                    });
+                }
+                catch (Exception e)
+                {
+                    return new SaveResponse() { Error = new ServiceError() { Message = e.Message } };
+                }
+            }
+            foreach (var j in countries)
+            {
+                try
+                {
+                    MovieCountries.CreateUpdate(new SaveRequest<MovieCountryRow>()
+                    {
+                        Entity = new MovieCountryRow()
+                        {
+                            MovieId = Int64.Parse(response.EntityId.ToString()),
+                            CountryId = Int16.Parse(Countries.CreateUpdate(new SaveRequest<CountryRow>()
+                            {
+                                Entity = j
+                            }).EntityId.ToString())
                         }
                     });
                 }
@@ -247,5 +282,6 @@
             }
             return response;
         }
+        
     }
 }

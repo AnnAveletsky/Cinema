@@ -25,15 +25,15 @@ namespace Cinema.Movie.Migrations.DefaultDB
 
             Create.Table("Person").InSchema("mov")
                .WithColumn("PersonId").AsInt64().Identity().PrimaryKey().NotNullable()
-               .WithColumn("NameEn").AsString(100).NotNullable()
-               .WithColumn("FullNameEn").AsString(100).Nullable()
+               .WithColumn("Name").AsString(100).NotNullable()
+               .WithColumn("FullName").AsString(100).Nullable()
                .WithColumn("NameOther").AsString(100).Nullable()
                .WithColumn("FullNameOther").AsString(100).Nullable()
-               .WithColumn("BirthDate").AsDate().NotNullable()
+               .WithColumn("BirthDate").AsDate().Nullable()
                .WithColumn("DeathDate").AsDate().Nullable()
-               .WithColumn("Gender").AsInt16().NotNullable()
+               .WithColumn("Gender").AsInt16().Nullable()
                .WithColumn("About").AsString(1400).Nullable()
-               .WithColumn("PathImage").AsString(300).NotNullable();
+               .WithColumn("PathImage").AsString(300).Nullable();
         }
         public override void Down()
         {

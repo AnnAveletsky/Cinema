@@ -1576,6 +1576,7 @@
     <Content Include="Modules\Movie\Country\CountryIndex.cshtml" />
     <Content Include="Modules\Movie\History\HistoryIndex.cshtml" />
     <Content Include="Modules\Movie\MovieGenre\MovieGenreIndex.cshtml" />
+    <Content Include="Modules\Movie\MovieCountry\MovieCountryIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2122,6 +2123,8 @@
     <Compile Include="Modules\Movie\History\HistoryPage.cs" />
     <Compile Include="Modules\Movie\History\HistoryRepository.cs" />
     <Compile Include="Modules\Movie\History\HistoryRow.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryPage.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryRepository.cs" />
     <Compile Include="Modules\Movie\MovieCountry\MovieCountryRow.cs" />
     <Compile Include="Modules\Movie\MovieGenre\MovieGenrePage.cs" />
     <Compile Include="Modules\Movie\MovieGenre\MovieGenreRepository.cs" />

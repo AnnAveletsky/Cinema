@@ -17,8 +17,8 @@ namespace Cinema.Movie.Movie.Columns
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int64 PersonId { get; set; }
         [EditLink]
-        public String NameEn { get; set; }
-        public String FullNameEn { get; set; }
+        public String Name { get; set; }
+        public String FullName { get; set; }
         public String NameOther { get; set; }
         public String FullNameOther { get; set; }
         public DateTime BirthDate { get; set; }

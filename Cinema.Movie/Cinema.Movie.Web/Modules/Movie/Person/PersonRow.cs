@@ -24,18 +24,18 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PersonId[this] = value; }
         }
 
-        [DisplayName("NameEn"), Size(100), NotNull, QuickSearch]
-        public String NameEn
+        [DisplayName("Name"), Size(100), NotNull, QuickSearch]
+        public String Name
         {
-            get { return Fields.NameEn[this]; }
-            set { Fields.NameEn[this] = value; }
+            get { return Fields.Name[this]; }
+            set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("FullNameEn"), Size(100), NotNull, QuickSearch]
-        public String FullNameEn
+        [DisplayName("FullName"), Size(100), QuickSearch]
+        public String FullName
         {
-            get { return Fields.FullNameEn[this]; }
-            set { Fields.FullNameEn[this] = value; }
+            get { return Fields.FullName[this]; }
+            set { Fields.FullName[this] = value; }
         }
 
         [DisplayName("NameOther"), Size(100), QuickSearch]
@@ -51,7 +51,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.FullNameOther[this] = value; }
         }
 
-        [DisplayName("Birth Date"), NotNull]
+        [DisplayName("Birth Date")]
         public DateTime? BirthDate
         {
             get { return Fields.BirthDate[this]; }
@@ -65,7 +65,7 @@ namespace Cinema.Movie.Movie.Entities
         }
 
 
-        [DisplayName("Gender"), NotNull, DefaultValue(Movie.Gender.Male)]
+        [DisplayName("Gender"), DefaultValue(Movie.Gender.Male)]
         public Movie.Gender? Gender
         {
             get { return (Movie.Gender?)Fields.Gender[this]; }
@@ -93,7 +93,7 @@ namespace Cinema.Movie.Movie.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.NameEn; }
+            get { return Fields.Name; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -106,8 +106,8 @@ namespace Cinema.Movie.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int64Field PersonId;
-            public StringField NameEn;
-            public StringField FullNameEn;
+            public StringField Name;
+            public StringField FullName;
             public StringField NameOther;
             public StringField FullNameOther;
             public DateTimeField BirthDate;

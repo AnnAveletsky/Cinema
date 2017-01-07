@@ -197,7 +197,7 @@
                         Entity = new HistoryRow()
                         {
                             Status = false,
-                            Message = res.Error.Message + " " + item.ToJson(),
+                            Message = "Fail create communication" + res.Error.Message + " " + item.ToJson(),
                             UserName = username
                         }
                     });
@@ -209,7 +209,7 @@
                         Entity = new HistoryRow()
                         {
                             Status = true,
-                            Message = "id=" + res.EntityId + ", movie=" + item.ToString(),
+                            Message = "Create communication id =" + res.EntityId + ", movie=" + item.ToString(),
                             UserName = username,
                         }
                     });
@@ -221,7 +221,7 @@
         {
             if (movie == null || video == null || serviceKinopoisk == null || service == null || serviceRating == null)
             {
-                return new SaveResponse() { Error = new ServiceError() { Message = "null object" } };
+                return new SaveResponse() { Error = new ServiceError() { Message = "CreateMovieVideo null object" } };
             }
             SaveResponse response = null;
             try
@@ -236,7 +236,7 @@
             }
             catch (Exception e)
             {
-                return new SaveResponse() { Error = new ServiceError() { Message = e.Message } };
+                return new SaveResponse() { Error = new ServiceError() { Message = "CreateMovieVideo"+e.Message } };
             }
             foreach (var i in genres)
             {
@@ -256,7 +256,7 @@
                 }
                 catch (Exception e)
                 {
-                    return new SaveResponse() { Error = new ServiceError() { Message = e.Message } };
+                    return new SaveResponse() { Error = new ServiceError() { Message = "CreateMovieVideo Genres" + e.Message } };
                 }
             }
             foreach (var j in countries)
@@ -277,7 +277,7 @@
                 }
                 catch (Exception e)
                 {
-                    return new SaveResponse() { Error = new ServiceError() { Message = e.Message } };
+                    return new SaveResponse() { Error = new ServiceError() { Message = "CreateMovieVideo Countries" + e.Message } };
                 }
             }
             return response;

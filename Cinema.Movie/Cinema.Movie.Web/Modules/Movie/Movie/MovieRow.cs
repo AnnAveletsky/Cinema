@@ -230,6 +230,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.CountryListName[this] = value; }
         }
         public List<CastRow> CastList { get; set; }
+        public SortedList<string,List<CastRow>> CastSortList { get; set; }
         public List<VideoRow> VideoList { get; set; }
         public List<ServiceRatingRow> ServiceRatingList { get; set; }
 

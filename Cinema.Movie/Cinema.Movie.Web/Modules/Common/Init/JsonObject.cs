@@ -45,21 +45,21 @@ namespace Cinema.Movie.Common.Init
             {
                 MovieRow Movie = new MovieRow();
                 Movie.Kind = movieKind;
-                if (year != "" && (title_en != null || name_eng != null || title_ru != null || name != null))
+                if (!String.IsNullOrWhiteSpace(year) && (!String.IsNullOrWhiteSpace(title_en) || !String.IsNullOrWhiteSpace(name_eng) || !String.IsNullOrWhiteSpace(title_ru) || !String.IsNullOrWhiteSpace(name)))
                 {
                     Movie.YearEnd = Int16.Parse(year);
                     Movie.YearStart = Int16.Parse(year);
 
-                    if (title_en != null)
+                    if (!String.IsNullOrWhiteSpace(title_en))
                     {
                         name_eng = title_en;
                     }
-                    if (title_ru != null)
+                    if (!String.IsNullOrWhiteSpace(title_ru))
                     {
                         name = title_ru;
                     }
 
-                    if (name_eng == null || name_eng == "" || name_eng == name)
+                    if (String.IsNullOrWhiteSpace(name_eng)|| name_eng == name)
                     {
                         Movie.TitleOriginal = name;
                         Movie.Url = Translit.GetTranslit(name);
@@ -68,7 +68,7 @@ namespace Cinema.Movie.Common.Init
                     {
                         Movie.TitleOriginal = name_eng;
                         Movie.TitleTranslation = name;
-                        if (name == null || name == "")
+                        if (String.IsNullOrWhiteSpace(name))
                         {
                             Movie.Url = Translit.GetUrl(name_eng);
                         }
@@ -77,14 +77,27 @@ namespace Cinema.Movie.Common.Init
                             Movie.Url = Translit.GetTranslit(name);
                         }
                     }
-                    if (String.IsNullOrWhiteSpace(Movie.Url))
+                    if (!String.IsNullOrWhiteSpace(Movie.Url))
                     {
                         Movie.Url = kinopoisk_id;
                     }
                     Movie.Url += '-' + year;
-                    Movie.PathImage = String.IsNullOrWhiteSpace(poster_big) ? poster_small : poster_big;
-                    Movie.Description =new string[] { description };
-                    Movie.Runtime = time;
+                    if (!String.IsNullOrWhiteSpace(poster_big))
+                    {
+                        Movie.PathImage = poster_big;
+                    }
+                    else if (!String.IsNullOrWhiteSpace(poster_small))
+                    {
+                        Movie.PathImage = poster_small;
+                    }
+                    if (!String.IsNullOrWhiteSpace(description))
+                    {
+                        Movie.Description = new string[] { description };
+                    }
+                    if (!String.IsNullOrWhiteSpace(time))
+                    {
+                        Movie.Runtime = time;
+                    }
                     return Movie;
                 }
                 return null;
@@ -98,14 +111,17 @@ namespace Cinema.Movie.Common.Init
         public List<GenreRow> ToGenres()
         {
             List<GenreRow> result = new List<GenreRow>();
-            foreach (var i in genre.Split(new[] { ", " }, StringSplitOptions.None))
+            if (!String.IsNullOrWhiteSpace(genre))
             {
-                if (!String.IsNullOrWhiteSpace(i) && i != "-")
+                foreach (var i in genre.Split(new[] { ", " }, StringSplitOptions.None))
                 {
-                    result.Add(new GenreRow()
+                    if (!String.IsNullOrWhiteSpace(i) && i != "-")
                     {
-                        Name = String.Concat(i[0].ToString().ToUpper(), i.Substring(1).ToLower())
-                    });
+                        result.Add(new GenreRow()
+                        {
+                            Name = String.Concat(i[0].ToString().ToUpper(), i.Substring(1).ToLower())
+                        });
+                    }
                 }
             }
             return result;
@@ -113,22 +129,25 @@ namespace Cinema.Movie.Common.Init
         public List<CountryRow> ToCountries()
         {
             List<CountryRow> result = new List<CountryRow>();
-            foreach (var i in country.Split(new[] { ", " }, StringSplitOptions.None))
+            if (!String.IsNullOrWhiteSpace(country))
             {
-                if (!String.IsNullOrWhiteSpace(i) && i != "-")
+                foreach (var i in country.Split(new[] { ", " }, StringSplitOptions.None))
                 {
-                    result.Add(new CountryRow()
+                    if (!String.IsNullOrWhiteSpace(i) && i != "-")
                     {
-                        Name = String.Concat(i)
-                    });
+                        result.Add(new CountryRow()
+                        {
+                            Name = String.Concat(i)
+                        });
+                    }
                 }
             }
             return result;
         }
         public List<CastRow> ToCast(SaveResponse movie, PersonRow person)
         {
-            List<CastRow> casts = new List<CastRow>(); 
-            if (actors.Contains(person.Name)|| !String.IsNullOrWhiteSpace(person.NameOther) && actors.Contains(person.NameOther))
+            List<CastRow> casts = new List<CastRow>();
+            if (!String.IsNullOrWhiteSpace(actors) && actors.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && actors.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -138,7 +157,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (director.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther)&& director.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(director) && director.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther)&& director.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -148,7 +167,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (screenwriter.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && screenwriter.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(screenwriter) && screenwriter.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && screenwriter.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -158,7 +177,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (producer.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && producer.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(producer) && producer.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && producer.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -168,7 +187,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (Operator.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && Operator.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(Operator) && Operator.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && Operator.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -178,7 +197,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (design.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && design.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(design) && design.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && design.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -188,7 +207,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (editor.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && editor.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(editor) && editor.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && editor.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {
@@ -198,7 +217,7 @@ namespace Cinema.Movie.Common.Init
                     PersonId = person.PersonId
                 });
             }
-            if (composer.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && composer.Contains(person.NameOther))
+            if (!String.IsNullOrWhiteSpace(composer) && composer.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && composer.Contains(person.NameOther))
             {
                 casts.Add(new CastRow()
                 {

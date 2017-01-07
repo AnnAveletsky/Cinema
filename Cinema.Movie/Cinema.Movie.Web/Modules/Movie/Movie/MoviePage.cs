@@ -14,13 +14,13 @@ namespace Cinema.Movie.Movie.Pages
     using ServiceRatings = ServiceRatingController;
     using Videos = VideoController;
     using Histories = HistoryController;
+    using System.Linq;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
     {
         public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonName", "PersonNameOther" };
         public static HashSet<string> IncludeColumnsServiceRating = new HashSet<string> { "ServiceName" };
-        public static SortBy[] Sort = new[] { new SortBy("Character") };
         [PageAuthorize("Administration")]
         public ActionResult Index()
         {
@@ -39,8 +39,16 @@ namespace Cinema.Movie.Movie.Pages
                         {
                             IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
-                            Sort = Sort
                         });
+                    i.CastSortList = new SortedList<string, List<CastRow>>();
+                    foreach (var j in i.CastList)
+                    {
+                        if (!i.CastSortList.Keys.Contains(j.CharacterEn))
+                        {
+                            i.CastSortList.Add(j.CharacterEn,new List<CastRow>());
+                        }
+                        i.CastSortList[j.CharacterEn].Add(j);
+                    }
                     i.ServiceRatingList = ServiceRatings.List(
                         new ListRequest()
                         {
@@ -61,8 +69,16 @@ namespace Cinema.Movie.Movie.Pages
                         {
                             IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == movie.MovieId.Value,
-                            Sort = Sort
                         });
+                movie.CastSortList = new SortedList<string,List<CastRow>>();
+                foreach (var i in movie.CastList)
+                {
+                    if (!movie.CastSortList.Keys.Contains(i.CharacterEn))
+                    {
+                        movie.CastSortList.Add(i.CharacterEn, new List<CastRow>());
+                    }
+                    movie.CastSortList[i.CharacterEn].Add(i);
+                }
                 movie.ServiceRatingList = ServiceRatings.List(
                        new ListRequest()
                        {
@@ -86,10 +102,27 @@ namespace Cinema.Movie.Movie.Pages
             using (var uow = new UnitOfWork(connection))
             {
                 request.Entity.MovieId = movie.MovieId;
+                if (String.IsNullOrWhiteSpace(movie.TitleTranslation)&& !String.IsNullOrWhiteSpace(request.Entity.TitleTranslation))
+                {
+                    movie.TitleTranslation = request.Entity.TitleTranslation;
+                }
+                if (movie.Description.Length==0 &&request.Entity.Description.Length!=0)
+                {
+                    movie.Description = request.Entity.Description;
+                }
+                if (String.IsNullOrWhiteSpace(movie.PathImage) && !String.IsNullOrWhiteSpace(request.Entity.PathImage))
+                {
+                    movie.PathImage = request.Entity.PathImage;
+                }
+                if (String.IsNullOrWhiteSpace(movie.Runtime) && !String.IsNullOrWhiteSpace(request.Entity.Runtime))
+                {
+                    movie.PathImage = request.Entity.PathImage;
+                }
+                movie.UpdateDateTime = DateTime.UtcNow;
                 response = new Movies().Update(uow, new SaveRequest<MovieRow>()
                 {
                     EntityId = movie.MovieId,
-                    Entity = request.Entity
+                    Entity = movie
                 });
                 uow.Commit();
                 connection.Close();

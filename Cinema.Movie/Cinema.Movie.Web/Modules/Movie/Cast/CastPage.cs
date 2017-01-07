@@ -31,35 +31,50 @@ namespace Cinema.Movie.Movie.Pages
         public static SaveResponse CreateUpdate(SaveRequest<CastRow> request)
         {
             SaveResponse result = null;
-            using (var connection = SqlConnections.NewFor<CastRow>())
+            try
             {
-                var character = new Casts().List(connection, new ListRequest()).Entities.Find(i => i.CharacterEn == request.Entity.CharacterEn && i.PersonId==request.Entity.PersonId && i.MovieId==request.Entity.MovieId);
-                if (character != null)
+                using (var connection = SqlConnections.NewFor<CastRow>())
                 {
-                    return new SaveResponse()
+                    var character = new Casts().List(connection, new ListRequest()).Entities.Find(i => i.CharacterEn == request.Entity.CharacterEn && i.PersonId == request.Entity.PersonId && i.MovieId == request.Entity.MovieId);
+                    if (character != null)
                     {
-                        EntityId = character.CastId
-                    };
+                        return new SaveResponse()
+                        {
+                            EntityId = character.CastId
+                        };
+                    }
                 }
-            }
-            using (var connection = SqlConnections.NewFor<CastRow>())
-            using (var uow = new UnitOfWork(connection))
-            {
-                result = new Casts().Create(uow, request);
-                uow.Commit();
-                connection.Close();
-            }
-
-            Histories.Create(new SaveRequest<HistoryRow>()
-            {
-                Entity = new HistoryRow()
+                using (var connection = SqlConnections.NewFor<CastRow>())
+                using (var uow = new UnitOfWork(connection))
                 {
-                    Status = true,
-                    Message = "Add Cast",
-                    UserName = Authorization.Username,
-                    CastId = Int64.Parse(result.EntityId.ToString()),
+                    result = new Casts().Create(uow, request);
+                    uow.Commit();
+                    connection.Close();
                 }
-            });
+
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = true,
+                        Message = "Add Cast",
+                        UserName = Authorization.Username,
+                        CastId = Int64.Parse(result.EntityId.ToString()),
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = result == null ? false : true,
+                        Message = "Fail add or update cast" + e.Message,
+                        UserName = Authorization.Username
+                    }
+                });
+            }
             return result;
         }
     }

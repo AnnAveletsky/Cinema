@@ -31,7 +31,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.MovieId[this] = value; }
         }
 
-        [DisplayName("Country"), NotNull, ForeignKey("[mov].[Country]", "CountryId"), LeftJoin("jCountry"), TextualField("CountryNameEn")]
+        [DisplayName("Country"), NotNull, ForeignKey("[mov].[Country]", "CountryId"), LeftJoin("jCountry"), TextualField("CountryName")]
         public Int32? CountryId
         {
             get { return Fields.CountryId[this]; }
@@ -45,7 +45,23 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.CountryName[this]; }
             set { Fields.CountryName[this] = value; }
         }
-        
+        [DisplayName("Country Name Other"), Expression("jCountry.[NameOther]")]
+        public String CountryNameOther
+        {
+            get { return Fields.CountryNameOther[this]; }
+            set { Fields.CountryNameOther[this] = value; }
+        }
+        [DisplayName("Country Name Display")]
+        public String CountryNameDisplay
+        {
+            get { return String.IsNullOrWhiteSpace(CountryNameOther) ? CountryName : CountryNameOther; }
+        }
+        [DisplayName("Country Icon"), Expression("jCountry.[Icon]")]
+        public String CountryIcon
+        {
+            get { return Fields.CountryIcon[this]; }
+            set { Fields.CountryIcon[this] = value; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieCountryId; }
@@ -65,6 +81,8 @@ namespace Cinema.Movie.Movie.Entities
             public Int32Field CountryId;
 
             public StringField CountryName;
+            public StringField CountryNameOther;
+            public StringField CountryIcon;
 
             public RowFields()
                 : base("[mov].[MovieCountry]")

@@ -21,6 +21,7 @@ namespace Cinema.Movie.Movie.Columns
         public String FullName { get; set; }
         public String NameOther { get; set; }
         public String FullNameOther { get; set; }
+        public String Url { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime DeathDate { get; set; }
         public Movie.Gender Gender { get; set; }

@@ -19,11 +19,18 @@
         {
             return View("~/Modules/Movie/Person/PersonIndex.cshtml");
         }
-        public static List<PersonRow> List(ListRequest listRequest)
+        public static ListResponse<PersonRow> List(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<PersonRow>())
             {
-                return new Persons().List(connection, listRequest).Entities;
+                return new Persons().List(connection, listRequest);
+            }
+        }
+        public static RetrieveResponse<PersonRow> Person(RetrieveRequest retrieveRequest)
+        {
+            using (var connection = SqlConnections.NewFor<PersonRow>())
+            {
+                return new Persons().Retrieve(connection, retrieveRequest);
             }
         }
         [PageAuthorize("Administration")]

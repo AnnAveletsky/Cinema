@@ -14,5 +14,8 @@ namespace Cinema.Movie.Movie.Forms
     public class CountryForm
     {
         public String Name { get; set; }
+        public String NameOther { get; set; }
+        public String Code { get; set; }
+        public String Icon { get; set; }
     }
 }

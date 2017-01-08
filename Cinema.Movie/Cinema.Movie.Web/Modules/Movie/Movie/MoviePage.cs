@@ -11,6 +11,7 @@ namespace Cinema.Movie.Movie.Pages
     using System.Collections.Generic;
     using System;
     using Casts = CastController;
+    using MovieCountries = MovieCountryController;
     using ServiceRatings = ServiceRatingController;
     using Videos = VideoController;
     using Histories = HistoryController;
@@ -19,7 +20,7 @@ namespace Cinema.Movie.Movie.Pages
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
     {
-        public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonName", "PersonNameOther" };
+        public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonName", "PersonNameOther","PersonId","PersonUrl" };
         public static HashSet<string> IncludeColumnsServiceRating = new HashSet<string> { "ServiceName" };
         [PageAuthorize("Administration")]
         public ActionResult Index()
@@ -40,15 +41,27 @@ namespace Cinema.Movie.Movie.Pages
                             IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
                         });
-                    i.CastSortList = new SortedList<string, List<CastRow>>();
-                    foreach (var j in i.CastList)
+                    i.CountrySortedList = new SortedList<string, string>();
+                    foreach( var j in MovieCountries.List(new ListRequest() {
+                        Criteria = new Criteria("MovieId") == i.MovieId.Value,
+                    IncludeColumns=new HashSet<string>() { "CountryName", "CountryNameOther", "CountryIcon" } }).Entities)
                     {
-                        if (!i.CastSortList.Keys.Contains(j.CharacterEn))
+                        if (!i.CountrySortedList.Keys.Contains(j.CountryNameDisplay))
                         {
-                            i.CastSortList.Add(j.CharacterEn,new List<CastRow>());
+                            i.CountrySortedList.Add(j.CountryNameDisplay, j.CountryIcon);
                         }
-                        i.CastSortList[j.CharacterEn].Add(j);
                     }
+                    //i.CastSortList = new SortedList<string, List<CastRow>>();
+                    //foreach (var j in i.CastList)
+                    //{
+                    //    if (!i.CastSortList.Keys.Contains(j.CharacterEn))
+                    //    {
+                    //        i.CastSortList.Add(j.CharacterEn,new List<CastRow>());
+                    //    }
+                    //    if (i.CastSortList[j.CharacterEn].Find(k => k.PersonId == j.PersonId)==null){
+                    //        i.CastSortList[j.CharacterEn].Add(j);
+                    //    }
+                    //}
                     i.ServiceRatingList = ServiceRatings.List(
                         new ListRequest()
                         {
@@ -70,6 +83,16 @@ namespace Cinema.Movie.Movie.Pages
                             IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == movie.MovieId.Value,
                         });
+                movie.CountrySortedList = new SortedList<string, string>();
+                foreach (var j in MovieCountries.List(new ListRequest() {
+                    Criteria = new Criteria("MovieId") == movie.MovieId.Value,
+                    IncludeColumns = new HashSet<string>() { "CountryName", "CountryNameOther", "CountryIcon" }}).Entities)
+                {
+                    if (!movie.CountrySortedList.Keys.Contains(j.CountryNameDisplay))
+                    {
+                        movie.CountrySortedList.Add(j.CountryNameDisplay, j.CountryIcon);
+                    }
+                }
                 movie.CastSortList = new SortedList<string,List<CastRow>>();
                 foreach (var i in movie.CastList)
                 {
@@ -77,7 +100,10 @@ namespace Cinema.Movie.Movie.Pages
                     {
                         movie.CastSortList.Add(i.CharacterEn, new List<CastRow>());
                     }
-                    movie.CastSortList[i.CharacterEn].Add(i);
+                    if (movie.CastSortList[i.CharacterEn].Find(k => k.PersonId == i.PersonId) == null)
+                    {
+                        movie.CastSortList[i.CharacterEn].Add(i);
+                    }
                 }
                 movie.ServiceRatingList = ServiceRatings.List(
                        new ListRequest()

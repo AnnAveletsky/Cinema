@@ -50,7 +50,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.FullNameOther[this]; }
             set { Fields.FullNameOther[this] = value; }
         }
-
+        [DisplayName("Url"), Size(110), NotNull]
+        public String Url
+        {
+            get { return Fields.Url[this]; }
+            set { Fields.Url[this] = value; }
+        }
         [DisplayName("Birth Date")]
         public DateTime? BirthDate
         {
@@ -110,6 +115,7 @@ namespace Cinema.Movie.Movie.Entities
             public StringField FullName;
             public StringField NameOther;
             public StringField FullNameOther;
+            public StringField Url;
             public DateTimeField BirthDate;
             public DateTimeField DeathDate;
             public Int16Field Gender;

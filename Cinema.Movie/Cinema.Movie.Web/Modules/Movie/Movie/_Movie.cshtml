@@ -74,22 +74,22 @@
             }
             @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
             {
-                <p>
+                <p style="line-height: 1.7">
                     <span> @LocalText.Get("Db.Movie.Movie.GenreListName"):</span>
-                    @foreach (var i in Model.GenreListName)
+                    @for (int i=0;i< Model.GenreListName.Count;i++)
                     {
-                        <a href="/genres/@i" >@i </a>
+                        <a href="/genres/@Model.GenreListName[i]" ><i class="label label-custom">@Model.GenreListName[i]</i>@(i != Model.GenreListName.Count - 1 ? " " : "")</a>
                     }
                 </p>
             }
 
-            @if (Model.CountryListName != null && Model.CountryListName.Count != 0)
+            @if (Model.CountrySortedList != null && Model.CountrySortedList.Count != 0)
             {
                 <p>
-                    <span > @LocalText.Get("Db.Movie.Movie.CountryListName"):</span>
-                    @foreach (var i in Model.CountryListName)
+                    <span> @LocalText.Get("Navigation.Movie/Country"):</span>
+                    @foreach (var i in Model.CountrySortedList)
                     {
-                        <a href="/countries/@i">@i </a>
+                        <a class="@i.Value" href="/countries/@i.Key">@i.Key@(i.Key != Model.CountrySortedList.Keys.Last()? ", " : "")</a>
                     }
                 </p>
             }
@@ -116,8 +116,8 @@
                         <span>@i.Key:</span>
                         @for (int k=0;k< i.Value.Count;k++)
                         {
-                            <a href="/persons/@i.Value[k].PersonName/id=@i.Value[k].PersonId">
-                        <b>@(i.Value[k].PersonNameOther != null ? i.Value[k].PersonNameOther : i.Value[k].PersonName)</b>@(k != i.Value.Count ? ", " : "")</a>
+                            <a href="/persons/@i.Value[k].PersonUrl?id=@i.Value[k].PersonId">
+                        <b>@(i.Value[k].PersonNameOther != null ? i.Value[k].PersonNameOther : i.Value[k].PersonName)</b>@(k != i.Value.Count -1? ", " : "")</a>
                         }
                     </p>
                 }

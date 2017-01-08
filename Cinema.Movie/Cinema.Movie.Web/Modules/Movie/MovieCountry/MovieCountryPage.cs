@@ -1,7 +1,4 @@
 ﻿
-
-[assembly:Serenity.Navigation.NavigationLink(int.MaxValue, "Movie/MovieCountry", typeof(Cinema.Movie.Movie.Pages.MovieCountryController))]
-
 namespace Cinema.Movie.Movie.Pages
 {
     using Entities;
@@ -21,6 +18,13 @@ namespace Cinema.Movie.Movie.Pages
         public ActionResult Index()
         {
             return View("~/Modules/Movie/MovieCountry/MovieCountryIndex.cshtml");
+        }
+        public static ListResponse<MovieCountryRow> List(ListRequest listRequest)
+        {
+            using (var connection = SqlConnections.NewFor<MovieCountryRow>())
+            {
+                return new MovieCountries().List(connection, listRequest);
+            }
         }
         [PageAuthorize("Administration")]
         public static SaveResponse CreateUpdate(SaveRequest<MovieCountryRow> request)

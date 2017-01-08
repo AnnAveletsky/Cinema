@@ -17,5 +17,12 @@ namespace Cinema.Movie.Movie.Columns
         public Int32 CountryId { get; set; }
         [EditLink]
         public String Name { get; set; }
+        [EditLink]
+        public String NameOther { get; set; }
+        public String NameDisplay { get; set; }
+        [EditLink]
+        public String Code { get; set; }
+        [EditLink]
+        public String Icon { get; set; }
     }
 }

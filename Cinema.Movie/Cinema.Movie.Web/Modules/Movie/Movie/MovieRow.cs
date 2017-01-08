@@ -213,22 +213,8 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.TagListName[this]; }
             set { Fields.TagListName[this] = value; }
         }
-        [DisplayName("Countries")]
-        [LookupEditor(typeof(CountryRow), Multiple = true), NotMapped]
-        [LinkingSetRelation(typeof(MovieCountryRow), "MovieId", "CountryId")]
-        public List<Int32> CountryList
-        {
-            get { return Fields.CountryList[this]; }
-            set { Fields.CountryList[this] = value; }
-        }
-        [DisplayName("Countries")]
-        [LookupEditor(typeof(CountryRow), Multiple = true), NotMapped]
-        [LinkingSetRelation(typeof(MovieCountryRow), "MovieId", "CountryName")]
-        public List<string> CountryListName
-        {
-            get { return Fields.CountryListName[this]; }
-            set { Fields.CountryListName[this] = value; }
-        }
+        
+        public SortedList<string,string> CountrySortedList { get; set; }
         public List<CastRow> CastList { get; set; }
         public SortedList<string,List<CastRow>> CastSortList { get; set; }
         public List<VideoRow> VideoList { get; set; }
@@ -281,8 +267,6 @@ namespace Cinema.Movie.Movie.Entities
             public ListField<string> GenreListName;
             public ListField<Int64> TagList;
             public ListField<string> TagListName;
-            public ListField<Int32> CountryList;
-            public ListField<string> CountryListName;
 
             public RowFields()
                 : base("[mov].[Movie]")

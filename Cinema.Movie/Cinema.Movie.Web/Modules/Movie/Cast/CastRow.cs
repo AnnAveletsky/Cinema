@@ -113,7 +113,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.PersonFullNameOther[this]; }
             set { Fields.PersonFullNameOther[this] = value; }
         }
-        
+        [DisplayName("Person Url"), Expression("jPerson.[Url]")]
+        public String PersonUrl
+        {
+            get { return Fields.PersonUrl[this]; }
+            set { Fields.PersonUrl[this] = value; }
+        }
         [DisplayName("Person Birth Date"), Expression("jPerson.[BirthDate]")]
         public DateTime? PersonBirthDate
         {
@@ -184,6 +189,7 @@ namespace Cinema.Movie.Movie.Entities
             public StringField PersonFullName;
             public StringField PersonNameOther;
             public StringField PersonFullNameOther;
+            public StringField PersonUrl;
             public DateTimeField PersonBirthDate;
             public DateTimeField PersonDeathDate;
             public StringField PersonBirthPlace;

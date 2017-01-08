@@ -4,6 +4,7 @@ using Serenity.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
@@ -237,11 +238,11 @@ namespace Cinema.Movie.Common.Init
             {
                 if (!String.IsNullOrWhiteSpace(i) && i != "-")
                 {
-                        result.Add(new PersonRow()
-                        {
-                            Name = i
-                        });
-                    
+                    result.Add(new PersonRow()
+                    {
+                        Name = i,
+                        Url= Translit.GetTranslit(i)
+                    });
                 }
             }
             return result;
@@ -374,43 +375,43 @@ namespace Cinema.Movie.Common.Init
         }
         public static string GetTranslit(string sourceText)
         {
-            string ans = "";
+            StringBuilder ans = new StringBuilder();
             for (int i = 0; i < sourceText.Length; i++)
             {
                 if (transliter.ContainsKey(sourceText[i].ToString()))
                 {
-                    ans = ans + transliter[sourceText[i].ToString()];
-                }
-                else if (char.IsNumber(sourceText[i]))
-                {
-                    ans = ans + sourceText[i].ToString();
+                    ans.Append(transliter[sourceText[i].ToString()]);
                 }
                 else if (char.IsWhiteSpace(sourceText[i]))
                 {
-                    ans = ans + '-';
+                    ans.Append('-');
+                }
+                else
+                {
+                    ans.Append(sourceText[i].ToString());
                 }
             }
             return ans.ToString();
         }
         public static string GetUrl(string sourceText)
         {
-            string ans = "";
+            StringBuilder ans = new StringBuilder();
             for (int i = 0; i < sourceText.Length; i++)
             {
                 if (char.IsWhiteSpace(sourceText[i]))
                 {
-                    ans = ans + '-';
+                    ans.Append('-');
                 }
                 else if (char.IsSymbol(sourceText[i]))
                 {
-                    ans = ans + sourceText[i].ToString();
+                    ans.Append(sourceText[i].ToString());
                 }
                 else if (char.IsNumber(sourceText[i]))
                 {
-                    ans = ans + sourceText[i].ToString();
+                    ans.Append(sourceText[i].ToString());
                 }
             }
-            return ans;
+            return ans.ToString();
         }
     }
 }

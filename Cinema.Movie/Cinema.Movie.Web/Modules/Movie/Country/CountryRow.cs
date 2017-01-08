@@ -30,8 +30,29 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
-        
-
+        [DisplayName("NameOthrer"), Size(300)]
+        public String NameOther
+        {
+            get { return Fields.NameOther[this]; }
+            set { Fields.NameOther[this] = value; }
+        }
+        [DisplayName("Code"), Size(100)]
+        public String Code
+        {
+            get { return Fields.Code[this]; }
+            set { Fields.Code[this] = value; }
+        }
+        [DisplayName("Icon"), Size(100)]
+        public String Icon
+        {
+            get { return Fields.Icon[this]; }
+            set { Fields.Icon[this] = value; }
+        }
+        [DisplayName("NameDisplay")]
+        public String NameDispay
+        {
+            get { return String.IsNullOrWhiteSpace(NameOther)? Name:NameOther; }
+        }
         IIdField IIdRow.IdField
         {
             get { return Fields.CountryId; }
@@ -53,6 +74,9 @@ namespace Cinema.Movie.Movie.Entities
         {
             public Int32Field CountryId;
             public StringField Name;
+            public StringField NameOther;
+            public StringField Code;
+            public StringField Icon;
 
             public RowFields()
                 : base("[mov].[Country]")

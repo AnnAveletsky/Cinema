@@ -17,7 +17,10 @@ namespace Cinema.Movie.Migrations.DefaultDB
 
             Create.Table("Country").InSchema("mov")
                 .WithColumn("CountryId").AsInt32().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Name").AsString(300).NotNullable();
+                .WithColumn("Name").AsString(300).NotNullable()
+                .WithColumn("NameOther").AsString(300).Nullable()
+                .WithColumn("Code").AsString(100).Nullable()
+                .WithColumn("Icon").AsString(100).Nullable();
 
             Create.Table("Tag").InSchema("mov")
                 .WithColumn("TagId").AsInt64().Identity().PrimaryKey().NotNullable()
@@ -26,6 +29,7 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Create.Table("Person").InSchema("mov")
                .WithColumn("PersonId").AsInt64().Identity().PrimaryKey().NotNullable()
                .WithColumn("Name").AsString(100).NotNullable()
+               .WithColumn("Url").AsString(110).NotNullable()
                .WithColumn("FullName").AsString(100).Nullable()
                .WithColumn("NameOther").AsString(100).Nullable()
                .WithColumn("FullNameOther").AsString(100).Nullable()

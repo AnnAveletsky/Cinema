@@ -1,4 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+.iconflag {
+  padding-left: 24px;
+}
+.iconflag.russia {
+  background: url("flags/24/Russia.png") no-repeat;
+}
+.iconflag.usa {
+  background: url("flags/24/United-States.png") no-repeat;
+}
 .reset-box-sizing,
 .reset-box-sizing *,
 .reset-box-sizing *:before,

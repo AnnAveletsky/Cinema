@@ -1,27 +1,18 @@
 ﻿@model Cinema.Movie.Movie.Entities.MovieRow
 
-<div class="box box-custom">
+<div class="box box-custom @(Model.Kind.ToString().ToLower())">
     <div class="box-header with-border box-with-backgrond">
-        <a class="col-xs-11 no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Url + "?id=" + Model.MovieId : "")>
+        <a class="@(Model.Nice==true?"col-xs-11":"col-xs-12") no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Url + "?id=" + Model.MovieId : "")>
             <h3 class="box-title">
-                @if (Model.TitleTranslation != null&& Model.TitleTranslation!= Model.TitleOriginal)
-                {
-                    @(Model.TitleTranslation + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
-                    <br />
-                    @Model.TitleOriginal
-                }
-                else
-                {
-                    @(Model.TitleOriginal + " (" + (Model.YearStart.HasValue == true && Model.YearStart != Model.YearEnd ? Model.YearStart.ToString() : "") + Model.YearEnd + ")")
-                }
+               @Model.TitleDisplay
             </h3>
         </a>
-        <span class="pull-right">
-            @if (Model.Nice == true)
-            {
+        @if (Model.Nice == true)
+        {
+            <span class="pull-right">
                 <span class="fa fa-thumbs-o-up fa-2x"></span>
-            }
-        </span>
+            </span>
+        }
     </div>
     <div class="box-body box-profile">
         <div class="col-xs-12 no-padding">

@@ -177,12 +177,12 @@ namespace Cinema.Movie.Movie.Pages
                 movies = new Movies().List(connection, new ListRequest
                 {
                     Criteria = new Criteria("TitleOriginal").Contains(request.Entity.TitleOriginal) &&
-                        new Criteria("YearEnd").In(request.Entity.YearEnd)
+                        new Criteria("YearEnd")==(Int16)request.Entity.YearEnd && new Criteria("YearStart") == (Int16)request.Entity.YearStart && new Criteria("Kind") ==request.Entity.Kind
                 });
             }
             if (movies.Entities.Count > 0)
             {
-                var movie = movies.Entities.Find(i => i.TitleOriginal.Contains(request.Entity.TitleOriginal) && i.YearEnd == request.Entity.YearEnd);
+                var movie = movies.Entities.Find(i => i.TitleOriginal.Contains(request.Entity.TitleOriginal) && i.YearEnd == request.Entity.YearEnd&&i.YearStart== (Int16)request.Entity.YearStart && i.Kind== request.Entity.Kind);
                 if (movie != null)
                 {
                     response = Update(request, movie);

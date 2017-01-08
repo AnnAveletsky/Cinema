@@ -95,6 +95,9 @@ namespace Cinema.Movie
                 public static LocalText HTMLTop = "";
                 public static LocalText HTMLFAQ = "";
                 public static LocalText HTMLContacts = "";
+                public static LocalText NewSeries = "New series";
+                public static LocalText PopularSeries = "Popular series";
+                public static LocalText PopularMovies = "Popular movies";
             }
             public static class Widget
             {

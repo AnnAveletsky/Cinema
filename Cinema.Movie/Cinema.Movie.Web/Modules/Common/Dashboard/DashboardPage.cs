@@ -11,11 +11,43 @@ namespace Cinema.Movie.Common.Pages
     using Movies = Movie.Pages.MovieController;
     using Genres = Movie.Pages.GenreController;
     using Persons = Movie.Pages.PersonController;
+    using Movie;
 
     [RoutePrefix("Dashboard"), Route("{action=index}")]
     public class DashboardController : Controller
     {
-        private DashboardPageModel model = new DashboardPageModel() { Genres = Genres.List(new ListRequest()) };
+        private DashboardPageModel model = new DashboardPageModel()
+        {
+            Genres = Genres.List(new ListRequest()),
+            PopularMovies = Movies.Page(new ListRequest()
+            {
+                Take = 20,
+                Criteria = new Criteria("Kind") == MovieKind.Film,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                Sort = new[] {
+                    new SortBy("Rating", true)
+                }
+            }),
+            NewSeries = Movies.Page(new ListRequest()
+            {
+                Take = 20,
+                Criteria=new Criteria("Kind") ==MovieKind.TvSeries,
+                ExcludeColumns=new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "Rating" },
+                Sort = new[] {
+                    new SortBy("UpdateDateTime", true)
+                }
+            }),
+            PopularSeries=Movies.Page(new ListRequest()
+            {
+                Take = 20,
+                Criteria = new Criteria("Kind") == MovieKind.TvSeries,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                Sort = new[] {
+                    new SortBy("Rating", true)
+                }
+            })
+        };
+
 
         #region movie
         [HttpGet, Route("~/")]
@@ -50,9 +82,7 @@ namespace Cinema.Movie.Common.Pages
             if (id != null)
             {
                 model.Content = "";
-                var ExcludeColumns = new HashSet<string>();
-                ExcludeColumns.Add("GenreList");
-                model.Movie = Movies.Movie(new RetrieveRequest() { EntityId = (Int64)id, ExcludeColumns = ExcludeColumns });
+                model.Movie = Movies.Movie(new RetrieveRequest() { EntityId = (Int64)id });
                 ViewData["MaxRating"] = 10;
                 ViewData["Title"] = "";
                 ViewData["Footer"] = "";

@@ -37,6 +37,11 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.TitleTranslation[this]; }
             set { Fields.TitleTranslation[this] = value; }
         }
+        [DisplayName("Title Display")]
+        public String TitleDisplay
+        {
+            get { return (!String.IsNullOrWhiteSpace(TitleTranslation)&& TitleTranslation != TitleOriginal ? TitleTranslation+" / " : "")+ TitleOriginal+ " (" + (YearStart.HasValue == true && YearStart != YearEnd ? YearStart.ToString() : "") + YearEnd + ")"; }
+        }
 
         [DisplayName("Url"), Size(400), NotNull]
         public String Url

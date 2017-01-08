@@ -1,0 +1,25 @@
+﻿@model Serenity.Services.ListResponse<Cinema.Movie.Movie.Entities.MovieRow>
+<ul class="list-group list-group-unbordered col-xs-12 no-padding no-margin">
+    @foreach (var movie in Model.Entities)
+    {
+        <li class="list-group-item col-xs-12">
+            <a class="col-xs-12" href=@("/movies/" + movie.Url + "?id=" + movie.MovieId)>
+               @if (movie.PathImage != null)
+                {
+                    <span class="thumbnail col-xs-3 no-margin">
+                        <img class="img-responsive" src="@movie.PathImage" />
+                    </span>
+               }
+                <h5 class="box-title @(movie.PathImage != null?"col-xs-9 no-padding-right":"col-xs-12 no-padding")  no-margin">
+                    @movie.TitleDisplay
+                    <span class="badge pull-right">@movie.Rating</span>
+                    @if (movie.UpdateDateTime != null)
+                    {
+                        <br />
+                        <span>@movie.UpdateDateTime.Value.ToLongDateString()</span>
+                    }
+                </h5>
+            </a>
+        </li>
+    }
+</ul>

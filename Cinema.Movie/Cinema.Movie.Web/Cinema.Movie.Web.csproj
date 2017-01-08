@@ -2878,6 +2878,7 @@
     <Content Include="Modules\Movie\History\HistoryIndex.cshtml" />
     <Content Include="Modules\Movie\MovieGenre\MovieGenreIndex.cshtml" />
     <Content Include="Modules\Movie\MovieCountry\MovieCountryIndex.cshtml" />
+    <Content Include="Modules\Movie\Movie\_PreviewMovies.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

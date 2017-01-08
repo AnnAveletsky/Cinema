@@ -44,7 +44,14 @@
             Authorization.ValidateLoggedIn();
             if (service == "Kodik")
             {
-                InitKodik("~/App_Data/" + file.Name, MovieKind.Film, Authorization.Username);
+                if (file.Name== "serials.json")
+                {
+                    InitKodik("~/App_Data/" + file.Name, MovieKind.TvSeries, Authorization.Username);
+                }
+                else
+                {
+                    InitKodik("~/App_Data/" + file.Name, MovieKind.Film, Authorization.Username);
+                }
             }
             else if (service == "GetMovieCC")
             {

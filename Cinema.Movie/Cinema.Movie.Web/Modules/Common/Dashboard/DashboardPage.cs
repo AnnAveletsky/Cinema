@@ -23,7 +23,7 @@ namespace Cinema.Movie.Common.Pages
             {
                 Take = 20,
                 Criteria = new Criteria("Kind") == MovieKind.Film,
-                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
                 Sort = new[] {
                     new SortBy("Rating", true)
                 }
@@ -32,7 +32,7 @@ namespace Cinema.Movie.Common.Pages
             {
                 Take = 20,
                 Criteria=new Criteria("Kind") ==MovieKind.TvSeries,
-                ExcludeColumns=new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "Rating" },
+                ExcludeColumns=new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "Rating" },
                 Sort = new[] {
                     new SortBy("UpdateDateTime", true)
                 }
@@ -41,7 +41,7 @@ namespace Cinema.Movie.Common.Pages
             {
                 Take = 20,
                 Criteria = new Criteria("Kind") == MovieKind.TvSeries,
-                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
                 Sort = new[] {
                     new SortBy("Rating", true)
                 }
@@ -89,7 +89,7 @@ namespace Cinema.Movie.Common.Pages
                     Take = 6,
                     IncludeColumns=new HashSet<string>() { "GenreList" },
                     Criteria=new Criteria("Kind") ==MovieKind.Film,
-                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
                     Sort = new[] {
                         new SortBy("UpdateDateTime", true),
                         new SortBy("PublishDateTime", true),
@@ -103,7 +103,7 @@ namespace Cinema.Movie.Common.Pages
                     Take = 6,
                     IncludeColumns = new HashSet<string>() { "GenreList" },
                     Criteria = new Criteria("Kind") == MovieKind.TvSeries,
-                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
                     Sort = new[] {
                         new SortBy("UpdateDateTime", true),
                         new SortBy("PublishDateTime", true),

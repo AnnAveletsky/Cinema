@@ -117,6 +117,8 @@ namespace MVC
             {
                 public const string _Movie = "~/Modules/Movie/Movie/_Movie.cshtml";
                 public const string _Movies = "~/Modules/Movie/Movie/_Movies.cshtml";
+                public const string _PreviewMovies = "~/Modules/Movie/Movie/_PreviewMovies.cshtml";
+                public const string _SimilarMovies = "~/Modules/Movie/Movie/_SimilarMovies.cshtml";
                 public const string MovieIndex = "~/Modules/Movie/Movie/MovieIndex.cshtml";
             }
 

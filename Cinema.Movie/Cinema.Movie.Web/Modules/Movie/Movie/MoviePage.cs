@@ -21,7 +21,7 @@ namespace Cinema.Movie.Movie.Pages
     public class MovieController : Controller
     {
         public static HashSet<string> IncludeColumnsCast = new HashSet<string> { "PersonName", "PersonNameOther","PersonId","PersonUrl" };
-        public static HashSet<string> IncludeColumnsServiceRating = new HashSet<string> { "ServiceName" };
+        public static HashSet<string> IncludeColumnsServiceRating = new HashSet<string> { "ServiceName", "ServiceUrl" };
         [PageAuthorize("Administration")]
         public ActionResult Index()
         {

@@ -20,16 +20,12 @@
         PathImage?: string;
         Nice?: boolean;
         ContSeason?: number;
-        LastEvent?: string;
-        LastEventPublishDateTime?: string;
         Tagline?: string;
         Budget?: number;
         GenreList?: number[];
         GenreListName?: string[];
         TagList?: number[];
         TagListName?: string[];
-        CountryList?: number[];
-        CountryListName?: string[];
     }
 
     export namespace MovieRow {
@@ -63,19 +59,15 @@
             export declare const PathImage: string;
             export declare const Nice: string;
             export declare const ContSeason: string;
-            export declare const LastEvent: string;
-            export declare const LastEventPublishDateTime: string;
             export declare const Tagline: string;
             export declare const Budget: string;
             export declare const GenreList: string;
             export declare const GenreListName: string;
             export declare const TagList: string;
             export declare const TagListName: string;
-            export declare const CountryList: string;
-            export declare const CountryListName: string;
         }
 
-        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'LastEvent', 'LastEventPublishDateTime', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName', 'CountryList', 'CountryListName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'Tagline', 'Budget', 'GenreList', 'GenreListName', 'TagList', 'TagListName'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

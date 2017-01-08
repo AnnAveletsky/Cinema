@@ -49,7 +49,7 @@
     @if (Model.Movie != null)
     {
         { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", Model.Movie); }
-        if (Model.SimilarMovies != null)
+        if (Model.SimilarMovies != null&&Model.SimilarMovies.Entities.Count!=0)
         {
             <div class="box box-custom">
                 <h4 class="box-header with-border box-with-backgrond no-margin">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         }
-        if (Model.SimilarSeries != null)
+        if (Model.SimilarSeries != null&&Model.SimilarSeries.Entities.Count!=0)
         {
             <div class="box box-custom">
                 <h4 class="box-header with-border box-with-backgrond no-margin">

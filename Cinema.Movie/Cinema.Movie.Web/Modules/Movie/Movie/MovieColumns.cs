@@ -37,8 +37,6 @@ namespace Cinema.Movie.Movie.Columns
         public String PathImage { get; set; }
         public Boolean Nice { get; set; }
         public Int16 ContSeason { get; set; }
-        public String LastEvent { get; set; }
-        public DateTime LastEventPublishDateTime { get; set; }
         public String Tagline { get; set; }
         public Int32 Budget { get; set; }
         public List<Int16> GenreList { get; set; }

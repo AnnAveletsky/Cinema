@@ -5,9 +5,11 @@
     using Serenity.Data;
     using Serenity.Services;
     using Serenity.Web;
+    using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
     using ServiceRatings = Repositories.ServiceRatingRepository;
+    using Histories = HistoryController;
 
     [RoutePrefix("Movie/ServiceRating"), Route("{action=index}")]
     public class ServiceRatingController : Controller
@@ -26,27 +28,55 @@
         }
         public static SaveResponse CreateUpdate(SaveRequest<ServiceRatingRow> request)
         {
-            var searchServices = List(new ListRequest { Criteria = new Criteria("Id").In(request.Entity.Id) });
-            
-            if (searchServices.Entities.Count > 0)
+            SaveResponse result = null;
+            try
             {
-                var service = searchServices.Entities.Find(i => i.Id == request.Entity.Id);
+                var searchServices = List(new ListRequest { Criteria = new Criteria("Id") == Int64.Parse(request.Entity.Id.ToString()) });
+
+                if (searchServices.Entities.Count > 0)
+                {
+                    var service = searchServices.Entities.Find(i => i.Id == request.Entity.Id);
+                    using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
+                    using (var uow = new UnitOfWork(connection))
+                    {
+                        request.Entity.ServiceRatingId = service.ServiceRatingId;
+                        result = new ServiceRatings().Update(uow, new SaveRequest<ServiceRatingRow>() { EntityId = service.ServiceRatingId, Entity = request.Entity });
+                        uow.Commit();
+                        return result;
+                    }
+                }
                 using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
                 using (var uow = new UnitOfWork(connection))
                 {
-                    request.Entity.ServiceRatingId = service.ServiceRatingId;
-                    var result = new ServiceRatings().Update(uow, new SaveRequest<ServiceRatingRow>() { EntityId = service.ServiceRatingId, Entity = request.Entity });
+                    result = new ServiceRatings().Create(uow, request);
                     uow.Commit();
-                    return result;
+                    
                 }
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = true,
+                        Message = "Add ServicePath",
+                        UserName = Authorization.Username,
+                        ServiceRatingId = Int64.Parse(result.EntityId.ToString())
+                    }
+                });
             }
-            using (var connection = SqlConnections.NewFor<ServiceRatingRow>())
-            using (var uow = new UnitOfWork(connection))
+            catch(Exception e)
             {
-                var result = new ServiceRatings().Create(uow, request);
-                uow.Commit();
-                return result;
+                Histories.Create(new SaveRequest<HistoryRow>()
+                {
+                    Entity = new HistoryRow()
+                    {
+                        Status = result == null ? false : true,
+                        Message = "Fail add ServicePath",
+                        UserName = Authorization.Username,
+                        ServiceRatingId = Int64.Parse(result.EntityId.ToString())
+                    }
+                });
             }
+            return result;
         }
     }
 }

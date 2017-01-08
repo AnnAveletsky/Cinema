@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace Cinema.Movie.Common.Init
 {
@@ -281,14 +282,13 @@ namespace Cinema.Movie.Common.Init
             }
         }
     }
-    public class XmlObject
-    {
-        public Content content;
-    }
+    [XmlRoot(ElementName = "content")]
     public class Content
     {
-        public MovieJson[] Movie;
-        public MovieJson[] Serial;
+        [XmlElement(ElementName = "movie")]
+        public List<MovieJson> Movie;
+        [XmlElement(ElementName = "serial")]
+        public List<MovieJson> Serial;
     }
     public class StatusTask
     {

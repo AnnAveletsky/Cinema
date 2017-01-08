@@ -48,10 +48,10 @@
                     </div>
                 </div>
             }
-            @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0 &&Model.ServiceRatingList.Any(i=>i.Rating!=null))
+            @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
             {
-                <div class="col-xs-8 no-padding">
                     <p>
+                        <span> @LocalText.Get("Navigation.Movie/Service"):</span>
                         @foreach (var i in Model.ServiceRatingList)
                         {
                             if (i.Rating != null)
@@ -59,9 +59,12 @@
                                 @i.ServiceName
                                 <span class="label label-custom">@i.Rating </span>
                             }
+                            else
+                            {
+                                <a href="@i.ServiceUrl@Model.Kind.Value.ToString().ToLower()/@i.Id" class="label label-custom">@i.ServiceName</a>
+                            }
                         }
                     </p>
-                </div>
             }
             @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
             {

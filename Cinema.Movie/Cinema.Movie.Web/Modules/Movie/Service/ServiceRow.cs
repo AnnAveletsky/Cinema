@@ -38,6 +38,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Api[this]; }
             set { Fields.Api[this] = value; }
         }
+        [DisplayName("Url"), Size(300), NotNull]
+        public String Url
+        {
+            get { return Fields.Url[this]; }
+            set { Fields.Url[this] = value; }
+        }
 
         [DisplayName("Active"), NotNull]
         public Boolean? Active
@@ -53,19 +59,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.IntervalRequest[this] = value; }
         }
 
-        [DisplayName("Last Event"), Size(300)]
-        public String LastEvent
-        {
-            get { return Fields.LastEvent[this]; }
-            set { Fields.LastEvent[this] = value; }
-        }
-
-        [DisplayName("Last Event Publish Date Time")]
-        public DateTime? LastEventPublishDateTime
-        {
-            get { return Fields.LastEventPublishDateTime[this]; }
-            set { Fields.LastEventPublishDateTime[this] = value; }
-        }
+        
         [DisplayName("ServicePath")]
         [LookupEditor(typeof(ServicePathRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(ServicePathRow), "ServiceId", "ServicePathId")]
@@ -112,10 +106,9 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field ServiceId;
             public StringField Name;
             public StringField Api;
+            public StringField Url;
             public BooleanField Active;
             public Int32Field IntervalRequest;
-            public StringField LastEvent;
-            public DateTimeField LastEventPublishDateTime;
             public Int16Field MaxRating;
             public ListField<string> PathListPath;
             public ListField<Int16> PathList;

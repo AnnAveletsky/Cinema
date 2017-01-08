@@ -161,19 +161,7 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.ContSeason[this] = value; }
         }
 
-        [DisplayName("Last Event"), Size(300)]
-        public String LastEvent
-        {
-            get { return Fields.LastEvent[this]; }
-            set { Fields.LastEvent[this] = value; }
-        }
-
-        [DisplayName("Last Event Publish Date Time")]
-        public DateTime? LastEventPublishDateTime
-        {
-            get { return Fields.LastEventPublishDateTime[this]; }
-            set { Fields.LastEventPublishDateTime[this] = value; }
-        }
+        
         [DisplayName("Tagline"), Size(400)]
         public String Tagline
         {
@@ -264,8 +252,6 @@ namespace Cinema.Movie.Movie.Entities
             public StringField PathImage;
             public BooleanField Nice;
             public Int16Field ContSeason;
-            public StringField LastEvent;
-            public DateTimeField LastEventPublishDateTime;
             public StringField Tagline;
             public Int32Field Budget;
             public ListField<Int16> GenreList;

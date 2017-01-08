@@ -5,8 +5,6 @@
         Api?: string;
         Active?: boolean;
         IntervalRequest?: number;
-        LastEvent?: string;
-        LastEventPublishDateTime?: string;
         MaxRating?: number;
         PathListPath?: string[];
         PathList?: number[];
@@ -28,14 +26,12 @@
             export declare const Api: string;
             export declare const Active: string;
             export declare const IntervalRequest: string;
-            export declare const LastEvent: string;
-            export declare const LastEventPublishDateTime: string;
             export declare const MaxRating: string;
             export declare const PathListPath: string;
             export declare const PathList: string;
         }
 
-        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'LastEvent', 'LastEventPublishDateTime', 'MaxRating', 'PathListPath', 'PathList'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'MaxRating', 'PathListPath', 'PathList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

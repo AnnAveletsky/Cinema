@@ -4,6 +4,8 @@
         MovieId?: number;
         CountryId?: number;
         CountryName?: string;
+        CountryNameOther?: string;
+        CountryIcon?: string;
     }
 
     export namespace MovieCountryRow {
@@ -20,9 +22,11 @@
             export declare const MovieId: string;
             export declare const CountryId: string;
             export declare const CountryName: string;
+            export declare const CountryNameOther: string;
+            export declare const CountryIcon: string;
         }
 
-        ['MovieCountryId', 'MovieId', 'CountryId', 'CountryName'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieCountryId', 'MovieId', 'CountryId', 'CountryName', 'CountryNameOther', 'CountryIcon'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

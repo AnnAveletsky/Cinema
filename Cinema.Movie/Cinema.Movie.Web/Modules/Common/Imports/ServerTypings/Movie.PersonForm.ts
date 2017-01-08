@@ -5,10 +5,11 @@
     }
 
     export interface PersonForm {
-        NameEn: Serenity.StringEditor;
-        FullNameEn: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        FullName: Serenity.StringEditor;
         NameOther: Serenity.StringEditor;
         FullNameOther: Serenity.StringEditor;
+        Url: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
         DeathDate: Serenity.DateEditor;
         Gender: Serenity.EnumEditor;
@@ -16,6 +17,6 @@
         PathImage: Serenity.StringEditor;
     }
 
-    [['NameEn', () => Serenity.StringEditor], ['FullNameEn', () => Serenity.StringEditor], ['NameOther', () => Serenity.StringEditor], ['FullNameOther', () => Serenity.StringEditor], ['BirthDate', () => Serenity.DateEditor], ['DeathDate', () => Serenity.DateEditor], ['Gender', () => Serenity.EnumEditor], ['About', () => Serenity.StringEditor], ['PathImage', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(PersonForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
+    [['Name', () => Serenity.StringEditor], ['FullName', () => Serenity.StringEditor], ['NameOther', () => Serenity.StringEditor], ['FullNameOther', () => Serenity.StringEditor], ['Url', () => Serenity.StringEditor], ['BirthDate', () => Serenity.DateEditor], ['DeathDate', () => Serenity.DateEditor], ['Gender', () => Serenity.EnumEditor], ['About', () => Serenity.StringEditor], ['PathImage', () => Serenity.StringEditor]].forEach(x => Object.defineProperty(PersonForm.prototype, <string>x[0], { get: function () { return this.w(x[0], (x[1] as any)()); }, enumerable: true, configurable: true }));
 }
 

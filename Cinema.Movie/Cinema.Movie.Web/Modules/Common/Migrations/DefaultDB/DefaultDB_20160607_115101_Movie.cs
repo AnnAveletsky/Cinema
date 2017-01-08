@@ -25,13 +25,11 @@ namespace Cinema.Movie.Migrations.DefaultDB
                 .WithColumn("UpdateDateTime").AsDateTime().NotNullable().WithDefaultValue(DateTime.UtcNow)
                 .WithColumn("PublishDateTime").AsDateTime().NotNullable().WithDefaultValue(DateTime.UtcNow)
                 .WithColumn("Kind").AsInt32().NotNullable().WithDefaultValue(1)
-                .WithColumn("Rating").AsInt32().NotNullable().WithDefaultValue(1)
+                .WithColumn("Rating").AsInt32().NotNullable().WithDefaultValue(0)
                 .WithColumn("MPAA").AsString(6).Nullable()
                 .WithColumn("PathImage").AsString(300).Nullable()
                 .WithColumn("Nice").AsBoolean().NotNullable().WithDefaultValue(false)
                 .WithColumn("ContSeason").AsInt16().Nullable()
-                .WithColumn("LastEvent").AsString(300).Nullable()
-                .WithColumn("LastEventPublishDateTime").AsDateTime().Nullable()
                 .WithColumn("Tagline").AsString(400).Nullable()
                 .WithColumn("Budget").AsCurrency().Nullable();
 

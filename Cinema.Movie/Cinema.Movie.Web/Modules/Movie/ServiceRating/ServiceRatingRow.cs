@@ -215,6 +215,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.ServiceApi[this]; }
             set { Fields.ServiceApi[this] = value; }
         }
+        [DisplayName("Service Url"), Expression("jService.[Url]")]
+        public String ServiceUrl
+        {
+            get { return Fields.ServiceUrl[this]; }
+            set { Fields.ServiceUrl[this] = value; }
+        }
 
         [DisplayName("Service Max Rating"), Expression("jService.[MaxRating]")]
         public Int16? ServiceMaxRating
@@ -268,6 +274,7 @@ namespace Cinema.Movie.Movie.Entities
 
             public StringField ServiceName;
             public StringField ServiceApi;
+            public StringField ServiceUrl;
             public Int16Field ServiceMaxRating;
 
             public RowFields()

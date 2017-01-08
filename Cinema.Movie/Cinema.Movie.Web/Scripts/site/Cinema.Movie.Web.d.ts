@@ -1291,7 +1291,8 @@ declare namespace Cinema.Movie.Movie {
         static formKey: string;
     }
     interface CastForm {
-        Character: Serenity.StringEditor;
+        CharacterEn: Serenity.StringEditor;
+        CharacterOther: Serenity.StringEditor;
         MovieId: Serenity.LookupEditor;
         PersonId: Serenity.LookupEditor;
     }
@@ -1299,7 +1300,8 @@ declare namespace Cinema.Movie.Movie {
 declare namespace Cinema.Movie.Movie {
     interface CastRow {
         CastId?: number;
-        Character?: string;
+        CharacterEn?: string;
+        CharacterOther?: string;
         MovieId?: number;
         PersonId?: number;
         MovieTitleOriginal?: string;
@@ -1307,10 +1309,11 @@ declare namespace Cinema.Movie.Movie {
         MovieYearStart?: number;
         MovieYearEnd?: number;
         MoviePathImage?: string;
-        PersonNameEn?: string;
-        PersonFullNameEn?: string;
+        PersonName?: string;
+        PersonFullName?: string;
         PersonNameOther?: string;
         PersonFullNameOther?: string;
+        PersonUrl?: string;
         PersonBirthDate?: string;
         PersonDeathDate?: string;
         PersonBirthPlace?: string;
@@ -1325,7 +1328,8 @@ declare namespace Cinema.Movie.Movie {
         function getLookup(): Q.Lookup<CastRow>;
         namespace Fields {
             const CastId: string;
-            const Character: string;
+            const CharacterEn: string;
+            const CharacterOther: string;
             const MovieId: string;
             const PersonId: string;
             const MovieTitleOriginal: string;
@@ -1333,10 +1337,11 @@ declare namespace Cinema.Movie.Movie {
             const MovieYearStart: string;
             const MovieYearEnd: string;
             const MoviePathImage: string;
-            const PersonNameEn: string;
-            const PersonFullNameEn: string;
+            const PersonName: string;
+            const PersonFullName: string;
             const PersonNameOther: string;
             const PersonFullNameOther: string;
+            const PersonUrl: string;
             const PersonBirthDate: string;
             const PersonDeathDate: string;
             const PersonBirthPlace: string;
@@ -1370,12 +1375,18 @@ declare namespace Cinema.Movie.Movie {
     }
     interface CountryForm {
         Name: Serenity.StringEditor;
+        NameOther: Serenity.StringEditor;
+        Code: Serenity.StringEditor;
+        Icon: Serenity.StringEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
     interface CountryRow {
         CountryId?: number;
         Name?: string;
+        NameOther?: string;
+        Code?: string;
+        Icon?: string;
     }
     namespace CountryRow {
         const idProperty: string;
@@ -1386,6 +1397,9 @@ declare namespace Cinema.Movie.Movie {
         namespace Fields {
             const CountryId: string;
             const Name: string;
+            const NameOther: string;
+            const Code: string;
+            const Icon: string;
         }
     }
 }
@@ -1670,6 +1684,8 @@ declare namespace Cinema.Movie.Movie {
         MovieId?: number;
         CountryId?: number;
         CountryName?: string;
+        CountryNameOther?: string;
+        CountryIcon?: string;
     }
     namespace MovieCountryRow {
         const idProperty: string;
@@ -1681,6 +1697,8 @@ declare namespace Cinema.Movie.Movie {
             const MovieId: string;
             const CountryId: string;
             const CountryName: string;
+            const CountryNameOther: string;
+            const CountryIcon: string;
         }
     }
 }
@@ -1708,13 +1726,8 @@ declare namespace Cinema.Movie.Movie {
         PathImage: Serenity.StringEditor;
         Nice: Serenity.BooleanEditor;
         ContSeason: Serenity.IntegerEditor;
-        LastEvent: Serenity.StringEditor;
-        LastEventPublishDateTime: Serenity.DateEditor;
         Tagline: Serenity.StringEditor;
         Budget: Serenity.IntegerEditor;
-        GenreList: Serenity.LookupEditor;
-        TagList: Serenity.LookupEditor;
-        CountryList: Serenity.LookupEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
@@ -1764,16 +1777,12 @@ declare namespace Cinema.Movie.Movie {
         PathImage?: string;
         Nice?: boolean;
         ContSeason?: number;
-        LastEvent?: string;
-        LastEventPublishDateTime?: string;
         Tagline?: string;
         Budget?: number;
         GenreList?: number[];
         GenreListName?: string[];
         TagList?: number[];
         TagListName?: string[];
-        CountryList?: number[];
-        CountryListName?: string[];
     }
     namespace MovieRow {
         const idProperty: string;
@@ -1802,16 +1811,12 @@ declare namespace Cinema.Movie.Movie {
             const PathImage: string;
             const Nice: string;
             const ContSeason: string;
-            const LastEvent: string;
-            const LastEventPublishDateTime: string;
             const Tagline: string;
             const Budget: string;
             const GenreList: string;
             const GenreListName: string;
             const TagList: string;
             const TagListName: string;
-            const CountryList: string;
-            const CountryListName: string;
         }
     }
 }
@@ -1857,10 +1862,11 @@ declare namespace Cinema.Movie.Movie {
         static formKey: string;
     }
     interface PersonForm {
-        NameEn: Serenity.StringEditor;
-        FullNameEn: Serenity.StringEditor;
+        Name: Serenity.StringEditor;
+        FullName: Serenity.StringEditor;
         NameOther: Serenity.StringEditor;
         FullNameOther: Serenity.StringEditor;
+        Url: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
         DeathDate: Serenity.DateEditor;
         Gender: Serenity.EnumEditor;
@@ -1871,10 +1877,11 @@ declare namespace Cinema.Movie.Movie {
 declare namespace Cinema.Movie.Movie {
     interface PersonRow {
         PersonId?: number;
-        NameEn?: string;
-        FullNameEn?: string;
+        Name?: string;
+        FullName?: string;
         NameOther?: string;
         FullNameOther?: string;
+        Url?: string;
         BirthDate?: string;
         DeathDate?: string;
         Gender?: Gender;
@@ -1889,10 +1896,11 @@ declare namespace Cinema.Movie.Movie {
         function getLookup(): Q.Lookup<PersonRow>;
         namespace Fields {
             const PersonId: string;
-            const NameEn: string;
-            const FullNameEn: string;
+            const Name: string;
+            const FullName: string;
             const NameOther: string;
             const FullNameOther: string;
+            const Url: string;
             const BirthDate: string;
             const DeathDate: string;
             const Gender: string;
@@ -1929,8 +1937,6 @@ declare namespace Cinema.Movie.Movie {
         Api: Serenity.StringEditor;
         Active: Serenity.BooleanEditor;
         IntervalRequest: Serenity.IntegerEditor;
-        LastEvent: Serenity.StringEditor;
-        LastEventPublishDateTime: Serenity.DateEditor;
         MaxRating: Serenity.IntegerEditor;
     }
 }
@@ -2094,8 +2100,6 @@ declare namespace Cinema.Movie.Movie {
         Api?: string;
         Active?: boolean;
         IntervalRequest?: number;
-        LastEvent?: string;
-        LastEventPublishDateTime?: string;
         MaxRating?: number;
         PathListPath?: string[];
         PathList?: number[];
@@ -2112,8 +2116,6 @@ declare namespace Cinema.Movie.Movie {
             const Api: string;
             const Active: string;
             const IntervalRequest: string;
-            const LastEvent: string;
-            const LastEventPublishDateTime: string;
             const MaxRating: string;
             const PathListPath: string;
             const PathList: string;

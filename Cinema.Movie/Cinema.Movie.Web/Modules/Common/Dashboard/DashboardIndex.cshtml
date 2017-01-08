@@ -45,13 +45,36 @@
             </div>
         </div>
     }
-    @if (Model.Movies != null)
-    {
-        { Html.RenderPartial("~/Modules/Movie/Movie/_Movies.cshtml", Model.Movies); }
-    }
-    else if (Model.Movie != null)
+    
+    @if (Model.Movie != null)
     {
         { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", Model.Movie); }
+        if (Model.SimilarMovies != null)
+        {
+            <div class="box box-custom">
+                <h4 class="box-header with-border box-with-backgrond no-margin">
+                    @LocalText.Get("Site.Dashboard.SimilarMovies")
+                </h4>
+                <div class="box-body box-profile no-padding">
+                    @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", Model.SimilarMovies); }
+                </div>
+            </div>
+        }
+        if (Model.SimilarSeries != null)
+        {
+            <div class="box box-custom">
+                <h4 class="box-header with-border box-with-backgrond no-margin">
+                    @LocalText.Get("Site.Dashboard.SimilarSeries")
+                </h4>
+                <div class="box-body box-profile no-padding">
+                    @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", Model.SimilarSeries); }
+                </div>
+            </div>
+        }
+    }
+    else if (Model.Movies != null)
+    {
+        { Html.RenderPartial("~/Modules/Movie/Movie/_Movies.cshtml", Model.Movies); }
     }
 
     @if ((string)ViewData["Footer"] != "")

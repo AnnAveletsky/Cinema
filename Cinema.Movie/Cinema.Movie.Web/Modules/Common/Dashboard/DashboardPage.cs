@@ -62,9 +62,10 @@ namespace Cinema.Movie.Common.Pages
             {
                 Skip = (page - 1) * count,
                 Take = count,
-                Sort= new[] {new SortBy("PublishDateTime", true),
+                Sort= new[] {
                     new SortBy("UpdateDateTime", true),
-                    new SortBy("Rating"),
+                    new SortBy("PublishDateTime", true),
+                    new SortBy("Rating", true),
                     new SortBy("TitleOriginal"),
                     new SortBy("TitleTranslation") }
             });
@@ -83,6 +84,34 @@ namespace Cinema.Movie.Common.Pages
             {
                 model.Content = "";
                 model.Movie = Movies.Movie(new RetrieveRequest() { EntityId = (Int64)id });
+                model.SimilarMovies = Movies.Page(new ListRequest
+                {
+                    Take = 6,
+                    IncludeColumns=new HashSet<string>() { "GenreList" },
+                    Criteria=new Criteria("Kind") ==MovieKind.Film,
+                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                    Sort = new[] {
+                        new SortBy("UpdateDateTime", true),
+                        new SortBy("PublishDateTime", true),
+                        new SortBy("Rating", true),
+                        new SortBy("TitleOriginal"),
+                        new SortBy("TitleTranslation")
+                    }
+                });
+                model.SimilarSeries = Movies.Page(new ListRequest
+                {
+                    Take = 6,
+                    IncludeColumns = new HashSet<string>() { "GenreList" },
+                    Criteria = new Criteria("Kind") == MovieKind.TvSeries,
+                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "LastEvent", "LastEventPublishDateTime", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                    Sort = new[] {
+                        new SortBy("UpdateDateTime", true),
+                        new SortBy("PublishDateTime", true),
+                        new SortBy("Rating", true),
+                        new SortBy("TitleOriginal"),
+                        new SortBy("TitleTranslation")
+                    }
+                });
                 ViewData["MaxRating"] = 10;
                 ViewData["Title"] = "";
                 ViewData["Footer"] = "";

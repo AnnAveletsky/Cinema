@@ -85,6 +85,11 @@
     "Navigation.SiteTitle": "Кинотеатр",
     "Site.Dashboard.CatalogFilms": "Каталог фильмов",
     "Site.Dashboard.Contacts": "Контакты",
+    "Site.Dashboard.NewSeries": "Новые сериалы",
+    "Site.Dashboard.PopularMovies": "Популярные фильмы",
+    "Site.Dashboard.PopularSeries": "Популярные сериалы",
+    "Site.Dashboard.SimilarMovies": "Похожие фильмы",
+    "Site.Dashboard.SimilarSeries": "Похожие сериалы",
     "Site.Dashboard.Top": "ТОП",
     "Site.Layout.GeneralSettings": "Главные настройки"
 }

@@ -98,6 +98,8 @@ namespace Cinema.Movie
                 public static LocalText NewSeries = "New series";
                 public static LocalText PopularSeries = "Popular series";
                 public static LocalText PopularMovies = "Popular movies";
+                public static LocalText SimilarMovies = "Similar movies";
+                public static LocalText SimilarSeries = "Similar series";
             }
             public static class Widget
             {

@@ -14,6 +14,8 @@ namespace Cinema.Movie.Common
         public ListResponse<MovieRow> PopularMovies { get; set; }
         public ListResponse<MovieRow> NewSeries { get; set; }
         public ListResponse<MovieRow> PopularSeries { get; set; }
+        public ListResponse<MovieRow> SimilarMovies { get; set; }
+        public ListResponse<MovieRow> SimilarSeries { get; set; }
         public PersonRow Person{ get; set; }
         public ListResponse<PersonRow> Persons{ get; set; }
 }

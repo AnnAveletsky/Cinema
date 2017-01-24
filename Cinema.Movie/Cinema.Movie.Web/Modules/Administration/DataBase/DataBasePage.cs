@@ -26,6 +26,7 @@
     using System.Xml.Serialization;
     using Serenity;
     using System.Collections.Generic;
+    using System.Net;
 
     [RoutePrefix("Administration/DataBase"), Route("{action=index}")]
     public class DataBaseController : Controller
@@ -42,21 +43,21 @@
         {
             StatusTask.TimeStart = DateTime.UtcNow;
             var file = model.files.Find(i => i.Name == name);
-            Authorization.ValidateLoggedIn();
+            Serenity.Authorization.ValidateLoggedIn();
             if (service == "Kodik")
             {
-                if (file.Name== "serials.json")
+                if (file.Name.Contains("serials.json"))
                 {
-                    InitKodik("~/App_Data/" + file.Name, MovieKind.TvSeries, Authorization.Username);
+                    InitKodik(file.Name, MovieKind.TvSeries, Serenity.Authorization.Username);
                 }
                 else
                 {
-                    InitKodik("~/App_Data/" + file.Name, MovieKind.Film, Authorization.Username);
+                    InitKodik(file.Name, MovieKind.Film, Serenity.Authorization.Username);
                 }
             }
             else if (service == "GetMovieCC")
             {
-                InitGetMovieCC("~/App_Data/" + file.Name, Authorization.Username);
+                InitGetMovieCC(file.Name, Serenity.Authorization.Username);
             }
             StatusTask.TimeEnd = DateTime.UtcNow;
             return Redirect("/Movie/History");
@@ -68,21 +69,9 @@
             RetrieveResponse<ServiceRow> serviceKodik = null;
             try
             {
-                serviceKinopoisk = Services.Service(new RetrieveRequest()
-                {
-                    EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>()
-                    {
-                        Entity = new ServiceRow() { Name = "kinopoisk", Api = "http://kinopoisk.cf/", Url = "http://kinopoisk.ru/" }
-                    }).EntityId
-                });
+                serviceKinopoisk = Services.Service(new RetrieveRequest() { EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>() { Entity = new ServiceRow() { Name = "kinopoisk", Api = "http://kinopoisk.cf/", Url = "http://kinopoisk.ru/" } }).EntityId });
 
-                serviceKodik = Services.Service(new RetrieveRequest()
-                {
-                    EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>()
-                    {
-                        Entity = new ServiceRow() { Name = "kodik", Api = "http://kodik.top/", Url = "http://kodik.top/" }
-                    }).EntityId
-                });
+                serviceKodik = Services.Service(new RetrieveRequest() { EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>() { Entity = new ServiceRow() { Name = "kodik", Api = "http://kodik.top/", Url = "http://kodik.top/" } }).EntityId });
             }
             catch (Exception e)
             {
@@ -93,7 +82,7 @@
             }
             try
             {
-                InitJson(JsonConvert.DeserializeObject<MovieJson[]>(FileRead(Path.Combine(HostingEnvironment.MapPath(path)))), movieKind, serviceKinopoisk.Entity, serviceKodik.Entity, username);
+                InitObjects(JsonConvert.DeserializeObject<MovieJson[]>(FileRead(path)), movieKind, serviceKinopoisk.Entity, serviceKodik.Entity, username);
                 Histories.Create(new SaveRequest<HistoryRow>()
                 {
                     Entity = new HistoryRow() { Status = true, Message = "InitKodik Finish add " + movieKind, UserName = username }
@@ -103,7 +92,7 @@
             {
                 Histories.Create(new SaveRequest<HistoryRow>()
                 {
-                    Entity = new HistoryRow() { Status = false, Message = "InitKodik Fail"+ e.Message, UserName = username }
+                    Entity = new HistoryRow() { Status = false, Message = "InitKodik Fail" + e.Message, UserName = username }
                 });
             }
 
@@ -113,43 +102,16 @@
         {
             RetrieveResponse<ServiceRow> serviceKinopoisk = null;
             RetrieveResponse<ServiceRow> serviceGetMovieCC = null;
-            try
-            {
-                serviceKinopoisk = Services.Service(new RetrieveRequest()
-                {
-                    EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>()
-                    {
-                        Entity = new ServiceRow() { Name = "kinopoisk", Api = "http://kinopoisk.cf/", Url = "http://kinopoisk.ru/" }
-                    }).EntityId
-                });
+            serviceKinopoisk = Services.Service(new RetrieveRequest() { EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>() { Entity = new ServiceRow() { Name = "kinopoisk", Api = "http://kinopoisk.cf/", Url = "http://kinopoisk.ru/" } }).EntityId });
 
-                serviceGetMovieCC = Services.Service(new RetrieveRequest()
-                {
-                    EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>()
-                    {
-                        Entity = new ServiceRow() { Name = "GetMovieCC", Api = "http://getmovie.cc/", Url = "http://getmovie.cc/" }
-                    }).EntityId
-                });
-            }
-            catch (Exception e)
-            {
-                Histories.Create(new SaveRequest<HistoryRow>()
-                {
-                    Entity = new HistoryRow() { Status = false, Message = "InitGetMovieCC Fail add services" + e.Message, UserName = username }
-                });
-            }
+            serviceGetMovieCC = Services.Service(new RetrieveRequest() { EntityId = Services.CreateUpdate(new SaveRequest<ServiceRow>() { Entity = new ServiceRow() { Name = "GetMovieCC", Api = "http://getmovie.cc/", Url = "http://getmovie.cc/" } }).EntityId });
+
             Content obj = null;
             try
             {
-                //XmlDocument doc = new XmlDocument();
-                //MovieJson[] movies = null;
-                //MovieJson[] serials = null;
-                //var stringXml = FileRead(Path.Combine(HostingEnvironment.MapPath(path)));
                 XmlSerializer serializer = new XmlSerializer(typeof(Content));
-                
-                using (XmlReader reader = XmlReader.Create(Path.Combine(HostingEnvironment.MapPath(path))))
+                using (XmlReader reader = XmlReader.Create(path))
                 {
-                    //var o = serializer.Deserialize(reader);
                     obj = (Content)serializer.Deserialize(reader);
                 }
             }
@@ -161,17 +123,8 @@
                 });
             }
             try
-            { 
-            //stringXml = stringXml.Replace("<br />", "&lt;br&gt;").Replace("<br/>", "&lt;br&gt;");
-            //doc.LoadXml(stringXml);
-
-            //serializer.Deserialize(stringXml);
-            //string xmlSer = JsonConvert.SerializeXmlNode(doc);
-            //var xmlDes = JsonConvert.DeserializeObject<XmlObject>(xmlSer);
-            //movies = xmlDes.content.Movie;
-            //serials = xmlDes.content.Serial;
-
-            InitJson(obj.Movie.ToArray(), MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity, username);
+            {
+                InitObjects(obj.Movie.ToArray(), MovieKind.Film, serviceKinopoisk.Entity, serviceGetMovieCC.Entity, username);
                 Histories.Create(new SaveRequest<HistoryRow>()
                 {
                     Entity = new HistoryRow() { Status = true, Message = "Finish add Movies", UserName = username }
@@ -186,7 +139,7 @@
             }
             try
             {
-                InitJson(obj.Serial.ToArray(), MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity, username);
+                InitObjects(obj.Serial.ToArray(), MovieKind.TvSeries, serviceKinopoisk.Entity, serviceGetMovieCC.Entity, username);
                 Histories.Create(new SaveRequest<HistoryRow>()
                 {
                     Entity = new HistoryRow() { Status = true, Message = "Finish add Serials", UserName = username }
@@ -200,6 +153,7 @@
                 });
             }
         }
+
         public static string FileRead(string Path)
         {
             System.IO.StreamReader file = new System.IO.StreamReader(Path);
@@ -208,7 +162,7 @@
             return line;
         }
         [PageAuthorize("Administration")]
-        public static void InitJson(MovieJson[] data, MovieKind movieKind, ServiceRow serviceKinopoisk, ServiceRow service, string username)
+        public static void InitObjects(MovieJson[] data, MovieKind movieKind, ServiceRow serviceKinopoisk, ServiceRow service, string username)
         {
             StatusTask.Count = data.Length;
             foreach (MovieJson item in data)
@@ -276,7 +230,7 @@
             }
         }
         [PageAuthorize("Administration")]
-        public static SaveResponse CreateMovieVideo(string username, SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video, SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating, List<GenreRow> genres,List<CountryRow> countries)
+        public static SaveResponse CreateMovieVideo(string username, SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video, SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating, List<GenreRow> genres, List<CountryRow> countries)
         {
             if (movie == null || video == null || serviceKinopoisk == null || service == null || serviceRating == null)
             {
@@ -295,7 +249,7 @@
             }
             catch (Exception e)
             {
-                return new SaveResponse() { Error = new ServiceError() { Message = "CreateMovieVideo"+e.Message } };
+                return new SaveResponse() { Error = new ServiceError() { Message = "CreateMovieVideo" + e.Message } };
             }
             foreach (var i in genres)
             {
@@ -341,6 +295,6 @@
             }
             return response;
         }
-        
+
     }
 }

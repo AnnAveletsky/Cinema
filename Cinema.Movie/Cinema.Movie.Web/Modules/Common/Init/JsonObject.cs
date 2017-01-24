@@ -64,22 +64,22 @@ namespace Cinema.Movie.Common.Init
                     if (String.IsNullOrWhiteSpace(name_eng)|| name_eng == name)
                     {
                         Movie.TitleOriginal = name;
-                        Movie.Url = Translit.GetTranslit(name);
                     }
                     else
                     {
                         Movie.TitleOriginal = name_eng;
                         Movie.TitleTranslation = name;
-                        if (String.IsNullOrWhiteSpace(name))
-                        {
-                            Movie.Url = Translit.GetUrl(name_eng);
-                        }
-                        else
-                        {
-                            Movie.Url = Translit.GetTranslit(name);
-                        }
+                        
                     }
-                    if (!String.IsNullOrWhiteSpace(Movie.Url))
+                    if (String.IsNullOrWhiteSpace(name))
+                    {
+                        Movie.Url = Translit.GetUrl(name_eng);
+                    }
+                    else
+                    {
+                        Movie.Url = Translit.GetUrl(name);
+                    }
+                    if (String.IsNullOrWhiteSpace(Movie.Url))
                     {
                         Movie.Url = kinopoisk_id;
                     }
@@ -242,7 +242,7 @@ namespace Cinema.Movie.Common.Init
                     result.Add(new PersonRow()
                     {
                         Name = i,
-                        Url= Translit.GetTranslit(i)
+                        Url= Translit.GetUrl(i)
                     });
                 }
             }
@@ -373,43 +373,25 @@ namespace Cinema.Movie.Common.Init
         {
             prepareTranslit();
         }
-        public static string GetTranslit(string sourceText)
-        {
-            StringBuilder ans = new StringBuilder();
-            for (int i = 0; i < sourceText.Length; i++)
-            {
-                if (transliter.ContainsKey(sourceText[i].ToString()))
-                {
-                    ans.Append(transliter[sourceText[i].ToString()]);
-                }
-                else if (char.IsWhiteSpace(sourceText[i]))
-                {
-                    ans.Append('-');
-                }
-                else
-                {
-                    ans.Append(sourceText[i].ToString());
-                }
-            }
-            return ans.ToString();
-        }
+       
         public static string GetUrl(string sourceText)
         {
             StringBuilder ans = new StringBuilder();
             for (int i = 0; i < sourceText.Length; i++)
             {
-                if (char.IsWhiteSpace(sourceText[i]))
+                if (char.IsWhiteSpace(sourceText[i]) || char.IsSymbol(sourceText[i]))
                 {
                     ans.Append('-');
                 }
-                else if (char.IsSymbol(sourceText[i]))
+                else if (char.IsNumber(sourceText[i]) || transliter.ContainsValue(sourceText[i].ToString()))
                 {
                     ans.Append(sourceText[i].ToString());
                 }
-                else if (char.IsNumber(sourceText[i]))
+                else if (transliter.ContainsKey(sourceText[i].ToString()))
                 {
-                    ans.Append(sourceText[i].ToString());
+                    ans.Append(transliter[sourceText[i].ToString()]);
                 }
+                
             }
             return ans.ToString();
         }

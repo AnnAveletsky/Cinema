@@ -8238,6 +8238,18 @@ section.content > .s-DataGrid {
   background: #f2b183;
   color: #f5ebe0;
 }
+.skin-sunset .box.box-custom.film {
+  border-color: #f2b183;
+}
+.skin-sunset .box.box-custom.film .box-header.with-border {
+  background: #f2b183;
+}
+.skin-sunset .box.box-custom.tvseries {
+  border-color: #a15e61;
+}
+.skin-sunset .box.box-custom.tvseries .box-header.with-border {
+  background: #a15e61;
+}
 .skin-tenderness {
   /*
         #2b4046
@@ -8872,6 +8884,18 @@ section.content > .s-DataGrid {
 .skin-tenderness .label.label-custom {
   background: #46899b;
   color: #f0f0f3;
+}
+.skin-tenderness .box.box-custom.film {
+  border-color: #f2ceb9;
+}
+.skin-tenderness .box.box-custom.film .box-header.with-border {
+  background: #f2ceb9;
+}
+.skin-tenderness .box.box-custom.tvseries {
+  border-color: #46899b;
+}
+.skin-tenderness .box.box-custom.tvseries .box-header.with-border {
+  background: #46899b;
 }
 .skin-grapefruit {
   /*
@@ -10142,6 +10166,18 @@ section.content > .s-DataGrid {
 .skin-nature .label.label-custom {
   background: #487101;
   color: #f1f2f8;
+}
+.skin-nature .box.box-custom.film {
+  border-color: #487101;
+}
+.skin-nature .box.box-custom.film .box-header.with-border {
+  background: #487101;
+}
+.skin-nature .box.box-custom.tvseries {
+  border-color: #d3d699;
+}
+.skin-nature .box.box-custom.tvseries .box-header.with-border {
+  background: #d3d699;
 }
 .sidebar-collapse .sidebar-menu > li {
   border-top: 0;

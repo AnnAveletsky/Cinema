@@ -100,6 +100,7 @@ namespace Cinema.Movie
                 public static LocalText PopularMovies = "Popular movies";
                 public static LocalText SimilarMovies = "Similar movies";
                 public static LocalText SimilarSeries = "Similar series";
+                public static LocalText ResultSearch = "Result search";
             }
             public static class Widget
             {

@@ -51,34 +51,74 @@ namespace Cinema.Movie.Common.Pages
 
         #region movie
         [HttpGet, Route("~/")]
-        public ActionResult Index(int count=10,int page=1)
+        public ActionResult Index(int count=10,int page=1,string movie="",string year1="",string year2="",string year3="")
         {
             model.Content = TwoLevelCache.GetLocalStoreOnly("Dashboard/Dashboard", TimeSpan.FromMinutes(200),
             GenreRow.Fields.GenerationKey, () =>
             {
                 return LocalText.Get("Site.Dashboard.HTMLDashboard");
             });
-            model.Movies = Movies.Page(new ListRequest
+            var lr = new ListRequest
             {
                 Skip = (page - 1) * count,
                 Take = count,
-                Sort= new[] {
+                Sort = new[] {
                     new SortBy("UpdateDateTime", true),
                     new SortBy("PublishDateTime", true),
                     new SortBy("Rating", true),
                     new SortBy("TitleOriginal"),
                     new SortBy("TitleTranslation") }
-            });
+            };
+            if (year1 != "" || year2 != "" || year3 != "" || movie != "")
+            {
+                lr.Criteria = null;
+                int y1=0,y2=0,y3=0;
+                List<int> list = new List<int>();
+                int.TryParse(year1, out y1);
+                int.TryParse(year2, out y2);
+                int.TryParse(year3, out y3);
+                if (y1!=0)
+                {
+                    list.Add(y1);
+                }
+                if (y2 != 0)
+                {
+                    list.Add(y2);
+                }
+                if (y3 != 0)
+                {
+                    list.Add(y3);
+                }
+                if (list.Count!=0)
+                {
+                    lr.Criteria = new Criteria("YearStart").In(list.ToArray()) || new Criteria("YearEnd").In(list.ToArray());
+                    if (movie != "")
+                    {
+                        lr.Criteria = lr.Criteria && (new Criteria("TitleOriginal").Contains(movie) || new Criteria("TitleTranslation").Contains(movie));
+                    }
+                }
+                else if (movie != ""&& list.Count == 0)
+                {
+                    lr.Criteria = new Criteria("TitleOriginal").Contains(movie) || new Criteria("TitleTranslation").Contains(movie);
+                }
+                ViewData["Title"] = LocalText.Get("Site.Dashboard.ResultSearch")+" "+movie+" "+ (y1 != 0 ? " " + y1 : "") + (y2 != 0 ? " " + y2 : "") + (y3 != 0 ? " " + y3 : "");
+                ViewData["Url"] = (movie != "" ? "&&movie=" : "") + movie + (year1 != "" ? "&&year1=" + year1 : "") + (year2 != "" ? "&&year2=" + year2 : "") + (year3 != "" ? "&&year3=" + year3 : "");
+            }
+            else
+            {
+                ViewData["Title"] = "";
+            }
+            model.Movies = Movies.Page(lr);
             ViewData["Page"] = page;
             ViewData["Count"] = count;
+            
             ViewData["MaxRating"] = 10;
-            ViewData["Title"] = "";
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Dashboard";
             return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
         }
-        [HttpGet, Route("~/movies/{name}")]
-        public ActionResult Movie(Int64? id, string name = "")
+        [HttpGet, Route("~/movies/{movie}")]
+        public ActionResult Movie(Int64? id, string movie = "")
         {
             if (id != null)
             {
@@ -157,10 +197,17 @@ namespace Cinema.Movie.Common.Pages
             model.Movies = Movies.Page(new ListRequest
             {
                 Skip = (page - 1) * count,
-                Take = count
+                Take = count,
+                Sort = new[] {
+                    new SortBy("Rating", true),
+                    new SortBy("UpdateDateTime", true),
+                    new SortBy("PublishDateTime", true),
+                    new SortBy("TitleOriginal"),
+                    new SortBy("TitleTranslation") }
             });
             ViewData["Page"] = page;
             ViewData["Count"] = count;
+            ViewData["MaxRating"] = 10;
             ViewData["Title"] = LocalText.Get("Navigation.Dashboard/Top");
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Top";

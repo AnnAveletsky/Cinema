@@ -15,7 +15,7 @@
                 @if ((int)ViewData["Page"] > 1)
                 {
                     <li>
-                        <a href="@("?page=1&&count="+(int)ViewData["Count"])" aria-label="Previous">
+                        <a href="@("?page=1&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -25,14 +25,14 @@
                     if (i <= (int)ViewData["Page"] + count && i >= (int)ViewData["Page"] - count)
                     {
                         <li class="@(i == (int)ViewData["Page"] ? "active" : "")">
-                            <a href="@(i == (int)ViewData["Page"] ? "#" : "?page="+i+"&&count="+(int)ViewData["Count"])">@i</a>
+                            <a href="@(i == (int)ViewData["Page"] ? "#" : "?page="+i+"&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))">@i</a>
                         </li>
                     }
                 }
                 @if ((int)ViewData["Page"] < totalCount)
                 {
                     <li>
-                        <a href="@("/?page="+totalCount+"&&count="+(int)ViewData["Count"])" aria-label="Next">
+                        <a href="@("?page="+totalCount+"&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

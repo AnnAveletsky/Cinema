@@ -94,13 +94,25 @@
         <div class="box-header box-with-backgrond">
             <form action="#" method="get">
                 <div class="input-group input-group-custom">
-                    <input type="text" id="SidebarSearch" name="q" class="form-control" autocomplete="off">
+                    <input type="text" id="SidebarSearch" name="movie" class="form-control" autocomplete="off">
                     <span class="input-group-btn">
-                        <button type="button" name="search" id="search-btn" class="btn btn-custom"><i class="fa fa-search"></i></button>
+                        <button type="submit" id="search-btn" class="btn btn-custom"><i class="fa fa-search"></i></button>
                     </span>
+                </div>
+                <div class="btn-group col-xs-12 no-padding" data-toggle="buttons">
+                    <label class="btn btn-default col-xs-4 no-border">
+                        <input name="year1" value="@DateTime.Now.Year" type="checkbox" autocomplete="off"> @DateTime.Now.Year
+                    </label>
+                    <label class="btn btn-default col-xs-4 no-border">
+                        <input name="year2" value="@(DateTime.Now.Year - 1)" type="checkbox" autocomplete="off"> @(DateTime.Now.Year - 1)
+                    </label>
+                    <label class="btn btn-default col-xs-4 no-border">
+                        <input name="year3" value="@(DateTime.Now.Year - 2)" type="checkbox" autocomplete="off"> @(DateTime.Now.Year - 2)
+                    </label>
                 </div>
             </form>
         </div>
+        <div class="box-body no-padding"></div>
     </div>
     @{Html.RenderPartial("~/Modules/Movie/Genre/_Genres.cshtml", Model.Genres);}
     
@@ -118,3 +130,9 @@
     
 </div>
 <div class="col-lg-2"></div>
+
+<script type="text/javascript">
+    $().ready(function () {
+        //new Cinema.Movie.Common.SidebarSearch($('#SidebarSearch'), $('#SidebarMenu')).init();
+    });
+</script>

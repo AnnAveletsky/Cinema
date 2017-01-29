@@ -9,6 +9,8 @@
     using System.Web.Mvc;
     using Persons = Repositories.PersonRepository;
     using Histories = HistoryController;
+    using Movies = MovieController;
+    using Casts = CastController;
     using System;
 
     [RoutePrefix("Movie/Person"), Route("{action=index}")]
@@ -28,10 +30,33 @@
         }
         public static RetrieveResponse<PersonRow> Person(RetrieveRequest retrieveRequest)
         {
+            RetrieveResponse<PersonRow> person = null;
             using (var connection = SqlConnections.NewFor<PersonRow>())
             {
-                return new Persons().Retrieve(connection, retrieveRequest);
+                person= new Persons().Retrieve(connection, retrieveRequest);
             }
+            person.Entity.CastList = Casts.List(
+                new ListRequest()
+                {
+                    IncludeColumns = new HashSet<string> { "MovieId" },
+
+                    Criteria = new Criteria("PersonId") == person.Entity.PersonId.Value,
+                });
+            person.Entity.CastSortList = new SortedList<string, ListResponse<MovieRow>>();
+            foreach (var i in person.Entity.CastList)
+            {
+                if (!person.Entity.CastSortList.Keys.Contains(i.CharacterEn)|| person.Entity.CastSortList[i.CharacterEn].Entities==null)
+                {
+                    person.Entity.CastSortList.Add(i.CharacterEn, new ListResponse<MovieRow>() { Entities = new List<MovieRow>() });
+                }
+                if (person.Entity.CastSortList[i.CharacterEn].Entities.Find(k => k.MovieId == i.MovieId) == null)
+                {
+                    person.Entity.CastSortList[i.CharacterEn].Entities.Add(Movies.Movie(new RetrieveRequest() { EntityId = i.MovieId,
+                        ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" }
+                    }));
+                }
+            }
+            return person;
         }
         [PageAuthorize("Administration")]
         public static SaveResponse CreateUpdate(SaveRequest<PersonRow> request)

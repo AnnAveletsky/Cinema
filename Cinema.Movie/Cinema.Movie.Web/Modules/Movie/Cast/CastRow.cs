@@ -79,7 +79,12 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.MovieYearEnd[this]; }
             set { Fields.MovieYearEnd[this] = value; }
         }
-
+        [DisplayName("Movie Url"), Expression("jMovie.[Url]")]
+        public String MovieUrl
+        {
+            get { return Fields.MovieUrl[this]; }
+            set { Fields.MovieUrl[this] = value; }
+        }
         [DisplayName("Movie Path Image"), Expression("jMovie.[PathImage]")]
         public String MoviePathImage
         {
@@ -184,6 +189,7 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field MovieYearStart;
             public Int16Field MovieYearEnd;
             public StringField MoviePathImage;
+            public StringField MovieUrl;
 
             public StringField PersonName;
             public StringField PersonFullName;

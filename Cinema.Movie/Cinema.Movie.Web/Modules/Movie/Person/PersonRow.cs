@@ -7,7 +7,9 @@ namespace Cinema.Movie.Movie.Entities
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
+    using Serenity.Services;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -90,7 +92,8 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.PathImage[this]; }
             set { Fields.PathImage[this] = value; }
         }
-
+        public List<CastRow> CastList { get; set; }
+        public SortedList<string, ListResponse<MovieRow>> CastSortList { get; set; }
         IIdField IIdRow.IdField
         {
             get { return Fields.PersonId; }

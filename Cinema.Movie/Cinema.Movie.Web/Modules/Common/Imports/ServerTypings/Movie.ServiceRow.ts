@@ -3,6 +3,7 @@
         ServiceId?: number;
         Name?: string;
         Api?: string;
+        Url?: string;
         Active?: boolean;
         IntervalRequest?: number;
         MaxRating?: number;
@@ -24,6 +25,7 @@
             export declare const ServiceId: string;
             export declare const Name: string;
             export declare const Api: string;
+            export declare const Url: string;
             export declare const Active: string;
             export declare const IntervalRequest: string;
             export declare const MaxRating: string;
@@ -31,7 +33,7 @@
             export declare const PathList: string;
         }
 
-        ['ServiceId', 'Name', 'Api', 'Active', 'IntervalRequest', 'MaxRating', 'PathListPath', 'PathList'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceId', 'Name', 'Api', 'Url', 'Active', 'IntervalRequest', 'MaxRating', 'PathListPath', 'PathList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

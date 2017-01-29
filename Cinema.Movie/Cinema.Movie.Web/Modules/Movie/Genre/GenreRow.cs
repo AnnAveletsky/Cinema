@@ -38,6 +38,13 @@ namespace Cinema.Movie.Movie.Entities
             get { return Fields.Icon[this]; }
             set { Fields.Icon[this] = value; }
         }
+       
+        [DisplayName("Style"),DefaultValue("width:50%;font-size:1.2vw;")]
+        public String Style
+        {
+            get { return Fields.Style[this]; }
+            set { Fields.Style[this] = value; }
+        }
         [DisplayName("Movies")]
         [LookupEditor(typeof(MovieRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(MovieGenreRow), "GenreId", "MovieId")]
@@ -68,6 +75,7 @@ namespace Cinema.Movie.Movie.Entities
             public Int16Field GenreId;
             public StringField Name;
             public StringField Icon;
+            public StringField Style;
             public ListField<Int64> MovieList;
 
             public RowFields()

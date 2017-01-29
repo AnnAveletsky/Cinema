@@ -18,6 +18,7 @@ namespace Cinema.Movie.Movie.Columns
         [EditLink]
         public String Name { get; set; }
         public String Icon { get; set; }
+        public String Style { get; set; }
         public List<Int64> MovieList { get; set; }
     }
 }

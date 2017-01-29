@@ -29,6 +29,7 @@
         MovieBudget?: number;
         ServiceName?: string;
         ServiceApi?: string;
+        ServiceUrl?: string;
         ServiceMaxRating?: number;
     }
 
@@ -66,10 +67,11 @@
             export declare const MovieBudget: string;
             export declare const ServiceName: string;
             export declare const ServiceApi: string;
+            export declare const ServiceUrl: string;
             export declare const ServiceMaxRating: string;
         }
 
-        ['ServiceRatingId', 'Rating', 'Id', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['ServiceRatingId', 'Rating', 'Id', 'MovieId', 'ServiceId', 'MovieTitleEn', 'MovieTitleOther', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieLastEvent', 'MovieLastEventPublishDateTime', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceUrl', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

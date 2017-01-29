@@ -15,8 +15,8 @@
                 @{Html.RenderPartial("~/Modules/Movie/Movie/_PreviewMovies.cshtml", Model.PopularMovies); }
             </div>
         </div>
-   }
-    
+                    }
+
     @if (Model.PopularSeries.Entities != null && Model.PopularSeries.Entities.Count != 0)
     {
         <div class="box box-custom">
@@ -27,8 +27,8 @@
                 @{Html.RenderPartial("~/Modules/Movie/Movie/_PreviewMovies.cshtml", Model.PopularSeries); }
             </div>
         </div>
-    }
-    
+                    }
+
 </div>
 <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
 
@@ -45,37 +45,49 @@
             </div>
         </div>
     }
-    
+    @if (Model.Person != null)
+    {
+        { Html.RenderPartial("~/Modules/Movie/Person/_Person.cshtml", Model.Person); }
+    }
+    else if (Model.Persons != null)
+    {
+        { Html.RenderPartial("~/Modules/Movie/Person/_Persons.cshtml", Model.Persons); }
+    }
+    @if (Model.Casts != null)
+    {
+        { Html.RenderPartial("~/Modules/Movie/Cast/_Casts.cshtml", Model.Casts); }
+    }
     @if (Model.Movie != null)
     {
         { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", Model.Movie); }
-        if (Model.SimilarMovies != null&&Model.SimilarMovies.Entities.Count!=0)
-        {
-            <div class="box box-custom">
-                <h4 class="box-header with-border box-with-backgrond no-margin">
-                    @LocalText.Get("Site.Dashboard.SimilarMovies")
-                </h4>
-                <div class="box-body box-profile no-padding">
-                    @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", Model.SimilarMovies); }
-                </div>
-            </div>
-        }
-        if (Model.SimilarSeries != null&&Model.SimilarSeries.Entities.Count!=0)
-        {
-            <div class="box box-custom">
-                <h4 class="box-header with-border box-with-backgrond no-margin">
-                    @LocalText.Get("Site.Dashboard.SimilarSeries")
-                </h4>
-                <div class="box-body box-profile no-padding">
-                    @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", Model.SimilarSeries); }
-                </div>
-            </div>
-        }
     }
     else if (Model.Movies != null)
     {
         { Html.RenderPartial("~/Modules/Movie/Movie/_Movies.cshtml", Model.Movies); }
     }
+    @if (Model.SimilarMovies != null && Model.SimilarMovies.Entities.Count != 0)
+    {
+        <div class="box box-custom">
+            <h4 class="box-header with-border box-with-backgrond no-margin">
+                @LocalText.Get("Site.Dashboard.SimilarMovies")
+            </h4>
+            <div class="box-body box-profile no-padding">
+                @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", Model.SimilarMovies); }
+            </div>
+        </div>
+    }
+    @if (Model.SimilarSeries != null && Model.SimilarSeries.Entities.Count != 0)
+    {
+        <div class="box box-custom">
+            <h4 class="box-header with-border box-with-backgrond no-margin">
+                @LocalText.Get("Site.Dashboard.SimilarSeries")
+            </h4>
+            <div class="box-body box-profile no-padding">
+                @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", Model.SimilarSeries); }
+            </div>
+        </div>
+    }
+    
 
     @if ((string)ViewData["Footer"] != "")
     {
@@ -92,21 +104,21 @@
 <div class="col-sm-4 col-md-3 col-lg-2 hidden-xs">
     <div class="box box-custom ">
         <div class="box-header box-with-backgrond">
-            <form action="#" method="get">
-                <div class="input-group input-group-custom">
+            <form action="#" method="get" class="col-xs-12 no-padding">
+                <div class="input-group input-group-custom col-xs-12 no-padding">
                     <input type="text" id="SidebarSearch" name="movie" class="form-control" autocomplete="off">
                     <span class="input-group-btn">
                         <button type="submit" id="search-btn" class="btn btn-custom"><i class="fa fa-search"></i></button>
                     </span>
                 </div>
-                <div class="btn-group col-xs-12 no-padding" data-toggle="buttons">
-                    <label class="btn btn-default col-xs-4 no-border">
+                <div class="btn-group col-xs-12 no-padding no-border" data-toggle="buttons">
+                    <label class="btn btn-custom col-xs-4">
                         <input name="year1" value="@DateTime.Now.Year" type="checkbox" autocomplete="off"> @DateTime.Now.Year
                     </label>
-                    <label class="btn btn-default col-xs-4 no-border">
+                    <label class="btn btn-custom col-xs-4">
                         <input name="year2" value="@(DateTime.Now.Year - 1)" type="checkbox" autocomplete="off"> @(DateTime.Now.Year - 1)
                     </label>
-                    <label class="btn btn-default col-xs-4 no-border">
+                    <label class="btn btn-custom col-xs-4">
                         <input name="year3" value="@(DateTime.Now.Year - 2)" type="checkbox" autocomplete="off"> @(DateTime.Now.Year - 2)
                     </label>
                 </div>
@@ -115,7 +127,7 @@
         <div class="box-body no-padding"></div>
     </div>
     @{Html.RenderPartial("~/Modules/Movie/Genre/_Genres.cshtml", Model.Genres);}
-    
+
     @if (Model.NewSeries.Entities != null && Model.NewSeries.Entities.Count != 0)
     {
         <div class="box box-custom">
@@ -126,13 +138,7 @@
                 @{Html.RenderPartial("~/Modules/Movie/Movie/_PreviewMovies.cshtml", Model.NewSeries); }
             </div>
         </div>
-    }
-    
+                    }
+
 </div>
 <div class="col-lg-2"></div>
-
-<script type="text/javascript">
-    $().ready(function () {
-        //new Cinema.Movie.Common.SidebarSearch($('#SidebarSearch'), $('#SidebarMenu')).init();
-    });
-</script>

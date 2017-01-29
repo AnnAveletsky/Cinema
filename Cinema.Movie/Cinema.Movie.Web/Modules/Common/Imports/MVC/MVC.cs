@@ -94,6 +94,7 @@ namespace MVC
         {
             public static class Cast
             {
+                public const string _Casts = "~/Modules/Movie/Cast/_Casts.cshtml";
                 public const string CastIndex = "~/Modules/Movie/Cast/CastIndex.cshtml";
             }
 
@@ -134,6 +135,8 @@ namespace MVC
 
             public static class Person
             {
+                public const string _Person = "~/Modules/Movie/Person/_Person.cshtml";
+                public const string _Persons = "~/Modules/Movie/Person/_Persons.cshtml";
                 public const string PersonIndex = "~/Modules/Movie/Person/PersonIndex.cshtml";
             }
 

@@ -1309,6 +1309,7 @@ declare namespace Cinema.Movie.Movie {
         MovieYearStart?: number;
         MovieYearEnd?: number;
         MoviePathImage?: string;
+        MovieUrl?: string;
         PersonName?: string;
         PersonFullName?: string;
         PersonNameOther?: string;
@@ -1337,6 +1338,7 @@ declare namespace Cinema.Movie.Movie {
             const MovieYearStart: string;
             const MovieYearEnd: string;
             const MoviePathImage: string;
+            const MovieUrl: string;
             const PersonName: string;
             const PersonFullName: string;
             const PersonNameOther: string;
@@ -1435,6 +1437,7 @@ declare namespace Cinema.Movie.Movie {
     interface GenreForm {
         Name: Serenity.StringEditor;
         Icon: Serenity.StringEditor;
+        WidthPercent: Serenity.IntegerEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
@@ -1442,6 +1445,7 @@ declare namespace Cinema.Movie.Movie {
         GenreId?: number;
         Name?: string;
         Icon?: string;
+        WidthPercent?: number;
         MovieList?: number[];
     }
     namespace GenreRow {
@@ -1454,6 +1458,7 @@ declare namespace Cinema.Movie.Movie {
             const GenreId: string;
             const Name: string;
             const Icon: string;
+            const WidthPercent: string;
             const MovieList: string;
         }
     }
@@ -1935,6 +1940,7 @@ declare namespace Cinema.Movie.Movie {
     interface ServiceForm {
         Name: Serenity.StringEditor;
         Api: Serenity.StringEditor;
+        Url: Serenity.StringEditor;
         Active: Serenity.BooleanEditor;
         IntervalRequest: Serenity.IntegerEditor;
         MaxRating: Serenity.IntegerEditor;
@@ -2037,6 +2043,7 @@ declare namespace Cinema.Movie.Movie {
         MovieBudget?: number;
         ServiceName?: string;
         ServiceApi?: string;
+        ServiceUrl?: string;
         ServiceMaxRating?: number;
     }
     namespace ServiceRatingRow {
@@ -2072,6 +2079,7 @@ declare namespace Cinema.Movie.Movie {
             const MovieBudget: string;
             const ServiceName: string;
             const ServiceApi: string;
+            const ServiceUrl: string;
             const ServiceMaxRating: string;
         }
     }
@@ -2098,6 +2106,7 @@ declare namespace Cinema.Movie.Movie {
         ServiceId?: number;
         Name?: string;
         Api?: string;
+        Url?: string;
         Active?: boolean;
         IntervalRequest?: number;
         MaxRating?: number;
@@ -2114,6 +2123,7 @@ declare namespace Cinema.Movie.Movie {
             const ServiceId: string;
             const Name: string;
             const Api: string;
+            const Url: string;
             const Active: string;
             const IntervalRequest: string;
             const MaxRating: string;

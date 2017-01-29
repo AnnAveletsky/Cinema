@@ -360,8 +360,9 @@
                 border-radius: 0;
             }
         }
-        .skin-form-control(@bg,@color,@with-backgrond);
         .skin-btn(@bg,@color,@with-backgrond);
+        .skin-form-control(@bg,@color,@with-backgrond);
+        
     }
     .box-with-backgrond{
         background:@with-backgrond;
@@ -372,7 +373,9 @@
         a:hover{
             color:@with-backgrond-color;
         }
+        .skin-btn(@with-backgrond,@with-backgrond-color,@with-backgrond-color);
         .skin-form-control(@with-backgrond,@with-backgrond-color,@with-backgrond-color);
+        
     }
     .skin-label(@label-bg,@label-color);
 }
@@ -383,7 +386,9 @@
     }
 }
 .skin-btn(@bg,@color,@border){
-    .btn.btn-custom{
+    .btn.btn-custom,
+    .btn.btn-custom:focus,
+    .btn.btn-custom.focus{
             border-radius: 0;
             outline-color: transparent;
             border-color:@border;
@@ -392,8 +397,20 @@
         }
     .btn.btn-custom:hover,
     .btn.btn-custom:active{ 
+        border-radius: 0;
         outline-color:@color;
         border-color:@border;
+        background-color:@color;
+        color:@bg;
+    }
+    .btn.btn-custom.active,
+    .btn.btn-custom.active:focus,
+    .btn.btn-custom.active.focus,
+    .btn.btn-custom.active:hover,
+    .btn.btn-custom.active:active{
+        border-radius: 0;
+        outline-color: @color;
+        border-color:@color;
         background-color:@color;
         color:@bg;
     }
@@ -426,8 +443,15 @@
             color:@bg;
             border-color:@bg;
         }
+        
     }
-    
+    .input-group-btn:last-child > .btn, 
+    .input-group-btn:last-child > .btn-group{
+        margin-right: 2px;
+    }
+    .input-group.input-group-custom+.btn-group .btn.btn-custom{
+        border-top:0;
+    }
 }
 
 .type(@film,@serial){

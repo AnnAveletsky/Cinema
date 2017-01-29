@@ -1,0 +1,40 @@
+﻿@model Cinema.Movie.Movie.Entities.PersonRow
+
+<div class="box box-custom">
+    <div class="box-header with-border box-with-backgrond">
+        <a class="col-xs-12 no-padding" @((string)ViewData["PageId"] != "Dashboard/Person" ? "href = /persons/" + Model.Url + "?id=" + Model.PersonId : "" )>
+            <h3 class="box-title">
+                @Model.Name
+            </h3>
+        </a>
+    </div>
+    <div class="box-body box-profile no-padding">
+        <div class="col-xs-12 ">
+
+            <div class="col-xs-4 no-padding-left">
+                @if (Model.PathImage != null)
+                {
+                    <a href="#" class="thumbnail no-margin">
+                        <img class="img-responsive" src="@Model.PathImage" />
+                    </a>
+                }
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@if (Model.CastSortList != null && Model.CastSortList.Count != 0)
+{
+    foreach (var i in Model.CastSortList)
+    {
+        <div class="box box-custom">
+            <h4 class="box-header with-border box-with-backgrond no-margin">
+                @i.Key
+            </h4>
+            <div class="box-body box-profile no-padding">
+                @{Html.RenderPartial("~/Modules/Movie/Movie/_SimilarMovies.cshtml", i.Value); }
+            </div>
+        </div>
+    }
+}

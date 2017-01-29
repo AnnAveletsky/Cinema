@@ -9,6 +9,7 @@ namespace Cinema.Movie.Movie.Columns
     using System.Collections.Generic;
     using System.IO;
     using Entities;
+    using Serenity.Services;
 
     [ColumnsScript("Movie.Person")]
     [BasedOnRow(typeof(Entities.PersonRow))]
@@ -27,5 +28,7 @@ namespace Cinema.Movie.Movie.Columns
         public Movie.Gender Gender { get; set; }
         public String About { get; set; }
         public String PathImage { get; set; }
+        public List<CastRow> CastList { get; set; }
+        public SortedList<string, ListResponse<MovieRow>> CastSortList { get; set; }
     }
 }

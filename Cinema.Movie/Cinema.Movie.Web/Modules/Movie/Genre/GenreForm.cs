@@ -15,5 +15,6 @@ namespace Cinema.Movie.Movie.Forms
     {
         public String Name { get; set; }
         public String Icon { get; set; }
+        public String Style { get; set; }
     }
 }

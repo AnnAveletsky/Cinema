@@ -1,23 +1,26 @@
 ﻿@model List<Cinema.Movie.Movie.Entities.GenreRow>
 
-@if (Model!=null&&Model.Count>0) {
-<div class="box box-custom">
-    <div class="box-header with-border box-with-backgrond">
-        <b class="uppercase header">@LocalText.Get("Db.Movie.Genre.EntityPlural")</b>
+@if (Model != null && Model.Count > 0)
+{
+    <div class="box box-custom">
+        <div class="box-header with-border box-with-backgrond">
+            <b class="uppercase header">@LocalText.Get("Db.Movie.Genre.EntityPlural")</b>
+        </div>
+        <div class="box-body padding-5"> 
+            <div class="btn-group col-xs-12 no-padding">
+                @foreach (var i in Model)
+                {
+                    <a class="btn btn-custom btn-block" href="/genres/@i.Name" style="margin-top:5px;@(i.Style)">
+                        @if (i.Icon != null)
+                        {
+                            <span class="@i.Icon"></span>
+                        }
+                        <b>
+                            @i.Name
+                        </b>
+                    </a>
+                }
+            </div>
+        </div>
     </div>
-    <div class="box-body">
-        <ul class="list-group list-group-unbordered no-margin">
-            @foreach (var i in Model)
-            {
-                <li class="list-group-item padding-top-5 padding-bottom-5 col-xs-12 col-md-6">
-                    @if (i.Icon != null)
-                    {
-                        <span class="@i.Icon"></span>
-                    }
-                    <b><a href="/genres/@i.Name">@i.Name</a></b>
-                </li>
-            }
-        </ul>
-    </div>
-</div>
 }

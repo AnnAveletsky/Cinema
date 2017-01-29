@@ -7251,7 +7251,15 @@ section.content > .s-DataGrid {
 .skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
 .skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
 .skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
-.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f7ffbc;
@@ -7266,6 +7274,33 @@ section.content > .s-DataGrid {
 .skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
 .skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
 .skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #5f1a16;
+}
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-modern .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-modern .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f7ffbc;
   border-color: #f7ffbc;
   background-color: #f7ffbc;
@@ -7330,8 +7365,22 @@ section.content > .s-DataGrid {
   color: #5f1a16;
   border-color: #5f1a16;
 }
+.skin-modern .control-sidebar-dark .input-group-btn:last-child > .btn,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn,
+.skin-modern .control-sidebar-dark .input-group-btn:last-child > .btn-group,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-modern .control-sidebar-dark .input-group.input-group-custom + .btn-group .btn.btn-custom,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-modern .control-sidebar-dark .btn.btn-custom,
-.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom,
+.skin-modern .control-sidebar-dark .btn.btn-custom:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:focus,
+.skin-modern .control-sidebar-dark .btn.btn-custom.focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f7ffbc;
@@ -7342,6 +7391,23 @@ section.content > .s-DataGrid {
 .skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
 .skin-modern .control-sidebar-dark .btn.btn-custom:active,
 .skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #5f1a16;
+}
+.skin-modern .control-sidebar-dark .btn.btn-custom.active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active,
+.skin-modern .control-sidebar-dark .btn.btn-custom.active:focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:focus,
+.skin-modern .control-sidebar-dark .btn.btn-custom.active.focus,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active.focus,
+.skin-modern .control-sidebar-dark .btn.btn-custom.active:hover,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:hover,
+.skin-modern .control-sidebar-dark .btn.btn-custom.active:active,
+.skin-modern .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f7ffbc;
   border-color: #f7ffbc;
   background-color: #f7ffbc;
@@ -7391,7 +7457,11 @@ section.content > .s-DataGrid {
   border-radius: 0;
 }
 .skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
-.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #009b86;
@@ -7402,8 +7472,25 @@ section.content > .s-DataGrid {
 .skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
 .skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #5f1a16;
   border-color: #009b86;
+  background-color: #5f1a16;
+  color: #f7ffbc;
+}
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-modern .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #5f1a16;
+  border-color: #5f1a16;
   background-color: #5f1a16;
   color: #f7ffbc;
 }
@@ -7444,6 +7531,13 @@ section.content > .s-DataGrid {
   color: #f7ffbc;
   border-color: #f7ffbc;
 }
+.skin-modern .sidebar .sidebar-form .input-group-btn:last-child > .btn,
+.skin-modern .sidebar .sidebar-form .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-modern .sidebar .sidebar-form .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-modern .box-custom {
   border-color: #009b86;
   background: #f7ffbc;
@@ -7467,8 +7561,40 @@ section.content > .s-DataGrid {
   border-color: #009b86;
   border-radius: 0;
 }
+.skin-modern .box-custom .btn.btn-custom,
+.skin-modern .box-custom .btn.btn-custom:focus,
+.skin-modern .box-custom .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #009b86;
+  background-color: transparent;
+  color: #009b86;
+}
+.skin-modern .box-custom .btn.btn-custom:hover,
+.skin-modern .box-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #0d2436;
+  border-color: #009b86;
+  background-color: #0d2436;
+  color: #f7ffbc;
+}
+.skin-modern .box-custom .btn.btn-custom.active,
+.skin-modern .box-custom .btn.btn-custom.active:focus,
+.skin-modern .box-custom .btn.btn-custom.active.focus,
+.skin-modern .box-custom .btn.btn-custom.active:hover,
+.skin-modern .box-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #0d2436;
+  border-color: #0d2436;
+  background-color: #0d2436;
+  color: #f7ffbc;
+}
 .skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom,
-.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom {
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #009b86;
@@ -7479,8 +7605,25 @@ section.content > .s-DataGrid {
 .skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom:active,
 .skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #0d2436;
   border-color: #009b86;
+  background-color: #0d2436;
+  color: #f7ffbc;
+}
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom.active,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom.active,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-modern .box-custom .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-modern .box-custom .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #0d2436;
+  border-color: #0d2436;
   background-color: #0d2436;
   color: #f7ffbc;
 }
@@ -7521,19 +7664,12 @@ section.content > .s-DataGrid {
   color: #f7ffbc;
   border-color: #f7ffbc;
 }
-.skin-modern .box-custom .btn.btn-custom {
-  border-radius: 0;
-  outline-color: transparent;
-  border-color: #009b86;
-  background-color: transparent;
-  color: #009b86;
+.skin-modern .box-custom .input-group-btn:last-child > .btn,
+.skin-modern .box-custom .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
 }
-.skin-modern .box-custom .btn.btn-custom:hover,
-.skin-modern .box-custom .btn.btn-custom:active {
-  outline-color: #0d2436;
-  border-color: #009b86;
-  background-color: #0d2436;
-  color: #f7ffbc;
+.skin-modern .box-custom .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-modern .box-with-backgrond {
   background: #009b86;
@@ -7545,8 +7681,40 @@ section.content > .s-DataGrid {
 .skin-modern .box-with-backgrond a:hover {
   color: #f7ffbc;
 }
+.skin-modern .box-with-backgrond .btn.btn-custom,
+.skin-modern .box-with-backgrond .btn.btn-custom:focus,
+.skin-modern .box-with-backgrond .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f7ffbc;
+  background-color: transparent;
+  color: #f7ffbc;
+}
+.skin-modern .box-with-backgrond .btn.btn-custom:hover,
+.skin-modern .box-with-backgrond .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #009b86;
+}
+.skin-modern .box-with-backgrond .btn.btn-custom.active,
+.skin-modern .box-with-backgrond .btn.btn-custom.active:focus,
+.skin-modern .box-with-backgrond .btn.btn-custom.active.focus,
+.skin-modern .box-with-backgrond .btn.btn-custom.active:hover,
+.skin-modern .box-with-backgrond .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #009b86;
+}
 .skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
-.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f7ffbc;
@@ -7557,6 +7725,23 @@ section.content > .s-DataGrid {
 .skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
 .skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f7ffbc;
+  border-color: #f7ffbc;
+  background-color: #f7ffbc;
+  color: #009b86;
+}
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-modern .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-modern .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f7ffbc;
   border-color: #f7ffbc;
   background-color: #f7ffbc;
@@ -7598,6 +7783,13 @@ section.content > .s-DataGrid {
   background-color: #f7ffbc;
   color: #009b86;
   border-color: #009b86;
+}
+.skin-modern .box-with-backgrond .input-group-btn:last-child > .btn,
+.skin-modern .box-with-backgrond .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-modern .box-with-backgrond .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-modern .label.label-custom {
   background: #009b86;
@@ -7886,7 +8078,15 @@ section.content > .s-DataGrid {
 .skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
 .skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
 .skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
-.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #8e9dc7;
@@ -7901,6 +8101,33 @@ section.content > .s-DataGrid {
 .skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
 .skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
 .skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-sunset .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #8e9dc7;
   border-color: #8e9dc7;
   background-color: #8e9dc7;
@@ -7965,8 +8192,22 @@ section.content > .s-DataGrid {
   color: #f5ebe0;
   border-color: #f5ebe0;
 }
+.skin-sunset .control-sidebar-dark .input-group-btn:last-child > .btn,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn,
+.skin-sunset .control-sidebar-dark .input-group-btn:last-child > .btn-group,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-sunset .control-sidebar-dark .input-group.input-group-custom + .btn-group .btn.btn-custom,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-sunset .control-sidebar-dark .btn.btn-custom,
-.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom,
+.skin-sunset .control-sidebar-dark .btn.btn-custom:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:focus,
+.skin-sunset .control-sidebar-dark .btn.btn-custom.focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #8e9dc7;
@@ -7977,6 +8218,23 @@ section.content > .s-DataGrid {
 .skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
 .skin-sunset .control-sidebar-dark .btn.btn-custom:active,
 .skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .control-sidebar-dark .btn.btn-custom.active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active,
+.skin-sunset .control-sidebar-dark .btn.btn-custom.active:focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:focus,
+.skin-sunset .control-sidebar-dark .btn.btn-custom.active.focus,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active.focus,
+.skin-sunset .control-sidebar-dark .btn.btn-custom.active:hover,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:hover,
+.skin-sunset .control-sidebar-dark .btn.btn-custom.active:active,
+.skin-sunset .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #8e9dc7;
   border-color: #8e9dc7;
   background-color: #8e9dc7;
@@ -8026,7 +8284,11 @@ section.content > .s-DataGrid {
   border-radius: 0;
 }
 .skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
-.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f2b183;
@@ -8037,8 +8299,25 @@ section.content > .s-DataGrid {
 .skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
 .skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #8e9dc7;
   border-color: #f2b183;
+  background-color: #8e9dc7;
+  color: #f5ebe0;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-sunset .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #8e9dc7;
+  border-color: #8e9dc7;
   background-color: #8e9dc7;
   color: #f5ebe0;
 }
@@ -8079,6 +8358,13 @@ section.content > .s-DataGrid {
   color: #f5ebe0;
   border-color: #f5ebe0;
 }
+.skin-sunset .sidebar .sidebar-form .input-group-btn:last-child > .btn,
+.skin-sunset .sidebar .sidebar-form .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-sunset .sidebar .sidebar-form .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-sunset .box-custom {
   border-color: #f2b183;
   background: #f5ebe0;
@@ -8102,8 +8388,40 @@ section.content > .s-DataGrid {
   border-color: #f2b183;
   border-radius: 0;
 }
+.skin-sunset .box-custom .btn.btn-custom,
+.skin-sunset .box-custom .btn.btn-custom:focus,
+.skin-sunset .box-custom .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f2b183;
+  background-color: transparent;
+  color: #f2b183;
+}
+.skin-sunset .box-custom .btn.btn-custom:hover,
+.skin-sunset .box-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #534255;
+  border-color: #f2b183;
+  background-color: #534255;
+  color: #f5ebe0;
+}
+.skin-sunset .box-custom .btn.btn-custom.active,
+.skin-sunset .box-custom .btn.btn-custom.active:focus,
+.skin-sunset .box-custom .btn.btn-custom.active.focus,
+.skin-sunset .box-custom .btn.btn-custom.active:hover,
+.skin-sunset .box-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #534255;
+  border-color: #534255;
+  background-color: #534255;
+  color: #f5ebe0;
+}
 .skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom,
-.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom {
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f2b183;
@@ -8114,8 +8432,25 @@ section.content > .s-DataGrid {
 .skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom:active,
 .skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #534255;
   border-color: #f2b183;
+  background-color: #534255;
+  color: #f5ebe0;
+}
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom.active,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom.active,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .box-custom .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-sunset .box-custom .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #534255;
+  border-color: #534255;
   background-color: #534255;
   color: #f5ebe0;
 }
@@ -8156,19 +8491,12 @@ section.content > .s-DataGrid {
   color: #f5ebe0;
   border-color: #f5ebe0;
 }
-.skin-sunset .box-custom .btn.btn-custom {
-  border-radius: 0;
-  outline-color: transparent;
-  border-color: #f2b183;
-  background-color: transparent;
-  color: #f2b183;
+.skin-sunset .box-custom .input-group-btn:last-child > .btn,
+.skin-sunset .box-custom .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
 }
-.skin-sunset .box-custom .btn.btn-custom:hover,
-.skin-sunset .box-custom .btn.btn-custom:active {
-  outline-color: #534255;
-  border-color: #f2b183;
-  background-color: #534255;
-  color: #f5ebe0;
+.skin-sunset .box-custom .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-sunset .box-with-backgrond {
   background: #f2b183;
@@ -8180,8 +8508,40 @@ section.content > .s-DataGrid {
 .skin-sunset .box-with-backgrond a:hover {
   color: #f5ebe0;
 }
+.skin-sunset .box-with-backgrond .btn.btn-custom,
+.skin-sunset .box-with-backgrond .btn.btn-custom:focus,
+.skin-sunset .box-with-backgrond .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f5ebe0;
+  background-color: transparent;
+  color: #f5ebe0;
+}
+.skin-sunset .box-with-backgrond .btn.btn-custom:hover,
+.skin-sunset .box-with-backgrond .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f5ebe0;
+  border-color: #f5ebe0;
+  background-color: #f5ebe0;
+  color: #f2b183;
+}
+.skin-sunset .box-with-backgrond .btn.btn-custom.active,
+.skin-sunset .box-with-backgrond .btn.btn-custom.active:focus,
+.skin-sunset .box-with-backgrond .btn.btn-custom.active.focus,
+.skin-sunset .box-with-backgrond .btn.btn-custom.active:hover,
+.skin-sunset .box-with-backgrond .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #f5ebe0;
+  border-color: #f5ebe0;
+  background-color: #f5ebe0;
+  color: #f2b183;
+}
 .skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
-.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f5ebe0;
@@ -8192,6 +8552,23 @@ section.content > .s-DataGrid {
 .skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
 .skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f5ebe0;
+  border-color: #f5ebe0;
+  background-color: #f5ebe0;
+  color: #f2b183;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-sunset .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-sunset .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f5ebe0;
   border-color: #f5ebe0;
   background-color: #f5ebe0;
@@ -8233,6 +8610,13 @@ section.content > .s-DataGrid {
   background-color: #f5ebe0;
   color: #f2b183;
   border-color: #f2b183;
+}
+.skin-sunset .box-with-backgrond .input-group-btn:last-child > .btn,
+.skin-sunset .box-with-backgrond .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-sunset .box-with-backgrond .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-sunset .label.label-custom {
   background: #f2b183;
@@ -8533,7 +8917,15 @@ section.content > .s-DataGrid {
 .skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
 .skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
 .skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
-.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f0f0f3;
@@ -8548,6 +8940,33 @@ section.content > .s-DataGrid {
 .skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
 .skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
 .skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #aaabac;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-tenderness .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f0f0f3;
   border-color: #f0f0f3;
   background-color: #f0f0f3;
@@ -8612,8 +9031,22 @@ section.content > .s-DataGrid {
   color: #aaabac;
   border-color: #aaabac;
 }
+.skin-tenderness .control-sidebar-dark .input-group-btn:last-child > .btn,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn,
+.skin-tenderness .control-sidebar-dark .input-group-btn:last-child > .btn-group,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-tenderness .control-sidebar-dark .input-group.input-group-custom + .btn-group .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-tenderness .control-sidebar-dark .btn.btn-custom,
-.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:focus,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom.focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f0f0f3;
@@ -8624,6 +9057,23 @@ section.content > .s-DataGrid {
 .skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
 .skin-tenderness .control-sidebar-dark .btn.btn-custom:active,
 .skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #aaabac;
+}
+.skin-tenderness .control-sidebar-dark .btn.btn-custom.active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom.active:focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:focus,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom.active.focus,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active.focus,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom.active:hover,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:hover,
+.skin-tenderness .control-sidebar-dark .btn.btn-custom.active:active,
+.skin-tenderness .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f0f0f3;
   border-color: #f0f0f3;
   background-color: #f0f0f3;
@@ -8673,7 +9123,11 @@ section.content > .s-DataGrid {
   border-radius: 0;
 }
 .skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
-.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f2ceb9;
@@ -8684,8 +9138,25 @@ section.content > .s-DataGrid {
 .skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
 .skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #aaabac;
   border-color: #f2ceb9;
+  background-color: #aaabac;
+  color: #f0f0f3;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-tenderness .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #aaabac;
+  border-color: #aaabac;
   background-color: #aaabac;
   color: #f0f0f3;
 }
@@ -8726,6 +9197,13 @@ section.content > .s-DataGrid {
   color: #f0f0f3;
   border-color: #f0f0f3;
 }
+.skin-tenderness .sidebar .sidebar-form .input-group-btn:last-child > .btn,
+.skin-tenderness .sidebar .sidebar-form .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-tenderness .sidebar .sidebar-form .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-tenderness .box-custom {
   border-color: #46899b;
   background: #f2ceb9;
@@ -8749,8 +9227,40 @@ section.content > .s-DataGrid {
   border-color: #46899b;
   border-radius: 0;
 }
+.skin-tenderness .box-custom .btn.btn-custom,
+.skin-tenderness .box-custom .btn.btn-custom:focus,
+.skin-tenderness .box-custom .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #46899b;
+  background-color: transparent;
+  color: #46899b;
+}
+.skin-tenderness .box-custom .btn.btn-custom:hover,
+.skin-tenderness .box-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #46899b;
+  border-color: #46899b;
+  background-color: #46899b;
+  color: #f2ceb9;
+}
+.skin-tenderness .box-custom .btn.btn-custom.active,
+.skin-tenderness .box-custom .btn.btn-custom.active:focus,
+.skin-tenderness .box-custom .btn.btn-custom.active.focus,
+.skin-tenderness .box-custom .btn.btn-custom.active:hover,
+.skin-tenderness .box-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #46899b;
+  border-color: #46899b;
+  background-color: #46899b;
+  color: #f2ceb9;
+}
 .skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom,
-.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom {
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #46899b;
@@ -8761,6 +9271,23 @@ section.content > .s-DataGrid {
 .skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom:active,
 .skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #46899b;
+  border-color: #46899b;
+  background-color: #46899b;
+  color: #f2ceb9;
+}
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom.active,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom.active,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .box-custom .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-tenderness .box-custom .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #46899b;
   border-color: #46899b;
   background-color: #46899b;
@@ -8803,19 +9330,12 @@ section.content > .s-DataGrid {
   color: #f2ceb9;
   border-color: #f2ceb9;
 }
-.skin-tenderness .box-custom .btn.btn-custom {
-  border-radius: 0;
-  outline-color: transparent;
-  border-color: #46899b;
-  background-color: transparent;
-  color: #46899b;
+.skin-tenderness .box-custom .input-group-btn:last-child > .btn,
+.skin-tenderness .box-custom .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
 }
-.skin-tenderness .box-custom .btn.btn-custom:hover,
-.skin-tenderness .box-custom .btn.btn-custom:active {
-  outline-color: #46899b;
-  border-color: #46899b;
-  background-color: #46899b;
-  color: #f2ceb9;
+.skin-tenderness .box-custom .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-tenderness .box-with-backgrond {
   background: #46899b;
@@ -8827,8 +9347,40 @@ section.content > .s-DataGrid {
 .skin-tenderness .box-with-backgrond a:hover {
   color: #f0f0f3;
 }
+.skin-tenderness .box-with-backgrond .btn.btn-custom,
+.skin-tenderness .box-with-backgrond .btn.btn-custom:focus,
+.skin-tenderness .box-with-backgrond .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f0f0f3;
+  background-color: transparent;
+  color: #f0f0f3;
+}
+.skin-tenderness .box-with-backgrond .btn.btn-custom:hover,
+.skin-tenderness .box-with-backgrond .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #46899b;
+}
+.skin-tenderness .box-with-backgrond .btn.btn-custom.active,
+.skin-tenderness .box-with-backgrond .btn.btn-custom.active:focus,
+.skin-tenderness .box-with-backgrond .btn.btn-custom.active.focus,
+.skin-tenderness .box-with-backgrond .btn.btn-custom.active:hover,
+.skin-tenderness .box-with-backgrond .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #46899b;
+}
 .skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
-.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f0f0f3;
@@ -8839,6 +9391,23 @@ section.content > .s-DataGrid {
 .skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
 .skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f0f0f3;
+  border-color: #f0f0f3;
+  background-color: #f0f0f3;
+  color: #46899b;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-tenderness .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f0f0f3;
   border-color: #f0f0f3;
   background-color: #f0f0f3;
@@ -8880,6 +9449,13 @@ section.content > .s-DataGrid {
   background-color: #f0f0f3;
   color: #46899b;
   border-color: #46899b;
+}
+.skin-tenderness .box-with-backgrond .input-group-btn:last-child > .btn,
+.skin-tenderness .box-with-backgrond .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-tenderness .box-with-backgrond .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-tenderness .label.label-custom {
   background: #46899b;
@@ -9180,7 +9756,15 @@ section.content > .s-DataGrid {
 .skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
 .skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
 .skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
-.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #50536a;
@@ -9195,6 +9779,33 @@ section.content > .s-DataGrid {
 .skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
 .skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
 .skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #50536a;
+  border-color: #50536a;
+  background-color: #50536a;
+  color: #c4c6d7;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-grapefruit .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #50536a;
   border-color: #50536a;
   background-color: #50536a;
@@ -9259,8 +9870,22 @@ section.content > .s-DataGrid {
   color: #c4c6d7;
   border-color: #c4c6d7;
 }
+.skin-grapefruit .control-sidebar-dark .input-group-btn:last-child > .btn,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn,
+.skin-grapefruit .control-sidebar-dark .input-group-btn:last-child > .btn-group,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-grapefruit .control-sidebar-dark .input-group.input-group-custom + .btn-group .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-grapefruit .control-sidebar-dark .btn.btn-custom,
-.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:focus,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom.focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #50536a;
@@ -9271,6 +9896,23 @@ section.content > .s-DataGrid {
 .skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
 .skin-grapefruit .control-sidebar-dark .btn.btn-custom:active,
 .skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #50536a;
+  border-color: #50536a;
+  background-color: #50536a;
+  color: #c4c6d7;
+}
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom.active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom.active:focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:focus,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom.active.focus,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active.focus,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom.active:hover,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:hover,
+.skin-grapefruit .control-sidebar-dark .btn.btn-custom.active:active,
+.skin-grapefruit .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #50536a;
   border-color: #50536a;
   background-color: #50536a;
@@ -9320,7 +9962,11 @@ section.content > .s-DataGrid {
   border-radius: 0;
 }
 .skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
-.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #891813;
@@ -9331,8 +9977,25 @@ section.content > .s-DataGrid {
 .skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
 .skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #50536a;
   border-color: #891813;
+  background-color: #50536a;
+  color: #ded199;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-grapefruit .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #50536a;
+  border-color: #50536a;
   background-color: #50536a;
   color: #ded199;
 }
@@ -9373,6 +10036,13 @@ section.content > .s-DataGrid {
   color: #ded199;
   border-color: #ded199;
 }
+.skin-grapefruit .sidebar .sidebar-form .input-group-btn:last-child > .btn,
+.skin-grapefruit .sidebar .sidebar-form .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-grapefruit .sidebar .sidebar-form .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-grapefruit .box-custom {
   border-color: #50536a;
   background: #c4c6d7;
@@ -9396,8 +10066,40 @@ section.content > .s-DataGrid {
   border-color: #50536a;
   border-radius: 0;
 }
+.skin-grapefruit .box-custom .btn.btn-custom,
+.skin-grapefruit .box-custom .btn.btn-custom:focus,
+.skin-grapefruit .box-custom .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #50536a;
+  background-color: transparent;
+  color: #50536a;
+}
+.skin-grapefruit .box-custom .btn.btn-custom:hover,
+.skin-grapefruit .box-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #18171c;
+  border-color: #50536a;
+  background-color: #18171c;
+  color: #c4c6d7;
+}
+.skin-grapefruit .box-custom .btn.btn-custom.active,
+.skin-grapefruit .box-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .box-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .box-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .box-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #18171c;
+  border-color: #18171c;
+  background-color: #18171c;
+  color: #c4c6d7;
+}
 .skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom,
-.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom {
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #50536a;
@@ -9408,8 +10110,25 @@ section.content > .s-DataGrid {
 .skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom:active,
 .skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #18171c;
   border-color: #50536a;
+  background-color: #18171c;
+  color: #c4c6d7;
+}
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom.active,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom.active,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .box-custom .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-grapefruit .box-custom .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #18171c;
+  border-color: #18171c;
   background-color: #18171c;
   color: #c4c6d7;
 }
@@ -9450,19 +10169,12 @@ section.content > .s-DataGrid {
   color: #c4c6d7;
   border-color: #c4c6d7;
 }
-.skin-grapefruit .box-custom .btn.btn-custom {
-  border-radius: 0;
-  outline-color: transparent;
-  border-color: #50536a;
-  background-color: transparent;
-  color: #50536a;
+.skin-grapefruit .box-custom .input-group-btn:last-child > .btn,
+.skin-grapefruit .box-custom .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
 }
-.skin-grapefruit .box-custom .btn.btn-custom:hover,
-.skin-grapefruit .box-custom .btn.btn-custom:active {
-  outline-color: #18171c;
-  border-color: #50536a;
-  background-color: #18171c;
-  color: #c4c6d7;
+.skin-grapefruit .box-custom .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-grapefruit .box-with-backgrond {
   background: #50536a;
@@ -9474,8 +10186,40 @@ section.content > .s-DataGrid {
 .skin-grapefruit .box-with-backgrond a:hover {
   color: #ded199;
 }
+.skin-grapefruit .box-with-backgrond .btn.btn-custom,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom:focus,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #ded199;
+  background-color: transparent;
+  color: #ded199;
+}
+.skin-grapefruit .box-with-backgrond .btn.btn-custom:hover,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #ded199;
+  border-color: #ded199;
+  background-color: #ded199;
+  color: #50536a;
+}
+.skin-grapefruit .box-with-backgrond .btn.btn-custom.active,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom.active:focus,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom.active.focus,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom.active:hover,
+.skin-grapefruit .box-with-backgrond .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #ded199;
+  border-color: #ded199;
+  background-color: #ded199;
+  color: #50536a;
+}
 .skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
-.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #ded199;
@@ -9486,6 +10230,23 @@ section.content > .s-DataGrid {
 .skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
 .skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #ded199;
+  border-color: #ded199;
+  background-color: #ded199;
+  color: #50536a;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-grapefruit .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #ded199;
   border-color: #ded199;
   background-color: #ded199;
@@ -9527,6 +10288,13 @@ section.content > .s-DataGrid {
   background-color: #ded199;
   color: #50536a;
   border-color: #50536a;
+}
+.skin-grapefruit .box-with-backgrond .input-group-btn:last-child > .btn,
+.skin-grapefruit .box-with-backgrond .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-grapefruit .box-with-backgrond .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-grapefruit .label.label-custom {
   background: #50536a;
@@ -9815,7 +10583,15 @@ section.content > .s-DataGrid {
 .skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom,
 .skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom,
 .skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom,
-.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom {
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom,
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #487101;
@@ -9830,6 +10606,33 @@ section.content > .s-DataGrid {
 .skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom:active,
 .skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom:active,
 .skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #487101;
+  border-color: #487101;
+  background-color: #487101;
+  color: #f1f2f8;
+}
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active,
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-nature .control-sidebar-dark .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-nature .control-sidebar-dark .form-group.form-group-custom .btn.btn-custom.active:active,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #487101;
   border-color: #487101;
   background-color: #487101;
@@ -9894,8 +10697,22 @@ section.content > .s-DataGrid {
   color: #f1f2f8;
   border-color: #f1f2f8;
 }
+.skin-nature .control-sidebar-dark .input-group-btn:last-child > .btn,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn,
+.skin-nature .control-sidebar-dark .input-group-btn:last-child > .btn-group,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-nature .control-sidebar-dark .input-group.input-group-custom + .btn-group .btn.btn-custom,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-nature .control-sidebar-dark .btn.btn-custom,
-.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom {
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom,
+.skin-nature .control-sidebar-dark .btn.btn-custom:focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:focus,
+.skin-nature .control-sidebar-dark .btn.btn-custom.focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #487101;
@@ -9906,6 +10723,23 @@ section.content > .s-DataGrid {
 .skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:hover,
 .skin-nature .control-sidebar-dark .btn.btn-custom:active,
 .skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #487101;
+  border-color: #487101;
+  background-color: #487101;
+  color: #f1f2f8;
+}
+.skin-nature .control-sidebar-dark .btn.btn-custom.active,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active,
+.skin-nature .control-sidebar-dark .btn.btn-custom.active:focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:focus,
+.skin-nature .control-sidebar-dark .btn.btn-custom.active.focus,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active.focus,
+.skin-nature .control-sidebar-dark .btn.btn-custom.active:hover,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:hover,
+.skin-nature .control-sidebar-dark .btn.btn-custom.active:active,
+.skin-nature .control-sidebar-dark + .control-sidebar-bg .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #487101;
   border-color: #487101;
   background-color: #487101;
@@ -9955,7 +10789,11 @@ section.content > .s-DataGrid {
   border-radius: 0;
 }
 .skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom,
-.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom {
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom,
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #487101;
@@ -9966,8 +10804,25 @@ section.content > .s-DataGrid {
 .skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom:active,
 .skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #d3d699;
   border-color: #487101;
+  background-color: #d3d699;
+  color: #1f3c1c;
+}
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active,
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-nature .sidebar .sidebar-form .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #d3d699;
+  border-color: #d3d699;
   background-color: #d3d699;
   color: #1f3c1c;
 }
@@ -10008,6 +10863,13 @@ section.content > .s-DataGrid {
   color: #1f3c1c;
   border-color: #1f3c1c;
 }
+.skin-nature .sidebar .sidebar-form .input-group-btn:last-child > .btn,
+.skin-nature .sidebar .sidebar-form .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-nature .sidebar .sidebar-form .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
+}
 .skin-nature .box-custom {
   border-color: #487101;
   background: #f1f2f8;
@@ -10031,8 +10893,40 @@ section.content > .s-DataGrid {
   border-color: #487101;
   border-radius: 0;
 }
+.skin-nature .box-custom .btn.btn-custom,
+.skin-nature .box-custom .btn.btn-custom:focus,
+.skin-nature .box-custom .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #487101;
+  background-color: transparent;
+  color: #487101;
+}
+.skin-nature .box-custom .btn.btn-custom:hover,
+.skin-nature .box-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #061405;
+  border-color: #487101;
+  background-color: #061405;
+  color: #f1f2f8;
+}
+.skin-nature .box-custom .btn.btn-custom.active,
+.skin-nature .box-custom .btn.btn-custom.active:focus,
+.skin-nature .box-custom .btn.btn-custom.active.focus,
+.skin-nature .box-custom .btn.btn-custom.active:hover,
+.skin-nature .box-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #061405;
+  border-color: #061405;
+  background-color: #061405;
+  color: #f1f2f8;
+}
 .skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom,
-.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom {
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom,
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #487101;
@@ -10043,8 +10937,25 @@ section.content > .s-DataGrid {
 .skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom:active,
 .skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
   outline-color: #061405;
   border-color: #487101;
+  background-color: #061405;
+  color: #f1f2f8;
+}
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom.active,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom.active,
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-nature .box-custom .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-nature .box-custom .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #061405;
+  border-color: #061405;
   background-color: #061405;
   color: #f1f2f8;
 }
@@ -10085,19 +10996,12 @@ section.content > .s-DataGrid {
   color: #f1f2f8;
   border-color: #f1f2f8;
 }
-.skin-nature .box-custom .btn.btn-custom {
-  border-radius: 0;
-  outline-color: transparent;
-  border-color: #487101;
-  background-color: transparent;
-  color: #487101;
+.skin-nature .box-custom .input-group-btn:last-child > .btn,
+.skin-nature .box-custom .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
 }
-.skin-nature .box-custom .btn.btn-custom:hover,
-.skin-nature .box-custom .btn.btn-custom:active {
-  outline-color: #061405;
-  border-color: #487101;
-  background-color: #061405;
-  color: #f1f2f8;
+.skin-nature .box-custom .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-nature .box-with-backgrond {
   background: #487101;
@@ -10109,8 +11013,40 @@ section.content > .s-DataGrid {
 .skin-nature .box-with-backgrond a:hover {
   color: #f1f2f8;
 }
+.skin-nature .box-with-backgrond .btn.btn-custom,
+.skin-nature .box-with-backgrond .btn.btn-custom:focus,
+.skin-nature .box-with-backgrond .btn.btn-custom.focus {
+  border-radius: 0;
+  outline-color: transparent;
+  border-color: #f1f2f8;
+  background-color: transparent;
+  color: #f1f2f8;
+}
+.skin-nature .box-with-backgrond .btn.btn-custom:hover,
+.skin-nature .box-with-backgrond .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f1f2f8;
+  border-color: #f1f2f8;
+  background-color: #f1f2f8;
+  color: #487101;
+}
+.skin-nature .box-with-backgrond .btn.btn-custom.active,
+.skin-nature .box-with-backgrond .btn.btn-custom.active:focus,
+.skin-nature .box-with-backgrond .btn.btn-custom.active.focus,
+.skin-nature .box-with-backgrond .btn.btn-custom.active:hover,
+.skin-nature .box-with-backgrond .btn.btn-custom.active:active {
+  border-radius: 0;
+  outline-color: #f1f2f8;
+  border-color: #f1f2f8;
+  background-color: #f1f2f8;
+  color: #487101;
+}
 .skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom,
-.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom {
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom,
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:focus,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:focus,
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.focus,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.focus {
   border-radius: 0;
   outline-color: transparent;
   border-color: #f1f2f8;
@@ -10121,6 +11057,23 @@ section.content > .s-DataGrid {
 .skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:hover,
 .skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom:active,
 .skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom:active {
+  border-radius: 0;
+  outline-color: #f1f2f8;
+  border-color: #f1f2f8;
+  background-color: #f1f2f8;
+  color: #487101;
+}
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active,
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:focus,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:focus,
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active.focus,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active.focus,
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:hover,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:hover,
+.skin-nature .box-with-backgrond .input-group.input-group-custom .btn.btn-custom.active:active,
+.skin-nature .box-with-backgrond .form-group.form-group-custom .btn.btn-custom.active:active {
+  border-radius: 0;
   outline-color: #f1f2f8;
   border-color: #f1f2f8;
   background-color: #f1f2f8;
@@ -10162,6 +11115,13 @@ section.content > .s-DataGrid {
   background-color: #f1f2f8;
   color: #487101;
   border-color: #487101;
+}
+.skin-nature .box-with-backgrond .input-group-btn:last-child > .btn,
+.skin-nature .box-with-backgrond .input-group-btn:last-child > .btn-group {
+  margin-right: 2px;
+}
+.skin-nature .box-with-backgrond .input-group.input-group-custom + .btn-group .btn.btn-custom {
+  border-top: 0;
 }
 .skin-nature .label.label-custom {
   background: #487101;

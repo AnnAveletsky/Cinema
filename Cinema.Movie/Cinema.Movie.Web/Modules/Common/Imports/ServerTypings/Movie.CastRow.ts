@@ -10,6 +10,7 @@
         MovieYearStart?: number;
         MovieYearEnd?: number;
         MoviePathImage?: string;
+        MovieUrl?: string;
         PersonName?: string;
         PersonFullName?: string;
         PersonNameOther?: string;
@@ -43,6 +44,7 @@
             export declare const MovieYearStart: string;
             export declare const MovieYearEnd: string;
             export declare const MoviePathImage: string;
+            export declare const MovieUrl: string;
             export declare const PersonName: string;
             export declare const PersonFullName: string;
             export declare const PersonNameOther: string;
@@ -55,7 +57,7 @@
             export declare const PersonPathImage: string;
         }
 
-        ['CastId', 'CharacterEn', 'CharacterOther', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'PersonName', 'PersonFullName', 'PersonNameOther', 'PersonFullNameOther', 'PersonUrl', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
+        ['CastId', 'CharacterEn', 'CharacterOther', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'MovieUrl', 'PersonName', 'PersonFullName', 'PersonNameOther', 'PersonFullNameOther', 'PersonUrl', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

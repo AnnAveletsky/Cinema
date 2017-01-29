@@ -13,7 +13,8 @@ namespace Cinema.Movie.Migrations.DefaultDB
             Create.Table("Genre").InSchema("mov")
                 .WithColumn("GenreId").AsInt16().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Name").AsString(100).NotNullable()
-                .WithColumn("Icon").AsString(100).Nullable();
+                .WithColumn("Icon").AsString(100).Nullable()
+                .WithColumn("Style").AsString(300).Nullable().WithDefaultValue("width:50%;font-size:1.2vw;");
 
             Create.Table("Country").InSchema("mov")
                 .WithColumn("CountryId").AsInt32().NotNullable().PrimaryKey().Identity()

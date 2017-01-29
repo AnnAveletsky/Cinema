@@ -48,7 +48,6 @@ namespace Cinema.Movie.Common.Pages
             })
         };
 
-
         #region movie
         [HttpGet, Route("~/")]
         public ActionResult Index(int count=10,int page=1,string movie="",string year1="",string year2="",string year3="")
@@ -120,48 +119,61 @@ namespace Cinema.Movie.Common.Pages
         [HttpGet, Route("~/movies/{movie}")]
         public ActionResult Movie(Int64? id, string movie = "")
         {
+
+            model.Content = "";
             if (id != null)
             {
-                model.Content = "";
                 model.Movie = Movies.Movie(new RetrieveRequest() { EntityId = (Int64)id });
-                model.SimilarMovies = Movies.Page(new ListRequest
+            }
+            else if (movie != "")
+            {
+                var list = Movies.Page(new ListRequest()
                 {
-                    Take = 6,
-                    IncludeColumns=new HashSet<string>() { "GenreList" },
-                    Criteria=new Criteria("Kind") ==MovieKind.Film,
-                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
-                    Sort = new[] {
-                        new SortBy("UpdateDateTime", true),
-                        new SortBy("PublishDateTime", true),
-                        new SortBy("Rating", true),
-                        new SortBy("TitleOriginal"),
-                        new SortBy("TitleTranslation")
-                    }
+                    Criteria = new Criteria("Url").Contains(movie),
                 });
-                model.SimilarSeries = Movies.Page(new ListRequest
+                model.Movie = list.Entities.Find(p => p.Url.Contains(movie));
+                if (model.Movie == null)
                 {
-                    Take = 6,
-                    IncludeColumns = new HashSet<string>() { "GenreList" },
-                    Criteria = new Criteria("Kind") == MovieKind.TvSeries,
-                    ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
-                    Sort = new[] {
-                        new SortBy("UpdateDateTime", true),
-                        new SortBy("PublishDateTime", true),
-                        new SortBy("Rating", true),
-                        new SortBy("TitleOriginal"),
-                        new SortBy("TitleTranslation")
-                    }
-                });
-                ViewData["MaxRating"] = 10;
-                ViewData["Title"] = "";
-                ViewData["Footer"] = "";
-                ViewData["PageId"] = "Dashboard/Movie";
-                return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
+                    return HttpNotFound();
+                }
             }
             else
             {
                 return HttpNotFound();
             }
+            model.SimilarMovies = Movies.Page(new ListRequest
+            {
+                Take = 6,
+                IncludeColumns = new HashSet<string>() { "GenreList" },
+                Criteria = new Criteria("Kind") == MovieKind.Film,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                Sort = new[] {
+                        new SortBy("UpdateDateTime", true),
+                        new SortBy("PublishDateTime", true),
+                        new SortBy("Rating", true),
+                        new SortBy("TitleOriginal"),
+                        new SortBy("TitleTranslation")
+                    }
+            });
+            model.SimilarSeries = Movies.Page(new ListRequest
+            {
+                Take = 6,
+                IncludeColumns = new HashSet<string>() { "GenreList" },
+                Criteria = new Criteria("Kind") == MovieKind.TvSeries,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                Sort = new[] {
+                        new SortBy("UpdateDateTime", true),
+                        new SortBy("PublishDateTime", true),
+                        new SortBy("Rating", true),
+                        new SortBy("TitleOriginal"),
+                        new SortBy("TitleTranslation")
+                    }
+            });
+            ViewData["MaxRating"] = 10;
+            ViewData["Title"] = "";
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/Movie";
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
         }
         #endregion
         #region pages
@@ -258,6 +270,8 @@ namespace Cinema.Movie.Common.Pages
                     Skip = (page - 1) * count,
                     Take = count
                 });
+                ViewData["Title"] = LocalText.Get("Db.Movie.Genre.EntityPlural") + " " + genre;
+                ViewData["Url"] = (genre != "" ? "&&genre=" : "") + genre;
             }
             else
             {
@@ -266,11 +280,11 @@ namespace Cinema.Movie.Common.Pages
                     Skip = (page - 1) * count,
                     Take = count
                 });
+                ViewData["Title"] = "";
             }
             ViewData["Page"] = page;
             ViewData["Count"] = count;
             ViewData["MaxRating"] = 10;
-            ViewData["Title"] = "";
             ViewData["Footer"] = "";
             ViewData["PageId"] = "Dashboard/Dashboard";
             return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
@@ -280,6 +294,7 @@ namespace Cinema.Movie.Common.Pages
         [HttpGet, Route("~/persons/")]
         public ActionResult PersonsAction(int count = 10, int page = 1)
         {
+            model.Content = "";
             model.Persons = Persons.List(new ListRequest
             {
                 Skip = (page - 1) * count,
@@ -296,17 +311,30 @@ namespace Cinema.Movie.Common.Pages
         {
             if (id != null)
             {
+                model.Content = "";
                 model.Person = Persons.Person(new RetrieveRequest() { EntityId = (Int64)id }).Entity;
-                ViewData["MaxRating"] = 10;
-                ViewData["Title"] = "";
-                ViewData["Footer"] = "";
-                ViewData["PageId"] = "Dashboard/Persons/"+name;
-                return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
+            }
+            else if (name != "")
+            {
+                var list = Persons.List(new ListRequest()
+                {
+                    Criteria = new Criteria("Url").Contains(name),
+                });
+                model.Person = list.Entities.Find(p => p.Url.Contains(name));
+                if (model.Person == null)
+                {
+                    return HttpNotFound();
+                }
             }
             else
             {
                 return HttpNotFound();
             }
+            ViewData["MaxRating"] = 10;
+            ViewData["Title"] = "";
+            ViewData["Footer"] = "";
+            ViewData["PageId"] = "Dashboard/Persons/" + name;
+            return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
         }
         #endregion
     }

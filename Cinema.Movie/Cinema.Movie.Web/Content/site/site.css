@@ -6768,6 +6768,13 @@ body {
 .padding-right-10 {
   padding-right: 10px;
 }
+.center {
+  display: table;
+}
+.center > * {
+  display: table-cell;
+  vertical-align: middle;
+}
 .uppercase {
   text-transform: uppercase;
 }
@@ -7560,6 +7567,18 @@ section.content > .s-DataGrid {
   background: transparent;
   border-color: #009b86;
   border-radius: 0;
+}
+.skin-modern .box-custom .box-body ul.pagination {
+  margin: 0;
+}
+.skin-modern .box-custom .box-body ul.pagination li a {
+  border-color: #f7ffbc;
+  background: #009b86;
+}
+.skin-modern .box-custom .box-body ul.pagination li.active a {
+  border-color: #0d2436;
+  background: #0d2436;
+  color: #f7ffbc;
 }
 .skin-modern .box-custom .btn.btn-custom,
 .skin-modern .box-custom .btn.btn-custom:focus,
@@ -8387,6 +8406,18 @@ section.content > .s-DataGrid {
   background: transparent;
   border-color: #f2b183;
   border-radius: 0;
+}
+.skin-sunset .box-custom .box-body ul.pagination {
+  margin: 0;
+}
+.skin-sunset .box-custom .box-body ul.pagination li a {
+  border-color: #f5ebe0;
+  background: #f2b183;
+}
+.skin-sunset .box-custom .box-body ul.pagination li.active a {
+  border-color: #534255;
+  background: #534255;
+  color: #f5ebe0;
 }
 .skin-sunset .box-custom .btn.btn-custom,
 .skin-sunset .box-custom .btn.btn-custom:focus,
@@ -9227,6 +9258,18 @@ section.content > .s-DataGrid {
   border-color: #46899b;
   border-radius: 0;
 }
+.skin-tenderness .box-custom .box-body ul.pagination {
+  margin: 0;
+}
+.skin-tenderness .box-custom .box-body ul.pagination li a {
+  border-color: #f2ceb9;
+  background: #46899b;
+}
+.skin-tenderness .box-custom .box-body ul.pagination li.active a {
+  border-color: #46899b;
+  background: #46899b;
+  color: #f2ceb9;
+}
 .skin-tenderness .box-custom .btn.btn-custom,
 .skin-tenderness .box-custom .btn.btn-custom:focus,
 .skin-tenderness .box-custom .btn.btn-custom.focus {
@@ -10066,6 +10109,18 @@ section.content > .s-DataGrid {
   border-color: #50536a;
   border-radius: 0;
 }
+.skin-grapefruit .box-custom .box-body ul.pagination {
+  margin: 0;
+}
+.skin-grapefruit .box-custom .box-body ul.pagination li a {
+  border-color: #c4c6d7;
+  background: #50536a;
+}
+.skin-grapefruit .box-custom .box-body ul.pagination li.active a {
+  border-color: #18171c;
+  background: #18171c;
+  color: #c4c6d7;
+}
 .skin-grapefruit .box-custom .btn.btn-custom,
 .skin-grapefruit .box-custom .btn.btn-custom:focus,
 .skin-grapefruit .box-custom .btn.btn-custom.focus {
@@ -10892,6 +10947,18 @@ section.content > .s-DataGrid {
   background: transparent;
   border-color: #487101;
   border-radius: 0;
+}
+.skin-nature .box-custom .box-body ul.pagination {
+  margin: 0;
+}
+.skin-nature .box-custom .box-body ul.pagination li a {
+  border-color: #f1f2f8;
+  background: #487101;
+}
+.skin-nature .box-custom .box-body ul.pagination li.active a {
+  border-color: #061405;
+  background: #061405;
+  color: #f1f2f8;
 }
 .skin-nature .box-custom .btn.btn-custom,
 .skin-nature .box-custom .btn.btn-custom:focus,

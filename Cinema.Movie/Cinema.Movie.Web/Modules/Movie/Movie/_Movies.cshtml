@@ -10,13 +10,13 @@
 }
 <div class="box box-custom">
     <div class="box-body">
-        <nav aria-label="Page navigation">
+        <div class="col-xs-12 text-center">
             <ul class="pagination">
                 @if ((int)ViewData["Page"] > 1)
                 {
                     <li>
                         <a href="@("?page=1&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
+                            <b aria-hidden="true">&laquo;</b>
                         </a>
                     </li>
                 }
@@ -33,11 +33,11 @@
                 {
                     <li>
                         <a href="@("?page="+totalCount+"&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
+                            <b aria-hidden="true">&raquo;</b>
                         </a>
                     </li>
                 }
             </ul>
-        </nav>
+        </div>
     </div>
 </div>

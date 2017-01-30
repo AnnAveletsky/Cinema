@@ -359,6 +359,18 @@
                 border-color:@with-backgrond;
                 border-radius: 0;
             }
+            ul.pagination{
+                margin:0;
+                li a{
+                    border-color:@bg;
+                    background:@with-backgrond;
+                }
+                li.active a{
+                    border-color:@color;
+                    background:@color;
+                    color:@bg;
+                }
+            }
         }
         .skin-btn(@bg,@color,@with-backgrond);
         .skin-form-control(@bg,@color,@with-backgrond);

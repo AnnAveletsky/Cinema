@@ -6768,13 +6768,6 @@ body {
 .padding-right-10 {
   padding-right: 10px;
 }
-.center {
-  display: table;
-}
-.center > * {
-  display: table-cell;
-  vertical-align: middle;
-}
 .uppercase {
   text-transform: uppercase;
 }

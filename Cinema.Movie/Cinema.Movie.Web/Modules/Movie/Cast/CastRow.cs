@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Cast"), InstanceName("Cast"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("Cast"), InstanceName("Cast"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
     [LookupScript("Movie.Cast")]
@@ -138,12 +138,6 @@ namespace Cinema.Movie.Movie.Entities
             set { Fields.PersonDeathDate[this] = value; }
         }
 
-        [DisplayName("Person Birth Place"), Expression("jPerson.[BirthPlace]")]
-        public String PersonBirthPlace
-        {
-            get { return Fields.PersonBirthPlace[this]; }
-            set { Fields.PersonBirthPlace[this] = value; }
-        }
 
         [DisplayName("Person Gender"), Expression("jPerson.[Gender]")]
         public Int16? PersonGender
@@ -198,7 +192,6 @@ namespace Cinema.Movie.Movie.Entities
             public StringField PersonUrl;
             public DateTimeField PersonBirthDate;
             public DateTimeField PersonDeathDate;
-            public StringField PersonBirthPlace;
             public Int16Field PersonGender;
             public StringField PersonPathImage;
             

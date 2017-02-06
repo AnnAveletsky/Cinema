@@ -40,7 +40,7 @@ namespace Cinema.Movie.Movie.Pages
                         {
                             IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == i.MovieId.Value,
-                        });
+                        }).Entities;
                     i.CountrySortedList = new SortedList<string, string>();
                     foreach( var j in MovieCountries.List(new ListRequest() {
                         Criteria = new Criteria("MovieId") == i.MovieId.Value,
@@ -82,7 +82,7 @@ namespace Cinema.Movie.Movie.Pages
                         {
                             IncludeColumns = IncludeColumnsCast,
                             Criteria = new Criteria("MovieId") == movie.MovieId.Value,
-                        });
+                        }).Entities;
                 movie.CountrySortedList = new SortedList<string, string>();
                 foreach (var j in MovieCountries.List(new ListRequest() {
                     Criteria = new Criteria("MovieId") == movie.MovieId.Value,

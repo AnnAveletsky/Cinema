@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("ServicePath"), InstanceName("ServicePath"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("ServicePath"), InstanceName("ServicePath"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
     [LookupScript("Movie.ServicePath")]

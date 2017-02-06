@@ -3,7 +3,7 @@
         GenreId?: number;
         Name?: string;
         Icon?: string;
-        WidthPercent?: number;
+        Style?: string;
         MovieList?: number[];
     }
 
@@ -21,11 +21,11 @@
             export declare const GenreId: string;
             export declare const Name: string;
             export declare const Icon: string;
-            export declare const WidthPercent: string;
+            export declare const Style: string;
             export declare const MovieList: string;
         }
 
-        ['GenreId', 'Name', 'Icon', 'WidthPercent', 'MovieList'].forEach(x => (<any>Fields)[x] = x);
+        ['GenreId', 'Name', 'Icon', 'Style', 'MovieList'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

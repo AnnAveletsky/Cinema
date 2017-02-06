@@ -10,7 +10,7 @@ namespace Cinema.Movie.Movie.Endpoints
     using MyRow = Entities.GenreRow;
 
     [RoutePrefix("Services/Movie/Genre"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Movie"), ServiceAuthorize("Administration")]
     public class GenreController : ServiceEndpoint
     {
         [HttpPost]

@@ -41,7 +41,7 @@
                     IncludeColumns = new HashSet<string> { "MovieId" },
 
                     Criteria = new Criteria("PersonId") == person.Entity.PersonId.Value,
-                });
+                }).Entities;
             person.Entity.CastSortList = new SortedList<string, ListResponse<MovieRow>>();
             foreach (var i in person.Entity.CastList)
             {

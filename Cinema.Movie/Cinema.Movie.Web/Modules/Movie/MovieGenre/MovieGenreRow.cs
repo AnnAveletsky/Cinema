@@ -5,7 +5,7 @@
     using System;
     using System.ComponentModel;
 
-    [ConnectionKey("Default"), DisplayName("MovieGenre"), InstanceName("MovieGenre"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("MovieGenre"), InstanceName("MovieGenre"), TwoLevelCached]
     [ModifyPermission("Administration")]
     public sealed class MovieGenreRow : Row, IIdRow
     {

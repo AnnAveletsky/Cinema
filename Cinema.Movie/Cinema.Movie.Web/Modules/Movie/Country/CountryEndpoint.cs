@@ -10,7 +10,7 @@ namespace Cinema.Movie.Movie.Endpoints
     using MyRow = Entities.CountryRow;
 
     [RoutePrefix("Services/Movie/Country"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Movie"), ServiceAuthorize("Administration")]
     public class CountryController : ServiceEndpoint
     {
         [HttpPost]

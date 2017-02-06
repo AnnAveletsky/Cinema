@@ -10,7 +10,7 @@ namespace Cinema.Movie.Movie.Endpoints
     using MyRow = Entities.ServiceRatingRow;
 
     [RoutePrefix("Services/Movie/ServiceRating"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Movie"), ServiceAuthorize("Administration")]
     public class ServiceRatingController : ServiceEndpoint
     {
         [HttpPost]

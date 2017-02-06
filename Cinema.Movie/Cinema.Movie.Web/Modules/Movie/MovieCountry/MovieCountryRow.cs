@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("MovieCountry"), InstanceName("MovieCountry"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("MovieCountry"), InstanceName("MovieCountry"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
     [LookupScript("Movie.MovieCountry")]

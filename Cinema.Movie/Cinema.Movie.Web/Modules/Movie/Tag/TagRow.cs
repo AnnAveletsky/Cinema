@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Tag"), InstanceName("Tag"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("Tag"), InstanceName("Tag"), TwoLevelCached]
     [JsonConverter(typeof(JsonRowConverter))]
     [ModifyPermission("Administration")]
     [LookupScript("Movie.Tag")]

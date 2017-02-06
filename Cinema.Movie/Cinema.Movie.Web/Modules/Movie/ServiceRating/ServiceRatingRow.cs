@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("ServiceRating"), InstanceName("ServiceRating"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("ServiceRating"), InstanceName("ServiceRating"), TwoLevelCached]
     [ModifyPermission("Administration")]
     public sealed class ServiceRatingRow : Row, IIdRow
     {

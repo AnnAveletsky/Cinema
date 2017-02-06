@@ -12,7 +12,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("Genre"), InstanceName("Genre"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("Genre"), InstanceName("Genre"), TwoLevelCached]
     [ModifyPermission("Administration")]
     [JsonConverter(typeof(JsonRowConverter))]
     [LookupScript("Movie.Genre")]

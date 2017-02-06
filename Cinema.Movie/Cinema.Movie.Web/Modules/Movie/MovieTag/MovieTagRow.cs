@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("MovieTag"), InstanceName("MovieTag"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("MovieTag"), InstanceName("MovieTag"), TwoLevelCached]
     [ModifyPermission("Administration")]
     public sealed class MovieTagRow : Row, IIdRow
     {

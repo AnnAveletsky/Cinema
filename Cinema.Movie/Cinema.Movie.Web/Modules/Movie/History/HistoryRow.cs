@@ -11,7 +11,7 @@ namespace Cinema.Movie.Movie.Entities
     using System.ComponentModel;
     using System.IO;
 
-    [ConnectionKey("Default"), DisplayName("History"), InstanceName("History"), TwoLevelCached]
+    [ConnectionKey("Movie"), DisplayName("History"), InstanceName("History"), TwoLevelCached]
     [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class HistoryRow : Row, IIdRow, INameRow

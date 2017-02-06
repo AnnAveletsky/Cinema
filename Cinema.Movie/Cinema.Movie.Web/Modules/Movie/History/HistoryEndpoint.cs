@@ -10,7 +10,7 @@ namespace Cinema.Movie.Movie.Endpoints
     using MyRow = Entities.HistoryRow;
 
     [RoutePrefix("Services/Movie/History"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Movie"), ServiceAuthorize("Administration")]
     public class HistoryController : ServiceEndpoint
     {
         [HttpPost]

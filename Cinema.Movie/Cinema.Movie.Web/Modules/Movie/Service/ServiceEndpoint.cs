@@ -10,7 +10,7 @@ namespace Cinema.Movie.Movie.Endpoints
     using MyRow = Entities.ServiceRow;
 
     [RoutePrefix("Services/Movie/Service"), Route("{action}")]
-    [ConnectionKey("Default"), ServiceAuthorize("Administration")]
+    [ConnectionKey("Movie"), ServiceAuthorize("Administration")]
     public class ServiceController : ServiceEndpoint
     {
         [HttpPost]

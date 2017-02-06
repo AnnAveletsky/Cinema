@@ -1437,7 +1437,7 @@ declare namespace Cinema.Movie.Movie {
     interface GenreForm {
         Name: Serenity.StringEditor;
         Icon: Serenity.StringEditor;
-        WidthPercent: Serenity.IntegerEditor;
+        Style: Serenity.StringEditor;
     }
 }
 declare namespace Cinema.Movie.Movie {
@@ -1445,7 +1445,7 @@ declare namespace Cinema.Movie.Movie {
         GenreId?: number;
         Name?: string;
         Icon?: string;
-        WidthPercent?: number;
+        Style?: string;
         MovieList?: number[];
     }
     namespace GenreRow {
@@ -1458,7 +1458,7 @@ declare namespace Cinema.Movie.Movie {
             const GenreId: string;
             const Name: string;
             const Icon: string;
-            const WidthPercent: string;
+            const Style: string;
             const MovieList: string;
         }
     }

@@ -20,12 +20,9 @@ namespace Cinema.Movie.Movie.Pages
         {
             return View("~/Modules/Movie/Cast/CastIndex.cshtml");
         }
-        public static List<CastRow> List(ListRequest listRequest)
+        public static ListResponse<CastRow> List(ListRequest listRequest)
         {
-            using (var connection = SqlConnections.NewFor<CastRow>())
-            {
-                return new Casts().List(connection, listRequest).Entities;
-            }
+            return new Casts().List(listRequest);
         }
         [PageAuthorize("Administration")]
         public static SaveResponse CreateUpdate(SaveRequest<CastRow> request)
@@ -33,31 +30,14 @@ namespace Cinema.Movie.Movie.Pages
             SaveResponse result = null;
             try
             {
-                using (var connection = SqlConnections.NewFor<CastRow>())
-                {
-                    var character = new Casts().List(connection, new ListRequest()).Entities.Find(i => i.CharacterEn == request.Entity.CharacterEn && i.PersonId == request.Entity.PersonId && i.MovieId == request.Entity.MovieId);
-                    if (character != null)
-                    {
-                        return new SaveResponse()
-                        {
-                            EntityId = character.CastId
-                        };
-                    }
-                }
-                using (var connection = SqlConnections.NewFor<CastRow>())
-                using (var uow = new UnitOfWork(connection))
-                {
-                    result = new Casts().Create(uow, request);
-                    uow.Commit();
-                    connection.Close();
-                }
+                result= new Casts().FindCreate(request);
 
                 Histories.Create(new SaveRequest<HistoryRow>()
                 {
                     Entity = new HistoryRow()
                     {
                         Status = true,
-                        Message = "Add Cast",
+                        Message = "Add or Find Cast",
                         UserName = Authorization.Username,
                         CastId = Int64.Parse(result.EntityId.ToString()),
                     }

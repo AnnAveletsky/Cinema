@@ -2965,7 +2965,7 @@ var Cinema;
                 return GenreForm;
             }(Serenity.PrefixedContext));
             Movie.GenreForm = GenreForm;
-            [['Name', function () { return Serenity.StringEditor; }], ['Icon', function () { return Serenity.StringEditor; }], ['WidthPercent', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(GenreForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+            [['Name', function () { return Serenity.StringEditor; }], ['Icon', function () { return Serenity.StringEditor; }], ['Style', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(GenreForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
         })(Movie = Movie_50.Movie || (Movie_50.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -2988,7 +2988,7 @@ var Cinema;
                 var Fields;
                 (function (Fields) {
                 })(Fields = GenreRow.Fields || (GenreRow.Fields = {}));
-                ['GenreId', 'Name', 'Icon', 'WidthPercent', 'MovieList'].forEach(function (x) { return Fields[x] = x; });
+                ['GenreId', 'Name', 'Icon', 'Style', 'MovieList'].forEach(function (x) { return Fields[x] = x; });
             })(GenreRow = Movie.GenreRow || (Movie.GenreRow = {}));
         })(Movie = Movie_51.Movie || (Movie_51.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));

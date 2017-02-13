@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Movie.Web", "Cinema.Movie\Cinema.Movie.Web\Cinema.Movie.Web.csproj", "{E625214E-2934-4182-BDDB-2A54EFC8462C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Admin.Web", "Cinema.Admin\Cinema.Admin.Web\Cinema.Admin.Web.csproj", "{E298DC33-D240-4585-AC47-775575246780}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Web", "Admin\Admin.Web\Admin.Web.csproj", "{E298DC33-D240-4585-AC47-775575246780}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

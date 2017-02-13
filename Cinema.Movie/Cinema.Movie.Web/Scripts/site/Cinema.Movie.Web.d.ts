@@ -1317,7 +1317,6 @@ declare namespace Cinema.Movie.Movie {
         PersonUrl?: string;
         PersonBirthDate?: string;
         PersonDeathDate?: string;
-        PersonBirthPlace?: string;
         PersonGender?: number;
         PersonPathImage?: string;
     }
@@ -1346,7 +1345,6 @@ declare namespace Cinema.Movie.Movie {
             const PersonUrl: string;
             const PersonBirthDate: string;
             const PersonDeathDate: string;
-            const PersonBirthPlace: string;
             const PersonGender: string;
             const PersonPathImage: string;
         }

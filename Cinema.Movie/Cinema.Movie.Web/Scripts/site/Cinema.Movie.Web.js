@@ -2847,7 +2847,7 @@ var Cinema;
                 var Fields;
                 (function (Fields) {
                 })(Fields = CastRow.Fields || (CastRow.Fields = {}));
-                ['CastId', 'CharacterEn', 'CharacterOther', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'MovieUrl', 'PersonName', 'PersonFullName', 'PersonNameOther', 'PersonFullNameOther', 'PersonUrl', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(function (x) { return Fields[x] = x; });
+                ['CastId', 'CharacterEn', 'CharacterOther', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'MovieUrl', 'PersonName', 'PersonFullName', 'PersonNameOther', 'PersonFullNameOther', 'PersonUrl', 'PersonBirthDate', 'PersonDeathDate', 'PersonGender', 'PersonPathImage'].forEach(function (x) { return Fields[x] = x; });
             })(CastRow = Movie.CastRow || (Movie.CastRow = {}));
         })(Movie = Movie_44.Movie || (Movie_44.Movie = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));

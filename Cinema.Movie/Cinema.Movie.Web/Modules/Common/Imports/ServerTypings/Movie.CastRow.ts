@@ -18,7 +18,6 @@
         PersonUrl?: string;
         PersonBirthDate?: string;
         PersonDeathDate?: string;
-        PersonBirthPlace?: string;
         PersonGender?: number;
         PersonPathImage?: string;
     }
@@ -52,12 +51,11 @@
             export declare const PersonUrl: string;
             export declare const PersonBirthDate: string;
             export declare const PersonDeathDate: string;
-            export declare const PersonBirthPlace: string;
             export declare const PersonGender: string;
             export declare const PersonPathImage: string;
         }
 
-        ['CastId', 'CharacterEn', 'CharacterOther', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'MovieUrl', 'PersonName', 'PersonFullName', 'PersonNameOther', 'PersonFullNameOther', 'PersonUrl', 'PersonBirthDate', 'PersonDeathDate', 'PersonBirthPlace', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
+        ['CastId', 'CharacterEn', 'CharacterOther', 'MovieId', 'PersonId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieYearStart', 'MovieYearEnd', 'MoviePathImage', 'MovieUrl', 'PersonName', 'PersonFullName', 'PersonNameOther', 'PersonFullNameOther', 'PersonUrl', 'PersonBirthDate', 'PersonDeathDate', 'PersonGender', 'PersonPathImage'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

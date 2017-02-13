@@ -1954,6 +1954,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20141003_140000_DB.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115100_Initial.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115101_Movie.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115102_Service.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_Video.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />

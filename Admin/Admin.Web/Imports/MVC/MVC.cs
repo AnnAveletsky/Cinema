@@ -16,12 +16,6 @@ namespace MVC
                 public const string RoleIndex = "~/Modules/Administration/Role/RoleIndex.cshtml";
             }
 
-            public static class Sergen
-            {
-                public const string SergenError = "~/Modules/Administration/Sergen/SergenError.cshtml";
-                public const string SergenIndex = "~/Modules/Administration/Sergen/SergenIndex.cshtml";
-            }
-
             public static class Translation
             {
                 public const string TranslationIndex = "~/Modules/Administration/Translation/TranslationIndex.cshtml";
@@ -289,6 +283,15 @@ namespace MVC
             public static class Reporting
             {
                 public const string ReportPage = "~/Modules/Common/Reporting/ReportPage.cshtml";
+            }
+
+        }
+
+        public static class Default
+        {
+            public static class DataBase
+            {
+                public const string DataBaseIndex = "~/Modules/Default/DataBase/DataBaseIndex.cshtml";
             }
         }
 

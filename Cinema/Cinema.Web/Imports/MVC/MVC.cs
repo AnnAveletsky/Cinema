@@ -6,6 +6,11 @@ namespace MVC
     {
         public static class Administration
         {
+            public static class DataBase
+            {
+                public const string DataBaseIndex = "~/Modules/Administration/DataBase/DataBaseIndex.cshtml";
+            }
+
             public static class Language
             {
                 public const string LanguageIndex = "~/Modules/Administration/Language/LanguageIndex.cshtml";
@@ -355,6 +360,65 @@ namespace MVC
                     public const string AccountSignUp = "~/Modules/Membership/Account/SignUp/AccountSignUp.cshtml";
                     public const string AccountSignUp_AdminLTE = "~/Modules/Membership/Account/SignUp/AccountSignUp.AdminLTE.cshtml";
                 }
+            }
+
+        }
+
+        public static class Movie
+        {
+            public static class Cast
+            {
+                public const string CastIndex = "~/Modules/Movie/Cast/CastIndex.cshtml";
+            }
+
+            public static class Country
+            {
+                public const string CountryIndex = "~/Modules/Movie/Country/CountryIndex.cshtml";
+            }
+
+            public static class Genre
+            {
+                public const string GenreIndex = "~/Modules/Movie/Genre/GenreIndex.cshtml";
+            }
+
+            public static class Image
+            {
+                public const string ImageIndex = "~/Modules/Movie/Image/ImageIndex.cshtml";
+            }
+
+            public static class Movie_
+            {
+                public const string MovieIndex = "~/Modules/Movie/Movie/MovieIndex.cshtml";
+            }
+
+            public static class Person
+            {
+                public const string PersonIndex = "~/Modules/Movie/Person/PersonIndex.cshtml";
+            }
+
+            public static class Service
+            {
+                public const string ServiceIndex = "~/Modules/Movie/Service/ServiceIndex.cshtml";
+            }
+
+            public static class ServicePath
+            {
+                public const string ServicePathIndex = "~/Modules/Movie/ServicePath/ServicePathIndex.cshtml";
+            }
+
+            public static class ServiceRating
+            {
+                public const string ServiceRatingIndex = "~/Modules/Movie/ServiceRating/ServiceRatingIndex.cshtml";
+            }
+
+            public static class Tag
+            {
+                public const string TagIndex = "~/Modules/Movie/Tag/TagIndex.cshtml";
+            }
+
+            public static class Video
+            {
+                public const string VideoIndex = "~/Modules/Movie/Video/VideoIndex.cshtml";
             }
 
         }

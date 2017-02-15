@@ -123,16 +123,6 @@ namespace MVC
                 public const string MovieIndex = "~/Modules/Movie/Movie/MovieIndex.cshtml";
             }
 
-            public static class MovieCountry
-            {
-                public const string MovieCountryIndex = "~/Modules/Movie/MovieCountry/MovieCountryIndex.cshtml";
-            }
-
-            public static class MovieGenre
-            {
-                public const string MovieGenreIndex = "~/Modules/Movie/MovieGenre/MovieGenreIndex.cshtml";
-            }
-
             public static class Person
             {
                 public const string _Person = "~/Modules/Movie/Person/_Person.cshtml";

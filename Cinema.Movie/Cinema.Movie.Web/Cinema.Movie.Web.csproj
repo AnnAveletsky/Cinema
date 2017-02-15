@@ -2876,8 +2876,6 @@
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
     <Content Include="Modules\Movie\Country\CountryIndex.cshtml" />
     <Content Include="Modules\Movie\History\HistoryIndex.cshtml" />
-    <Content Include="Modules\Movie\MovieGenre\MovieGenreIndex.cshtml" />
-    <Content Include="Modules\Movie\MovieCountry\MovieCountryIndex.cshtml" />
     <Content Include="Modules\Movie\Movie\_PreviewMovies.cshtml" />
     <Content Include="Modules\Movie\Movie\_SimilarMovies.cshtml" />
     <Content Include="Modules\Movie\Person\_Person.cshtml" />
@@ -3428,12 +3426,6 @@
     <Compile Include="Modules\Movie\History\HistoryPage.cs" />
     <Compile Include="Modules\Movie\History\HistoryRepository.cs" />
     <Compile Include="Modules\Movie\History\HistoryRow.cs" />
-    <Compile Include="Modules\Movie\MovieCountry\MovieCountryPage.cs" />
-    <Compile Include="Modules\Movie\MovieCountry\MovieCountryRepository.cs" />
-    <Compile Include="Modules\Movie\MovieCountry\MovieCountryRow.cs" />
-    <Compile Include="Modules\Movie\MovieGenre\MovieGenrePage.cs" />
-    <Compile Include="Modules\Movie\MovieGenre\MovieGenreRepository.cs" />
-    <Compile Include="Modules\Movie\MovieGenre\MovieGenreRow.cs" />
     <Compile Include="Modules\Movie\MovieTag\MovieTagRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieColumns.cs" />
     <Compile Include="Modules\Movie\Movie\MovieEndpoint.cs" />

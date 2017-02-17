@@ -15,18 +15,33 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("Url").AsString(300).NotNullable()
                 .WithColumn("Active").AsBoolean().NotNullable().WithDefaultValue(true)
                 .WithColumn("IntervalRequest").AsInt32().NotNullable().WithDefaultValue(24000)
-                .WithColumn("MaxRating").AsInt16().Nullable());
-
-            this.CreateTableWithId32("ServicePath", "ServicePathId", s => s
-               .WithColumn("Path").AsString(300).NotNullable()
-               .WithColumn("ServiceId").AsInt32().ForeignKey("FK_ServicePath_ServiceId", "Service", "ServiceId").NotNullable());
+                .WithColumn("MaxRating").AsInt32().Nullable());
 
             this.CreateTableWithId64("ServiceRating", "ServiceRatingId", s => s
                .WithColumn("Rating").AsDouble().Nullable()
                .WithColumn("Id").AsInt64().Nullable()
-               .WithColumn("MovieId").AsInt64().NotNullable().ForeignKey("FK_ServiceRating_MovieId", "Movie", "MovieId")
-               .WithColumn("ServiceId").AsInt32().ForeignKey("FK_ServiceRating_ServiceId", "Service", "ServiceId").NotNullable());
-            
+               .WithColumn("MovieId").AsInt64().NotNullable().ForeignKey("FK_Movie_MovieId", "Movie", "MovieId")
+               .WithColumn("ServiceId").AsInt32().NotNullable().ForeignKey("FK_ServiceRating_ServiceId", "Service", "ServiceId"), checkExists: true);
+
+            Insert.IntoTable("Service").Row(new
+            {
+                Name = "kinopoisk",
+                Api = "http://kinopoisk.cf/",
+                Url = "http://kinopoisk.ru/",
+            });
+            Insert.IntoTable("Service").Row(new
+            {
+                Name = "kodik",
+                Api = "http://kodik.top/",
+                Url = "http://kodik.top/",
+            });
+           var servise= Insert.IntoTable("Service").Row(new
+            {
+                Name = "GetMovieCC",
+                Api = "http://getmovie.cc/",
+                Url = "http://getmovie.cc/",
+            });
+
         }
         public override void Down()
         {

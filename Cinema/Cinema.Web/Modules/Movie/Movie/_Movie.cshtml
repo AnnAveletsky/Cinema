@@ -1,0 +1,262 @@
+﻿@model Cinema.Movie.Movie.Entities.MovieRow
+
+<div class="box box-custom @(Model.Kind.ToString().ToLower())">
+    <div class="box-header with-border box-with-backgrond">
+        <a class="@(Model.Nice==true?"col-xs-11":"col-xs-12") no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Url + "?id=" + Model.MovieId : "")>
+            <h3 class="box-title">
+               @Model.TitleDisplay
+            </h3>
+        </a>
+        @if (Model.Nice == true)
+        {
+            <span class="pull-right">
+                <span class="fa fa-thumbs-o-up fa-2x"></span>
+            </span>
+        }
+    </div>
+    <div class="box-body box-profile">
+        <div class="col-xs-12 no-padding">
+           
+            <div class="col-xs-4 no-padding-left">
+                @if (Model.PathImage != null)
+                {
+                    <a href="#" class="thumbnail no-margin">
+                        <img class="img-responsive" src="@Model.PathImage" />
+                    </a>
+                }
+            </div>
+            
+            @if (Model.Rating != null)
+            {
+                <div class="col-xs-8 no-padding">
+                    <div class="pull-right">
+                    @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
+                    {
+                        if (i < Model.Rating)
+                        {
+                           <span class="fa fa-star"></span>
+                        }
+                        else if (i + 1 < Model.Rating)
+                        {
+                            <span class="fa fa-star-half-o"></span>
+                        }
+                        else
+                        {
+                            <span class="fa fa-star-o"></span>
+                        }
+                    }
+                    </div>
+                </div>
+            }
+            @if (Model.ServiceRatingList != null && Model.ServiceRatingList.Count != 0)
+            {
+                    <p>
+                        <span> @LocalText.Get("Navigation.Movie/Service"):</span>
+                        @foreach (var i in Model.ServiceRatingList)
+                        {
+                            if (i.Rating != null)
+                            {
+                                @i.ServiceName
+                                <span class="label label-custom">@i.Rating </span>
+                            }
+                            else
+                            {
+                                <a href="@i.ServiceUrl@Model.Kind.Value.ToString().ToLower()/@i.Id" class="label label-custom">@i.ServiceName</a>
+                            }
+                        }
+                    </p>
+            }
+            @if (Model.GenreListName != null && Model.GenreListName.Count != 0)
+            {
+                <p style="line-height: 1.7">
+                    <span> @LocalText.Get("Db.Movie.Movie.GenreListName"):</span>
+                    @for (int i=0;i< Model.GenreListName.Count;i++)
+                    {
+                        <a href="/genres/@Model.GenreListName[i]" ><i class="label label-custom">@Model.GenreListName[i]</i>@(i != Model.GenreListName.Count - 1 ? " " : "")</a>
+                    }
+                </p>
+            }
+
+            @if (Model.CountrySortedList != null && Model.CountrySortedList.Count != 0)
+            {
+                <p>
+                    <span> @LocalText.Get("Navigation.Movie/Country"):</span>
+                    @foreach (var i in Model.CountrySortedList)
+                    {
+                        <a class="@i.Value" href="/countries/@i.Key">@i.Key@(i.Key != Model.CountrySortedList.Keys.Last()? ", " : "")</a>
+                    }
+                </p>
+            }
+            @if (Model.Tagline != null)
+            {
+                <p>
+                    <span class="fa fa-quote-left"></span>
+                    <i class="tagline">
+                        @Model.Tagline
+                    </i>
+                    <span class="fa fa-quote-right"></span>
+                </p>
+            }
+            @if (Model.Budget != null)
+            {
+                <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Budget $</i></p>
+            }
+
+            @if (Model.CastSortList != null && Model.CastSortList.Count != 0)
+            {
+                foreach (var i in Model.CastSortList)
+                {
+                    <p>
+                        <span>@i.Key:</span>
+                        @for (int k=0;k< i.Value.Count;k++)
+                        {
+                            <a href="/persons/@i.Value[k].PersonUrl?id=@i.Value[k].PersonId">
+                        <b>@(i.Value[k].PersonNameOther != null ? i.Value[k].PersonNameOther : i.Value[k].PersonName)</b>@(k != i.Value.Count -1? ", " : "")</a>
+                        }
+                    </p>
+                }
+            }
+
+            @if (Model.Description != null)
+            {
+                for (int i = 0; i < Model.Description.Count(); i++)
+                {
+                    if (!string.IsNullOrWhiteSpace(Model.Description[i]))
+                    {
+                        <p class="text-indent text-justify">
+                            @Model.Description[i]
+                        </p>
+                    }
+                }
+            }
+
+            @if (Model.TagListName != null && Model.TagListName.Count != 0)
+            {
+                <div class="col-xs-8 no-padding">
+                    @*@LocalText.Get("Db.Movie.Movie.GenreList"):*@
+                    @foreach (var i in Model.TagListName)
+                    {
+                        <div class="pull-right">
+                            <span class="label label-custom">@i </span>
+                        </div>
+                    }
+                </div>
+            }
+
+            @if ((string)ViewData["PageId"] == "Dashboard/Movie")
+            {
+                if (Model.Mpaa!=null)
+                {
+                    <div class="col-xs-8 no-padding">
+                        <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
+                        <a>@Model.Mpaa</a>
+                    </div>
+                }
+                if (Model.Kind == Cinema.Movie.Movie.MovieKind.TvSeries)
+                {
+                    <div class="col-xs-8 no-padding">
+                        <span>@LocalText.Get("Db.Movie.Movie.ContSeason")</span>
+                        <a>@Model.ContSeason</a>
+                    </div>
+                }
+            }
+        </div>
+
+        @if ((string)ViewData["PageId"] == "Dashboard/Movie")
+        {
+            if (Model.VideoList != null && Model.VideoList.Count != 0)
+            {
+                <div class="col-xs-12 no-padding">
+                    @{
+                        var ServiceNames = Model.VideoList.Select(j => j.ServiceName).Distinct();
+                        var count = 0;
+                    }
+
+                    @if (ServiceNames != null && ServiceNames.Count() != 0)
+                    {
+                        <ul class="nav nav-tabs">
+                            @foreach (var i in ServiceNames)
+                            {
+                                if (ServiceNames.Contains(null))
+                                {
+                                    if (i == null)
+                                    {
+                                        <li class="active"><a href="Other" data-toggle="tab">Other</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#@i.Replace(".", "").Replace(" ", " ")" data-toggle="tab">@i</a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    if (count == 0)
+                                    {
+                                        <li class="active"><a href="#@i.Replace(".", "").Replace(" ", " ")" data-toggle="tab">@i</a></li>
+                                        count++;
+                                    }
+                                    else
+                                    {
+                                        <li><a href="#@i.Replace(".", "").Replace(" ", " ")" data-toggle="tab">@i</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        count = 0;
+                        <div class="tab-content">
+                            @foreach (var i in ServiceNames)
+                            {
+                                foreach (var k in Model.VideoList)
+                                {
+                                    if (k.ServiceName == i)
+                                    {
+                                        if (ServiceNames.Contains(null))
+                                        {
+                                            if (i == null)
+                                            {
+                                                <div class="tab-pane active" id="Other">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="tab-pane" id="@i.Replace(".", "").Replace(" ", "")">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (count == 0)
+                                            {
+                                                <div class="tab-pane active" id="@i.Replace(".", "").Replace(" ", "")">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                                count++;
+                                            }
+                                            else
+                                            {
+                                                <div class="tab-pane" id="@i.Replace(".", "").Replace(" ", "")">
+                                                    <iframe src="@k.Path" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+                }
+                <div class="col-xs-12 no-padding">
+                    <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
+                    <span>@Model.PublishDateTime.Value.ToLongDateString()</span>
+                </div>
+                <div class="col-xs-12 no-padding">
+                    <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
+                    <span>@Model.UpdateDateTime.Value.ToLongDateString()</span>
+                </div>
+        }
+    </div>
+</div>

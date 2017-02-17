@@ -1140,6 +1140,166 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CastColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CastForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CastRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CastService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CountryColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CountryForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CountryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.CountryService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.GenreColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.GenreForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.GenreRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.GenreService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ImageColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ImageForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ImageRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ImageService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieCountryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieGenreRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieKind.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieTagRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.PersonColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.PersonForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.PersonRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.PersonService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServicePathColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServicePathForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServicePathRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServicePathService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceRatingColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceRatingForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceRatingRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceRatingService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.TagColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.TagForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.TagRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.TagService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.VideoColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.VideoForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.VideoRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.VideoService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\RolePermission\RolePermissionDialog.ts" />
@@ -1402,6 +1562,10 @@
     <TypeScriptCompile Include="Modules\Movie\Image\ImageEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Image\ImageEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Image\ImageGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Category\CategoryDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Category\CategoryGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\CustomerGrid.ts" />
@@ -1435,6 +1599,14 @@
     <Content Include="Modules\Movie\Image\ImageIndex.cshtml" />
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
     <Content Include="Modules\Movie\Country\CountryIndex.cshtml" />
+    <Content Include="Modules\Movie\ServicePath\ServicePathIndex.cshtml" />
+    <Content Include="Modules\Administration\DataBase\DataBaseIndex.cshtml" />
+    <Content Include="Modules\Movie\Movie\_Movie.cshtml" />
+    <Content Include="Modules\Movie\Movie\_Movies.cshtml" />
+    <Content Include="Modules\Movie\Movie\_PreviewMovies.cshtml" />
+    <Content Include="Modules\Movie\Movie\_SimilarMovies.cshtml" />
+    <Content Include="Modules\Movie\Cast\_Casts.cshtml" />
+    <Content Include="Modules\Movie\Genre\_Genres.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1964,14 +2136,9 @@
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Movie\MovieEditorDialog.ts" />
-    <Content Include="Modules\Administration\DataBase\DataBaseIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.DataBaseRow.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.DataBaseService.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Administration.DataBaseForm.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseGrid.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseDialog.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseEditor.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseEditorDialog.ts" />
     <Content Include="Modules\Movie\Genre\GenreIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.GenreRow.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.GenreService.ts" />
@@ -1996,14 +2163,9 @@
     <TypeScriptCompile Include="Modules\Movie\Service\ServiceDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Service\ServiceEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Service\ServiceEditorDialog.ts" />
-    <Content Include="Modules\Movie\ServicePath\ServicePathIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServicePathRow.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServicePathService.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServicePathForm.ts" />
-    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathGrid.ts" />
-    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathDialog.ts" />
-    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathEditor.ts" />
-    <TypeScriptCompile Include="Modules\Movie\ServicePath\ServicePathEditorDialog.ts" />
     <Content Include="Modules\Movie\ServiceRating\ServiceRatingIndex.cshtml" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceRatingRow.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ServiceRatingService.ts" />
@@ -2028,6 +2190,15 @@
     <TypeScriptCompile Include="Modules\Movie\Video\VideoDialog.ts" />
     <TypeScriptCompile Include="Modules\Movie\Video\VideoEditor.ts" />
     <TypeScriptCompile Include="Modules\Movie\Video\VideoEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCountryRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenreRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieTagRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCountryService.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieCountryForm.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenreService.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenreForm.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieTagService.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieTagForm.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2045,11 +2216,54 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Administration.DataBaseEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.CastEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.CountryEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.GenreEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.ImageEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.MovieEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.PersonEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.ServiceEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.ServicePathEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.ServiceRatingEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.TagEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.VideoEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DefaultDB\DefaultDB_20141003_140000_DataBase.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115100_Initial.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115101_Movie.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_ServicePath.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115102_Service.cs" />
-    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_Video.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115104_Video.cs" />
+    <Compile Include="Modules\Administration\DataBase\DataBaseColumns.cs" />
+    <Compile Include="Modules\Administration\DataBase\DataBaseEndpoint.cs" />
+    <Compile Include="Modules\Administration\DataBase\DataBaseForm.cs" />
+    <Compile Include="Modules\Administration\DataBase\DataBasePage.cs" />
+    <Compile Include="Modules\Administration\DataBase\DataBaseRepository.cs" />
+    <Compile Include="Modules\Administration\DataBase\DataBaseRow.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -2246,6 +2460,12 @@
     <Compile Include="Modules\Movie\Image\ImageRepository.cs" />
     <Compile Include="Modules\Movie\Image\ImageRow.cs" />
     <Compile Include="Modules\Movie\Movie\MovieKind.cs" />
+    <Compile Include="Modules\Movie\ServicePath\ServicePathColumns.cs" />
+    <Compile Include="Modules\Movie\ServicePath\ServicePathEndpoint.cs" />
+    <Compile Include="Modules\Movie\ServicePath\ServicePathForm.cs" />
+    <Compile Include="Modules\Movie\ServicePath\ServicePathPage.cs" />
+    <Compile Include="Modules\Movie\ServicePath\ServicePathRepository.cs" />
+    <Compile Include="Modules\Movie\ServicePath\ServicePathRow.cs" />
     <Compile Include="Modules\Northwind\CategoryLang\CategoryLangEndpoint.cs" />
     <Compile Include="Modules\Northwind\CategoryLang\CategoryLangRepository.cs" />
     <Compile Include="Modules\Northwind\CategoryLang\CategoryLangRow.cs" />
@@ -2450,12 +2670,6 @@
     <Compile Include="Modules\Movie\Movie\MovieRepository.cs" />
     <Compile Include="Modules\Movie\Movie\MovieEndpoint.cs" />
     <Compile Include="Modules\Movie\Movie\MoviePage.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseRow.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseColumns.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseForm.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseRepository.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseEndpoint.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBasePage.cs" />
     <Compile Include="Modules\Movie\Genre\GenreRow.cs" />
     <Compile Include="Modules\Movie\Genre\GenreColumns.cs" />
     <Compile Include="Modules\Movie\Genre\GenreForm.cs" />
@@ -2474,12 +2688,6 @@
     <Compile Include="Modules\Movie\Service\ServiceRepository.cs" />
     <Compile Include="Modules\Movie\Service\ServiceEndpoint.cs" />
     <Compile Include="Modules\Movie\Service\ServicePage.cs" />
-    <Compile Include="Modules\Movie\ServicePath\ServicePathRow.cs" />
-    <Compile Include="Modules\Movie\ServicePath\ServicePathColumns.cs" />
-    <Compile Include="Modules\Movie\ServicePath\ServicePathForm.cs" />
-    <Compile Include="Modules\Movie\ServicePath\ServicePathRepository.cs" />
-    <Compile Include="Modules\Movie\ServicePath\ServicePathEndpoint.cs" />
-    <Compile Include="Modules\Movie\ServicePath\ServicePathPage.cs" />
     <Compile Include="Modules\Movie\ServiceRating\ServiceRatingRow.cs" />
     <Compile Include="Modules\Movie\ServiceRating\ServiceRatingColumns.cs" />
     <Compile Include="Modules\Movie\ServiceRating\ServiceRatingForm.cs" />
@@ -2498,6 +2706,24 @@
     <Compile Include="Modules\Movie\Video\VideoRepository.cs" />
     <Compile Include="Modules\Movie\Video\VideoEndpoint.cs" />
     <Compile Include="Modules\Movie\Video\VideoPage.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryRow.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenreRow.cs" />
+    <Compile Include="Modules\Movie\MovieTag\MovieTagRow.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryColumns.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryForm.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryRepository.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryEndpoint.cs" />
+    <Compile Include="Modules\Movie\MovieCountry\MovieCountryPage.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenreColumns.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenreForm.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenreRepository.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenreEndpoint.cs" />
+    <Compile Include="Modules\Movie\MovieGenre\MovieGenrePage.cs" />
+    <Compile Include="Modules\Movie\MovieTag\MovieTagColumns.cs" />
+    <Compile Include="Modules\Movie\MovieTag\MovieTagForm.cs" />
+    <Compile Include="Modules\Movie\MovieTag\MovieTagRepository.cs" />
+    <Compile Include="Modules\Movie\MovieTag\MovieTagEndpoint.cs" />
+    <Compile Include="Modules\Movie\MovieTag\MovieTagPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

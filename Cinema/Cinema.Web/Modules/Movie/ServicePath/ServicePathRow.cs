@@ -2,17 +2,14 @@
 
 namespace Cinema.Movie.Entities
 {
-    using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Movie"), DisplayName("ServicePath"), InstanceName("ServicePath"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class ServicePathRow : Row, IIdRow, INameRow
     {
@@ -22,7 +19,12 @@ namespace Cinema.Movie.Entities
             get { return Fields.ServicePathId[this]; }
             set { Fields.ServicePathId[this] = value; }
         }
-
+        [DisplayName("Kind")]
+        public MovieKind? Kind
+        {
+            get { return (MovieKind)Fields.Kind[this]; }
+            set { Fields.Kind[this] = (Int32)value; }
+        }
         [DisplayName("Path"), Size(300), NotNull, QuickSearch]
         public String Path
         {
@@ -78,7 +80,7 @@ namespace Cinema.Movie.Entities
             get { return Fields.ServiceMaxRating[this]; }
             set { Fields.ServiceMaxRating[this] = value; }
         }
-
+        
         IIdField IIdRow.IdField
         {
             get { return Fields.ServicePathId; }
@@ -99,6 +101,7 @@ namespace Cinema.Movie.Entities
         public class RowFields : RowFieldsBase
         {
             public Int32Field ServicePathId;
+            public Int32Field Kind;
             public StringField Path;
             public Int32Field ServiceId;
 

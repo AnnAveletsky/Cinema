@@ -37,19 +37,19 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_MovieCountry_MovieId", "Movie", "MovieId")
                 .WithColumn("CountryId").AsInt32().NotNullable()
-                    .ForeignKey("FK_MovieCountry_CountryId", "Country", "CountryId"));
+                    .ForeignKey("FK_MovieCountry_CountryId", "Country", "CountryId"), checkExists: true);
 
             this.CreateTableWithId64("MovieGenre", "MovieGenreId", s => s
                 .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_MovieGenre_MovieId", "Movie", "MovieId")
                 .WithColumn("GenreId").AsInt32().NotNullable()
-                    .ForeignKey("FK_MovieGenre_GenreId", "Genre", "GenreId"));
+                    .ForeignKey("FK_MovieGenre_GenreId", "Genre", "GenreId"), checkExists: true);
 
             this.CreateTableWithId64("MovieTag", "MovieTagId", s => s
                 .WithColumn("TagId").AsInt64().NotNullable()
                     .ForeignKey("FK_MovieTag_TagId", "Tag", "TagId")
                 .WithColumn("MovieId").AsInt64().NotNullable()
-                    .ForeignKey("FK_MovieTag_MovieId", "Movie", "MovieId"));
+                    .ForeignKey("FK_MovieTag_MovieId", "Movie", "MovieId"), checkExists: true);
 
             this.CreateTableWithId64("Cast", "CastId", s => s
                 .WithColumn("CharacterEn").AsString(100).NotNullable()
@@ -57,14 +57,14 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("MovieId").AsInt64().NotNullable()
                     .ForeignKey("FK_Cast_MovieId", "Movie", "MovieId")
                 .WithColumn("PersonId").AsInt64().NotNullable()
-                    .ForeignKey("FK_Cast_PersonId", "Person", "PersonId"));
+                    .ForeignKey("FK_Cast_PersonId", "Person", "PersonId"), checkExists: true);
 
             this.CreateTableWithId64("Image", "ImageId", s => s
                 .WithColumn("Path").AsString(1000).NotNullable()
                 .WithColumn("MovieId").AsInt64().Nullable()
                     .ForeignKey("FK_MovieImage_MovieId", "Movie", "MovieId")
                 .WithColumn("PersonId").AsInt64().Nullable()
-                    .ForeignKey("FK_PersonImage_PersonId", "Person", "PersonId"));
+                    .ForeignKey("FK_PersonImage_PersonId", "Person", "PersonId"), checkExists: true);
         }
         public override void Down()
         {

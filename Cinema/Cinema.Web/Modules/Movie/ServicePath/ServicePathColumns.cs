@@ -17,6 +17,7 @@ namespace Cinema.Movie.Columns
         public Int32 ServicePathId { get; set; }
         [EditLink]
         public String Path { get; set; }
+        public MovieKind? Kind { get; set; }
         public Int32 ServiceId { get; set; }
     }
 }

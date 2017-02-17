@@ -12,7 +12,6 @@ namespace Cinema.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Movie"), DisplayName("Service"), InstanceName("Service"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
     public sealed class ServiceRow : Row, IIdRow, INameRow
     {

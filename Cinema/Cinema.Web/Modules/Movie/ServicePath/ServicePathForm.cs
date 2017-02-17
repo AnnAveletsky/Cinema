@@ -14,6 +14,7 @@ namespace Cinema.Movie.Forms
     public class ServicePathForm
     {
         public String Path { get; set; }
+        public MovieKind? Kind { get; set; }
         public Int32 ServiceId { get; set; }
     }
 }

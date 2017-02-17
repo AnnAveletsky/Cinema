@@ -7,6 +7,7 @@ namespace Cinema.Movie.Repositories
     using Serenity.Services;
     using System;
     using System.Data;
+    using System.Linq;
     using MyRow = Entities.GenreRow;
 
     public class GenreRepository
@@ -42,5 +43,28 @@ namespace Cinema.Movie.Repositories
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }
+
+
+        public SaveResponse FindUpdate(IUnitOfWork uow, SaveRequest<MyRow> newRow, ListRequest request)
+        {
+            SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>() { Entity = List(uow.Connection, request).Entities.First() };
+
+            return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
+        }
+        public RetrieveResponse<MyRow> Find(IDbConnection connection, ListRequest request)
+        {
+            return new RetrieveResponse<MyRow>()
+            {
+                Entity = List(connection, request).Entities.First()
+            };
+        }
+        public bool Exist(IDbConnection connection, ListRequest request)
+        {
+            return List(connection, request).TotalCount > 0;
+        }
+        public BaseCriteria Criteria(MyRow request)
+        {
+            return new Criteria("Name") == request.Name;
+        }
     }
 }

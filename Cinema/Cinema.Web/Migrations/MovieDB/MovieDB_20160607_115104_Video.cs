@@ -4,8 +4,8 @@ using System;
 
 namespace Cinema.Migrations.MovieDB
 {
-    [Migration(20160607115103)]
-    public class MovieDB_20160607_115103_Initial : Migration
+    [Migration(20160607115104)]
+    public class MovieDB_20160607_115104_Video : Migration
     {
         public override void Up()
         {
@@ -22,7 +22,7 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("PlannePublishDate").AsDate().Nullable()
                 .WithColumn("ActualPublishDateTime").AsDateTime().Nullable()
                 .WithColumn("MovieId").AsInt64().NotNullable().ForeignKey("FK_Video_MovieId", "Movie", "MovieId")
-                .WithColumn("ServiceId").AsInt32().Nullable().ForeignKey("FK_Video_ServiceId", "Service", "ServiceId"));
+                .WithColumn("ServiceId").AsInt32().Nullable().ForeignKey("FK_Video_ServiceId", "Service", "ServiceId"), checkExists: true);
             
         }
         public override void Down()

@@ -1,0 +1,20 @@
+﻿@model List<Cinema.Movie.Movie.Entities.CastRow>
+
+@if (Model!=null&&Model.Count>0) {
+<div class="box box-custom">
+    <div class="box-header with-border box-with-backgrond">
+        <b class="uppercase header">@LocalText.Get("Db.Movie.Cast.EntityPlural")</b>
+    </div>
+    <div class="box-body">
+        <ul class="list-group list-group-unbordered no-margin">
+            @foreach (var i in Model)
+            {
+                <li class="list-group-item padding-top-5 padding-bottom-5 col-xs-12 col-md-6">
+                   
+                    <b><a href="/genres/@i.CharacterOther">@i.CharacterOther</a></b>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+}

@@ -36,18 +36,10 @@ namespace Cinema.Movie.Pages
         }
         public static SaveResponse UpdateCreate(SaveRequest<MyRow> saveRequest)
         {
-            ListRequest listRequest = new ListRequest() { Criteria = new Repository().Criteria(saveRequest.Entity) };
             using (var connection = SqlConnections.NewFor<MyRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                if (new Repository().Exist(connection, listRequest))
-                {
-                    return new Repository().FindUpdate(uow, saveRequest, listRequest);
-                }
-                else
-                {
-                    return new Repository().Create(uow, saveRequest);
-                }
+                return new Repository().UpdateCreate(uow, saveRequest);
             }
         }
     }

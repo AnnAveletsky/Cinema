@@ -50,6 +50,18 @@ namespace Cinema.Movie.Repositories
 
             return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
         }
+        public SaveResponse UpdateCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
+        {
+            ListRequest listRequest = new ListRequest() { Criteria = Criteria(saveRequest.Entity) };
+            if (Exist(uow.Connection, listRequest))
+            {
+                return FindUpdate(uow, saveRequest, listRequest);
+            }
+            else
+            {
+                return Create(uow, saveRequest);
+            }
+        }
         public RetrieveResponse<MyRow> Find(IDbConnection connection, ListRequest request)
         {
             return new RetrieveResponse<MyRow>()

@@ -22,8 +22,8 @@ namespace Cinema.Movie.Entities
         [DisplayName("Kind")]
         public MovieKind? Kind
         {
-            get { return (MovieKind)Fields.Kind[this]; }
-            set { Fields.Kind[this] = (Int32)value; }
+            get { return (MovieKind?)Fields.Kind[this]; }
+            set { Fields.Kind[this] = (Int32?)value; }
         }
         [DisplayName("Path"), Size(300), NotNull, QuickSearch]
         public String Path

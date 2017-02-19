@@ -29,6 +29,13 @@ namespace Cinema.Movie.Pages
                 return new Repository().Find(connection, listRequest);
             }
         }
+        public static RetrieveResponse<MyRow> Retrieve(RetrieveRequest retrieveRequest)
+        {
+            using (var connection = SqlConnections.NewFor<MyRow>())
+            {
+                return new Repository().Retrieve(connection, retrieveRequest);
+            }
+        }
         public static ListResponse<MyRow> List(ListRequest listRequest)
         {
             using (var connection = SqlConnections.NewFor<MyRow>())
@@ -36,20 +43,20 @@ namespace Cinema.Movie.Pages
                 return new Repository().List(connection, listRequest);
             }
         }
-        public static SaveResponse UpdateCreate(SaveRequest<MyRow> saveRequest, SaveRequest<ServiceRatingRow> serviceRating)
+        public static BaseCriteria Criteria(SaveRequest<MyRow> saveRequest)
         {
-            ListRequest listRequest = new ListRequest() { Criteria = new Repository().Criteria(saveRequest.Entity) };
+            return new Repository().Criteria(saveRequest);
+        }
+        [PageAuthorize("Administration")]
+        public static SaveResponse UpdateCreate(SaveRequest<MyRow> saveRequest)
+        {
             using (var connection = SqlConnections.NewFor<MyRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                if (new Repository().Exist(connection, listRequest))
-                {
-                    return new Repository().FindUpdate(uow, saveRequest, listRequest);
-                }
-                else
-                {
-                    return new Repository().Create(uow, saveRequest);
-                }
+                
+                var result= new Repository().UpdateCreate(uow, saveRequest);
+                uow.Commit();
+                return result;
             }
         }
 

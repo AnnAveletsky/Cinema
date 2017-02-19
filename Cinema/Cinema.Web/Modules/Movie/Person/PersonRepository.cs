@@ -47,8 +47,35 @@ namespace Cinema.Movie.Repositories
         public SaveResponse FindUpdate(IUnitOfWork uow, SaveRequest<MyRow> newRow, ListRequest request)
         {
             SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>() { Entity = List(uow.Connection, request).Entities.First() };
-
+            if (newRow.Entity.DeathDate != null)
+            {
+                oldRow.Entity.DeathDate = newRow.Entity.DeathDate;
+            }
+            if (newRow.Entity.Gender != null)
+            {
+                oldRow.Entity.Gender = newRow.Entity.Gender;
+            }
+            if (!String.IsNullOrWhiteSpace(newRow.Entity.About))
+            {
+                oldRow.Entity.About = newRow.Entity.About;
+            }
+            if (!String.IsNullOrWhiteSpace(newRow.Entity.PathImage))
+            {
+                oldRow.Entity.PathImage = newRow.Entity.PathImage;
+            }
             return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
+        }
+        public SaveResponse UpdateCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
+        {
+            ListRequest listRequest = new ListRequest() { Criteria = Criteria(saveRequest.Entity) };
+            if (Exist(uow.Connection, listRequest))
+            {
+                return FindUpdate(uow, saveRequest, listRequest);
+            }
+            else
+            {
+                return Create(uow, saveRequest);
+            }
         }
         public RetrieveResponse<MyRow> Find(IDbConnection connection, ListRequest request)
         {
@@ -63,7 +90,28 @@ namespace Cinema.Movie.Repositories
         }
         public BaseCriteria Criteria(MyRow request)
         {
-            return new Criteria("Name") == request.Name && new Criteria("BirthDate") == (DateTime)request.BirthDate;
+            var criteria = new Criteria("Url") == request.Url;
+            if (!String.IsNullOrWhiteSpace(request.Name))
+            {
+                criteria = criteria || new Criteria("Name") == request.Name;
+            }
+            if (!String.IsNullOrWhiteSpace(request.NameOther))
+            {
+                criteria = criteria || new Criteria("NameOther") == request.NameOther;
+            }
+            if (!String.IsNullOrWhiteSpace(request.FullName))
+            {
+                criteria = criteria || new Criteria("FullName") == request.FullName;
+            }
+            if (!String.IsNullOrWhiteSpace(request.FullName))
+            {
+                criteria = criteria || new Criteria("FullNameOther") == request.FullNameOther;
+            }
+            if (request.BirthDate!=null)
+            {
+                criteria = criteria && new Criteria("BirthDate") == (DateTime)request.BirthDate;
+            }
+            return criteria;
         }
     }
 }

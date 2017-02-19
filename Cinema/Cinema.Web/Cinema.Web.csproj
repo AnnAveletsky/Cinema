@@ -1368,6 +1368,10 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="App_Data\films.json" />
+    <Content Include="App_Data\serials.json" />
+    <Content Include="Content\site\flags.less" />
+    <Content Include="Content\site\site.skins.less" />
     <None Include="Imports\ServerTypings\ServerTypings.log">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2725,9 +2729,7 @@
     <Compile Include="Modules\Movie\MovieTag\MovieTagEndpoint.cs" />
     <Compile Include="Modules\Movie\MovieTag\MovieTagPage.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

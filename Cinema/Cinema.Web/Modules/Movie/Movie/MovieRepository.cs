@@ -45,8 +45,12 @@ namespace Cinema.Movie.Repositories
         
         public SaveResponse FindUpdate(IUnitOfWork uow, SaveRequest<MyRow> newRow, ListRequest request)
         {
-            SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>() { Entity = List(uow.Connection, request).Entities.First() };
-            if (String.IsNullOrWhiteSpace(oldRow.Entity.TitleTranslation) && !String.IsNullOrWhiteSpace(newRow.Entity.TitleTranslation))
+            SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>()
+            {
+                Entity = List(uow.Connection, request).Entities.First()
+            };
+            if (String.IsNullOrWhiteSpace(oldRow.Entity.TitleTranslation) && 
+                !String.IsNullOrWhiteSpace(newRow.Entity.TitleTranslation))
             {
                 oldRow.Entity.TitleTranslation = newRow.Entity.TitleTranslation;
             }
@@ -54,16 +58,38 @@ namespace Cinema.Movie.Repositories
             {
                 oldRow.Entity.Description = newRow.Entity.Description;
             }
-            if (String.IsNullOrWhiteSpace(oldRow.Entity.PathImage) && !String.IsNullOrWhiteSpace(newRow.Entity.PathImage))
+            if (String.IsNullOrWhiteSpace(oldRow.Entity.PathImage) && 
+                !String.IsNullOrWhiteSpace(newRow.Entity.PathImage))
             {
                 oldRow.Entity.PathImage = newRow.Entity.PathImage;
             }
-            if (String.IsNullOrWhiteSpace(oldRow.Entity.Runtime) && !String.IsNullOrWhiteSpace(newRow.Entity.Runtime))
+            if (String.IsNullOrWhiteSpace(oldRow.Entity.Runtime) && 
+                !String.IsNullOrWhiteSpace(newRow.Entity.Runtime))
             {
                 oldRow.Entity.PathImage = newRow.Entity.PathImage;
             }
             oldRow.Entity.UpdateDateTime = DateTime.UtcNow;
             return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
+        }
+        public SaveResponse UpdateCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
+        {
+            try
+            {
+                ListRequest listRequest = new ListRequest() { Criteria = Criteria(saveRequest) };
+                if (Exist(uow.Connection, listRequest))
+                {
+                    return FindUpdate(uow, saveRequest, listRequest);
+                }
+                else
+                {
+                    return Create(uow, saveRequest);
+                }
+            }
+            catch (Exception e)
+            {
+                SqlExceptionHelper.HandleSavePrimaryKeyException(e);
+            }
+            return null;
         }
         public RetrieveResponse<MyRow> Find(IDbConnection connection, ListRequest request)
         {
@@ -76,9 +102,9 @@ namespace Cinema.Movie.Repositories
         {
             return List(connection, request).TotalCount > 0;
         }
-        public BaseCriteria Criteria(MyRow request)
+        public BaseCriteria Criteria(SaveRequest<MyRow> request)
         {
-            return new Criteria("TitleOriginal").Contains(request.TitleOriginal) && new Criteria("YearEnd") == (short)request.YearEnd && new Criteria("YearStart") == (Int16)request.YearStart && new Criteria("Kind") == request.Kind;
+            return new Criteria("Url").Contains(request.Entity.Url)|| ((new Criteria("TitleOriginal").Contains(request.Entity.TitleOriginal)|| new Criteria("TitleTranslation").Contains(request.Entity.TitleTranslation)) && new Criteria("YearEnd") == (short)request.Entity.YearEnd && new Criteria("YearStart") == (Int16)request.Entity.YearStart && new Criteria("Kind") == request.Entity.Kind);
         }
     }
 }

@@ -1,13 +1,15 @@
-﻿@model Serenity.Services.ListResponse<Cinema.Movie.Movie.Entities.MovieRow>
+﻿@model Serenity.Services.ListResponse<Cinema.Movie.Entities.MovieRow>
 @{
-    var count = 4;
-    var totalCount = Model.TotalCount / (int)ViewData["Count"];
-}
 
-@foreach (Cinema.Movie.Movie.Entities.MovieRow item in Model.Entities)
-{
-    { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", item); }
+    var count = 4;
+    var totalCount = ViewData["Count"]!=null? Model.TotalCount / (int)ViewData["Count"]:0;
 }
+@foreach (Cinema.Movie.Entities.MovieRow item in Model.Entities)
+{
+    { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml",new Serenity.Services.RetrieveResponse<Cinema.Movie.Entities.MovieRow>() { Entity = item }); }
+}
+@if (Model!=null&&Model.Entities!=null&&Model.Entities.Count > 0)
+{
 <div class="box box-custom">
     <div class="box-body">
         <div class="col-xs-12 text-center">
@@ -15,7 +17,7 @@
                 @if ((int)ViewData["Page"] > 1)
                 {
                     <li>
-                        <a href="@("?page=1&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))" aria-label="Previous">
+                        <a href="@("?page=1&&count=" + (int)ViewData["Count"] + (ViewData["Url"] != null ? ViewData["Url"] : ""))" aria-label="Previous">
                             <b aria-hidden="true">&laquo;</b>
                         </a>
                     </li>
@@ -25,14 +27,14 @@
                     if (i <= (int)ViewData["Page"] + count && i >= (int)ViewData["Page"] - count)
                     {
                         <li class="@(i == (int)ViewData["Page"] ? "active" : "")">
-                            <a href="@(i == (int)ViewData["Page"] ? "#" : "?page="+i+"&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))">@i</a>
+                            <a href="@(i == (int)ViewData["Page"] ? "#" : "?page=" + i + "&&count=" + (int)ViewData["Count"] + (ViewData["Url"] != null ? ViewData["Url"] : ""))">@i</a>
                         </li>
                     }
                 }
                 @if ((int)ViewData["Page"] < totalCount)
                 {
                     <li>
-                        <a href="@("?page="+totalCount+"&&count="+(int)ViewData["Count"]+(ViewData["Url"]!=null?ViewData["Url"]:""))" aria-label="Next">
+                        <a href="@("?page=" + totalCount + "&&count=" + (int)ViewData["Count"] + (ViewData["Url"] != null ? ViewData["Url"] : ""))" aria-label="Next">
                             <b aria-hidden="true">&raquo;</b>
                         </a>
                     </li>
@@ -41,3 +43,4 @@
         </div>
     </div>
 </div>
+}

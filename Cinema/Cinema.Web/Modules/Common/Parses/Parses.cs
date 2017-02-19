@@ -53,7 +53,8 @@ namespace Cinema.Common.Init
         public string composer;
         public string genre;
         public string time;
-        public MovieRow ToMovie(MovieKind movieKind)
+        public MovieKind movieKind;
+        public MovieRow ToMovie()
         {
             try
             {
@@ -260,7 +261,7 @@ namespace Cinema.Common.Init
             }
             return result;
         }
-        public VideoRow ToVideo()
+        public VideoRow ToVideo(SaveResponse movie,RetrieveResponse<ServicePathRow> service)
         {
 
             VideoRow Video = new VideoRow();
@@ -270,6 +271,8 @@ namespace Cinema.Common.Init
             }
             Video.Path = url;
             Video.Translation = sub_type != null && sub_type != "" ? Int16.Parse(sub_type) : (Int16)0;
+            Video.MovieId = (Int64)movie.EntityId;
+            Video.ServiceId = (Int32)service.Entity.ServiceId;
             return Video;
 
         }
@@ -291,6 +294,44 @@ namespace Cinema.Common.Init
         public List<MovieJson> Movie;
         [XmlElement(ElementName = "serial")]
         public List<MovieJson> Serial;
+
+        public ListResponse<MovieJson> All(MovieKind? movieKind)
+        {
+            var list = new ListResponse<MovieJson>();
+            list.Entities = new List<MovieJson>();
+            list.Keys = new List<long>();
+            if (Movie != null && Movie.Count > 0)
+            {
+                Movie.ForEach(i =>
+                {
+                    try
+                    {
+                        i.movieKind = (movieKind.HasValue ? (MovieKind)movieKind : MovieKind.Film);
+                        list.Entities.Add(i);
+                    }
+                    catch (Exception e)
+                    {
+                        SqlExceptionHelper.HandleSavePrimaryKeyException(e);
+                    }
+                });
+            }
+            if (Serial != null && Serial.Count > 0)
+            {
+                Serial.ForEach(i =>
+                {
+                    try
+                    {
+                        i.movieKind = (movieKind.HasValue ? (MovieKind)movieKind : MovieKind.TvSeries);
+                        list.Entities.Add(i);
+                    }
+                    catch (Exception e)
+                    {
+                        SqlExceptionHelper.HandleSavePrimaryKeyException(e);
+                    }
+                });
+            }
+            return list;
+        }
     }
     public class StatusTask
     {

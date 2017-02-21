@@ -1203,13 +1203,31 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieCountryColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieCountryForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieCountryRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieCountryService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieGenreColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieGenreForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieGenreRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieGenreService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieKind.ts">
@@ -1221,7 +1239,16 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieTagColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieTagForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieTagRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.MovieTagService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.PersonColumns.ts">
@@ -1611,6 +1638,7 @@
     <Content Include="Modules\Movie\Movie\_SimilarMovies.cshtml" />
     <Content Include="Modules\Movie\Cast\_Casts.cshtml" />
     <Content Include="Modules\Movie\Genre\_Genres.cshtml" />
+    <Content Include="Modules\Movie\Video\_Videos.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2262,6 +2290,7 @@
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_ServicePath.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115102_Service.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115104_Video.cs" />
+    <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\DataBase\DataBaseColumns.cs" />
     <Compile Include="Modules\Administration\DataBase\DataBaseEndpoint.cs" />
     <Compile Include="Modules\Administration\DataBase\DataBaseForm.cs" />

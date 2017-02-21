@@ -1861,6 +1861,17 @@ declare namespace Cinema.Movie {
 declare namespace Cinema.Movie {
 }
 declare namespace Cinema.Movie {
+}
+declare namespace Cinema.Movie {
+    class MovieCountryForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MovieCountryForm {
+        MovieId: Serenity.StringEditor;
+        CountryId: Serenity.IntegerEditor;
+    }
+}
+declare namespace Cinema.Movie {
     interface MovieCountryRow {
         MovieCountryId?: number;
         MovieId?: number;
@@ -1927,6 +1938,23 @@ declare namespace Cinema.Movie {
     }
 }
 declare namespace Cinema.Movie {
+    namespace MovieCountryService {
+        const baseUrl = "Movie/MovieCountry";
+        function Create(request: Serenity.SaveRequest<MovieCountryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MovieCountryRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MovieCountryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MovieCountryRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace Cinema.Movie {
     class MovieForm extends Serenity.PrefixedContext {
         static formKey: string;
     }
@@ -1952,6 +1980,17 @@ declare namespace Cinema.Movie {
         ContSeason: Serenity.IntegerEditor;
         Tagline: Serenity.StringEditor;
         Budget: Serenity.DecimalEditor;
+    }
+}
+declare namespace Cinema.Movie {
+}
+declare namespace Cinema.Movie {
+    class MovieGenreForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MovieGenreForm {
+        MovieId: Serenity.StringEditor;
+        GenreId: Serenity.IntegerEditor;
     }
 }
 declare namespace Cinema.Movie {
@@ -2015,6 +2054,23 @@ declare namespace Cinema.Movie {
             const GenreName: string;
             const GenreIcon: string;
             const GenreStyle: string;
+        }
+    }
+}
+declare namespace Cinema.Movie {
+    namespace MovieGenreService {
+        const baseUrl = "Movie/MovieGenre";
+        function Create(request: Serenity.SaveRequest<MovieGenreRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MovieGenreRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MovieGenreRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MovieGenreRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
         }
     }
 }
@@ -2098,6 +2154,17 @@ declare namespace Cinema.Movie {
     }
 }
 declare namespace Cinema.Movie {
+}
+declare namespace Cinema.Movie {
+    class MovieTagForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface MovieTagForm {
+        TagId: Serenity.StringEditor;
+        MovieId: Serenity.StringEditor;
+    }
+}
+declare namespace Cinema.Movie {
     interface MovieTagRow {
         MovieTagId?: number;
         TagId?: number;
@@ -2154,6 +2221,23 @@ declare namespace Cinema.Movie {
             const MovieContSeason: string;
             const MovieTagline: string;
             const MovieBudget: string;
+        }
+    }
+}
+declare namespace Cinema.Movie {
+    namespace MovieTagService {
+        const baseUrl = "Movie/MovieTag";
+        function Create(request: Serenity.SaveRequest<MovieTagRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MovieTagRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MovieTagRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MovieTagRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
         }
     }
 }

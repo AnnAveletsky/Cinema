@@ -1355,6 +1355,22 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie) {
+        var MovieCountryForm = (function (_super) {
+            __extends(MovieCountryForm, _super);
+            function MovieCountryForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return MovieCountryForm;
+        }(Serenity.PrefixedContext));
+        MovieCountryForm.formKey = 'Movie.MovieCountry';
+        Movie.MovieCountryForm = MovieCountryForm;
+        [['MovieId', function () { return Serenity.StringEditor; }], ['CountryId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(MovieCountryForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
         var MovieCountryRow;
         (function (MovieCountryRow) {
             MovieCountryRow.idProperty = 'MovieCountryId';
@@ -1364,6 +1380,23 @@ var Cinema;
             })(Fields = MovieCountryRow.Fields || (MovieCountryRow.Fields = {}));
             ['MovieCountryId', 'MovieId', 'CountryId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieUrl', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieTagline', 'MovieBudget', 'CountryName', 'CountryNameOther', 'CountryCode', 'CountryIcon'].forEach(function (x) { return Fields[x] = x; });
         })(MovieCountryRow = Movie.MovieCountryRow || (Movie.MovieCountryRow = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var MovieCountryService;
+        (function (MovieCountryService) {
+            MovieCountryService.baseUrl = 'Movie/MovieCountry';
+            var Methods;
+            (function (Methods) {
+            })(Methods = MovieCountryService.Methods || (MovieCountryService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                MovieCountryService[x] = function (r, s, o) { return Q.serviceRequest(MovieCountryService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = MovieCountryService.baseUrl + '/' + x;
+            });
+        })(MovieCountryService = Movie.MovieCountryService || (Movie.MovieCountryService = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
@@ -1386,6 +1419,22 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie) {
+        var MovieGenreForm = (function (_super) {
+            __extends(MovieGenreForm, _super);
+            function MovieGenreForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return MovieGenreForm;
+        }(Serenity.PrefixedContext));
+        MovieGenreForm.formKey = 'Movie.MovieGenre';
+        Movie.MovieGenreForm = MovieGenreForm;
+        [['MovieId', function () { return Serenity.StringEditor; }], ['GenreId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(MovieGenreForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
         var MovieGenreRow;
         (function (MovieGenreRow) {
             MovieGenreRow.idProperty = 'MovieGenreId';
@@ -1395,6 +1444,23 @@ var Cinema;
             })(Fields = MovieGenreRow.Fields || (MovieGenreRow.Fields = {}));
             ['MovieGenreId', 'MovieId', 'GenreId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieUrl', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieTagline', 'MovieBudget', 'GenreName', 'GenreIcon', 'GenreStyle'].forEach(function (x) { return Fields[x] = x; });
         })(MovieGenreRow = Movie.MovieGenreRow || (Movie.MovieGenreRow = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var MovieGenreService;
+        (function (MovieGenreService) {
+            MovieGenreService.baseUrl = 'Movie/MovieGenre';
+            var Methods;
+            (function (Methods) {
+            })(Methods = MovieGenreService.Methods || (MovieGenreService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                MovieGenreService[x] = function (r, s, o) { return Q.serviceRequest(MovieGenreService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = MovieGenreService.baseUrl + '/' + x;
+            });
+        })(MovieGenreService = Movie.MovieGenreService || (Movie.MovieGenreService = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
@@ -1447,6 +1513,22 @@ var Cinema;
 (function (Cinema) {
     var Movie;
     (function (Movie) {
+        var MovieTagForm = (function (_super) {
+            __extends(MovieTagForm, _super);
+            function MovieTagForm() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            return MovieTagForm;
+        }(Serenity.PrefixedContext));
+        MovieTagForm.formKey = 'Movie.MovieTag';
+        Movie.MovieTagForm = MovieTagForm;
+        [['TagId', function () { return Serenity.StringEditor; }], ['MovieId', function () { return Serenity.StringEditor; }]].forEach(function (x) { return Object.defineProperty(MovieTagForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
         var MovieTagRow;
         (function (MovieTagRow) {
             MovieTagRow.idProperty = 'MovieTagId';
@@ -1456,6 +1538,23 @@ var Cinema;
             })(Fields = MovieTagRow.Fields || (MovieTagRow.Fields = {}));
             ['MovieTagId', 'TagId', 'MovieId', 'TagName', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieUrl', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieTagline', 'MovieBudget'].forEach(function (x) { return Fields[x] = x; });
         })(MovieTagRow = Movie.MovieTagRow || (Movie.MovieTagRow = {}));
+    })(Movie = Cinema.Movie || (Cinema.Movie = {}));
+})(Cinema || (Cinema = {}));
+var Cinema;
+(function (Cinema) {
+    var Movie;
+    (function (Movie) {
+        var MovieTagService;
+        (function (MovieTagService) {
+            MovieTagService.baseUrl = 'Movie/MovieTag';
+            var Methods;
+            (function (Methods) {
+            })(Methods = MovieTagService.Methods || (MovieTagService.Methods = {}));
+            ['Create', 'Update', 'Delete', 'Retrieve', 'List'].forEach(function (x) {
+                MovieTagService[x] = function (r, s, o) { return Q.serviceRequest(MovieTagService.baseUrl + '/' + x, r, s, o); };
+                Methods[x] = MovieTagService.baseUrl + '/' + x;
+            });
+        })(MovieTagService = Movie.MovieTagService || (Movie.MovieTagService = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;

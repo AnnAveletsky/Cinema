@@ -44,18 +44,14 @@ namespace Cinema.Movie.Repositories
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }
 
-        public SaveResponse FindUpdate(IUnitOfWork uow, SaveRequest<MyRow> newRow, ListRequest request)
-        {
-            SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>() { Entity = List(uow.Connection, request).Entities.First() };
 
-            return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
-        }
-        public SaveResponse UpdateCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
+        public SaveResponse ExistCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
         {
             ListRequest listRequest = new ListRequest() { Criteria = Criteria(saveRequest.Entity) };
-            if (Exist(uow.Connection, listRequest))
+            var entity = Exist(uow.Connection, listRequest);
+            if (entity >= 0)
             {
-                return FindUpdate(uow, saveRequest, listRequest);
+                return new SaveResponse() { EntityId = entity };
             }
             else
             {
@@ -69,9 +65,10 @@ namespace Cinema.Movie.Repositories
                 Entity = List(connection, request).Entities.First()
             };
         }
-        public bool Exist(IDbConnection connection, ListRequest request)
+        public Int32 Exist(IDbConnection connection, ListRequest request)
         {
-            return List(connection, request).TotalCount > 0;
+            var id = List(connection, request).Entities.First().GenreId;
+            return id != null? (Int32)id : -1;
         }
         public BaseCriteria Criteria(MyRow request)
         {

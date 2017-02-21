@@ -7,6 +7,7 @@ namespace Cinema.Movie.Entities
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
+    using Serenity.Services;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -208,11 +209,11 @@ namespace Cinema.Movie.Entities
         //}
 
         public SortedList<string, string> CountrySortedList { get; set; }
-        public List<CastRow> CastList { get; set; }
         public SortedList<string, List<CastRow>> CastSortList { get; set; }
-        public List<VideoRow> VideoList { get; set; }
-        public List<ServiceRatingRow> ServiceRatingList { get; set; }
 
+        public ListResponse<TagRow> Tags { get; set; }
+        public ListResponse<CastRow> Casts { get; set; }
+        public ListResponse<VideoRow> Videos { get; set; }
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieId; }

@@ -12,8 +12,8 @@ namespace Cinema.Administration.Entities
     using System.IO;
 
     [ConnectionKey("Default"), DisplayName("DataBase"), InstanceName("DataBase"), TwoLevelCached]
-    [ReadPermission("Administration")]
-    [ModifyPermission("Administration")]
+    [ReadPermission(PermissionKeys.Security)]
+    [ModifyPermission(PermissionKeys.Security)]
     public sealed class DataBaseRow : Row, IIdRow, INameRow
     {
         [DisplayName("Data Base Id"), Identity]

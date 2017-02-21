@@ -368,6 +368,7 @@ namespace MVC
         {
             public static class Cast
             {
+                public const string _Casts = "~/Modules/Movie/Cast/_Casts.cshtml";
                 public const string CastIndex = "~/Modules/Movie/Cast/CastIndex.cshtml";
             }
 
@@ -378,6 +379,7 @@ namespace MVC
 
             public static class Genre
             {
+                public const string _Genres = "~/Modules/Movie/Genre/_Genres.cshtml";
                 public const string GenreIndex = "~/Modules/Movie/Genre/GenreIndex.cshtml";
             }
 
@@ -388,6 +390,10 @@ namespace MVC
 
             public static class Movie_
             {
+                public const string _Movie = "~/Modules/Movie/Movie/_Movie.cshtml";
+                public const string _Movies = "~/Modules/Movie/Movie/_Movies.cshtml";
+                public const string _PreviewMovies = "~/Modules/Movie/Movie/_PreviewMovies.cshtml";
+                public const string _SimilarMovies = "~/Modules/Movie/Movie/_SimilarMovies.cshtml";
                 public const string MovieIndex = "~/Modules/Movie/Movie/MovieIndex.cshtml";
             }
 

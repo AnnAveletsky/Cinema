@@ -86,21 +86,6 @@ namespace Cinema.Movie.Pages
                                 {
                                     Entity = item.ToVideo(movie, servicePath)
                                 });
-                                //genres
-                                foreach (var genre in item.ToGenres())
-                                {
-                                    MovieGenreController.UpdateCreate(new SaveRequest<MovieGenreRow>()
-                                    {
-                                        Entity = new MovieGenreRow()
-                                        {
-                                            MovieId = Int64.Parse(movie.EntityId.ToString()),
-                                            GenreId = Int32.Parse(GenreController.UpdateCreate(new SaveRequest<GenreRow>()
-                                            {
-                                                Entity = genre
-                                            }).EntityId.ToString())
-                                        }
-                                    });
-                                }
                                 //persons and casts
                                 foreach (var person in item.ToPersons())
                                 {
@@ -116,6 +101,22 @@ namespace Cinema.Movie.Pages
                                         });
                                     }
                                 }
+                                //genres
+                                foreach (var genre in item.ToGenres())
+                                {
+                                    MovieGenreController.UpdateCreate(new SaveRequest<MovieGenreRow>()
+                                    {
+                                        Entity = new MovieGenreRow()
+                                        {
+                                            MovieId = Int64.Parse(movie.EntityId.ToString()),
+                                            GenreId = Int32.Parse(GenreController.UpdateCreate(new SaveRequest<GenreRow>()
+                                            {
+                                                Entity = genre
+                                            }).EntityId.ToString())
+                                        }
+                                    });
+                                }
+                                
                             }
                             catch (Exception e)
                             {

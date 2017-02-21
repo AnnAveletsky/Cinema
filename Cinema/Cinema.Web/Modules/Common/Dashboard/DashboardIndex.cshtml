@@ -79,13 +79,14 @@
     {
         { Html.RenderPartial("~/Modules/Movie/Person/_Persons.cshtml", Model.Persons); }
     }
-    @if (Model.Casts != null)
+    @*@if (Model.Casts != null)
     {
         { Html.RenderPartial("~/Modules/Movie/Cast/_Casts.cshtml", Model.Casts); }
-    }
+    }*@
     @if (Model.Movie != null)
     {
         { Html.RenderPartial("~/Modules/Movie/Movie/_Movie.cshtml", Model.Movie); }
+        
     }
     else if (Model.Movies != null)
     {

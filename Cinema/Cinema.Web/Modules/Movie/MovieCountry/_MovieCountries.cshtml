@@ -1,0 +1,10 @@
+﻿@model Serenity.Services.ListResponse<Cinema.Movie.Entities.MovieCountryRow>
+
+@if (Model != null && Model.Entities != null && Model.Entities.Count > 0)
+{
+    <span> @LocalText.Get("Navigation.Movie/Country"):</span>
+    foreach (var i in Model.Entities)
+    {
+        <a class="@i.CountryCode" href="/countries/@i.CountryName">@i.CountryNameOther </a>
+    }
+}

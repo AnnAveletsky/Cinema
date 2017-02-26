@@ -12,8 +12,9 @@ namespace Cinema.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Movie"), DisplayName("ServiceRating"), InstanceName("ServiceRating"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.ServiceRating")]
     public sealed class ServiceRatingRow : Row, IIdRow
     {
         [DisplayName("Service Rating Id"), Identity]

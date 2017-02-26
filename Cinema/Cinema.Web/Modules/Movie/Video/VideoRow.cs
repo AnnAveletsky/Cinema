@@ -12,8 +12,9 @@ namespace Cinema.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Movie"), DisplayName("Video"), InstanceName("Video"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.Video")]
     public sealed class VideoRow : Row, IIdRow, INameRow
     {
         [DisplayName("Video Id"), Identity]

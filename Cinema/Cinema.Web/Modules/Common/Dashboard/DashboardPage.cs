@@ -82,6 +82,17 @@ namespace Cinema.Common.Pages
                 {
                     return GenreController.List(new ListRequest());
                 });
+            model.Movies.Entities.ForEach(i =>
+            {
+                i.ServiceRatings = TwoLevelCache.GetLocalStoreOnly("ServiceRatings_" + i.MovieId + "_" + i.TitleOriginal, TimeSpan.FromMinutes(5), ServiceRatingRow.Fields.GenerationKey, () =>
+                {
+                    return ServiceRatingController.List(new ListRequest()
+                    {
+                        IncludeColumns = new HashSet<string>() { "MovieId", "Rating", "Id" },
+                        Criteria = new Criteria("MovieId") == (Int64)i.MovieId
+                    });
+                });
+            });
             ViewData["Page"] = page;
             ViewData["Count"] = count;
             ViewData["MaxRating"] = 10;
@@ -93,7 +104,7 @@ namespace Cinema.Common.Pages
         [HttpGet, Route("~/movies/{movie}")]
         public ActionResult Movie(Int64? id, string movie = "")
         {
-            
+
             model.Genres = TwoLevelCache.GetLocalStoreOnly("Genres", TimeSpan.FromMinutes(5),
                 GenreRow.Fields.GenerationKey, () =>
                 {
@@ -118,8 +129,8 @@ namespace Cinema.Common.Pages
                         Criteria = MovieController.Criteria(new SaveRequest<MovieRow>() { Entity = new MovieRow() { Url = movie } })
                     });
                 });
-
-            }else
+            }
+            else
             {
                 return HttpNotFound();
             }
@@ -127,11 +138,58 @@ namespace Cinema.Common.Pages
             {
                 return VideoController.List(new ListRequest()
                 {
-                    IncludeColumns = new HashSet<string>() { "ServiceName" },
-                    Criteria = new Criteria("MovieId") == (Int64)model.Movie.Entity.MovieId
+                    IncludeColumns = new HashSet<string>() { MovieRow.Fields.MovieId.ToString(), "ServiceName" },
+                    Criteria = new Criteria(MovieRow.Fields.MovieId.ToString()) == (Int64)model.Movie.Entity.MovieId
                 });
             });
-
+            model.Movie.Entity.MovieGenres = TwoLevelCache.GetLocalStoreOnly("Genres_" + id + "_" + movie, TimeSpan.FromMinutes(5), MovieGenreRow.Fields.GenerationKey, () =>
+            {
+                return MovieGenreController.List(new ListRequest()
+                {
+                    IncludeColumns = new HashSet<string>() {
+                        MovieRow.Fields.MovieId.ToString(),
+                        MovieGenreRow.Fields.GenreName.ToString() },
+                    Criteria = new Criteria(MovieRow.Fields.MovieId.ToString()) == (Int64)model.Movie.Entity.MovieId
+                });
+            });
+            model.Movie.Entity.MovieCountries = TwoLevelCache.GetLocalStoreOnly("Countries_" + id + "_" + movie, TimeSpan.FromMinutes(5), MovieCountryRow.Fields.GenerationKey, () =>
+            {
+                return MovieCountryController.List(new ListRequest()
+                {
+                    IncludeColumns = new HashSet<string>() { MovieRow.Fields.MovieId.ToString(), MovieCountryRow.Fields.CountryName.ToString(),
+                    MovieCountryRow.Fields.CountryNameOther.ToString(),
+                    MovieCountryRow.Fields.CountryCode.ToString()
+                    },
+                    Criteria = new Criteria(MovieRow.Fields.MovieId.ToString()) == (Int64)model.Movie.Entity.MovieId
+                });
+            });
+            model.Movie.Entity.Casts = TwoLevelCache.GetLocalStoreOnly("Casts_" + id + "_" + movie, TimeSpan.FromMinutes(5), CastRow.Fields.GenerationKey, () =>
+            {
+                return CastController.List(new ListRequest()
+                {
+                    Sort = new SortBy[] { new SortBy(CastRow.Fields.CharacterOther.ToString()) },
+                    IncludeColumns = new HashSet<string>() { MovieRow.Fields.MovieId.ToString(), CastRow.Fields.PersonName.ToString(),
+                       CastRow.Fields.PersonNameOther.ToString(),
+                       CastRow.Fields.PersonUrl.ToString()},
+                    Criteria = new Criteria(MovieRow.Fields.MovieId.ToString()) == (Int64)model.Movie.Entity.MovieId
+                });
+            });
+            model.Movie.Entity.MovieTags = TwoLevelCache.GetLocalStoreOnly("Tags_" + id + "_" + movie, TimeSpan.FromMinutes(5), MovieTagRow.Fields.GenerationKey, () =>
+            {
+                return MovieTagController.List(new ListRequest()
+                {
+                    IncludeColumns = new HashSet<string>() { MovieRow.Fields.MovieId.ToString(), MovieTagRow.Fields.TagName.ToString() },
+                    Criteria = new Criteria(MovieRow.Fields.MovieId.ToString()) == (Int64)model.Movie.Entity.MovieId
+                });
+            });
+            model.Movie.Entity.ServiceRatings = TwoLevelCache.GetLocalStoreOnly("ServiceRatings_" + id + "_" + movie, TimeSpan.FromMinutes(5), ServiceRatingRow.Fields.GenerationKey, () =>
+            {
+                return ServiceRatingController.List(new ListRequest()
+                {
+                    IncludeColumns = new HashSet<string>() { MovieRow.Fields.MovieId.ToString(), "Rating", "Id" },
+                    Criteria = new Criteria(MovieRow.Fields.MovieId.ToString()) == (Int64)model.Movie.Entity.MovieId
+                });
+            });
             return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
         }
     }

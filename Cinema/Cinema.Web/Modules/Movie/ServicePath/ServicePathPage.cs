@@ -53,7 +53,9 @@ namespace Cinema.Movie.Pages
             using (var connection = SqlConnections.NewFor<MyRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                return new Repository().UpdateCreate(uow, saveRequest);
+                var result = new Repository().UpdateCreate(uow, saveRequest);
+                uow.Commit();
+                return result;
             }
         }
         [PageAuthorize("Administration")]
@@ -116,11 +118,31 @@ namespace Cinema.Movie.Pages
                                         }
                                     });
                                 }
-                                
+                                //countries
+                                foreach (var country in item.ToCountries())
+                                {
+                                    MovieCountryController.UpdateCreate(new SaveRequest<MovieCountryRow>()
+                                    {
+                                        Entity = new MovieCountryRow()
+                                        {
+                                            MovieId = Int64.Parse(movie.EntityId.ToString()),
+                                            CountryId = Int32.Parse(CountryController.UpdateCreate(new SaveRequest<CountryRow>()
+                                            {
+                                                Entity = country
+                                            }).EntityId.ToString())
+                                        }
+                                    });
+                                }
+                                ServiceRatingController.UpdateCreate(new SaveRequest<ServiceRatingRow>()
+                                {
+                                    Entity = item.ToServiceRating((Int32)servicePath.Entity.ServiceId, Int64.Parse(movie.EntityId.ToString()))
+                                });
                             }
                             catch (Exception e)
                             {
-                                SqlExceptionHelper.HandleSavePrimaryKeyException(e);
+                                e.Log();
+                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+
                             }
                         }
                     }
@@ -128,7 +150,8 @@ namespace Cinema.Movie.Pages
             }
             catch (Exception e)
             {
-                SqlExceptionHelper.HandleSavePrimaryKeyException(e);
+                e.Log();
+                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
             }
             return View("~/Modules/Movie/ServicePath/ServicePathIndex.cshtml");
 

@@ -48,7 +48,17 @@ namespace Cinema.Movie.Repositories
         public SaveResponse FindUpdate(IUnitOfWork uow, SaveRequest<MyRow> newRow, ListRequest request)
         {
             SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>() { Entity = List(uow.Connection, request).Entities.First() };
-
+            
+            if (String.IsNullOrWhiteSpace(oldRow.Entity.Name) &&
+                !String.IsNullOrWhiteSpace(newRow.Entity.Name))
+            {
+                oldRow.Entity.Name = newRow.Entity.Name;
+            }
+            if (String.IsNullOrWhiteSpace(oldRow.Entity.NameOther) &&
+               !String.IsNullOrWhiteSpace(newRow.Entity.NameOther))
+            {
+                oldRow.Entity.NameOther = newRow.Entity.NameOther;
+            }
             return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
         }
         public SaveResponse UpdateCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
@@ -76,7 +86,7 @@ namespace Cinema.Movie.Repositories
         }
         public BaseCriteria Criteria(MyRow request)
         {
-            return new Criteria("NameOther") == request.NameOther && new Criteria("Name") == request.Name;
+            return new Criteria("Code") == request.Code;
         }
     }
 }

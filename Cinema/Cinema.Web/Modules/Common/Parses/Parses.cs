@@ -152,7 +152,9 @@ namespace Cinema.Common.Init
                     {
                         result.Add(new CountryRow()
                         {
-                            Name = String.Concat(i)
+                            Name = String.Concat(i),
+                            NameOther=String.Concat(i),
+                            Code= String.Concat(i)
                         });
                     }
                 }
@@ -276,15 +278,10 @@ namespace Cinema.Common.Init
             return Video;
 
         }
-        public ServicePathRow ToServicePath(ServiceRow service)
+        
+        public ServiceRatingRow ToServiceRating(Int32 serviceId,Int64 movieId)
         {
-            return new ServicePathRow() { };
-        }
-        public ServiceRatingRow ToServiceRating(ServiceRow service)
-        {
-
-            return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id) };
-
+            return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id),ServiceId= serviceId,MovieId= movieId };
         }
     }
     [XmlRoot(ElementName = "content")]

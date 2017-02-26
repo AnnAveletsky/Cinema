@@ -39,7 +39,9 @@ namespace Cinema.Movie.Pages
             using (var connection = SqlConnections.NewFor<MyRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                return new Repository().UpdateCreate(uow, saveRequest);
+                var result = new Repository().UpdateCreate(uow, saveRequest);
+                uow.Commit();
+                return result;
             }
         }
     }

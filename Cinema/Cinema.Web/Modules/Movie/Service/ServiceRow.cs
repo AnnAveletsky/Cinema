@@ -13,6 +13,8 @@ namespace Cinema.Movie.Entities
 
     [ConnectionKey("Movie"), DisplayName("Service"), InstanceName("Service"), TwoLevelCached]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.Service")]
     public sealed class ServiceRow : Row, IIdRow, INameRow
     {
         [DisplayName("Service Id"), Identity]

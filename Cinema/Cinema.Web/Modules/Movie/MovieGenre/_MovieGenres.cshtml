@@ -1,0 +1,10 @@
+﻿@model Serenity.Services.ListResponse<Cinema.Movie.Entities.MovieGenreRow>
+
+@if (Model != null && Model.Entities != null && Model.Entities.Count > 0)
+{
+    <span> @LocalText.Get("Db.Movie.Genre"):</span>
+    foreach (var i in Model.Entities)
+    {
+        <a href="/genres/@i.GenreName"><i class="label label-custom">@i.GenreName </i></a>
+    }
+}

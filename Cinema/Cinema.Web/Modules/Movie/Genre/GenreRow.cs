@@ -12,8 +12,9 @@ namespace Cinema.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Movie"), DisplayName("Genre"), InstanceName("Genre"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.Genre")]
     public sealed class GenreRow : Row, IIdRow, INameRow
     {
         [DisplayName("Genre Id"), Identity]

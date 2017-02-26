@@ -67,8 +67,9 @@ namespace Cinema.Movie.Repositories
         }
         public Int32 Exist(IDbConnection connection, ListRequest request)
         {
-            var id = List(connection, request).Entities.First().GenreId;
-            return id != null? (Int32)id : -1;
+            var list = List(connection, request).Entities;
+            var id = list!=null&& list.Count > 0 ? list.First().GenreId : -1;
+            return id != null ? (Int32)id : -1;
         }
         public BaseCriteria Criteria(MyRow request)
         {

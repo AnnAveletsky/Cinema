@@ -2,173 +2,115 @@
 
 @if (Model != null && Model.Entity != null)
 {
-<div class="box box-custom @(Model.Entity.Kind.ToString().ToLower())">
-    <div class="box-header with-border box-with-backgrond">
-        <a class="@(Model.Entity.Nice == true ? "col-xs-11" : "col-xs-12") no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Entity.Url + "?id=" + Model.Entity.MovieId : "")>
-            <h3 class="box-title">
-               @Model.Entity.TitleDisplay
-            </h3>
-        </a>
-        @if (Model.Entity.Nice == true)
-        {
-            <span class="pull-right">
-                <span class="fa fa-thumbs-o-up fa-2x"></span>
-            </span>
-        }
-    </div>
-    <div class="box-body box-profile">
-        <div class="col-xs-12 no-padding">
-           
-            <div class="col-xs-4 no-padding-left">
-                @if (Model.Entity.PathImage != null)
-                {
-                    <a href="#" class="thumbnail no-margin">
-                        <img class="img-responsive" src="@Model.Entity.PathImage" />
-                    </a>
-                }
-            </div>
-            
-            @if (Model.Entity.Rating != null&& ViewData["MaxRating"]!=null)
+    <div class="box box-custom @(Model.Entity.Kind.ToString().ToLower())">
+        <div class="box-header with-border box-with-backgrond">
+            <a class="@(Model.Entity.Nice == true ? "col-xs-11" : "col-xs-12") no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Entity.Url + "?id=" + Model.Entity.MovieId : "")>
+                <h3 class="box-title">
+                    @Model.Entity.TitleDisplay
+                </h3>
+            </a>
+            @if (Model.Entity.Nice == true)
             {
-                <div class="col-xs-8 no-padding">
-                    <div class="pull-right">
-                    @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
-                    {
-                        if (i < Model.Entity.Rating)
-                        {
-                           <span class="fa fa-star"></span>
-                        }
-                        else if (i + 1 < Model.Entity.Rating)
-                        {
-                            <span class="fa fa-star-half-o"></span>
-                        }
-                        else
-                        {
-                            <span class="fa fa-star-o"></span>
-                        }
-                    }
-                    </div>
-                </div>
-            }
-            @*@if (Model.Entity.ServiceRatingList != null && Model.Entity.ServiceRatingList.Count != 0)
-            {
-                    <p>
-                        <span> @LocalText.Get("Navigation.Movie/Service"):</span>
-                        @foreach (var i in Model.Entity.ServiceRatingList)
-                        {
-                            if (i.Rating != null)
-                            {
-                                @i.ServiceName
-                                <span class="label label-custom">@i.Rating </span>
-                            }
-                            else
-                            {
-                                <a href="@i.ServiceUrl@Model.Entity.Kind.Value.ToString().ToLower()/@i.Id" class="label label-custom">@i.ServiceName</a>
-                            }
-                        }
-                    </p>
-            }*@
-            @*@if (Model.Entity.GenreListName != null && Model.Entity.GenreListName.Count != 0)
-            {
-                <p style="line-height: 1.7">
-                    <span> @LocalText.Get("Db.Movie.Movie.GenreListName"):</span>
-                    @for (int i = 0; i < Model.Entity.GenreListName.Count; i++)
-                    {
-                        <a href="/genres/@Model.Entity.GenreListName[i]" ><i class="label label-custom">@Model.Entity.GenreListName[i]</i>@(i != Model.Entity.GenreListName.Count - 1 ? " " : "")</a>
-                    }
-                </p>
-            }*@
-
-            @*@if (Model.Entity.CountrySortedList != null && Model.Entity.CountrySortedList.Count != 0)
-            {
-                <p>
-                    <span> @LocalText.Get("Navigation.Movie/Country"):</span>
-                    @foreach (var i in Model.Entity.CountrySortedList)
-                    {
-                        <a class="@i.Entity.Value" href="/countries/@i.Key">@i.Key@(i.Key != Model.Entity.CountrySortedList.Keys.Last() ? ", " : "")</a>
-                    }
-                </p>
-            }*@
-            @*@if (Model.Tagline != null)
-            {
-                <p>
-                    <span class="fa fa-quote-left"></span>
-                    <i class="tagline">
-                        @Model.Tagline
-                    </i>
-                    <span class="fa fa-quote-right"></span>
-                </p>
-            }*@
-            @if (Model.Entity.Budget != null)
-            {
-                <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Entity.Budget $</i></p>
-            }
-
-            @if (Model.Entity.CastSortList != null && Model.Entity.CastSortList.Count != 0)
-            {
-                foreach (var i in Model.Entity.CastSortList)
-                {
-                    <p>
-                        <span>@i.Key:</span>
-                        @for (int k = 0; k < i.Value.Count; k++)
-                        {
-                            <a href="/persons/@i.Value[k].PersonUrl?id=@i.Value[k].PersonId">
-                        <b>@(i.Value[k].PersonNameOther != null ? i.Value[k].PersonNameOther : i.Value[k].PersonName)</b>@(k != i.Value.Count - 1 ? ", " : "")</a>
-                        }
-                    </p>
-                }
-            }
-
-            @if (Model.Entity.Description != null)
-            {
-                for (int i = 0; i < Model.Entity.Description.Count(); i++)
-                {
-                    if (!string.IsNullOrWhiteSpace(Model.Entity.Description[i]))
-                    {
-                        <p class="text-indent text-justify">
-                            @Model.Entity.Description[i]
-                        </p>
-                    }
-                }
-            }
-
-            @*@if (Model.TagListName != null && Model.TagListName.Count != 0)
-            {
-                <div class="col-xs-8 no-padding">
-                    @foreach (var i in Model.TagListName)
-                    {
-                        <div class="pull-right">
-                            <span class="label label-custom">@i </span>
-                        </div>
-                    }
-                </div>
-            }*@
-
-            @if ((string)ViewData["PageId"] == "Dashboard/Movie")
-            {
-                if (Model.Entity.Mpaa != null)
-                {
-                    <div class="col-xs-8 no-padding">
-                        <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
-                        <a>@Model.Entity.Mpaa</a>
-                    </div>
-                }
-                if (Model.Entity.Kind == Cinema.Movie.MovieKind.TvSeries)
-                {
-                    <div class="col-xs-8 no-padding">
-                        <span>@LocalText.Get("Db.Movie.Movie.ContSeason")</span>
-                        <a>@Model.Entity.ContSeason</a>
-                    </div>
-                }
+                <span class="pull-right">
+                    <span class="fa fa-thumbs-o-up fa-2x"></span>
+                </span>
             }
         </div>
-        @if (Model.Entity.Videos != null)
-        {
-            { Html.RenderPartial("~/Modules/Movie/Video/_Videos.cshtml", Model.Entity.Videos); }
-        }
-        @if ((string)ViewData["PageId"] == "Dashboard/Movie")
-        {
-            
+        <div class="box-body box-profile">
+            <div class="col-xs-12 no-padding">
+
+                <div class="col-xs-4 no-padding-left">
+                    @if (Model.Entity.PathImage != null)
+                {
+                        <a href="#" class="thumbnail no-margin">
+                            <img class="img-responsive" src="@Model.Entity.PathImage" />
+                        </a>
+                    }
+                </div>
+
+                @if (Model.Entity.Rating != null && ViewData["MaxRating"] != null)
+                {
+                    <div class="col-xs-8 no-padding">
+                        <div class="pull-right">
+                            @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
+                            {
+                                if (i < Model.Entity.Rating)
+                                {
+                                    <span class="fa fa-star"></span>
+                                }
+                                else if (i + 1 < Model.Entity.Rating)
+                                {
+                                    <span class="fa fa-star-half-o"></span>
+                                }
+                                else
+                                {
+                                    <span class="fa fa-star-o"></span>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+                @if (Model.Entity.ServiceRatings != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/ServiceRating/_ServiceRatings.cshtml", Model.Entity.ServiceRatings); }
+                }
+                @if (Model.Entity.MovieGenres != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/MovieGenre/_MovieGenres.cshtml", Model.Entity.MovieGenres); }
+                }
+                @if (Model.Entity.MovieCountries != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/MovieCountry/_MovieCountries.cshtml", Model.Entity.MovieCountries); }
+                }
+                @if (Model.Entity.MovieTags != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/MovieTag/_MovieTags.cshtml", Model.Entity.MovieTags); }
+                }
+                @if (Model.Entity.Budget != null)
+                {
+                    <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Entity.Budget $</i></p>
+                }
+                @if (Model.Entity.Casts != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/Cast/_Casts.cshtml", Model.Entity.Casts); }
+                }
+                @if (Model.Entity.Description != null)
+                {
+                    for (int i = 0; i < Model.Entity.Description.Count(); i++)
+                    {
+                        if (!string.IsNullOrWhiteSpace(Model.Entity.Description[i]))
+                        {
+                            <p class="text-indent text-justify">
+                                @Model.Entity.Description[i]
+                            </p>
+                        }
+                    }
+                }
+                @if ((string)ViewData["PageId"] == "Dashboard/Movie")
+                {
+                    if (Model.Entity.Mpaa != null)
+                    {
+                        <div class="col-xs-8 no-padding">
+                            <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
+                            <a>@Model.Entity.Mpaa</a>
+                        </div>
+                    }
+                    if (Model.Entity.Kind == Cinema.Movie.MovieKind.TvSeries)
+                    {
+                        <div class="col-xs-8 no-padding">
+                            <span>@LocalText.Get("Db.Movie.Movie.ContSeason")</span>
+                            <a>@Model.Entity.ContSeason</a>
+                        </div>
+                    }
+                }
+            </div>
+            @if (Model.Entity.Videos != null)
+            {
+                { Html.RenderPartial("~/Modules/Movie/Video/_Videos.cshtml", Model.Entity.Videos); }
+            }
+            @if ((string)ViewData["PageId"] == "Dashboard/Movie")
+            {
+
                 <div class="col-xs-12 no-padding">
                     <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
                     <span>@Model.Entity.PublishDateTime.Value.ToLongDateString()</span>
@@ -177,7 +119,7 @@
                     <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
                     <span>@Model.Entity.UpdateDateTime.Value.ToLongDateString()</span>
                 </div>
-                        }
+            }
+        </div>
     </div>
-</div>
-                        }
+}

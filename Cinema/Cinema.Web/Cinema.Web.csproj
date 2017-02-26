@@ -1639,6 +1639,10 @@
     <Content Include="Modules\Movie\Cast\_Casts.cshtml" />
     <Content Include="Modules\Movie\Genre\_Genres.cshtml" />
     <Content Include="Modules\Movie\Video\_Videos.cshtml" />
+    <Content Include="Modules\Movie\MovieTag\_MovieTags.cshtml" />
+    <Content Include="Modules\Movie\MovieGenre\_MovieGenres.cshtml" />
+    <Content Include="Modules\Movie\MovieCountry\_MovieCountries.cshtml" />
+    <Content Include="Modules\Movie\ServiceRating\_ServiceRatings.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

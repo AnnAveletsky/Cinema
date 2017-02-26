@@ -1,20 +1,20 @@
 ﻿@model Serenity.Services.ListResponse<Cinema.Movie.Entities.CastRow>
 
-@if (Model!=null&& Model.Entities != null&&Model.Entities.Count>0) {
-<div class="box box-custom">
-    <div class="box-header with-border box-with-backgrond">
-        <b class="uppercase header">@LocalText.Get("Db.Movie.Cast.EntityPlural")</b>
-    </div>
-    <div class="box-body">
-        <ul class="list-group list-group-unbordered no-margin">
-            @foreach (var i in Model.Entities)
+@if (Model != null && Model.Entities != null && Model.Entities.Count > 0)
+{
+    foreach (var character in Model.Entities.Select(i=>i.CharacterOther).Distinct())
+    {
+        <p>
+            <span>@character:</span>
+            @foreach (var person in Model.Entities)
             {
-                <li class="list-group-item padding-top-5 padding-bottom-5 col-xs-12 col-md-6">
-                   
-                    <b><a href="/genres/@i.CharacterOther">@i.CharacterOther</a></b>
-                </li>
+                if (person.CharacterOther == character)
+                {
+                    <a href="/persons/@person.PersonUrl?id=@person.PersonId">
+                        <b>@(person.PersonNameOther != null ? person.PersonNameOther : person.PersonName)</b>
+                    </a>
+                }
             }
-        </ul>
-    </div>
-</div>
+        </p>
+    }
 }

@@ -76,7 +76,7 @@ namespace Cinema.Movie.Repositories
         }
         public BaseCriteria Criteria(MyRow request)
         {
-            return new Criteria("MovieId") == (Int64)request.MovieId&& new Criteria("CountryId") == (Int32)request.CountryId;
+            return new Criteria("MovieId") == Int64.Parse(request.MovieId.ToString())&& new Criteria("CountryId") == Int32.Parse(request.CountryId.ToStringDefault());
         }
     }
 }

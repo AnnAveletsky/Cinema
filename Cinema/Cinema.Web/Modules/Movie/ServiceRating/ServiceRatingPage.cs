@@ -7,8 +7,8 @@ namespace Cinema.Movie.Pages
     using Serenity;
     using Serenity.Web;
     using System.Web.Mvc;
-    using Repository = Repositories.ServiceRepository;
-    using MyRow = Entities.ServiceRow;
+    using Repository = Repositories.ServiceRatingRepository;
+    using MyRow = Entities.ServiceRatingRow;
     using Serenity.Services;
     using Serenity.Data;
 
@@ -39,7 +39,9 @@ namespace Cinema.Movie.Pages
             using (var connection = SqlConnections.NewFor<MyRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                return new Repository().UpdateCreate(uow, saveRequest);
+                var result = new Repository().UpdateCreate(uow, saveRequest);
+                uow.Commit();
+                return result;
             }
         }
     }

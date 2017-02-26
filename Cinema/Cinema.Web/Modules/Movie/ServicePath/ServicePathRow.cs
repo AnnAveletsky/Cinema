@@ -2,6 +2,7 @@
 
 namespace Cinema.Movie.Entities
 {
+    using Newtonsoft.Json;
     using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
@@ -11,6 +12,8 @@ namespace Cinema.Movie.Entities
 
     [ConnectionKey("Movie"), DisplayName("ServicePath"), InstanceName("ServicePath"), TwoLevelCached]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.ServicePath")]
     public sealed class ServicePathRow : Row, IIdRow, INameRow
     {
         [DisplayName("Service Path Id"), Identity]

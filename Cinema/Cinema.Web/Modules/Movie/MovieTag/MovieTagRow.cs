@@ -12,8 +12,9 @@ namespace Cinema.Movie.Entities
     using System.IO;
 
     [ConnectionKey("Movie"), DisplayName("MovieTag"), InstanceName("MovieTag"), TwoLevelCached]
-    [ReadPermission("Administration")]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.MovieTag")]
     public sealed class MovieTagRow : Row, IIdRow
     {
         [DisplayName("Movie Tag Id"), Identity]

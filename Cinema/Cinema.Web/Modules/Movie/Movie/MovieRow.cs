@@ -15,6 +15,8 @@ namespace Cinema.Movie.Entities
 
     [ConnectionKey("Movie"), DisplayName("Movie"), InstanceName("Movie"), TwoLevelCached]
     [ModifyPermission("Administration")]
+    [JsonConverter(typeof(JsonRowConverter))]
+    [LookupScript("Movie.Movie")]
     public sealed class MovieRow : Row, IIdRow, INameRow
     {
         [DisplayName("Movie Id"), Identity]
@@ -175,45 +177,13 @@ namespace Cinema.Movie.Entities
             set { Fields.Budget[this] = value; }
         }
 
-        //[DisplayName("Genres")]
-        //[LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
-        //[LinkingSetRelation(typeof(MovieGenreRow), "MovieId", "GenreId")]
-        //public List<Int32> GenreList
-        //{
-        //    get { return Fields.GenreList[this]; }
-        //    set { Fields.GenreList[this] = value; }
-        //}
-        //[DisplayName("Genres")]
-        //[LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
-        //[LinkingSetRelation(typeof(MovieGenreRow), "MovieId", "GenreName")]
-        //public List<string> GenreListName
-        //{
-        //    get { return Fields.GenreListName[this]; }
-        //    set { Fields.GenreListName[this] = value; }
-        //}
-        //[DisplayName("Tags")]
-        //[LookupEditor(typeof(TagRow), Multiple = true), NotMapped]
-        //[LinkingSetRelation(typeof(MovieTagRow), "MovieId", "TagId")]
-        //public List<Int64> TagList
-        //{
-        //    get { return Fields.TagList[this]; }
-        //    set { Fields.TagList[this] = value; }
-        //}
-        //[DisplayName("Tags")]
-        //[LookupEditor(typeof(TagRow), Multiple = true), NotMapped]
-        //[LinkingSetRelation(typeof(MovieTagRow), "MovieId", "TagName")]
-        //public List<string> TagListName
-        //{
-        //    get { return Fields.TagListName[this]; }
-        //    set { Fields.TagListName[this] = value; }
-        //}
-
-        public SortedList<string, string> CountrySortedList { get; set; }
-        public SortedList<string, List<CastRow>> CastSortList { get; set; }
-
-        public ListResponse<TagRow> Tags { get; set; }
-        public ListResponse<CastRow> Casts { get; set; }
         public ListResponse<VideoRow> Videos { get; set; }
+        public ListResponse<MovieGenreRow> MovieGenres { get; set; }
+        public ListResponse<MovieCountryRow> MovieCountries { get; set; }
+        public ListResponse<CastRow> Casts { get; set; }
+        public ListResponse<MovieTagRow> MovieTags { get; set; }
+        public ListResponse<ServiceRatingRow> ServiceRatings { get; set; }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.MovieId; }
@@ -255,10 +225,6 @@ namespace Cinema.Movie.Entities
             public Int16Field ContSeason;
             public StringField Tagline;
             public DecimalField Budget;
-            //public ListField<Int32> GenreList;
-            //public ListField<string> GenreListName;
-            //public ListField<Int64> TagList;
-            //public ListField<string> TagListName;
 
             public RowFields()
                 : base("[dbo].[Movie]")

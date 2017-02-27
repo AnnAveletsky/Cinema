@@ -2,9 +2,10 @@
 
 @if (Model != null && Model.Entities != null && Model.Entities.Count > 0)
 {
-    <span> @LocalText.Get("Db.Movie.Genre"):</span>
-    foreach (var i in Model.Entities)
-    {
-        <a href="/genres/@i.GenreName"><i class="label label-custom">@i.GenreName </i></a>
-    }
+    <div class="col-xs-12">
+        @foreach (var i in Model.Entities)
+        {
+            <a class="@i.GenreIcon pull-left" href="/genres/@i.GenreName">@i.GenreName</a>
+        }
+    </div>
 }

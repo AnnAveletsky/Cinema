@@ -18,7 +18,10 @@
         </div>
         <div class="box-body box-profile">
             <div class="col-xs-12 no-padding">
-
+                @if (Model.Entity.MovieGenres != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/MovieGenre/_MovieGenres.cshtml", Model.Entity.MovieGenres); }
+                }
                 <div class="col-xs-4 no-padding-left">
                     @if (Model.Entity.PathImage != null)
                 {
@@ -28,44 +31,19 @@
                     }
                 </div>
 
-                @if (Model.Entity.Rating != null && ViewData["MaxRating"] != null)
-                {
-                    <div class="col-xs-8 no-padding">
-                        <div class="pull-right">
-                            @for (int i = 0; i < (int)ViewData["MaxRating"]; i++)
-                            {
-                                if (i < Model.Entity.Rating)
-                                {
-                                    <span class="fa fa-star"></span>
-                                }
-                                else if (i + 1 < Model.Entity.Rating)
-                                {
-                                    <span class="fa fa-star-half-o"></span>
-                                }
-                                else
-                                {
-                                    <span class="fa fa-star-o"></span>
-                                }
-                            }
-                        </div>
-                    </div>
-                }
+
                 @if (Model.Entity.ServiceRatings != null)
                 {
                     { Html.RenderPartial("~/Modules/Movie/ServiceRating/_ServiceRatings.cshtml", Model.Entity.ServiceRatings); }
                 }
-                @if (Model.Entity.MovieGenres != null)
-                {
-                    { Html.RenderPartial("~/Modules/Movie/MovieGenre/_MovieGenres.cshtml", Model.Entity.MovieGenres); }
-                }
+
                 @if (Model.Entity.MovieCountries != null)
                 {
-                    { Html.RenderPartial("~/Modules/Movie/MovieCountry/_MovieCountries.cshtml", Model.Entity.MovieCountries); }
+                    <div class="col-xs-8">
+                        @{ Html.RenderPartial("~/Modules/Movie/MovieCountry/_MovieCountries.cshtml", Model.Entity.MovieCountries); }
+                    </div>
                 }
-                @if (Model.Entity.MovieTags != null)
-                {
-                    { Html.RenderPartial("~/Modules/Movie/MovieTag/_MovieTags.cshtml", Model.Entity.MovieTags); }
-                }
+
                 @if (Model.Entity.Budget != null)
                 {
                     <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Entity.Budget $</i></p>
@@ -85,6 +63,10 @@
                             </p>
                         }
                     }
+                }
+                @if (Model.Entity.MovieTags != null)
+                {
+                    { Html.RenderPartial("~/Modules/Movie/MovieTag/_MovieTags.cshtml", Model.Entity.MovieTags); }
                 }
                 @if ((string)ViewData["PageId"] == "Dashboard/Movie")
                 {

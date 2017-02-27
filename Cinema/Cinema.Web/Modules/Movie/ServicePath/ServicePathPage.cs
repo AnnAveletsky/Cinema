@@ -78,10 +78,25 @@ namespace Cinema.Movie.Pages
                         {
                             try
                             {
+                                var movieRow = item.ToMovie();
+                                var serviceRaiting = ServiceRatingController.Find(new ListRequest()
+                                {
+                                    IncludeColumns=new HashSet<string>()
+                                    {
+                                        ServiceRatingRow.Fields.MovieId.Name,
+                                        ServiceRatingRow.Fields.ServiceId.Name,
+                                        ServiceRatingRow.Fields.Id.Name
+                                    },
+                                    Criteria = new Criteria(ServiceRatingRow.Fields.Id.Name) == item.kinopoisk_id && new Criteria(ServiceRatingRow.Fields.ServiceId.Name) == (Int32)servicePath.Entity.ServiceId
+                                });
+                                if (item.kinopoisk_id != ""&& serviceRaiting!=null&& serviceRaiting.Entity!=null&& serviceRaiting.Entity.MovieId!=null)
+                                {
+                                    movieRow.MovieId = serviceRaiting.Entity.MovieId;
+                                }
                                 //movie
                                 var movie = MovieController.UpdateCreate(new SaveRequest<MovieRow>()
                                 {
-                                    Entity = item.ToMovie()
+                                    Entity = movieRow
                                 });
                                 //video
                                 var video = VideoController.UpdateCreate(new SaveRequest<VideoRow>()

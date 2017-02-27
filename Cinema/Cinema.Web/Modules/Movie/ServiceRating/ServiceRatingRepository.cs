@@ -66,7 +66,7 @@ namespace Cinema.Movie.Repositories
         {
             return new RetrieveResponse<MyRow>()
             {
-                Entity = List(connection, request).Entities.First()
+                Entity = List(connection, request).Entities.FirstOrDefault()
             };
         }
         public bool Exist(IDbConnection connection, ListRequest request)

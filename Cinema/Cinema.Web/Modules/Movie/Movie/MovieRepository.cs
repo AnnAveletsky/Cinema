@@ -47,7 +47,7 @@ namespace Cinema.Movie.Repositories
         {
             SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>()
             {
-                Entity = List(uow.Connection, request).Entities.First()
+                Entity = newRow.EntityId != null ? Retrieve(uow.Connection, new RetrieveRequest()).Entity : List(uow.Connection, request).Entities.First()
             };
             if (String.IsNullOrWhiteSpace(oldRow.Entity.TitleTranslation) && 
                 !String.IsNullOrWhiteSpace(newRow.Entity.TitleTranslation))
@@ -76,7 +76,7 @@ namespace Cinema.Movie.Repositories
             try
             {
                 ListRequest listRequest = new ListRequest() { Criteria = Criteria(saveRequest) };
-                if (Exist(uow.Connection, listRequest))
+                if ( Exist(uow.Connection, listRequest))
                 {
                     return FindUpdate(uow, saveRequest, listRequest);
                 }

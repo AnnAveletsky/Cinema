@@ -1,0 +1,25 @@
+﻿@model Serenity.Services.ListResponse<Cinema.Movie.Entities.ServiceRow>
+@if (Model != null && Model.Entities.Count != 0)
+{
+    <div class="col-xs-12 no-padding">
+        <ul class="nav nav-tabs">
+            @foreach (var i in Model.Entities)
+            {
+                var Name = (i.Name == null ? "Other" : i.Name.Replace(".", "").Replace(" ", " "));
+                <li class="@(Model.Entities.IndexOf(i)==0?"active":"")"><a href="@Name" data-toggle="tab">@Name</a></li>
+            }
+        </ul>
+        <div class="tab-content">
+            @foreach (var i in Model.Entities)
+            {
+                if (i.Videos != null && i.Videos.Entities.Count > 0)
+                {
+                    var Name = (i.Name == null ? "Other" : i.Name.Replace(".", "").Replace(" ", " "));
+                    <div class="tab-pane @(Model.Entities.IndexOf(i) == 0 ? "active" : "")" id="@Name">
+                        @{ Html.RenderPartial(MVC.Views.Movie.Video._Videos, i.Videos); }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

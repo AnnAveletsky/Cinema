@@ -1655,6 +1655,8 @@
     <Content Include="Modules\Movie\ServiceRating\_ServiceRatings.cshtml" />
     <Content Include="Modules\Movie\Person\_Person.cshtml" />
     <Content Include="Modules\Movie\Person\_Persons.cshtml" />
+    <Content Include="Modules\Movie\Service\_Services.cshtml" />
+    <Content Include="Modules\Movie\Video\_Video.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2307,6 +2309,7 @@
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115101_Movie.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_ServicePath.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115102_Service.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160607_115105_Contents.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115104_Video.cs" />
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\DataBase\DataBaseColumns.cs" />

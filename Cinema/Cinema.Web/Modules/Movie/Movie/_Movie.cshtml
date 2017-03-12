@@ -100,9 +100,9 @@
                     }
                 </div>
             </div>
-                @if (Model.Entity.Videos != null)
+                @if (Model.Entity.Services != null&& Model.Entity.Services.Entities !=null)
                 {
-                    { Html.RenderPartial(MVC.Views.Movie.Video._Videos, Model.Entity.Videos); }
+                    { Html.RenderPartial(MVC.Views.Movie.Service._Services, Model.Entity.Services); }
                 }
                 @if (type == Cinema.Common.TypePage.Movie)
                 {

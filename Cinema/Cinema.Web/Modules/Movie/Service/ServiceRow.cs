@@ -7,6 +7,7 @@ namespace Cinema.Movie.Entities
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
+    using Serenity.Services;
     using System;
     using System.ComponentModel;
     using System.IO;
@@ -65,7 +66,7 @@ namespace Cinema.Movie.Entities
             get { return Fields.MaxRating[this]; }
             set { Fields.MaxRating[this] = value; }
         }
-
+        public ListResponse<VideoRow> Videos { get; set; }
         IIdField IIdRow.IdField
         {
             get { return Fields.ServiceId; }

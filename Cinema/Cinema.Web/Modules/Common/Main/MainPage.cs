@@ -14,6 +14,9 @@ namespace Cinema.Common.Pages
         {
             model.Movies = PageController.GetPageMovies(count, page, movie, year1, year2, year3);
             model.Genres = PageController.GetPageGenres();
+            model.PopularMovies = PageController.GetPagePopularMovies();
+            model.PopularSeries = PageController.GetPagePopularSeries();
+            model.NewSeries = PageController.GetPageNewSeries();
             ViewData["Page"] = page;
             ViewData["Count"] = count;
             ViewData["Url"] = (movie != "" ? "&&movie=" : "") + movie + (year1 != "" ? "&&year1=" + year1 : "") + (year2 != "" ? "&&year2=" + year2 : "") + (year3 != "" ? "&&year3=" + year3 : "");
@@ -35,6 +38,8 @@ namespace Cinema.Common.Pages
                     return HttpNotFound();
                 }
                 PageController.SetPageMovie(model.Movie);
+                model.SimilarMovies = PageController.GetPageSimilarMovies(model.Movie.Entity);
+                model.SimilarSeries = PageController.GetPageSimilarSeries(model.Movie.Entity);
                 ViewData["Title"] = LocalText.Get("Site.Dashboard.ResultSearch");
                 ViewData["TypePage"] = TypePage.Movie;
             }

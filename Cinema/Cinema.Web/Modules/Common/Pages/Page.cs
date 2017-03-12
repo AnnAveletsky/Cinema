@@ -9,6 +9,7 @@ namespace Cinema.Common.Pages
     using Movie.Entities;
     using System.Collections.Generic;
     using Movie.Pages;
+    using Movie;
 
     public class PageController : Controller
     {
@@ -18,6 +19,8 @@ namespace Cinema.Common.Pages
             return MovieController.ViewsAdd(new SaveRequest<MovieRow>() { Entity = movie.Entity, EntityId = movie.Entity.MovieId });
         }
         #endregion
+
+      
         #region get public metod
         public static RetrieveResponse<MovieRow> GetPageMovie(Int64? id, string movie = "")
         {
@@ -27,9 +30,9 @@ namespace Cinema.Common.Pages
                 _movie.Entity.ServiceRatings = GetServiceRatings(_movie.Entity);
                 _movie.Entity.MovieGenres = GetMovieGenres(_movie.Entity);
                 _movie.Entity.MovieCountries = GetMovieCountries(_movie.Entity);
-                _movie.Entity.Videos = GetVideos(_movie.Entity);
                 _movie.Entity.Casts = GetCasts(_movie.Entity);
                 _movie.Entity.MovieTags = GetTags(_movie.Entity);
+                _movie.Entity.Services = GetServicesVideos(_movie.Entity);
             }
             return _movie;
         }
@@ -42,7 +45,6 @@ namespace Cinema.Common.Pages
                 i.MovieGenres = GetMovieGenres(i);
                 i.MovieCountries = GetMovieCountries(i);
             });
-            
             return movies;
         }
         public static ListResponse<GenreRow> GetPageGenres()
@@ -52,6 +54,75 @@ namespace Cinema.Common.Pages
                 {
                     return GenreController.List(new ListRequest());
                 });
+        }
+        
+       public static ListResponse<MovieRow> GetPagePopularMovies()
+        {
+            return MovieController.List(new ListRequest()
+            {
+                Take = 20,
+                Criteria = new Criteria("Kind") == MovieKind.Film,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                Sort = new[] {
+                    new SortBy("Rating", true)
+                }
+            });
+        }
+        public static ListResponse<MovieRow> GetPageNewSeries() {
+            return MovieController.List(new ListRequest()
+            {
+                Take = 20,
+                Criteria = new Criteria("Kind") == MovieKind.TvSeries,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "Rating" },
+                Sort = new[] {
+                    new SortBy("UpdateDateTime", true)
+                }
+            });
+        }
+        public static ListResponse<MovieRow> GetPagePopularSeries()
+        {
+            return MovieController.List(new ListRequest()
+            {
+                Take = 20,
+                Criteria = new Criteria("Kind") == MovieKind.TvSeries,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                Sort = new[] {
+                    new SortBy("Rating", true)
+                }
+            });
+        }
+        public static ListResponse<MovieRow> GetPageSimilarMovies(MovieRow movie) {
+            return MovieController.List(new ListRequest
+            {
+                Take = 6,
+                IncludeColumns = new HashSet<string>() { "GenreList" },
+                Criteria = new Criteria("Kind") == MovieKind.Film,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                Sort = new[] {
+                        new SortBy("UpdateDateTime", true),
+                        new SortBy("PublishDateTime", true),
+                        new SortBy("Rating", true),
+                        new SortBy("TitleOriginal"),
+                        new SortBy("TitleTranslation")
+                    }
+            });
+        }
+        public static ListResponse<MovieRow> GetPageSimilarSeries(MovieRow movie)
+        {
+            return MovieController.List(new ListRequest
+            {
+                Take = 6,
+                IncludeColumns = new HashSet<string>() { "GenreList" },
+                Criteria = new Criteria("Kind") == MovieKind.TvSeries,
+                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName" },
+                Sort = new[] {
+                        new SortBy("UpdateDateTime", true),
+                        new SortBy("PublishDateTime", true),
+                        new SortBy("Rating", true),
+                        new SortBy("TitleOriginal"),
+                        new SortBy("TitleTranslation")
+                    }
+            });
         }
         #endregion
         #region get private metod
@@ -158,18 +229,47 @@ namespace Cinema.Common.Pages
                 });
             });
         }
-        static ListResponse<VideoRow> GetVideos(MovieRow movie)
+        static ListResponse<ServiceRow> GetServices()
         {
-            return TwoLevelCache.GetLocalStoreOnly("Video_" + movie.MovieId, TimeSpan.FromMinutes(5), VideoRow.Fields.GenerationKey, () =>
+            return TwoLevelCache.GetLocalStoreOnly("Services", TimeSpan.FromMinutes(5), ServiceRow.Fields.GenerationKey, () =>
+            {
+                return ServiceController.List(new ListRequest() {});
+            });
+        }
+        static ListResponse<ServiceRow> GetServicesVideos(MovieRow movie)
+        {
+           return TwoLevelCache.GetLocalStoreOnly("GetServicesVideos_" + movie.MovieId, TimeSpan.FromMinutes(5), VideoRow.Fields.GenerationKey, () =>
+            {
+                var services = new ListResponse<ServiceRow>();
+                services.Entities = new List<ServiceRow>();
+                var all= GetServices();
+                all.Entities.ForEach(i =>
+                {
+                    i.Videos = GetVideos(movie, i);
+                    if (i.Videos.Entities.Count > 0)
+                    {
+                        services.Entities.Add(i);
+                    }
+                });
+                return services;
+            });
+        }
+        static ListResponse<VideoRow> GetVideos(MovieRow movie, ServiceRow service)
+        {
+            return TwoLevelCache.GetLocalStoreOnly("Video_" + movie.MovieId+"_"+ service.ServiceId, TimeSpan.FromMinutes(5), VideoRow.Fields.GenerationKey, () =>
             {
                 return VideoController.List(new ListRequest()
                 {
                     IncludeColumns = new HashSet<string>()
                     {
                         VideoRow.Fields.MovieId.Name,
-                        VideoRow.Fields.ServiceName.Name
+                        VideoRow.Fields.ServiceId.Name,
                     },
-                    Criteria = new Criteria(VideoRow.Fields.MovieId.Name) == (Int64)movie.MovieId
+                    Sort=new SortBy[] {
+                        new SortBy(VideoRow.Fields.Season.Name),
+                        new SortBy(VideoRow.Fields.Serie.Name)
+                    },
+                    Criteria = new Criteria(VideoRow.Fields.MovieId.Name) == (Int64)movie.MovieId && new Criteria(VideoRow.Fields.ServiceId.Name)==(Int32)service.ServiceId
                 });
             });
         }

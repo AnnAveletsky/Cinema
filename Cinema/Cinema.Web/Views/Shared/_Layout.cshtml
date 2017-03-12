@@ -2,11 +2,13 @@
 @{
     Func<string, IHtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));
     var logged = Serenity.Authorization.Username;
-    var admin = (Cinema.Common.TypePage?)ViewData["Admin"] == Cinema.Common.TypePage.Admin;
+    var user = (UserDefinition)Serenity.Authorization.UserDefinition;
+    var admin = (Cinema.Common.TypePage?)ViewData["Admin"] == Cinema.Common.TypePage.Admin ;
+    var sideBar = admin || user != null;
     var themeCookie = Request.Cookies["ThemePreference"];
     var theme = themeCookie != null && !themeCookie.Value.IsEmptyOrNull() ? themeCookie.Value : "nature";
     var rtl = System.Globalization.CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft;
-    var user = (UserDefinition)Serenity.Authorization.UserDefinition;
+
     var userImage = VirtualPathUtility.ToAbsolute(
         (user == null || string.IsNullOrEmpty(user.UserImage)) ? "~/Content/adminlte/img/avatar04.png" :
         "~/upload/" + user.UserImage);
@@ -21,7 +23,7 @@
     @RenderSection("Head", false)
     <title>@(ViewData["Title"]) - Cinema</title>
 </head>
-<body id="s-@(ViewData["PageId"])Page" class="@(ViewData["BodyClass"]) fixed  @(admin && user != null?"sidebar-mini":"sidebar-collapse") hold-transition skin-@theme has-layout-event @(rtl ? " rtl" : "")">
+<body id="s-@(ViewData["PageId"])Page" class="@(ViewData["BodyClass"]) fixed  @(sideBar?"sidebar-mini":"sidebar-collapse") hold-transition skin-@theme has-layout-event @(rtl ? " rtl" : "")">
 
 <div class="wrapper">
     <header class="main-header">
@@ -30,7 +32,7 @@
             <span class="logo-lg"><i></i><b>@LocalText.Get("Navigation.SiteTitle")</b></span>
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
-            @if (admin&&user != null)
+            @if (sideBar)
             {
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
@@ -38,7 +40,7 @@
             }
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    @if (admin && user != null)
+                    @if (user!=null)
                     {
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -70,7 +72,7 @@
                             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                         </li>
                     }
-                    else if(admin)
+                    else if(admin&& user==null)
                     {
                         <li>
                             <a href="~/Account/Login">Login</a>
@@ -80,7 +82,7 @@
             </div>
         </nav>
     </header>
-    @if (admin && user != null)
+    @if (sideBar)
     {
     <aside class="main-sidebar">
         <section class="sidebar">
@@ -117,7 +119,7 @@
         </div>
         <strong>@Texts.Site.Layout.FooterCopyright</strong> @Texts.Site.Layout.FooterRights
     </footer>
-@if (admin && user != null)
+@if (sideBar)
 {
     <aside class="control-sidebar control-sidebar-dark">
         <div class="tab-content">
@@ -141,7 +143,7 @@
 }
     <div class="control-sidebar-bg"></div>
 </div>
-    @if (admin && user != null)
+    @if (sideBar)
     {
 <script type="text/javascript">
     $().ready(function () {

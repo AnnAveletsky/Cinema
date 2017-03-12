@@ -421,6 +421,7 @@ namespace MVC
 
             public static class Service
             {
+                public const string _Services = "~/Modules/Movie/Service/_Services.cshtml";
                 public const string ServiceIndex = "~/Modules/Movie/Service/ServiceIndex.cshtml";
             }
 
@@ -442,6 +443,7 @@ namespace MVC
 
             public static class Video
             {
+                public const string _Video = "~/Modules/Movie/Video/_Video.cshtml";
                 public const string _Videos = "~/Modules/Movie/Video/_Videos.cshtml";
                 public const string VideoIndex = "~/Modules/Movie/Video/VideoIndex.cshtml";
             }
@@ -514,6 +516,7 @@ namespace MVC
         public static class Shared
         {
             public const string _Layout = "~/Views/Shared/_Layout.cshtml";
+            public const string _LayoutAdmin = "~/Views/Shared/_LayoutAdmin.cshtml";
             public const string _LayoutHead = "~/Views/Shared/_LayoutHead.cshtml";
             public const string _LayoutNoNavigation = "~/Views/Shared/_LayoutNoNavigation.cshtml";
             public const string Error = "~/Views/Shared/Error.cshtml";

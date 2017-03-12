@@ -183,7 +183,7 @@ namespace Cinema.Movie.Entities
             set { Fields.Views[this] = value; }
         }
 
-        public ListResponse<VideoRow> Videos { get; set; }
+        public ListResponse<ServiceRow> Services { get; set; }
         public ListResponse<MovieGenreRow> MovieGenres { get; set; }
         public ListResponse<MovieCountryRow> MovieCountries { get; set; }
         public ListResponse<CastRow> Casts { get; set; }

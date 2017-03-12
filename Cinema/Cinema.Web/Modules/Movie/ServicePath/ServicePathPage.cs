@@ -131,8 +131,14 @@ namespace Cinema.Movie.Pages
                         {
                             try
                             {
-                                #region video
-                                VideoController.UpdateCreate(new SaveRequest<VideoRow>() { Entity = item.ToVideo(movie, servicePath) });
+                                #region videos
+                                foreach (var video in item.ToVideos(movie, servicePath))
+                                {
+                                    if (video != null)
+                                    {
+                                        VideoController.UpdateCreate(new SaveRequest<VideoRow>() { Entity = video });
+                                    }
+                                }
                                 #endregion
                             }
                             catch (Exception e)

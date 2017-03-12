@@ -4,9 +4,11 @@ namespace Cinema.Common.Init
 {
     using Cinema.Movie;
     using Cinema.Movie.Entities;
+    using Newtonsoft.Json;
     using Serenity.Services;
     using System;
     using System.Collections.Generic;
+    using System.Net;
     using System.Text;
     using System.Xml.Serialization;
     public class JsonObject
@@ -25,14 +27,17 @@ namespace Cinema.Common.Init
         public string id;
         public string player;
         public string content;
+        public string video_url;
         public string trailer;
         public string poster_big;
         public string poster_small;
         public string poster_url;
         public string picture;
+        public string title;
         public string title_ru;
         public string title_en;
         public string description;
+        public string short_description;
         public string actors;
         public string is_active;
         public string country;
@@ -49,6 +54,8 @@ namespace Cinema.Common.Init
         public string time;
         public string age_restriction;
         public string slogan;
+        public Int16? season;
+        public Int16? episode;
         public MovieKind movieKind;
         public MovieRow ToMovie()
         {
@@ -263,24 +270,68 @@ namespace Cinema.Common.Init
             }
             return result;
         }
-        public VideoRow ToVideo(RetrieveResponse<MovieRow> movie,RetrieveResponse<ServicePathRow> service)
+        public List<VideoRow> ToVideos(RetrieveResponse<MovieRow> movie, RetrieveResponse<ServicePathRow> service)
         {
-            VideoRow Video = new VideoRow();
-            if (player != null)
-            {
-                url = player;
-            }else
+            List<VideoRow> Videos = new List<VideoRow>();
+            
             if (content != null)
             {
-                url = content;
+                using (var client = new WebClient())
+                {
+                    var text = client.DownloadString(content);
+                    Root root = JsonConvert.DeserializeObject<Root>(text);
+                    foreach (MovieJson item in root.Results)
+                    {
+                        Videos.Add(item.ToVideo(movie, service));
+                    }
+                }
             }
-            Video.Path = url;
-            Video.Translation = sub_type != null && sub_type != "" ? Int16.Parse(sub_type) : (Int16)0;
-            Video.MovieId = movie.Entity.MovieId;
-            Video.ServiceId = service.Entity.ServiceId;
-            return Video;
+            else
+            {
+                Videos.Add(ToVideo(movie,service));
+            }
+            return Videos;
         }
-
+        public VideoRow ToVideo(RetrieveResponse<MovieRow> movie, RetrieveResponse<ServicePathRow> service)
+        {
+            if (player != null)
+            {
+                return new VideoRow()
+                {
+                    Path = player,
+                    Translation = sub_type != null && sub_type != "" ? Int16.Parse(sub_type) : (Int16)0,
+                    MovieId = movie.Entity.MovieId,
+                    ServiceId = service.Entity.ServiceId
+                };
+            }
+            else if (url != null)
+            {
+                return new VideoRow()
+                {
+                    Path = url,
+                    Translation = sub_type != null && sub_type != "" ? Int16.Parse(sub_type) : (Int16)0,
+                    MovieId = movie.Entity.MovieId,
+                    ServiceId = service.Entity.ServiceId
+                };
+            }
+            else  if (content != "")
+            {
+                return new VideoRow()
+                {
+                    Path = "http://rutube.ru/play/embed/" + id,
+                    Translation = sub_type != null && sub_type != "" ? Int16.Parse(sub_type) : (Int16)0,
+                    MovieId = movie.Entity.MovieId,
+                    ServiceId = service.Entity.ServiceId,
+                    Season = season,
+                    Serie = episode,
+                    Storyline=description
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
         public List<ServiceRatingRow> ToServiceRatings(MovieRow movie, ServiceRatingRow id = null)
         {
             var list = new List<ServiceRatingRow>();

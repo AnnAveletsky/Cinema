@@ -1180,6 +1180,11 @@ var Cinema;
             CastRow.idProperty = 'CastId';
             CastRow.nameProperty = 'CharacterEn';
             CastRow.localTextPrefix = 'Movie.Cast';
+            CastRow.lookupKey = 'Movie.Cast';
+            function getLookup() {
+                return Q.getLookup('Movie.Cast');
+            }
+            CastRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = CastRow.Fields || (CastRow.Fields = {}));
@@ -1229,6 +1234,11 @@ var Cinema;
             CountryRow.idProperty = 'CountryId';
             CountryRow.nameProperty = 'Name';
             CountryRow.localTextPrefix = 'Movie.Country';
+            CountryRow.lookupKey = 'Movie.Country';
+            function getLookup() {
+                return Q.getLookup('Movie.Country');
+            }
+            CountryRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = CountryRow.Fields || (CountryRow.Fields = {}));
@@ -1278,6 +1288,11 @@ var Cinema;
             GenreRow.idProperty = 'GenreId';
             GenreRow.nameProperty = 'Name';
             GenreRow.localTextPrefix = 'Movie.Genre';
+            GenreRow.lookupKey = 'Movie.Genre';
+            function getLookup() {
+                return Q.getLookup('Movie.Genre');
+            }
+            GenreRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = GenreRow.Fields || (GenreRow.Fields = {}));
@@ -1327,6 +1342,11 @@ var Cinema;
             ImageRow.idProperty = 'ImageId';
             ImageRow.nameProperty = 'Path';
             ImageRow.localTextPrefix = 'Movie.Image';
+            ImageRow.lookupKey = 'Movie.Image';
+            function getLookup() {
+                return Q.getLookup('Movie.Image');
+            }
+            ImageRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = ImageRow.Fields || (ImageRow.Fields = {}));
@@ -1375,6 +1395,11 @@ var Cinema;
         (function (MovieCountryRow) {
             MovieCountryRow.idProperty = 'MovieCountryId';
             MovieCountryRow.localTextPrefix = 'Movie.MovieCountry';
+            MovieCountryRow.lookupKey = 'Movie.MovieCountry';
+            function getLookup() {
+                return Q.getLookup('Movie.MovieCountry');
+            }
+            MovieCountryRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = MovieCountryRow.Fields || (MovieCountryRow.Fields = {}));
@@ -1439,6 +1464,11 @@ var Cinema;
         (function (MovieGenreRow) {
             MovieGenreRow.idProperty = 'MovieGenreId';
             MovieGenreRow.localTextPrefix = 'Movie.MovieGenre';
+            MovieGenreRow.lookupKey = 'Movie.MovieGenre';
+            function getLookup() {
+                return Q.getLookup('Movie.MovieGenre');
+            }
+            MovieGenreRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = MovieGenreRow.Fields || (MovieGenreRow.Fields = {}));
@@ -1485,10 +1515,15 @@ var Cinema;
             MovieRow.idProperty = 'MovieId';
             MovieRow.nameProperty = 'TitleOriginal';
             MovieRow.localTextPrefix = 'Movie.Movie';
+            MovieRow.lookupKey = 'Movie.Movie';
+            function getLookup() {
+                return Q.getLookup('Movie.Movie');
+            }
+            MovieRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = MovieRow.Fields || (MovieRow.Fields = {}));
-            ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'Tagline', 'Budget'].forEach(function (x) { return Fields[x] = x; });
+            ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'Tagline', 'Budget', 'Views'].forEach(function (x) { return Fields[x] = x; });
         })(MovieRow = Movie.MovieRow || (Movie.MovieRow = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
@@ -1533,6 +1568,11 @@ var Cinema;
         (function (MovieTagRow) {
             MovieTagRow.idProperty = 'MovieTagId';
             MovieTagRow.localTextPrefix = 'Movie.MovieTag';
+            MovieTagRow.lookupKey = 'Movie.MovieTag';
+            function getLookup() {
+                return Q.getLookup('Movie.MovieTag');
+            }
+            MovieTagRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = MovieTagRow.Fields || (MovieTagRow.Fields = {}));
@@ -1582,6 +1622,11 @@ var Cinema;
             PersonRow.idProperty = 'PersonId';
             PersonRow.nameProperty = 'Name';
             PersonRow.localTextPrefix = 'Movie.Person';
+            PersonRow.lookupKey = 'Movie.Person';
+            function getLookup() {
+                return Q.getLookup('Movie.Person');
+            }
+            PersonRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = PersonRow.Fields || (PersonRow.Fields = {}));
@@ -1647,6 +1692,11 @@ var Cinema;
             ServicePathRow.idProperty = 'ServicePathId';
             ServicePathRow.nameProperty = 'Path';
             ServicePathRow.localTextPrefix = 'Movie.ServicePath';
+            ServicePathRow.lookupKey = 'Movie.ServicePath';
+            function getLookup() {
+                return Q.getLookup('Movie.ServicePath');
+            }
+            ServicePathRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = ServicePathRow.Fields || (ServicePathRow.Fields = {}));
@@ -1695,6 +1745,11 @@ var Cinema;
         (function (ServiceRatingRow) {
             ServiceRatingRow.idProperty = 'ServiceRatingId';
             ServiceRatingRow.localTextPrefix = 'Movie.ServiceRating';
+            ServiceRatingRow.lookupKey = 'Movie.ServiceRating';
+            function getLookup() {
+                return Q.getLookup('Movie.ServiceRating');
+            }
+            ServiceRatingRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = ServiceRatingRow.Fields || (ServiceRatingRow.Fields = {}));
@@ -1728,6 +1783,11 @@ var Cinema;
             ServiceRow.idProperty = 'ServiceId';
             ServiceRow.nameProperty = 'Name';
             ServiceRow.localTextPrefix = 'Movie.Service';
+            ServiceRow.lookupKey = 'Movie.Service';
+            function getLookup() {
+                return Q.getLookup('Movie.Service');
+            }
+            ServiceRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = ServiceRow.Fields || (ServiceRow.Fields = {}));
@@ -1777,6 +1837,11 @@ var Cinema;
             TagRow.idProperty = 'TagId';
             TagRow.nameProperty = 'Name';
             TagRow.localTextPrefix = 'Movie.Tag';
+            TagRow.lookupKey = 'Movie.Tag';
+            function getLookup() {
+                return Q.getLookup('Movie.Tag');
+            }
+            TagRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = TagRow.Fields || (TagRow.Fields = {}));
@@ -1826,6 +1891,11 @@ var Cinema;
             VideoRow.idProperty = 'VideoId';
             VideoRow.nameProperty = 'Path';
             VideoRow.localTextPrefix = 'Movie.Video';
+            VideoRow.lookupKey = 'Movie.Video';
+            function getLookup() {
+                return Q.getLookup('Movie.Video');
+            }
+            VideoRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = VideoRow.Fields || (VideoRow.Fields = {}));
@@ -8495,6 +8565,11 @@ var Cinema;
                 Q.addOption(select, 'yellow-light', Q.text('Site.Layout.ThemeYellowLight'));
                 Q.addOption(select, 'black', Q.text('Site.Layout.ThemeBlack'));
                 Q.addOption(select, 'black-light', Q.text('Site.Layout.ThemeBlackLight'));
+                Q.addOption(select, 'modern', Q.text('Site.Layout.ThemeModern'));
+                Q.addOption(select, 'sunset', Q.text('Site.Layout.ThemeSunset'));
+                Q.addOption(select, 'tenderness', Q.text('Site.Layout.ThemeTenderness'));
+                Q.addOption(select, 'grapefruit', Q.text('Site.Layout.ThemeGrapefruit'));
+                Q.addOption(select, 'nature', Q.text('Site.Layout.ThemeNature'));
                 select.val(_this.getCurrentTheme());
                 return _this;
             }
@@ -8503,7 +8578,7 @@ var Cinema;
                 if (skinClass) {
                     return skinClass.substr(5);
                 }
-                return 'blue';
+                return 'modern';
             };
             return ThemeSelection;
         }(Serenity.Widget));

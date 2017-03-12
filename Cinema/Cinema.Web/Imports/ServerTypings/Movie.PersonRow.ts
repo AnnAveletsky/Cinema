@@ -17,6 +17,11 @@
         export const idProperty = 'PersonId';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Movie.Person';
+        export const lookupKey = 'Movie.Person';
+
+        export function getLookup(): Q.Lookup<PersonRow> {
+            return Q.getLookup<PersonRow>('Movie.Person');
+        }
 
         export namespace Fields {
             export declare const PersonId: string;

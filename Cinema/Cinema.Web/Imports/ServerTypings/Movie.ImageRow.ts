@@ -41,6 +41,11 @@
         export const idProperty = 'ImageId';
         export const nameProperty = 'Path';
         export const localTextPrefix = 'Movie.Image';
+        export const lookupKey = 'Movie.Image';
+
+        export function getLookup(): Q.Lookup<ImageRow> {
+            return Q.getLookup<ImageRow>('Movie.Image');
+        }
 
         export namespace Fields {
             export declare const ImageId: string;

@@ -59,7 +59,7 @@ namespace Cinema.Movie.Repositories
                 oldRow.Entity.Description = newRow.Entity.Description;
             }
             if (String.IsNullOrWhiteSpace(oldRow.Entity.PathImage) && 
-                !String.IsNullOrWhiteSpace(newRow.Entity.PathImage))
+                !String.IsNullOrWhiteSpace(newRow.Entity.PathImage) && !newRow.Entity.PathImage.Contains("poster_none.png"))
             {
                 oldRow.Entity.PathImage = newRow.Entity.PathImage;
             }

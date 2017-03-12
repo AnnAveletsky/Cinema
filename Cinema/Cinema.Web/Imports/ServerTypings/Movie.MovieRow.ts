@@ -22,12 +22,18 @@
         ContSeason?: number;
         Tagline?: string;
         Budget?: number;
+        Views?: number;
     }
 
     export namespace MovieRow {
         export const idProperty = 'MovieId';
         export const nameProperty = 'TitleOriginal';
         export const localTextPrefix = 'Movie.Movie';
+        export const lookupKey = 'Movie.Movie';
+
+        export function getLookup(): Q.Lookup<MovieRow> {
+            return Q.getLookup<MovieRow>('Movie.Movie');
+        }
 
         export namespace Fields {
             export declare const MovieId: string;
@@ -52,9 +58,10 @@
             export declare const ContSeason: string;
             export declare const Tagline: string;
             export declare const Budget: string;
+            export declare const Views: string;
         }
 
-        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'Tagline', 'Budget'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'Tagline', 'Budget', 'Views'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

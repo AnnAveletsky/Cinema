@@ -16,6 +16,11 @@
         export const idProperty = 'ServicePathId';
         export const nameProperty = 'Path';
         export const localTextPrefix = 'Movie.ServicePath';
+        export const lookupKey = 'Movie.ServicePath';
+
+        export function getLookup(): Q.Lookup<ServicePathRow> {
+            return Q.getLookup<ServicePathRow>('Movie.ServicePath');
+        }
 
         export namespace Fields {
             export declare const ServicePathId: string;

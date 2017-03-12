@@ -1592,6 +1592,8 @@ declare namespace Cinema.Movie {
         const idProperty = "CastId";
         const nameProperty = "CharacterEn";
         const localTextPrefix = "Movie.Cast";
+        const lookupKey = "Movie.Cast";
+        function getLookup(): Q.Lookup<CastRow>;
         namespace Fields {
             const CastId: string;
             const CharacterEn: string;
@@ -1674,6 +1676,8 @@ declare namespace Cinema.Movie {
         const idProperty = "CountryId";
         const nameProperty = "Name";
         const localTextPrefix = "Movie.Country";
+        const lookupKey = "Movie.Country";
+        function getLookup(): Q.Lookup<CountryRow>;
         namespace Fields {
             const CountryId: string;
             const Name: string;
@@ -1723,6 +1727,8 @@ declare namespace Cinema.Movie {
         const idProperty = "GenreId";
         const nameProperty = "Name";
         const localTextPrefix = "Movie.Genre";
+        const lookupKey = "Movie.Genre";
+        function getLookup(): Q.Lookup<GenreRow>;
         namespace Fields {
             const GenreId: string;
             const Name: string;
@@ -1802,6 +1808,8 @@ declare namespace Cinema.Movie {
         const idProperty = "ImageId";
         const nameProperty = "Path";
         const localTextPrefix = "Movie.Image";
+        const lookupKey = "Movie.Image";
+        function getLookup(): Q.Lookup<ImageRow>;
         namespace Fields {
             const ImageId: string;
             const Path: string;
@@ -1905,6 +1913,8 @@ declare namespace Cinema.Movie {
     namespace MovieCountryRow {
         const idProperty = "MovieCountryId";
         const localTextPrefix = "Movie.MovieCountry";
+        const lookupKey = "Movie.MovieCountry";
+        function getLookup(): Q.Lookup<MovieCountryRow>;
         namespace Fields {
             const MovieCountryId: string;
             const MovieId: string;
@@ -2026,6 +2036,8 @@ declare namespace Cinema.Movie {
     namespace MovieGenreRow {
         const idProperty = "MovieGenreId";
         const localTextPrefix = "Movie.MovieGenre";
+        const lookupKey = "Movie.MovieGenre";
+        function getLookup(): Q.Lookup<MovieGenreRow>;
         namespace Fields {
             const MovieGenreId: string;
             const MovieId: string;
@@ -2105,11 +2117,14 @@ declare namespace Cinema.Movie {
         ContSeason?: number;
         Tagline?: string;
         Budget?: number;
+        Views?: number;
     }
     namespace MovieRow {
         const idProperty = "MovieId";
         const nameProperty = "TitleOriginal";
         const localTextPrefix = "Movie.Movie";
+        const lookupKey = "Movie.Movie";
+        function getLookup(): Q.Lookup<MovieRow>;
         namespace Fields {
             const MovieId: string;
             const TitleOriginal: string;
@@ -2133,6 +2148,7 @@ declare namespace Cinema.Movie {
             const ContSeason: string;
             const Tagline: string;
             const Budget: string;
+            const Views: string;
         }
     }
 }
@@ -2195,6 +2211,8 @@ declare namespace Cinema.Movie {
     namespace MovieTagRow {
         const idProperty = "MovieTagId";
         const localTextPrefix = "Movie.MovieTag";
+        const lookupKey = "Movie.MovieTag";
+        function getLookup(): Q.Lookup<MovieTagRow>;
         namespace Fields {
             const MovieTagId: string;
             const TagId: string;
@@ -2278,6 +2296,8 @@ declare namespace Cinema.Movie {
         const idProperty = "PersonId";
         const nameProperty = "Name";
         const localTextPrefix = "Movie.Person";
+        const lookupKey = "Movie.Person";
+        function getLookup(): Q.Lookup<PersonRow>;
         namespace Fields {
             const PersonId: string;
             const Name: string;
@@ -2354,6 +2374,8 @@ declare namespace Cinema.Movie {
         const idProperty = "ServicePathId";
         const nameProperty = "Path";
         const localTextPrefix = "Movie.ServicePath";
+        const lookupKey = "Movie.ServicePath";
+        function getLookup(): Q.Lookup<ServicePathRow>;
         namespace Fields {
             const ServicePathId: string;
             const Kind: string;
@@ -2436,6 +2458,8 @@ declare namespace Cinema.Movie {
     namespace ServiceRatingRow {
         const idProperty = "ServiceRatingId";
         const localTextPrefix = "Movie.ServiceRating";
+        const lookupKey = "Movie.ServiceRating";
+        function getLookup(): Q.Lookup<ServiceRatingRow>;
         namespace Fields {
             const ServiceRatingId: string;
             const Rating: string;
@@ -2503,6 +2527,8 @@ declare namespace Cinema.Movie {
         const idProperty = "ServiceId";
         const nameProperty = "Name";
         const localTextPrefix = "Movie.Service";
+        const lookupKey = "Movie.Service";
+        function getLookup(): Q.Lookup<ServiceRow>;
         namespace Fields {
             const ServiceId: string;
             const Name: string;
@@ -2550,6 +2576,8 @@ declare namespace Cinema.Movie {
         const idProperty = "TagId";
         const nameProperty = "Name";
         const localTextPrefix = "Movie.Tag";
+        const lookupKey = "Movie.Tag";
+        function getLookup(): Q.Lookup<TagRow>;
         namespace Fields {
             const TagId: string;
             const Name: string;
@@ -2641,6 +2669,8 @@ declare namespace Cinema.Movie {
         const idProperty = "VideoId";
         const nameProperty = "Path";
         const localTextPrefix = "Movie.Video";
+        const lookupKey = "Movie.Video";
+        function getLookup(): Q.Lookup<VideoRow>;
         namespace Fields {
             const VideoId: string;
             const Path: string;

@@ -117,6 +117,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -1569,6 +1570,15 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Organization.ContactColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastForm.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CastService.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryForm.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.CountryService.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ImageForm.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ImageRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.ImageService.ts" />
     <TypeScriptCompile Include="Modules\Common\Navigation\ThemeSelection.ts" />
     <TypeScriptCompile Include="Modules\Common\Navigation\SidebarSearch.ts" />
     <TypeScriptCompile Include="Modules\Common\Navigation\LanguageSelection.ts" />
@@ -1643,6 +1653,8 @@
     <Content Include="Modules\Movie\MovieGenre\_MovieGenres.cshtml" />
     <Content Include="Modules\Movie\MovieCountry\_MovieCountries.cshtml" />
     <Content Include="Modules\Movie\ServiceRating\_ServiceRatings.cshtml" />
+    <Content Include="Modules\Movie\Person\_Person.cshtml" />
+    <Content Include="Modules\Movie\Person\_Persons.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -1964,7 +1976,7 @@
     <Content Include="Scripts\site\texts\site.texts.tr.json" />
     <Content Include="Modules\Membership\Account\AccountLogin.cshtml" />
     <Content Include="Modules\Web.config" />
-    <Content Include="Modules\Common\Dashboard\DashboardIndex.cshtml" />
+    <Content Include="Modules\Common\Pages\Index.cshtml" />
     <Content Include="Modules\Membership\_ViewStart.cshtml" />
     <Content Include="Modules\_ViewStart.cshtml" />
     <Content Include="Views\Templates\EntityDialog.Template.html" />
@@ -1979,6 +1991,7 @@
     <Content Include="Views\Errors\ValidationError.cshtml" />
     <Content Include="Scripts\site\texts\site.texts.de.json" />
     <Content Include="tools\Web.config" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2289,6 +2302,7 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DefaultDB\DefaultDB_20141003_140000_DataBase.cs" />
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20161030_130000_HistoryLog.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115100_Initial.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115101_Movie.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_ServicePath.cs" />
@@ -2358,9 +2372,9 @@
     <Compile Include="Modules\BasicSamples\Grids\VSGalleryQA\VSGalleryQAPost.cs" />
     <Compile Include="Modules\BasicSamples\Grids\VSGalleryQA\VSGalleryQAThread.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesNavigation.cs" />
+    <Compile Include="Modules\Common\Admin\AdminPage.cs" />
     <Compile Include="Modules\Common\Helpers\EmailHelper.cs" />
     <Compile Include="Modules\Common\Helpers\ExcelImportRequest.cs" />
-    <Compile Include="Modules\Common\Dashboard\DashboardPageModel.cs" />
     <Compile Include="Modules\Common\File\FilePage.cs" />
     <Compile Include="Modules\Common\Helpers\DetailListSaveHandler.cs" />
     <Compile Include="Imports\ClientTypes\Administration.PermissionCheckEditorAttribute.cs">
@@ -2440,13 +2454,15 @@
     <Compile Include="Modules\Administration\Translation\TranslationUpdateRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationListRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationItem.cs" />
-    <Compile Include="Modules\Common\Dashboard\DashboardPage.cs" />
+    <Compile Include="Modules\Common\Main\MainPage.cs" />
     <Compile Include="Modules\Common\Helpers\SqlExceptionHelper.cs" />
     <Compile Include="Imports\MVC\MVC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Common\Pages\Page.cs" />
+    <Compile Include="Modules\Common\Pages\PageModel.cs" />
     <Compile Include="Modules\Common\Navigation\NavigationItems.cs" />
     <Compile Include="Modules\Common\Navigation\NavigationModel.cs" />
     <Content Include="Modules\Northwind\Customer\Northwind.CustomerDialog.Template.html" />

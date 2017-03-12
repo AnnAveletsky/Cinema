@@ -37,6 +37,11 @@
     export namespace ServiceRatingRow {
         export const idProperty = 'ServiceRatingId';
         export const localTextPrefix = 'Movie.ServiceRating';
+        export const lookupKey = 'Movie.ServiceRating';
+
+        export function getLookup(): Q.Lookup<ServiceRatingRow> {
+            return Q.getLookup<ServiceRatingRow>('Movie.ServiceRating');
+        }
 
         export namespace Fields {
             export declare const ServiceRatingId: string;

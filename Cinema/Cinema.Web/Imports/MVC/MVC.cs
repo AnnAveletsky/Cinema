@@ -280,9 +280,9 @@ namespace MVC
 
         public static class Common
         {
-            public static class Dashboard
+            public static class Pages
             {
-                public const string DashboardIndex = "~/Modules/Common/Dashboard/DashboardIndex.cshtml";
+                public const string Index = "~/Modules/Common/Pages/Index.cshtml";
             }
 
             public static class Reporting
@@ -397,8 +397,25 @@ namespace MVC
                 public const string MovieIndex = "~/Modules/Movie/Movie/MovieIndex.cshtml";
             }
 
+            public static class MovieCountry
+            {
+                public const string _MovieCountries = "~/Modules/Movie/MovieCountry/_MovieCountries.cshtml";
+            }
+
+            public static class MovieGenre
+            {
+                public const string _MovieGenres = "~/Modules/Movie/MovieGenre/_MovieGenres.cshtml";
+            }
+
+            public static class MovieTag
+            {
+                public const string _MovieTags = "~/Modules/Movie/MovieTag/_MovieTags.cshtml";
+            }
+
             public static class Person
             {
+                public const string _Person = "~/Modules/Movie/Person/_Person.cshtml";
+                public const string _Persons = "~/Modules/Movie/Person/_Persons.cshtml";
                 public const string PersonIndex = "~/Modules/Movie/Person/PersonIndex.cshtml";
             }
 
@@ -414,6 +431,7 @@ namespace MVC
 
             public static class ServiceRating
             {
+                public const string _ServiceRatings = "~/Modules/Movie/ServiceRating/_ServiceRatings.cshtml";
                 public const string ServiceRatingIndex = "~/Modules/Movie/ServiceRating/ServiceRatingIndex.cshtml";
             }
 
@@ -424,6 +442,7 @@ namespace MVC
 
             public static class Video
             {
+                public const string _Videos = "~/Modules/Movie/Video/_Videos.cshtml";
                 public const string VideoIndex = "~/Modules/Movie/Video/VideoIndex.cshtml";
             }
 

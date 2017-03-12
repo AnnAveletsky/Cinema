@@ -70,6 +70,14 @@ namespace Cinema.Migrations.MovieDB
                 ServiceId = GetMovieCC.ServiceId
             });
 
+            var rutube = db.List(connect, new Serenity.Services.ListRequest() { Criteria = new Criteria("Name") == "rutube" }).Entities.First();
+
+            Insert.IntoTable("ServicePath").Row(new
+            {
+                Path = "http://rutube.ru/api/metainfo/tv/?format=json",
+                ServiceId = rutube.ServiceId
+            });
+
         }
         public override void Down()
         {

@@ -1,10 +1,12 @@
 ﻿@model Serenity.Services.RetrieveResponse<Cinema.Movie.Entities.MovieRow>
-
+@{
+    var type = (Cinema.Common.TypePage)ViewData["TypePage"];
+}
 @if (Model != null && Model.Entity != null)
 {
     <div class="box box-custom @(Model.Entity.Kind.ToString().ToLower())">
         <div class="box-header with-border box-with-backgrond">
-            <a class="@(Model.Entity.Nice == true ? "col-xs-11" : "col-xs-12") no-padding" @((string)ViewData["PageId"] != "Dashboard/Movie" ? "href = /movies/" + Model.Entity.Url + "?id=" + Model.Entity.MovieId : "")>
+            <a class="@(Model.Entity.Nice == true ? "col-xs-11" : "col-xs-12") no-padding" @(type != Cinema.Common.TypePage.Movie ? "href = /movies/" + Model.Entity.Url + "?id=" + Model.Entity.MovieId : "")>
                 <h3 class="box-title">
                     @Model.Entity.TitleDisplay
                 </h3>
@@ -18,90 +20,102 @@
         </div>
         <div class="box-body box-profile">
             <div class="col-xs-12 no-padding">
-                @if (Model.Entity.MovieGenres != null)
+                @if (type == Cinema.Common.TypePage.Movie)
                 {
-                    { Html.RenderPartial("~/Modules/Movie/MovieGenre/_MovieGenres.cshtml", Model.Entity.MovieGenres); }
+                    <span>@LocalText.Get("Db.Movie.Movie.Views")</span>
+                    <span>@Model.Entity.Views</span>
                 }
-                <div class="col-xs-4 no-padding-left">
-                    @if (Model.Entity.PathImage != null)
+                @if (Model.Entity.PathImage != null)
                 {
+                    <div class="col-xs-4 no-padding-left">
+
                         <a href="#" class="thumbnail no-margin">
                             <img class="img-responsive" src="@Model.Entity.PathImage" />
                         </a>
-                    }
-                </div>
-
-
-                @if (Model.Entity.ServiceRatings != null)
-                {
-                    { Html.RenderPartial("~/Modules/Movie/ServiceRating/_ServiceRatings.cshtml", Model.Entity.ServiceRatings); }
-                }
-
-                @if (Model.Entity.MovieCountries != null)
-                {
-                    <div class="col-xs-8">
-                        @{ Html.RenderPartial("~/Modules/Movie/MovieCountry/_MovieCountries.cshtml", Model.Entity.MovieCountries); }
                     </div>
                 }
-
-                @if (Model.Entity.Budget != null)
+                <div class="@(Model.Entity.PathImage != null?"col-xs-8":"col-xs-12")col-xs-8 no-padding">
+                    @if (Model.Entity.MovieGenres != null)
                 {
-                    <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Entity.Budget $</i></p>
-                }
-                @if (Model.Entity.Casts != null)
+                        <div class="col-xs-12 no-padding">
+                            @{ Html.RenderPartial(MVC.Views.Movie.MovieGenre._MovieGenres, Model.Entity.MovieGenres); }
+                        </div>
+                                }
+                    @if (Model.Entity.MovieCountries != null)
                 {
-                    { Html.RenderPartial("~/Modules/Movie/Cast/_Casts.cshtml", Model.Entity.Casts); }
-                }
-                @if (Model.Entity.Description != null)
+                        <div class="col-xs-12 no-padding">
+                            @{ Html.RenderPartial(MVC.Views.Movie.MovieCountry._MovieCountries, Model.Entity.MovieCountries); }
+                        </div>
+                                }
+                    @if (Model.Entity.ServiceRatings != null)
+                {
+                        <div class="col-xs-12 no-padding">
+                            @{ Html.RenderPartial(MVC.Views.Movie.ServiceRating._ServiceRatings, Model.Entity.ServiceRatings); }
+                        </div>
+                                }
+                    @if (Model.Entity.Budget != null)
+                {
+                        <p>@LocalText.Get("Db.Movie.Movie.Budget"): <i>@Model.Entity.Budget $</i></p>
+                    }
+                    @if (Model.Entity.Casts != null)
+                    {
+                        {
+                            Html.RenderPartial(MVC.Views.Movie.Cast._Casts, Model.Entity.Casts);
+                        }
+                    }
+                    @if (Model.Entity.Description != null)
                 {
                     for (int i = 0; i < Model.Entity.Description.Count(); i++)
                     {
                         if (!string.IsNullOrWhiteSpace(Model.Entity.Description[i]))
                         {
-                            <p class="text-indent text-justify">
-                                @Model.Entity.Description[i]
-                            </p>
+                                <p class="text-indent text-justify">
+                                    @Model.Entity.Description[i]
+                                </p>
+                            }
                         }
                     }
-                }
-                @if (Model.Entity.MovieTags != null)
-                {
-                    { Html.RenderPartial("~/Modules/Movie/MovieTag/_MovieTags.cshtml", Model.Entity.MovieTags); }
-                }
-                @if ((string)ViewData["PageId"] == "Dashboard/Movie")
+                    @if (Model.Entity.MovieTags != null)
+                    {
+                        {
+                            Html.RenderPartial(MVC.Views.Movie.MovieTag._MovieTags, Model.Entity.MovieTags);
+                        }
+                    }
+                    @if (type == Cinema.Common.TypePage.Movie)
                 {
                     if (Model.Entity.Mpaa != null)
                     {
-                        <div class="col-xs-8 no-padding">
-                            <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
-                            <a>@Model.Entity.Mpaa</a>
-                        </div>
+                            <div class="col-xs-12 no-padding">
+                                <span>@LocalText.Get("Db.Movie.Movie.Mpaa")</span>
+                                <a>@Model.Entity.Mpaa</a>
+                            </div>
+                        }
+                        if (Model.Entity.Kind == Cinema.Movie.MovieKind.TvSeries)
+                        {
+                            <div class="col-xs-12 no-padding">
+                                <span>@LocalText.Get("Db.Movie.Movie.ContSeason")</span>
+                                <a>@Model.Entity.ContSeason</a>
+                            </div>
+                        }
                     }
-                    if (Model.Entity.Kind == Cinema.Movie.MovieKind.TvSeries)
-                    {
-                        <div class="col-xs-8 no-padding">
-                            <span>@LocalText.Get("Db.Movie.Movie.ContSeason")</span>
-                            <a>@Model.Entity.ContSeason</a>
-                        </div>
-                    }
-                }
+                </div>
             </div>
-            @if (Model.Entity.Videos != null)
-            {
-                { Html.RenderPartial("~/Modules/Movie/Video/_Videos.cshtml", Model.Entity.Videos); }
-            }
-            @if ((string)ViewData["PageId"] == "Dashboard/Movie")
-            {
-
-                <div class="col-xs-12 no-padding">
-                    <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
-                    <span>@Model.Entity.PublishDateTime.Value.ToLongDateString()</span>
-                </div>
-                <div class="col-xs-12 no-padding">
-                    <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
-                    <span>@Model.Entity.UpdateDateTime.Value.ToLongDateString()</span>
-                </div>
-            }
+                @if (Model.Entity.Videos != null)
+                {
+                    { Html.RenderPartial(MVC.Views.Movie.Video._Videos, Model.Entity.Videos); }
+                }
+                @if (type == Cinema.Common.TypePage.Movie)
+                {
+                    <div class="col-xs-12 no-padding">
+                        <span>@LocalText.Get("Db.Movie.Movie.PublishDateTime")</span>
+                        <span>@Model.Entity.PublishDateTime.Value.ToLongDateString()</span>
+                    </div>
+                    <div class="col-xs-12 no-padding">
+                        <span>@LocalText.Get("Db.Movie.Movie.UpdateDateTime")</span>
+                        <span>@Model.Entity.UpdateDateTime.Value.ToLongDateString()</span>
+                    </div>
+                }
+           
         </div>
     </div>
-}
+                            }

@@ -13,7 +13,7 @@ namespace Cinema.Migrations.MovieDB
             this.CreateTableWithId64("Movie", "MovieId", s => s
                 .WithColumn("TitleOriginal").AsString(400).NotNullable()
                 .WithColumn("TitleTranslation").AsString(400).Nullable()
-                .WithColumn("Url").AsString(400).NotNullable()
+                .WithColumn("Url").AsString(400).NotNullable().Unique()
                 .WithColumn("Description").AsString(10000).Nullable()
                 .WithColumn("YearStart").AsInt16().Nullable()
                 .WithColumn("YearEnd").AsInt16().NotNullable().WithDefaultValue(DateTime.Now.Year)
@@ -31,7 +31,8 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("Nice").AsBoolean().NotNullable().WithDefaultValue(false)
                 .WithColumn("ContSeason").AsInt16().Nullable()
                 .WithColumn("Tagline").AsString(400).Nullable()
-                .WithColumn("Budget").AsCurrency().Nullable());
+                .WithColumn("Budget").AsCurrency().Nullable()
+                .WithColumn("Views").AsInt64().NotNullable().WithDefaultValue(0));
 
             this.CreateTableWithId64("MovieCountry", "MovieCountryId", s => s
                 .WithColumn("MovieId").AsInt64().NotNullable()

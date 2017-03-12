@@ -24,6 +24,11 @@
             Q.addOption(select, 'yellow-light', Q.text('Site.Layout.ThemeYellowLight'));
             Q.addOption(select, 'black', Q.text('Site.Layout.ThemeBlack'));
             Q.addOption(select, 'black-light', Q.text('Site.Layout.ThemeBlackLight'));
+            Q.addOption(select, 'modern', Q.text('Site.Layout.ThemeModern'));
+            Q.addOption(select, 'sunset', Q.text('Site.Layout.ThemeSunset'));
+            Q.addOption(select, 'tenderness', Q.text('Site.Layout.ThemeTenderness'));
+            Q.addOption(select, 'grapefruit', Q.text('Site.Layout.ThemeGrapefruit'));
+            Q.addOption(select, 'nature', Q.text('Site.Layout.ThemeNature'));
 
             select.val(this.getCurrentTheme());
         }
@@ -34,7 +39,7 @@
                 return skinClass.substr(5);
             }
 
-            return 'blue';
+            return 'modern';
         }
     }
 }

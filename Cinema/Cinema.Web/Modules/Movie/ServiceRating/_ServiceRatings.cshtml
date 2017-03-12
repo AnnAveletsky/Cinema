@@ -2,18 +2,16 @@
 
 @if (Model != null && Model.Entities != null && Model.Entities.Count > 0)
 {
-    <p>
-        @foreach (var i in Model.Entities)
+    foreach (var i in Model.Entities)
+    {
+        if (i.Rating != null)
         {
-            if (i.Rating != null)
-            {
-                @i.ServiceName
-                <span class="label label-custom">@i.Rating</span>
-            }
-            else
-            {
-                <a href="@i.ServiceUrl/@i.Id" class="label label-custom">@i.ServiceName</a>
-            }
+            @i.ServiceName
+            <span >@i.Rating</span>
         }
-    </p>
+        else
+        {
+            <a href="@i.ServiceUrl@i.Id" >@i.ServiceName</a>
+        }
+    }
 }

@@ -176,6 +176,12 @@ namespace Cinema.Movie.Entities
             get { return Fields.Budget[this]; }
             set { Fields.Budget[this] = value; }
         }
+        [DisplayName("Views")]
+        public Int64? Views
+        {
+            get { return Fields.Views[this]; }
+            set { Fields.Views[this] = value; }
+        }
 
         public ListResponse<VideoRow> Videos { get; set; }
         public ListResponse<MovieGenreRow> MovieGenres { get; set; }
@@ -225,7 +231,7 @@ namespace Cinema.Movie.Entities
             public Int16Field ContSeason;
             public StringField Tagline;
             public DecimalField Budget;
-
+            public Int64Field Views;
             public RowFields()
                 : base("[dbo].[Movie]")
             {

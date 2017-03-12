@@ -7,23 +7,8 @@ namespace Cinema.Common.Init
     using Serenity.Services;
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
     using System.Text;
-    using System.Text.RegularExpressions;
-    using System.Threading.Tasks;
-    using System.Web;
-    using System.Web.Hosting;
-    using System.Web.Mvc;
     using System.Xml.Serialization;
-    using Videos = Cinema.Movie.Pages.VideoController;
-    using Movies = Cinema.Movie.Pages.MovieController;
-    using Services = Cinema.Movie.Pages.ServiceController;
-    using ServicesRatings = Cinema.Movie.Pages.ServiceRatingController;
-    using Genres = Movie.Pages.GenreController;
-    using Countries = Movie.Pages.CountryController;
-    using Persons = Movie.Pages.PersonController;
-    using Casts = Movie.Pages.CastController;
     public class JsonObject
     {
         public string name;
@@ -32,18 +17,26 @@ namespace Cinema.Common.Init
     {
         public string name_eng;
         public string year;
+        public string year_start;
+        public string year_end;
         public string url;
         public string sub_type;
         public string kinopoisk_id;
+        public string id;
         public string player;
+        public string content;
         public string trailer;
         public string poster_big;
         public string poster_small;
+        public string poster_url;
+        public string picture;
         public string title_ru;
         public string title_en;
         public string description;
         public string actors;
+        public string is_active;
         public string country;
+        public List<Element> countries;
         public string director;
         public string screenwriter;
         public string producer;
@@ -52,7 +45,10 @@ namespace Cinema.Common.Init
         public string editor;
         public string composer;
         public string genre;
+        //public List<Element> genres;
         public string time;
+        public string age_restriction;
+        public string slogan;
         public MovieKind movieKind;
         public MovieRow ToMovie()
         {
@@ -60,11 +56,21 @@ namespace Cinema.Common.Init
             {
                 MovieRow Movie = new MovieRow();
                 Movie.Kind = movieKind;
-                if (!String.IsNullOrWhiteSpace(year) && (!String.IsNullOrWhiteSpace(title_en) || !String.IsNullOrWhiteSpace(name_eng) || !String.IsNullOrWhiteSpace(title_ru) || !String.IsNullOrWhiteSpace(name)))
+                if ((!String.IsNullOrWhiteSpace(title_en) || !String.IsNullOrWhiteSpace(name_eng) || !String.IsNullOrWhiteSpace(title_ru) || !String.IsNullOrWhiteSpace(name)))
                 {
-                    Movie.YearEnd = Int16.Parse(year);
-                    Movie.YearStart = Int16.Parse(year);
-
+                    if (!String.IsNullOrWhiteSpace(year))
+                    {
+                        Movie.YearEnd = Int16.Parse(year);
+                        Movie.YearStart = Int16.Parse(year);
+                    }
+                    else if (!String.IsNullOrWhiteSpace(year_start))
+                    {
+                        Movie.YearEnd = Int16.Parse(year_start);
+                    }
+                    else if (!String.IsNullOrWhiteSpace(year_end))
+                    {
+                        Movie.YearEnd = Int16.Parse(year_end);
+                    }
                     if (!String.IsNullOrWhiteSpace(title_en))
                     {
                         name_eng = title_en;
@@ -73,7 +79,6 @@ namespace Cinema.Common.Init
                     {
                         name = title_ru;
                     }
-
                     if (String.IsNullOrWhiteSpace(name_eng) || name_eng == name)
                     {
                         Movie.TitleOriginal = name;
@@ -82,21 +87,8 @@ namespace Cinema.Common.Init
                     {
                         Movie.TitleOriginal = name_eng;
                         Movie.TitleTranslation = name;
-
                     }
-                    if (String.IsNullOrWhiteSpace(name))
-                    {
-                        Movie.Url = Translit.GetUrl(name_eng);
-                    }
-                    else
-                    {
-                        Movie.Url = Translit.GetUrl(name);
-                    }
-                    if (String.IsNullOrWhiteSpace(Movie.Url))
-                    {
-                        Movie.Url = kinopoisk_id;
-                    }
-                    Movie.Url += '-' + year;
+                    Movie.Url = Translit.GetUrl(Movie.TitleDisplay);
                     if (!String.IsNullOrWhiteSpace(poster_big))
                     {
                         Movie.PathImage = poster_big;
@@ -104,6 +96,14 @@ namespace Cinema.Common.Init
                     else if (!String.IsNullOrWhiteSpace(poster_small))
                     {
                         Movie.PathImage = poster_small;
+                    }
+                    else if (!String.IsNullOrWhiteSpace(picture))
+                    {
+                        Movie.PathImage = picture;
+                    }
+                    else if (!String.IsNullOrWhiteSpace(poster_url))
+                    {
+                        Movie.PathImage = poster_url;
                     }
                     if (!String.IsNullOrWhiteSpace(description))
                     {
@@ -154,14 +154,14 @@ namespace Cinema.Common.Init
                         {
                             Name = String.Concat(i),
                             NameOther=String.Concat(i),
-                            Code= String.Concat(i)
+                            Code= String.Concat(i),
                         });
                     }
                 }
             }
             return result;
         }
-        public List<CastRow> ToCast(SaveResponse movie, PersonRow person)
+        public List<CastRow> ToCast(RetrieveResponse<MovieRow> movie, PersonRow person)
         {
             List<CastRow> casts = new List<CastRow>();
             if (!String.IsNullOrWhiteSpace(actors) && actors.Contains(person.Name) || !String.IsNullOrWhiteSpace(person.NameOther) && actors.Contains(person.NameOther))
@@ -170,7 +170,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Actors",
                     CharacterOther = "Актёры",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -180,7 +180,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Director",
                     CharacterOther = "Режисёры",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -190,7 +190,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Screenwriter",
                     CharacterOther = "Сценаристы",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -200,7 +200,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Producer",
                     CharacterOther = "Продюсеры",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -210,7 +210,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Operator",
                     CharacterOther = "Орераторы",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -220,7 +220,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Design",
                     CharacterOther = "Дизайнеры",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -230,7 +230,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Editor",
                     CharacterOther = "Редакторы",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -240,7 +240,7 @@ namespace Cinema.Common.Init
                 {
                     CharacterEn = "Composer",
                     CharacterOther = "Композиторы",
-                    MovieId = Int64.Parse(movie.EntityId.ToString()),
+                    MovieId = movie.Entity.MovieId,
                     PersonId = person.PersonId
                 });
             }
@@ -263,25 +263,44 @@ namespace Cinema.Common.Init
             }
             return result;
         }
-        public VideoRow ToVideo(SaveResponse movie,RetrieveResponse<ServicePathRow> service)
+        public VideoRow ToVideo(RetrieveResponse<MovieRow> movie,RetrieveResponse<ServicePathRow> service)
         {
-
             VideoRow Video = new VideoRow();
             if (player != null)
             {
                 url = player;
+            }else
+            if (content != null)
+            {
+                url = content;
             }
             Video.Path = url;
             Video.Translation = sub_type != null && sub_type != "" ? Int16.Parse(sub_type) : (Int16)0;
-            Video.MovieId = (Int64)movie.EntityId;
-            Video.ServiceId = (Int32)service.Entity.ServiceId;
+            Video.MovieId = movie.Entity.MovieId;
+            Video.ServiceId = service.Entity.ServiceId;
             return Video;
-
         }
-        
-        public ServiceRatingRow ToServiceRating(Int32 serviceId,Int64 movieId)
+
+        public List<ServiceRatingRow> ToServiceRatings(MovieRow movie, ServiceRatingRow id = null)
         {
-            return new ServiceRatingRow() { Id = Int64.Parse(kinopoisk_id),ServiceId= serviceId,MovieId= movieId };
+            var list = new List<ServiceRatingRow>();
+            if (!String.IsNullOrWhiteSpace(kinopoisk_id))
+            {
+                list.Add(new ServiceRatingRow()
+                {
+                    Id = Int64.Parse(kinopoisk_id),
+                    ServiceUrl = "https://www.kinopoisk.ru/film/",
+                    ServiceName = "kinopoisk.ru",
+                    ServiceApi = "https://www.kinopoisk.ru/film/",
+                    MovieId= movie.MovieId,
+                });
+            }
+            if (id != null)
+            {
+                id.MovieId = movie.MovieId;
+                list.Add(id);
+            }
+            return list;
         }
     }
     [XmlRoot(ElementName = "content")]
@@ -330,11 +349,22 @@ namespace Cinema.Common.Init
             return list;
         }
     }
+    public class Root
+    {
+        public bool Has_next;
+        public string Next;
+        public List<MovieJson> Results;
+    }
     public class StatusTask
     {
         public static int Count = 0;
         public static DateTime TimeStart;
         public static DateTime TimeEnd;
+    }
+    public class Element
+    {
+        public string id;
+        public string name;
     }
     public class Translit
     {

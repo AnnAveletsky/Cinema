@@ -4,7 +4,7 @@ using Serenity.Services;
 
 namespace Cinema.Common
 {
-    public class DashboardPageModel
+    public class PageModel
     {
         public ListResponse<GenreRow> Genres { get; set; }
         public RetrieveResponse<MovieRow> Movie { get; set; }
@@ -16,5 +16,12 @@ namespace Cinema.Common
         public ListResponse<MovieRow> SimilarSeries { get; set; }
         public RetrieveResponse<PersonRow> Person { get; set; }
         public ListResponse<PersonRow> Persons { get; set; }
+
+    }
+    public enum TypePage
+    {
+        Movie=0,
+        Movies=1,
+        Admin=2
     }
 }

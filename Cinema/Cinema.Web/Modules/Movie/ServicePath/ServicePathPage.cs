@@ -17,6 +17,10 @@ namespace Cinema.Movie.Pages
     using System.Xml;
     using System.Xml.Serialization;
     using Serenity.Data;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
+    using System.Net.Http;
+    using System.Net;
 
     [RoutePrefix("Movie/ServicePath"), Route("{action=index}")]
     public class ServicePathController : Controller
@@ -68,98 +72,15 @@ namespace Cinema.Movie.Pages
                     EntityId = idServicePath,
                     IncludeColumns = new HashSet<string>() { MyRow.Fields.ServiceId.ToString() }
                 });
-                XmlSerializer serializer = new XmlSerializer(typeof(Content));
-                using (XmlReader reader = XmlReader.Create(servicePath.Entity.Path))
-                {
-                    Content obj = (Content)serializer.Deserialize(reader);
-                    foreach (MovieJson item in obj.All(servicePath.Entity.Kind).Entities)
-                    {
-                        if (item != null)
-                        {
-                            try
-                            {
-                                var movieRow = item.ToMovie();
-                                var serviceRaiting = ServiceRatingController.Find(new ListRequest()
-                                {
-                                    IncludeColumns=new HashSet<string>()
-                                    {
-                                        ServiceRatingRow.Fields.MovieId.Name,
-                                        ServiceRatingRow.Fields.ServiceId.Name,
-                                        ServiceRatingRow.Fields.Id.Name
-                                    },
-                                    Criteria = new Criteria(ServiceRatingRow.Fields.Id.Name) == item.kinopoisk_id && new Criteria(ServiceRatingRow.Fields.ServiceId.Name) == (Int32)servicePath.Entity.ServiceId
-                                });
-                                if (item.kinopoisk_id != ""&& serviceRaiting!=null&& serviceRaiting.Entity!=null&& serviceRaiting.Entity.MovieId!=null)
-                                {
-                                    movieRow.MovieId = serviceRaiting.Entity.MovieId;
-                                }
-                                //movie
-                                var movie = MovieController.UpdateCreate(new SaveRequest<MovieRow>()
-                                {
-                                    Entity = movieRow
-                                });
-                                //video
-                                var video = VideoController.UpdateCreate(new SaveRequest<VideoRow>()
-                                {
-                                    Entity = item.ToVideo(movie, servicePath)
-                                });
-                                //persons and casts
-                                foreach (var person in item.ToPersons())
-                                {
-                                    person.PersonId = Int64.Parse(PersonController.UpdateCreate(new SaveRequest<PersonRow>()
-                                    {
-                                        Entity = person
-                                    }).EntityId.ToString());
-                                    foreach (var cast in item.ToCast(movie, person))
-                                    {
-                                        CastController.UpdateCreate(new SaveRequest<CastRow>()
-                                        {
-                                            Entity = cast
-                                        });
-                                    }
-                                }
-                                //genres
-                                foreach (var genre in item.ToGenres())
-                                {
-                                    MovieGenreController.UpdateCreate(new SaveRequest<MovieGenreRow>()
-                                    {
-                                        Entity = new MovieGenreRow()
-                                        {
-                                            MovieId = Int64.Parse(movie.EntityId.ToString()),
-                                            GenreId = Int32.Parse(GenreController.UpdateCreate(new SaveRequest<GenreRow>()
-                                            {
-                                                Entity = genre
-                                            }).EntityId.ToString())
-                                        }
-                                    });
-                                }
-                                //countries
-                                foreach (var country in item.ToCountries())
-                                {
-                                    MovieCountryController.UpdateCreate(new SaveRequest<MovieCountryRow>()
-                                    {
-                                        Entity = new MovieCountryRow()
-                                        {
-                                            MovieId = Int64.Parse(movie.EntityId.ToString()),
-                                            CountryId = Int32.Parse(CountryController.UpdateCreate(new SaveRequest<CountryRow>()
-                                            {
-                                                Entity = country
-                                            }).EntityId.ToString())
-                                        }
-                                    });
-                                }
-                                ServiceRatingController.UpdateCreate(new SaveRequest<ServiceRatingRow>()
-                                {
-                                    Entity = item.ToServiceRating((Int32)servicePath.Entity.ServiceId, Int64.Parse(movie.EntityId.ToString()))
-                                });
-                            }
-                            catch (Exception e)
-                            {
-                                e.Log();
-                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
 
-                            }
-                        }
+                var content = ParseContent(servicePath);
+                if (content != null)
+                {
+                    var root = ParseRoot(servicePath);
+                    if (root != null)
+                    {
+                        var e = new Exception("no content " + content.Message + " or no root " + root.Message);
+                        throw e;
                     }
                 }
             }
@@ -169,88 +90,215 @@ namespace Cinema.Movie.Pages
                 SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
             }
             return View("~/Modules/Movie/ServicePath/ServicePathIndex.cshtml");
-
-            //var res = CreateMovieVideo(username,
-            //        new SaveRequest<MovieRow>()
-            //        {
-            //            Entity = item.ToMovie(movieKind)
-            //        },
-            //        new SaveRequest<VideoRow>()
-            //        {
-            //            Entity = item.ToVideo()
-            //        },
-            //        new SaveRequest<ServiceRow>()
-            //        {
-            //            Entity = serviceKinopoisk,
-            //            EntityId = serviceKinopoisk.ServiceId,
-            //        },
-            //        new SaveRequest<ServiceRow>()
-            //        {
-            //            Entity = service,
-            //            EntityId = service.ServiceId
-            //        },
-            //        new SaveRequest<ServiceRatingRow>()
-            //        {
-            //            Entity = item.ToServiceRating(service)
-            //        },
-            //        item.ToGenres(),
-            //        item.ToCountries());
-            //foreach (var i in item.ToPersons())
-            //{
-            //    i.PersonId = Int64.Parse(Persons.UpdateCreate(new SaveRequest<PersonRow>() { Entity = i }).EntityId.ToString());
-            //    foreach (var j in item.ToCast(res, i))
-            //    {
-            //        Casts.UpdateCreate(new SaveRequest<CastRow>()
-            //        {
-            //            Entity = j
-            //        });
-            //    }
-            //}
         }
-        //[PageAuthorize("Administration")]
-        //public static SaveResponse CreateMovieVideo(string username, SaveRequest<MovieRow> movie, SaveRequest<VideoRow> video, SaveRequest<ServiceRow> serviceKinopoisk, SaveRequest<ServiceRow> service, SaveRequest<ServiceRatingRow> serviceRating, List<GenreRow> genres, List<CountryRow> countries)
-        //{
 
-        //    SaveResponse response = null;
-
-        //    response = Movies.UpdateCreate(movie, serviceRating);
-        //    video.Entity.MovieId = (Int64)response.EntityId;
-        //    serviceRating.Entity.ServiceId = (Int32)serviceKinopoisk.EntityId;
-        //    serviceRating.Entity.MovieId = (Int64)response.EntityId;
-        //    //SaveResponse servicesRatingResponse = ServicesRatings.UpdateCreate(serviceRating);
-        //    video.Entity.ServiceId = (Int32)service.EntityId;
-        //    SaveResponse videoResponce = Videos.UpdateCreate(video);
-
-        //    foreach (var i in genres)
-        //    {
-        //        MovieGenres.UpdateCreate(new SaveRequest<MovieGenreRow>()
-        //        {
-        //            Entity = new MovieGenreRow()
-        //            {
-        //                MovieId = Int64.Parse(response.EntityId.ToString()),
-        //                GenreId = Int16.Parse(Genres.UpdateCreate(new SaveRequest<GenreRow>()
-        //                {
-        //                    Entity = i
-        //                }).EntityId.ToString())
-        //            }
-        //        });
-
-        //    }
-        //    foreach (var j in countries)
-        //    {
-        //        MovieCountries.UpdateCreate(new SaveRequest<MovieCountryRow>()
-        //        {
-        //            Entity = new MovieCountryRow()
-        //            {
-        //                MovieId = Int64.Parse(response.EntityId.ToString()),
-        //                CountryId = Int16.Parse(Countries.UpdateCreate(new SaveRequest<CountryRow>()
-        //                {
-        //                    Entity = j
-        //                }).EntityId.ToString())
-        //            }
-        //        });
-        //    }
-        //    return response;
-        //}
+        public void ParseItem(MovieJson item, RetrieveResponse<MyRow> servicePath)
+        {
+            try
+            {
+                if (item != null && servicePath.Error == null)
+                {
+                    #region serviceRaiting and movie
+                    var movieRow = item.ToMovie();
+                    if (!String.IsNullOrWhiteSpace(item.kinopoisk_id))
+                    {
+                        var serviceRaiting = ServiceRatingController.Find(new ListRequest()
+                        {
+                            IncludeColumns = new HashSet<string>()
+                                    {
+                                        ServiceRatingRow.Fields.MovieId.Name,
+                                        ServiceRatingRow.Fields.ServiceId.Name,
+                                        ServiceRatingRow.Fields.Id.Name
+                                    },
+                            Criteria = new Criteria(ServiceRatingRow.Fields.Id.Name) == item.kinopoisk_id && new Criteria(ServiceRatingRow.Fields.ServiceId.Name) == (Int32)servicePath.Entity.ServiceId
+                        });
+                        if (serviceRaiting != null && serviceRaiting.Entity != null && serviceRaiting.Entity.MovieId != null)
+                        {
+                            movieRow.MovieId = serviceRaiting.Entity.MovieId;
+                        }
+                    }
+                    //movie
+                    var movieResponse = MovieController.UpdateCreate(new SaveRequest<MovieRow>()
+                    {
+                        Entity = movieRow
+                    });
+                    #endregion
+                    Int64 movieId;
+                    if (movieResponse.EntityId != null && movieResponse.EntityId.ToString() != "" && Int64.TryParse(movieResponse.EntityId.ToString(), out movieId))
+                    {
+                        var movie = MovieController.Retrieve(new RetrieveRequest() { EntityId = movieId });
+                        if (movie != null && movie.Entity != null)
+                        {
+                            try
+                            {
+                                #region video
+                                VideoController.UpdateCreate(new SaveRequest<VideoRow>() { Entity = item.ToVideo(movie, servicePath) });
+                                #endregion
+                            }
+                            catch (Exception e)
+                            {
+                                e.Log();
+                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                            }
+                            try
+                            {
+                                #region persons and casts
+                                foreach (var person in item.ToPersons())
+                                {
+                                    person.PersonId = Int64.Parse(PersonController.UpdateCreate(new SaveRequest<PersonRow>() { Entity = person }).EntityId.ToString());
+                                    foreach (var cast in item.ToCast(movie, person))
+                                    {
+                                        CastController.UpdateCreate(new SaveRequest<CastRow>() { Entity = cast });
+                                    }
+                                }
+                                #endregion
+                            }
+                            catch (Exception e)
+                            {
+                                e.Log();
+                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                            }
+                            try
+                            {
+                                #region genres
+                                foreach (var genre in item.ToGenres())
+                                {
+                                    MovieGenreController.UpdateCreate(new SaveRequest<MovieGenreRow>()
+                                    {
+                                        Entity = new MovieGenreRow()
+                                        {
+                                            MovieId = movieId,
+                                            GenreId = Int32.Parse(GenreController.UpdateCreate(new SaveRequest<GenreRow>() { Entity = genre }).EntityId.ToString())
+                                        }
+                                    });
+                                }
+                                #endregion
+                            }
+                            catch (Exception e)
+                            {
+                                e.Log();
+                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                            }
+                            try
+                            {
+                                #region countries
+                                foreach (var country in item.ToCountries())
+                                {
+                                    MovieCountryController.UpdateCreate(new SaveRequest<MovieCountryRow>()
+                                    {
+                                        Entity = new MovieCountryRow()
+                                        {
+                                            MovieId = movieId,
+                                            CountryId = Int32.Parse(CountryController.UpdateCreate(new SaveRequest<CountryRow>()
+                                            {
+                                                Entity = country
+                                            }).EntityId.ToString())
+                                        }
+                                    });
+                                }
+                                #endregion
+                            }
+                            catch (Exception e)
+                            {
+                                e.Log();
+                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                            }
+                            try
+                            {
+                                #region serviceRaitings and services
+                                foreach (var sRating in item.ToServiceRatings(movieRow))
+                                {
+                                    var service = ServiceController.UpdateCreate(new SaveRequest<ServiceRow>()
+                                    {
+                                        Entity = new ServiceRow()
+                                        {
+                                            Url = sRating.ServiceUrl,
+                                            Name = sRating.ServiceName,
+                                            Api = sRating.ServiceApi
+                                        }
+                                    });
+                                    sRating.ServiceId = Int32.Parse(service.EntityId.ToString());
+                                    ServiceRatingController.UpdateCreate(new SaveRequest<ServiceRatingRow>()
+                                    {
+                                        Entity = sRating
+                                    });
+                                }
+                                #endregion
+                            }
+                            catch (Exception e)
+                            {
+                                e.Log();
+                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("movieId is null" + movie.Entity.MovieId + "" + movieRow.ToJson());
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+            }
+        }
+        public Exception ParseContent(RetrieveResponse<MyRow> servicePath)
+        {
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(Content));
+                using (XmlReader reader = XmlReader.Create(servicePath.Entity.Path))
+                {
+                    Content obj = (Content)serializer.Deserialize(reader);
+                    foreach (MovieJson item in obj.All(servicePath.Entity.Kind).Entities)
+                    {
+                        ParseItem(item, servicePath);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return e;
+            }
+            return null;
+        }
+        public Exception ParseRoot(RetrieveResponse<MyRow> servicePath)
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    var text = client.DownloadString(servicePath.Entity.Path);
+                    Root root= JsonConvert.DeserializeObject<Root>(text);
+                    foreach (MovieJson item in root.Results)
+                    {
+                        ParseItem(item, servicePath);
+                    }
+                    if (root.Has_next)
+                    {
+                        var newServicePath = UpdateCreate(new SaveRequest<MyRow>()
+                        {
+                            Entity = new MyRow()
+                            {
+                                Path = root.Next,
+                                ServiceId = servicePath.Entity.ServiceId
+                            }
+                        });
+                        ParseRoot(Retrieve(new RetrieveRequest()
+                        {
+                            EntityId = newServicePath.EntityId,
+                            IncludeColumns = new HashSet<string>() { MyRow.Fields.ServiceId.ToString() }
+                        }));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return e;
+            }
+            return null;
+        }
     }
 }

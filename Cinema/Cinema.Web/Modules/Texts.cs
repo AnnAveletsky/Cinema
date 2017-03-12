@@ -99,11 +99,8 @@ namespace Cinema
         {
             public static class Dashboard
             {
-                public static LocalText ContentDescription =
-                    "a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
-                    "AdminLTE theme</a></em>)";
+                public static LocalText ContentDescription = "";
             }
-
             public static class BasicProgressDialog
             {
                 public static LocalText CancelTitle = "Operation cancelled. Waiting for in progress calls to complete...";
@@ -169,6 +166,12 @@ namespace Cinema
                 public static LocalText ThemeRedLight = "Red Light";
                 public static LocalText ThemeYellow = "Yellow";
                 public static LocalText ThemeYellowLight = "Yellow Light";
+                public static LocalText ThemeModern = "Modern";
+                public static LocalText ThemeSunset = "Sunset";
+                public static LocalText ThemeTenderness = "Tenderness";
+                public static LocalText ThemeGrapefruit = "Grapefruit";
+                public static LocalText ThemeNature = "Nature";
+                public static LocalText Save = "Save";
             }
 
             public static class ValidationError

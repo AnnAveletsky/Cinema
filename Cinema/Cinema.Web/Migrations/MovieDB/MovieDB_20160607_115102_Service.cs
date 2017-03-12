@@ -35,13 +35,18 @@ namespace Cinema.Migrations.MovieDB
                 Api = "http://kodik.top/",
                 Url = "http://kodik.top/",
             });
-           var servise= Insert.IntoTable("Service").Row(new
+            Insert.IntoTable("Service").Row(new
             {
                 Name = "GetMovieCC",
                 Api = "http://getmovie.cc/",
                 Url = "http://getmovie.cc/",
             });
-
+            Insert.IntoTable("Service").Row(new
+            {
+                Name = "rutube",
+                Api = "http://rutube.ru/api/",
+                Url = "http://rutube.ru",
+            });
         }
         public override void Down()
         {

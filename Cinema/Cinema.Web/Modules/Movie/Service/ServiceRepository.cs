@@ -47,7 +47,10 @@ namespace Cinema.Movie.Repositories
         public SaveResponse FindUpdate(IUnitOfWork uow, SaveRequest<MyRow> newRow, ListRequest request)
         {
             SaveRequest<MyRow> oldRow = new SaveRequest<MyRow>() { Entity = List(uow.Connection, request).Entities.First() };
-
+            if (!String.IsNullOrWhiteSpace(newRow.Entity.Api))
+            {
+                oldRow.Entity.Api = newRow.Entity.Api;
+            }
             return new MySaveHandler().Process(uow, oldRow, SaveRequestType.Update);
         }
         public SaveResponse UpdateCreate(IUnitOfWork uow, SaveRequest<MyRow> saveRequest)
@@ -75,7 +78,7 @@ namespace Cinema.Movie.Repositories
         }
         public BaseCriteria Criteria(MyRow request)
         {
-            return new Criteria("Name") == request.Name;
+            return new Criteria("Name") == request.Name&& new Criteria("Url") == request.Url&& new Criteria("Api") == request.Api;
         }
 
     }

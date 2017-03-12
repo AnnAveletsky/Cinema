@@ -53,12 +53,16 @@ namespace Cinema.Movie.Pages
             using (var connection = SqlConnections.NewFor<MyRow>())
             using (var uow = new UnitOfWork(connection))
             {
-                
-                var result= new Repository().UpdateCreate(uow, saveRequest);
+
+                var result = new Repository().UpdateCreate(uow, saveRequest);
                 uow.Commit();
                 return result;
             }
         }
-
+        public static SaveResponse ViewsAdd(SaveRequest<MyRow> saveRequest)
+        {
+            saveRequest.Entity.Views++;
+            return UpdateCreate(saveRequest);
+        }
     }
 }

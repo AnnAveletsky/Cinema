@@ -30,6 +30,11 @@
     export namespace MovieTagRow {
         export const idProperty = 'MovieTagId';
         export const localTextPrefix = 'Movie.MovieTag';
+        export const lookupKey = 'Movie.MovieTag';
+
+        export function getLookup(): Q.Lookup<MovieTagRow> {
+            return Q.getLookup<MovieTagRow>('Movie.MovieTag');
+        }
 
         export namespace Fields {
             export declare const MovieTagId: string;

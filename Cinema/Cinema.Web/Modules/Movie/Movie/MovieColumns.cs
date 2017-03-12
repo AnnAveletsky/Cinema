@@ -37,5 +37,6 @@ namespace Cinema.Movie.Columns
         public Int16 ContSeason { get; set; }
         public String Tagline { get; set; }
         public Decimal Budget { get; set; }
+        public Int64 Views { get; set; }
     }
 }

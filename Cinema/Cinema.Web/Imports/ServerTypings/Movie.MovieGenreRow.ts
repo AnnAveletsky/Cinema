@@ -32,6 +32,11 @@
     export namespace MovieGenreRow {
         export const idProperty = 'MovieGenreId';
         export const localTextPrefix = 'Movie.MovieGenre';
+        export const lookupKey = 'Movie.MovieGenre';
+
+        export function getLookup(): Q.Lookup<MovieGenreRow> {
+            return Q.getLookup<MovieGenreRow>('Movie.MovieGenre');
+        }
 
         export namespace Fields {
             export declare const MovieGenreId: string;

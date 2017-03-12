@@ -46,6 +46,11 @@
         export const idProperty = 'VideoId';
         export const nameProperty = 'Path';
         export const localTextPrefix = 'Movie.Video';
+        export const lookupKey = 'Movie.Video';
+
+        export function getLookup(): Q.Lookup<VideoRow> {
+            return Q.getLookup<VideoRow>('Movie.Video');
+        }
 
         export namespace Fields {
             export declare const VideoId: string;

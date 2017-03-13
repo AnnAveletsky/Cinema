@@ -24,6 +24,8 @@ namespace Cinema.Movie.Columns
         public Int16 Season { get; set; }
         public Int16 Serie { get; set; }
         public String Storyline { get; set; }
+        public String Image { get; set; }
+        public String Title { get; set; }
         public DateTime PlannePublishDate { get; set; }
         public DateTime ActualPublishDateTime { get; set; }
         public Int64 MovieId { get; set; }

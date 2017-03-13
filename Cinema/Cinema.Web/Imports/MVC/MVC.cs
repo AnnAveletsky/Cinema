@@ -443,7 +443,6 @@ namespace MVC
 
             public static class Video
             {
-                public const string _Video = "~/Modules/Movie/Video/_Video.cshtml";
                 public const string _Videos = "~/Modules/Movie/Video/_Videos.cshtml";
                 public const string VideoIndex = "~/Modules/Movie/Video/VideoIndex.cshtml";
             }

@@ -2615,6 +2615,8 @@ declare namespace Cinema.Movie {
         Translation: Serenity.IntegerEditor;
         Season: Serenity.IntegerEditor;
         Serie: Serenity.IntegerEditor;
+        Image: Serenity.StringEditor;
+        Title: Serenity.StringEditor;
         Storyline: Serenity.StringEditor;
         PlannePublishDate: Serenity.DateEditor;
         ActualPublishDateTime: Serenity.DateEditor;
@@ -2632,6 +2634,8 @@ declare namespace Cinema.Movie {
         Translation?: number;
         Season?: number;
         Serie?: number;
+        Image?: string;
+        Title?: string;
         Storyline?: string;
         PlannePublishDate?: string;
         ActualPublishDateTime?: string;
@@ -2680,6 +2684,8 @@ declare namespace Cinema.Movie {
             const Translation: string;
             const Season: string;
             const Serie: string;
+            const Image: string;
+            const Title: string;
             const Storyline: string;
             const PlannePublishDate: string;
             const ActualPublishDateTime: string;

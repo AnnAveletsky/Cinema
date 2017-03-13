@@ -29,6 +29,7 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("MPAA").AsString(6).Nullable()
                 .WithColumn("PathImage").AsString(300).Nullable()
                 .WithColumn("Nice").AsBoolean().NotNullable().WithDefaultValue(false)
+                .WithColumn("Active").AsBoolean().Nullable()
                 .WithColumn("ContSeason").AsInt16().Nullable()
                 .WithColumn("Tagline").AsString(400).Nullable()
                 .WithColumn("Budget").AsCurrency().Nullable()

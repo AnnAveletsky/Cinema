@@ -155,6 +155,12 @@ namespace Cinema.Movie.Entities
             get { return Fields.Nice[this]; }
             set { Fields.Nice[this] = value; }
         }
+        [DisplayName("Active")]
+        public Boolean? Active
+        {
+            get { return Fields.Active[this]; }
+            set { Fields.Active[this] = value; }
+        }
 
         [DisplayName("Cont Season")]
         public Int16? ContSeason
@@ -228,6 +234,7 @@ namespace Cinema.Movie.Entities
             public StringField Mpaa;
             public StringField PathImage;
             public BooleanField Nice;
+            public BooleanField Active;
             public Int16Field ContSeason;
             public StringField Tagline;
             public DecimalField Budget;

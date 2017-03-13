@@ -34,6 +34,7 @@ namespace Cinema.Movie.Columns
         public String Mpaa { get; set; }
         public String PathImage { get; set; }
         public Boolean Nice { get; set; }
+        public Boolean Active { get; set; }
         public Int16 ContSeason { get; set; }
         public String Tagline { get; set; }
         public Decimal Budget { get; set; }

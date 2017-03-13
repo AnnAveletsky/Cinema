@@ -104,7 +104,12 @@ namespace Cinema.Movie.Repositories
         }
         public BaseCriteria Criteria(SaveRequest<MyRow> request)
         {
-            return new Criteria("Url").Contains(request.Entity.Url)|| ((new Criteria("TitleOriginal").Contains(request.Entity.TitleOriginal)|| new Criteria("TitleTranslation").Contains(request.Entity.TitleTranslation)) && new Criteria("YearEnd") == (short)request.Entity.YearEnd && new Criteria("YearStart") == (Int16)request.Entity.YearStart && new Criteria("Kind") == request.Entity.Kind);
+            return new Criteria("Url").Contains(request.Entity.Url) ||
+                ((new Criteria("TitleOriginal").Contains(request.Entity.TitleOriginal) ||
+                new Criteria("TitleTranslation").Contains(request.Entity.TitleTranslation)) &&
+                new Criteria("YearEnd") == (Int16)request.Entity.YearEnd &&
+                new Criteria("YearStart") == (Int16)request.Entity.YearStart &&
+                new Criteria("Kind") == request.Entity.Kind);
         }
     }
 }

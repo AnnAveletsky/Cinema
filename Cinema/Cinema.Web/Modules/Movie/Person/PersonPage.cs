@@ -11,6 +11,9 @@ namespace Cinema.Movie.Pages
     using MyRow = Entities.PersonRow;
     using Serenity.Services;
     using Serenity.Data;
+    using Entities;
+    using Common.Init;
+    using System;
 
     [RoutePrefix("Movie/Person"), Route("{action=index}")]
     public class PersonController : Controller
@@ -43,6 +46,36 @@ namespace Cinema.Movie.Pages
                 uow.Commit();
                 return result;
             }
+        }
+        public static ListResponse<SaveResponse> UpdateCreate(MovieJson json, RetrieveResponse<MovieRow> movie)
+        {
+            var persons = new ListResponse<SaveResponse>();
+            persons.Entities = new System.Collections.Generic.List<SaveResponse>();
+            try
+            {
+                foreach (var person in json.ToPersons())
+                {
+                    persons.Entities.Add(UpdateCreate(new SaveRequest<MyRow>() { Entity = person }));
+                    try
+                    {
+                        foreach (var cast in json.ToCast(movie, person))
+                        {
+                            CastController.UpdateCreate(new SaveRequest<CastRow>() { Entity = cast });
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        e.Log();
+                        SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+            }
+            return persons;
         }
     }
 }

@@ -8,6 +8,8 @@
         Translation?: number;
         Season?: number;
         Serie?: number;
+        Image?: string;
+        Title?: string;
         Storyline?: string;
         PlannePublishDate?: string;
         ActualPublishDateTime?: string;
@@ -61,6 +63,8 @@
             export declare const Translation: string;
             export declare const Season: string;
             export declare const Serie: string;
+            export declare const Image: string;
+            export declare const Title: string;
             export declare const Storyline: string;
             export declare const PlannePublishDate: string;
             export declare const ActualPublishDateTime: string;
@@ -95,7 +99,7 @@
             export declare const ServiceMaxRating: string;
         }
 
-        ['VideoId', 'Path', 'Player', 'PathTorrent', 'Name', 'Translation', 'Season', 'Serie', 'Storyline', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieUrl', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceUrl', 'ServiceActive', 'ServiceIntervalRequest', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
+        ['VideoId', 'Path', 'Player', 'PathTorrent', 'Name', 'Translation', 'Season', 'Serie', 'Image', 'Title', 'Storyline', 'PlannePublishDate', 'ActualPublishDateTime', 'MovieId', 'ServiceId', 'MovieTitleOriginal', 'MovieTitleTranslation', 'MovieUrl', 'MovieDescription', 'MovieYearStart', 'MovieYearEnd', 'MovieReleaseWorldDate', 'MovieReleaseOtherDate', 'MovieReleaseDvd', 'MovieRuntime', 'MovieCreateDateTime', 'MovieUpdateDateTime', 'MoviePublishDateTime', 'MovieKind', 'MovieRating', 'MovieMpaa', 'MoviePathImage', 'MovieNice', 'MovieContSeason', 'MovieTagline', 'MovieBudget', 'ServiceName', 'ServiceApi', 'ServiceUrl', 'ServiceActive', 'ServiceIntervalRequest', 'ServiceMaxRating'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

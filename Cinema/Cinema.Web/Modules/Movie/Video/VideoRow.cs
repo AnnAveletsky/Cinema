@@ -72,7 +72,18 @@ namespace Cinema.Movie.Entities
             get { return Fields.Serie[this]; }
             set { Fields.Serie[this] = value; }
         }
-
+        [DisplayName("Image")]
+        public String Image
+        {
+            get { return Fields.Image[this]; }
+            set { Fields.Image[this] = value; }
+        }
+        [DisplayName("Title")]
+        public String Title
+        {
+            get { return Fields.Title[this]; }
+            set { Fields.Title[this] = value; }
+        }
         [DisplayName("Storyline")]
         public String Storyline
         {
@@ -324,6 +335,8 @@ namespace Cinema.Movie.Entities
             public Int16Field Translation;
             public Int16Field Season;
             public Int16Field Serie;
+            public StringField Image;
+            public StringField Title;
             public StringField Storyline;
             public DateTimeField PlannePublishDate;
             public DateTimeField ActualPublishDateTime;

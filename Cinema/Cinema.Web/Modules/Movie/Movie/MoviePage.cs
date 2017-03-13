@@ -13,6 +13,9 @@ namespace Cinema.Movie.Pages
     using System.Linq;
     using Repository = Repositories.MovieRepository;
     using MyRow = Entities.MovieRow;
+    using Common.Init;
+    using System;
+    using System.Collections.Generic;
 
     [RoutePrefix("Movie/Movie"), Route("{action=index}")]
     public class MovieController : Controller
@@ -47,7 +50,6 @@ namespace Cinema.Movie.Pages
         {
             return new Repository().Criteria(saveRequest);
         }
-        [PageAuthorize("Administration")]
         public static SaveResponse UpdateCreate(SaveRequest<MyRow> saveRequest)
         {
             using (var connection = SqlConnections.NewFor<MyRow>())
@@ -58,6 +60,53 @@ namespace Cinema.Movie.Pages
                 uow.Commit();
                 return result;
             }
+        }
+        public static RetrieveResponse<MyRow> UpdateCreate(MovieJson json, RetrieveResponse<ServicePathRow> servicePath)
+        {
+            var movie = json.ToMovie();
+            try
+            {
+                if (!String.IsNullOrWhiteSpace(json.kinopoisk_id))
+                {
+                    var serviceRaiting = ServiceRatingController.Find(new ListRequest()
+                    {
+                        IncludeColumns = new HashSet<string>(){
+                                        ServiceRatingRow.Fields.MovieId.Name,
+                                        ServiceRatingRow.Fields.ServiceId.Name,
+                                        ServiceRatingRow.Fields.Id.Name },
+                        Criteria = new Criteria(ServiceRatingRow.Fields.Id.Name) == json.kinopoisk_id && new Criteria(ServiceRatingRow.Fields.ServiceId.Name) == (Int32)servicePath.Entity.ServiceId
+                    });
+                    if (serviceRaiting != null && serviceRaiting.Entity != null && serviceRaiting.Entity.MovieId != null)
+                    {
+                        return Retrieve(new RetrieveRequest() { EntityId = serviceRaiting.Entity.MovieId });
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+            }
+            try
+            {
+                var newmovie = UpdateCreate(new SaveRequest<MyRow>()
+                {
+                    Entity = movie
+                });
+                if (newmovie != null && newmovie.EntityId != null)
+                {
+                    return Retrieve(new RetrieveRequest()
+                    {
+                        EntityId = (Int64)newmovie.EntityId
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+            }
+            return null;
         }
         public static SaveResponse ViewsAdd(SaveRequest<MyRow> saveRequest)
         {

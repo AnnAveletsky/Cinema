@@ -11,6 +11,9 @@ namespace Cinema.Movie.Pages
     using MyRow = Entities.ServiceRatingRow;
     using Serenity.Services;
     using Serenity.Data;
+    using Common.Init;
+    using Entities;
+    using System;
 
     [RoutePrefix("Movie/ServiceRating"), Route("{action=index}")]
     public class ServiceRatingController : Controller
@@ -43,6 +46,36 @@ namespace Cinema.Movie.Pages
                 uow.Commit();
                 return result;
             }
+        }
+        public static ListResponse<SaveResponse> UpdateCreate(MovieJson json, RetrieveResponse<MovieRow> movie)
+        {
+            var serviceRaitings = new ListResponse<SaveResponse>() { Entities = new System.Collections.Generic.List<SaveResponse>() };
+            foreach (var sRating in json.ToServiceRatings(movie.Entity))
+            {
+                try
+                {
+                    var service = ServiceController.UpdateCreate(new SaveRequest<ServiceRow>()
+                    {
+                        Entity = new ServiceRow()
+                        {
+                            Url = sRating.ServiceUrl,
+                            Name = sRating.ServiceName,
+                            Api = sRating.ServiceApi
+                        }
+                    });
+                    sRating.ServiceId = Int32.Parse(service.EntityId.ToString());
+                    serviceRaitings.Entities.Add(UpdateCreate(new SaveRequest<MyRow>()
+                    {
+                        Entity = sRating
+                    }));
+                }
+                catch (Exception e)
+                {
+                    e.Log();
+                    SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                }
+            }
+            return serviceRaitings;
         }
     }
 }

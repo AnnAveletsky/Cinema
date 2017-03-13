@@ -33,6 +33,7 @@ namespace Cinema.Common.Init
         public string poster_small;
         public string poster_url;
         public string picture;
+        public string thumbnail_url;
         public string title;
         public string title_ru;
         public string title_en;
@@ -70,12 +71,19 @@ namespace Cinema.Common.Init
                         Movie.YearEnd = Int16.Parse(year);
                         Movie.YearStart = Int16.Parse(year);
                     }
-                    else if (!String.IsNullOrWhiteSpace(year_start))
+                    else if (!String.IsNullOrWhiteSpace(year_start) && !String.IsNullOrWhiteSpace(year_end))
                     {
+                        Movie.YearStart = Int16.Parse(year_start);
+                        Movie.YearEnd = Int16.Parse(year_end);
+                    }
+                    else if(!String.IsNullOrWhiteSpace(year_start))
+                    {
+                        Movie.YearStart = Int16.Parse(year_start);
                         Movie.YearEnd = Int16.Parse(year_start);
                     }
                     else if (!String.IsNullOrWhiteSpace(year_end))
                     {
+                        Movie.YearStart = Int16.Parse(year_end);
                         Movie.YearEnd = Int16.Parse(year_end);
                     }
                     if (!String.IsNullOrWhiteSpace(title_en))
@@ -273,7 +281,6 @@ namespace Cinema.Common.Init
         public List<VideoRow> ToVideos(RetrieveResponse<MovieRow> movie, RetrieveResponse<ServicePathRow> service)
         {
             List<VideoRow> Videos = new List<VideoRow>();
-            
             if (content != null)
             {
                 using (var client = new WebClient())
@@ -283,6 +290,12 @@ namespace Cinema.Common.Init
                     foreach (MovieJson item in root.Results)
                     {
                         Videos.Add(item.ToVideo(movie, service));
+                    }
+                    if (root.Has_next)
+                    {
+                        var newService = service;
+                        newService.Entity.Path = root.Next;
+                        Videos.AddRange(ToVideos(movie, newService));
                     }
                 }
             }
@@ -324,7 +337,8 @@ namespace Cinema.Common.Init
                     ServiceId = service.Entity.ServiceId,
                     Season = season,
                     Serie = episode,
-                    Storyline=description
+                    Storyline = description,
+                    Image =(!String.IsNullOrWhiteSpace(thumbnail_url)? thumbnail_url : (!String.IsNullOrWhiteSpace(picture)? picture:movie.Entity.PathImage))
                 };
             }
             else

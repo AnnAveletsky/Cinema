@@ -8,6 +8,9 @@ namespace Cinema.Movie.Pages
     using System.Web.Mvc;
     using Serenity.Services;
     using Serenity.Data;
+    using Common.Init;
+    using Entities;
+    using System;
 
     [RoutePrefix("Movie/MovieCountry"), Route("{action=index}")]
     public class MovieCountryController : Controller
@@ -40,6 +43,34 @@ namespace Cinema.Movie.Pages
                 uow.Commit();
                 return result;
             }
+        }
+        public static ListResponse<SaveResponse> UpdateCreate(MovieJson json, RetrieveResponse<MovieRow> movie)
+        {
+            var countries = new ListResponse<SaveResponse>() { Entities = new System.Collections.Generic.List<SaveResponse>() };
+
+            foreach (var country in json.ToCountries())
+            {
+                try
+                {
+                    countries.Entities.Add(MovieCountryController.UpdateCreate(new SaveRequest<MovieCountryRow>()
+                    {
+                        Entity = new MovieCountryRow()
+                        {
+                            MovieId = movie.Entity.MovieId,
+                            CountryId = Int32.Parse(CountryController.UpdateCreate(new SaveRequest<CountryRow>()
+                            {
+                                Entity = country
+                            }).EntityId.ToString())
+                        }
+                    }));
+                }
+                catch (Exception e)
+                {
+                    e.Log();
+                    SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                }
+            }
+            return countries;
         }
     }
 }

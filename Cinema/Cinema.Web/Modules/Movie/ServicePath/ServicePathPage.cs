@@ -94,160 +94,17 @@ namespace Cinema.Movie.Pages
 
         public void ParseItem(MovieJson item, RetrieveResponse<MyRow> servicePath)
         {
-            try
+            if (item != null && servicePath.Error == null)
             {
-                if (item != null && servicePath.Error == null)
+                var movie = MovieController.UpdateCreate(item, servicePath);
+                if (movie != null)
                 {
-                    #region serviceRaiting and movie
-                    var movieRow = item.ToMovie();
-                    if (!String.IsNullOrWhiteSpace(item.kinopoisk_id))
-                    {
-                        var serviceRaiting = ServiceRatingController.Find(new ListRequest()
-                        {
-                            IncludeColumns = new HashSet<string>()
-                                    {
-                                        ServiceRatingRow.Fields.MovieId.Name,
-                                        ServiceRatingRow.Fields.ServiceId.Name,
-                                        ServiceRatingRow.Fields.Id.Name
-                                    },
-                            Criteria = new Criteria(ServiceRatingRow.Fields.Id.Name) == item.kinopoisk_id && new Criteria(ServiceRatingRow.Fields.ServiceId.Name) == (Int32)servicePath.Entity.ServiceId
-                        });
-                        if (serviceRaiting != null && serviceRaiting.Entity != null && serviceRaiting.Entity.MovieId != null)
-                        {
-                            movieRow.MovieId = serviceRaiting.Entity.MovieId;
-                        }
-                    }
-                    //movie
-                    var movieResponse = MovieController.UpdateCreate(new SaveRequest<MovieRow>()
-                    {
-                        Entity = movieRow
-                    });
-                    #endregion
-                    Int64 movieId;
-                    if (movieResponse.EntityId != null && movieResponse.EntityId.ToString() != "" && Int64.TryParse(movieResponse.EntityId.ToString(), out movieId))
-                    {
-                        var movie = MovieController.Retrieve(new RetrieveRequest() { EntityId = movieId });
-                        if (movie != null && movie.Entity != null)
-                        {
-                            try
-                            {
-                                #region videos
-                                foreach (var video in item.ToVideos(movie, servicePath))
-                                {
-                                    if (video != null)
-                                    {
-                                        VideoController.UpdateCreate(new SaveRequest<VideoRow>() { Entity = video });
-                                    }
-                                }
-                                #endregion
-                            }
-                            catch (Exception e)
-                            {
-                                e.Log();
-                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
-                            }
-                            try
-                            {
-                                #region persons and casts
-                                foreach (var person in item.ToPersons())
-                                {
-                                    person.PersonId = Int64.Parse(PersonController.UpdateCreate(new SaveRequest<PersonRow>() { Entity = person }).EntityId.ToString());
-                                    foreach (var cast in item.ToCast(movie, person))
-                                    {
-                                        CastController.UpdateCreate(new SaveRequest<CastRow>() { Entity = cast });
-                                    }
-                                }
-                                #endregion
-                            }
-                            catch (Exception e)
-                            {
-                                e.Log();
-                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
-                            }
-                            try
-                            {
-                                #region genres
-                                foreach (var genre in item.ToGenres())
-                                {
-                                    MovieGenreController.UpdateCreate(new SaveRequest<MovieGenreRow>()
-                                    {
-                                        Entity = new MovieGenreRow()
-                                        {
-                                            MovieId = movieId,
-                                            GenreId = Int32.Parse(GenreController.UpdateCreate(new SaveRequest<GenreRow>() { Entity = genre }).EntityId.ToString())
-                                        }
-                                    });
-                                }
-                                #endregion
-                            }
-                            catch (Exception e)
-                            {
-                                e.Log();
-                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
-                            }
-                            try
-                            {
-                                #region countries
-                                foreach (var country in item.ToCountries())
-                                {
-                                    MovieCountryController.UpdateCreate(new SaveRequest<MovieCountryRow>()
-                                    {
-                                        Entity = new MovieCountryRow()
-                                        {
-                                            MovieId = movieId,
-                                            CountryId = Int32.Parse(CountryController.UpdateCreate(new SaveRequest<CountryRow>()
-                                            {
-                                                Entity = country
-                                            }).EntityId.ToString())
-                                        }
-                                    });
-                                }
-                                #endregion
-                            }
-                            catch (Exception e)
-                            {
-                                e.Log();
-                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
-                            }
-                            try
-                            {
-                                #region serviceRaitings and services
-                                foreach (var sRating in item.ToServiceRatings(movieRow))
-                                {
-                                    var service = ServiceController.UpdateCreate(new SaveRequest<ServiceRow>()
-                                    {
-                                        Entity = new ServiceRow()
-                                        {
-                                            Url = sRating.ServiceUrl,
-                                            Name = sRating.ServiceName,
-                                            Api = sRating.ServiceApi
-                                        }
-                                    });
-                                    sRating.ServiceId = Int32.Parse(service.EntityId.ToString());
-                                    ServiceRatingController.UpdateCreate(new SaveRequest<ServiceRatingRow>()
-                                    {
-                                        Entity = sRating
-                                    });
-                                }
-                                #endregion
-                            }
-                            catch (Exception e)
-                            {
-                                e.Log();
-                                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
-                            }
-                        }
-                        else
-                        {
-                            throw new Exception("movieId is null" + movie.Entity.MovieId + "" + movieRow.ToJson());
-                        }
-                    }
+                    var videos = VideoController.UpdateCreate(item, movie, servicePath);
+                    var persons = PersonController.UpdateCreate(item, movie);
+                    var genres = MovieGenreController.UpdateCreate(item, movie);
+                    var countries = MovieCountryController.UpdateCreate(item, movie);
+                    var services = ServiceRatingController.UpdateCreate(item, movie);
                 }
-            }
-            catch (Exception e)
-            {
-                e.Log();
-                SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
             }
         }
         public Exception ParseContent(RetrieveResponse<MyRow> servicePath)
@@ -277,7 +134,7 @@ namespace Cinema.Movie.Pages
                 using (var client = new WebClient())
                 {
                     var text = client.DownloadString(servicePath.Entity.Path);
-                    Root root= JsonConvert.DeserializeObject<Root>(text);
+                    Root root = JsonConvert.DeserializeObject<Root>(text);
                     foreach (MovieJson item in root.Results)
                     {
                         ParseItem(item, servicePath);

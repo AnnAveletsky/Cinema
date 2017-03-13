@@ -18,6 +18,8 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("Translation").AsInt16().Nullable().WithDefaultValue(1)
                 .WithColumn("Season").AsInt16().Nullable()
                 .WithColumn("Serie").AsInt16().Nullable()
+                .WithColumn("Image").AsString().Nullable()
+                .WithColumn("Title").AsString().Nullable()
                 .WithColumn("Storyline").AsString(Int16.MaxValue).Nullable()
                 .WithColumn("PlannePublishDate").AsDate().Nullable()
                 .WithColumn("ActualPublishDateTime").AsDateTime().Nullable()

@@ -9,6 +9,9 @@ namespace Cinema.Movie.Pages
     using MyRow = Entities.MovieGenreRow;
     using Serenity.Services;
     using Serenity.Data;
+    using Entities;
+    using Common.Init;
+    using System;
 
     [RoutePrefix("Movie/MovieGenre"), Route("{action=index}")]
     public class MovieGenreController : Controller
@@ -41,6 +44,32 @@ namespace Cinema.Movie.Pages
                 uow.Commit();
                 return result;
             }
+        }
+        public static ListResponse<SaveResponse> UpdateCreate(MovieJson json, RetrieveResponse<MovieRow> movie)
+        {
+            var genres = new ListResponse<SaveResponse>() { Entities = new System.Collections.Generic.List<SaveResponse>() };
+
+            foreach (var genre in json.ToGenres())
+            {
+                try
+                {
+                    genres.Entities.Add(UpdateCreate(new SaveRequest<MyRow>()
+                    {
+                        Entity = new MyRow()
+                        {
+                            MovieId = movie.Entity.MovieId,
+                            GenreId = Int32.Parse(GenreController.UpdateCreate(new SaveRequest<GenreRow>() { Entity = genre }).EntityId.ToString())
+                        }
+                    }));
+                }
+                catch (Exception e)
+                {
+                    e.Log();
+                    SqlErrorStore.Setup(SqlErrorStore.ApplicationName, StackExchange.Exceptional.ErrorStore.Default);
+                }
+
+            }
+            return genres;
         }
     }
 }

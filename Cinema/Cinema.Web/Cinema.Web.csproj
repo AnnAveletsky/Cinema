@@ -1175,6 +1175,18 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.CastColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1628,6 +1640,10 @@
     <TypeScriptCompile Include="Modules\Common\Reporting\ReportDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\ScriptInitialization.ts" />
     <TypeScriptCompile Include="Modules\Common\UserPreference\UserPreferenceStorage.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Site\SiteDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Site\SiteEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Site\SiteEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\Site\SiteGrid.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ChangePassword\ChangePasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ForgotPassword\ForgotPasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ResetPassword\ResetPasswordPanel.ts" />
@@ -1698,6 +1714,7 @@
     <Content Include="Modules\Movie\Person\_Person.cshtml" />
     <Content Include="Modules\Movie\Person\_Persons.cshtml" />
     <Content Include="Modules\Movie\Service\_Services.cshtml" />
+    <Content Include="Modules\Administration\Site\SiteIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2291,6 +2308,9 @@
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieGenreForm.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieTagService.ts" />
     <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Movie.MovieTagForm.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Default.SiteRow.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Default.SiteService.ts" />
+    <TypeScriptCompile Include="Modules\Common\Imports\ServerTypings\Default.SiteForm.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2339,6 +2359,9 @@
     <Compile Include="Imports\ClientTypes\Administration.DataBaseEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Administration.SiteEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Imports\ClientTypes\Movie.CastEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -2372,6 +2395,7 @@
     <Compile Include="Imports\ClientTypes\Movie.VideoEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\DefaultDB\DefaultDB_20141004_140000_Sites.cs" />
     <Compile Include="Migrations\DefaultDB\DefaultDB_20141003_140000_DataBase.cs" />
     <Compile Include="Migrations\DefaultDB\DefaultDB_20161030_130000_HistoryLog.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115100_Initial.cs" />
@@ -2413,7 +2437,7 @@
     <Compile Include="Modules\AdminLTE\Tables\TablesController.cs" />
     <Compile Include="Modules\AdminLTE\Forms\FormsController.cs" />
     <Compile Include="Modules\AdminLTE\UIElements\UIElementsController.cs" />
-    <Compile Include="Modules\Api\SiteController.cs" />
+    <Compile Include="Modules\Api\PageController.cs" />
     <Compile Include="Modules\Api\GenresController.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesEndpoint.cs" />
     <Compile Include="Modules\BasicSamples\BasicSamplesHelper.cs" />
@@ -2550,6 +2574,12 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceModels.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceEndpoint.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRepository.cs" />
+    <Compile Include="Modules\Administration\Site\SiteColumns.cs" />
+    <Compile Include="Modules\Administration\Site\SiteEndpoint.cs" />
+    <Compile Include="Modules\Administration\Site\SiteForm.cs" />
+    <Compile Include="Modules\Administration\Site\SitePage.cs" />
+    <Compile Include="Modules\Administration\Site\SiteRepository.cs" />
+    <Compile Include="Modules\Administration\Site\SiteRow.cs" />
     <Compile Include="Modules\Meeting\MeetingAttendee\MeetingAttendanceStatus.cs" />
     <Compile Include="Modules\Meeting\MeetingAttendee\MeetingAttendeeType.cs" />
     <Compile Include="Modules\Meeting\MeetingNavigation.cs" />

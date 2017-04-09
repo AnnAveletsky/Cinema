@@ -198,6 +198,78 @@ declare namespace Cinema.Administration {
     }
 }
 declare namespace Cinema.Administration {
+}
+declare namespace Cinema.Administration {
+    class SiteForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SiteForm {
+        Name: Serenity.StringEditor;
+        Url: Serenity.StringEditor;
+        Title: Serenity.StringEditor;
+        Background: Serenity.StringEditor;
+        Logo: Serenity.StringEditor;
+        Color: Serenity.StringEditor;
+        DataBaseId: Serenity.IntegerEditor;
+    }
+}
+declare namespace Cinema.Administration {
+    interface SiteRow {
+        SiteId?: number;
+        Name?: string;
+        Url?: string;
+        Title?: string;
+        Background?: string;
+        Logo?: string;
+        Color?: string;
+        DataBaseId?: number;
+        DataBaseName?: string;
+        DataBaseConnectionString?: string;
+        DataBaseProviderName?: string;
+        DataBaseActive?: boolean;
+        DataBaseTagDataBaseMovie?: string;
+        DataBaseType?: string;
+    }
+    namespace SiteRow {
+        const idProperty = "SiteId";
+        const nameProperty = "Name";
+        const localTextPrefix = "Default.Site";
+        namespace Fields {
+            const SiteId: string;
+            const Name: string;
+            const Url: string;
+            const Title: string;
+            const Background: string;
+            const Logo: string;
+            const Color: string;
+            const DataBaseId: string;
+            const DataBaseName: string;
+            const DataBaseConnectionString: string;
+            const DataBaseProviderName: string;
+            const DataBaseActive: string;
+            const DataBaseTagDataBaseMovie: string;
+            const DataBaseType: string;
+        }
+    }
+}
+declare namespace Cinema.Administration {
+    namespace SiteService {
+        const baseUrl = "Default/Site";
+        function Create(request: Serenity.SaveRequest<SiteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SiteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SiteRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SiteRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace Cinema.Administration {
     interface TranslationItem {
         Key?: string;
         SourceText?: string;
@@ -1987,6 +2059,7 @@ declare namespace Cinema.Movie {
         Mpaa: Serenity.StringEditor;
         PathImage: Serenity.StringEditor;
         Nice: Serenity.BooleanEditor;
+        Active: Serenity.BooleanEditor;
         ContSeason: Serenity.IntegerEditor;
         Tagline: Serenity.StringEditor;
         Budget: Serenity.DecimalEditor;
@@ -2114,6 +2187,7 @@ declare namespace Cinema.Movie {
         Mpaa?: string;
         PathImage?: string;
         Nice?: boolean;
+        Active?: boolean;
         ContSeason?: number;
         Tagline?: string;
         Budget?: number;
@@ -2145,6 +2219,7 @@ declare namespace Cinema.Movie {
             const Mpaa: string;
             const PathImage: string;
             const Nice: string;
+            const Active: string;
             const ContSeason: string;
             const Tagline: string;
             const Budget: string;
@@ -4113,6 +4188,42 @@ declare namespace Cinema.Administration {
     }
 }
 declare namespace Cinema.Administration {
+    class SiteDialog extends Serenity.EntityDialog<SiteRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: SiteForm;
+    }
+}
+declare namespace Cinema.Administration {
+    class SiteEditor extends Common.GridEditorBase<SiteRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SiteEditorDialog;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Administration {
+    class SiteEditorDialog extends Common.GridEditorDialog<SiteRow> {
+        protected getFormKey(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected form: SiteForm;
+    }
+}
+declare namespace Cinema.Administration {
+    class SiteGrid extends Serenity.EntityGrid<SiteRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof SiteDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace Cinema.Administration {
     class TranslationGrid extends Serenity.EntityGrid<TranslationItem, any> {
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
@@ -5220,6 +5331,76 @@ declare namespace Cinema.Administration {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DataBaseRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DataBaseRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        namespace Methods {
+            const Create: string;
+            const Update: string;
+            const Delete: string;
+            const Retrieve: string;
+            const List: string;
+        }
+    }
+}
+declare namespace Cinema.Default {
+    class SiteForm extends Serenity.PrefixedContext {
+        static formKey: string;
+    }
+    interface SiteForm {
+        Name: Serenity.StringEditor;
+        Url: Serenity.StringEditor;
+        Title: Serenity.StringEditor;
+        Background: Serenity.StringEditor;
+        Logo: Serenity.StringEditor;
+        Color: Serenity.StringEditor;
+        DataBaseId: Serenity.IntegerEditor;
+    }
+}
+declare namespace Cinema.Default {
+    interface SiteRow {
+        SiteId?: number;
+        Name?: string;
+        Url?: string;
+        Title?: string;
+        Background?: string;
+        Logo?: string;
+        Color?: string;
+        DataBaseId?: number;
+        DataBaseName?: string;
+        DataBaseConnectionString?: string;
+        DataBaseProviderName?: string;
+        DataBaseActive?: boolean;
+        DataBaseTagDataBaseMovie?: string;
+        DataBaseType?: string;
+    }
+    namespace SiteRow {
+        const idProperty = "SiteId";
+        const nameProperty = "Name";
+        const localTextPrefix = "Default.Site";
+        namespace Fields {
+            const SiteId: any;
+            const Name: any;
+            const Url: any;
+            const Title: any;
+            const Background: any;
+            const Logo: any;
+            const Color: any;
+            const DataBaseId: any;
+            const DataBaseName: string;
+            const DataBaseConnectionString: string;
+            const DataBaseProviderName: string;
+            const DataBaseActive: string;
+            const DataBaseTagDataBaseMovie: string;
+            const DataBaseType: string;
+        }
+    }
+}
+declare namespace Cinema.Default {
+    namespace SiteService {
+        const baseUrl = "Default/Site";
+        function Create(request: Serenity.SaveRequest<SiteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<SiteRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SiteRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SiteRow>) => void, opt?: Serenity.ServiceOptions<any>): JQueryXHR;
         namespace Methods {
             const Create: string;
             const Update: string;

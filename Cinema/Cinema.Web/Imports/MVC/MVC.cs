@@ -21,6 +21,11 @@ namespace MVC
                 public const string RoleIndex = "~/Modules/Administration/Role/RoleIndex.cshtml";
             }
 
+            public static class Site
+            {
+                public const string SiteIndex = "~/Modules/Administration/Site/SiteIndex.cshtml";
+            }
+
             public static class Translation
             {
                 public const string TranslationIndex = "~/Modules/Administration/Translation/TranslationIndex.cshtml";

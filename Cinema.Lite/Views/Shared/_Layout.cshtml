@@ -13,7 +13,7 @@
 <body @*data-bind="style:{'background':'url('+model.Background+')'}"*@>
     
     <div class="container body-content">
-      
+      @{Html.RenderPartial("~/Views/Home/_Header.cshtml");}
         @RenderBody()
         @{Html.RenderPartial("~/Views/Genre/_Genres.cshtml");}
     </div>

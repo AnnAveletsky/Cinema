@@ -19,6 +19,7 @@
         Mpaa?: string;
         PathImage?: string;
         Nice?: boolean;
+        Active?: boolean;
         ContSeason?: number;
         Tagline?: string;
         Budget?: number;
@@ -55,13 +56,14 @@
             export declare const Mpaa: string;
             export declare const PathImage: string;
             export declare const Nice: string;
+            export declare const Active: string;
             export declare const ContSeason: string;
             export declare const Tagline: string;
             export declare const Budget: string;
             export declare const Views: string;
         }
 
-        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'ContSeason', 'Tagline', 'Budget', 'Views'].forEach(x => (<any>Fields)[x] = x);
+        ['MovieId', 'TitleOriginal', 'TitleTranslation', 'Url', 'Description', 'YearStart', 'YearEnd', 'ReleaseWorldDate', 'ReleaseOtherDate', 'ReleaseDvd', 'Runtime', 'CreateDateTime', 'UpdateDateTime', 'PublishDateTime', 'Kind', 'Rating', 'Mpaa', 'PathImage', 'Nice', 'Active', 'ContSeason', 'Tagline', 'Budget', 'Views'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

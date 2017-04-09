@@ -12,7 +12,7 @@ namespace Cinema.Modules.Api
     {
         public object GetGenres()
         {
-            return  PageController.GetPageGenres();
+            return Common.Pages.PageController.GetPageGenres();
         }
     }
 }

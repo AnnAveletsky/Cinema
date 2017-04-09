@@ -1,0 +1,36 @@
+﻿html,
+body{
+    background:rgb(250, 243, 249);
+}
+.info-box-image(@width,@height,@box-height){
+    .info-box-image{
+        height:@box-height;
+        .info-box-icon{
+            height: @height;
+            width: @width;
+        }
+        .info-box-content{
+            margin-left:@width;
+            height:@box-height;
+        }
+    }
+}
+
+.info-box-image(150px,200px,199px);
+
+
+a.title{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin:0;
+    margin-bottom:10px;
+    h3{
+        font-size:14px;
+        margin:10px 0 10px 0;
+        cursor:pointer;
+    }
+}
+.short-description{
+    font-size:12px;
+    text-align: justify;
+}

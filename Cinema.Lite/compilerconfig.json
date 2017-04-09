@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Scripts/bundles.es5.js",
+    "inputFile": "Scripts/bundles.js"
+  },
+  {
+    "outputFile": "Scripts/scripts.es5.js",
+    "inputFile": "Scripts/scripts.js"
+  },
+  {
+    "outputFile": "Style/style.css",
+    "inputFile": "Style/style.less"
+  }
+]

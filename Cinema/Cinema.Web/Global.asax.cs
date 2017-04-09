@@ -7,14 +7,17 @@ namespace Cinema
     using System.Threading;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using System.Net.Http;
+    using System.Web.Http;
+    using System.Web.Http.Cors;
 
     public class Global : System.Web.HttpApplication
     {
         protected void Application_Start(object sender, EventArgs e)
         {
             AreaRegistration.RegisterAllAreas();
-
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            GlobalConfiguration.Configuration.EnableCors();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             ValueProviderFactories.Factories.Remove(

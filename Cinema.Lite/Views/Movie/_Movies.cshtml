@@ -1,0 +1,20 @@
+﻿
+<div class="col-xs-10" data-bind="foreach: model.Movies.Entities">
+    <div class="col-xs-12 col-md-6">
+        <div class="info-box info-box-image">
+            <img class="info-box-icon" data-bind="attr:{src:PathImage}" />
+            <div class="info-box-content">
+                <a class="col-xs-12 no-padding title" data-bind="attr:{href:'/movie/'+Url}">
+                    <h3 >
+                        <span data-bind="text:TitleTranslation"></span>
+                        <br/>
+                        <span data-bind="text:TitleOriginal"></span>
+                        <br />
+                        <span data-bind="text:YearStart+(YearStart!=YearEnd?+'-'+YearEnd:'')" class="pull-right"></span>
+                    </h3>
+                </a>
+                <p class="short-description" data-bind="text:$root.getShortDescription($data)"></p>
+            </div>
+        </div>
+    </div>
+</div>

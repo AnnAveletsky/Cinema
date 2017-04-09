@@ -1,0 +1,30 @@
+﻿html,
+body {
+  background: #faf3f9;
+}
+.info-box-image {
+  height: 199px;
+}
+.info-box-image .info-box-icon {
+  height: 200px;
+  width: 150px;
+}
+.info-box-image .info-box-content {
+  margin-left: 150px;
+  height: 199px;
+}
+a.title {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+a.title h3 {
+  font-size: 14px;
+  margin: 10px 0 10px 0;
+  cursor: pointer;
+}
+.short-description {
+  font-size: 12px;
+  text-align: justify;
+}

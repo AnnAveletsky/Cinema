@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Cinema
@@ -11,6 +12,11 @@ namespace Cinema
             routes.IgnoreRoute("Content/{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();
+            routes.MapHttpRoute(
+                name: "CinemaApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Cinema.Migrations.MovieDB
 
             this.CreateTableWithId64("Movie", "MovieId", s => s
                 .WithColumn("TitleOriginal").AsString(400).NotNullable()
-                .WithColumn("TitleTranslation").AsString(400).Nullable()
+                .WithColumn("TitleTranslation").AsString(400).NotNullable().WithDefaultValue("")
                 .WithColumn("Url").AsString(400).NotNullable().Unique()
                 .WithColumn("Description").AsString(10000).Nullable()
                 .WithColumn("YearStart").AsInt16().Nullable()

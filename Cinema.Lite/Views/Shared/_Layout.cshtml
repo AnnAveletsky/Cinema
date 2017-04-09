@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/admin-lte/AdminLTE")
+    @Styles.Render("~/Style/style")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body @*data-bind="style:{'background':'url('+model.Background+')'}"*@>
+    
+    <div class="container body-content">
+      
+        @RenderBody()
+        @{Html.RenderPartial("~/Views/Genre/_Genres.cshtml");}
+    </div>
+    <div class="clearfix"></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+    <script src="~/Scripts/knockout.viewmodel.2.0.3.min.js"></script>
+    <script src="~/Services/cinemaServices.js"></script>
+    <script src="~/Models/cinemaModels.js"></script>
+    <script>
+        request().getSite(function (model) {
+            ko.applyBindings(cinemaModel(model));
+            console.log(model);
+        });
+    </script>
+</body>
+</html>

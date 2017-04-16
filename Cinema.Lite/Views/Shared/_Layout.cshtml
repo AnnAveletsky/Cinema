@@ -11,7 +11,11 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body @*data-bind="style:{'background':'url('+model.Background+')'}"*@>
-    
+    <div class="pl">
+        <div class="round1"></div>
+        <div class="pl_l"></div>
+        <div class="pl_r"></div>
+    </div>
     <div class="container body-content">
       @{Html.RenderPartial("~/Views/Home/_Header.cshtml");}
         @RenderBody()
@@ -25,6 +29,7 @@
     <script src="~/Scripts/knockout.viewmodel.2.0.3.min.js"></script>
     <script src="~/Services/cinemaServices.js"></script>
     <script src="~/Models/cinemaModels.js"></script>
+    <script src="~/Scripts/loaded.js"></script>
     <script>
         request().getSite(function (model) {
             ko.applyBindings(cinemaModel(model));

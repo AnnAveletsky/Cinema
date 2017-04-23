@@ -19,10 +19,11 @@ namespace Cinema.Modules.Api
             public ListResponse<GenreRow> Genres { get; set; }
             public ListResponse<MovieRow> Movies { get; set; }
         }
-        public object GetSite()
+        public object GetSite(string url)
         {
             return  new Page
             {
+                Site=Common.Pages.PageController.GetSite(url).Entity,
                 Genres= Common.Pages.PageController.GetPageGenres(),
                 Movies= Common.Pages.PageController.GetPageMovies()
             };

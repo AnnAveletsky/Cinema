@@ -3,7 +3,10 @@
     self.model = ko.viewmodel.toModel(data);
     
     self.getShortDescription = function (movie) {
-        return movie.Description.toString().substr(0,100)+'...';
+        if (movie.Description) {
+            return movie.Description.toString().substr(0, 100) + '...';
+        }
+        return "";
     }
     return {
         model: self.model,

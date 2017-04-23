@@ -6,11 +6,6 @@ namespace MVC
     {
         public static class Administration
         {
-            public static class DataBase
-            {
-                public const string DataBaseIndex = "~/Modules/Administration/DataBase/DataBaseIndex.cshtml";
-            }
-
             public static class Language
             {
                 public const string LanguageIndex = "~/Modules/Administration/Language/LanguageIndex.cshtml";
@@ -19,11 +14,6 @@ namespace MVC
             public static class Role
             {
                 public const string RoleIndex = "~/Modules/Administration/Role/RoleIndex.cshtml";
-            }
-
-            public static class Site
-            {
-                public const string SiteIndex = "~/Modules/Administration/Site/SiteIndex.cshtml";
             }
 
             public static class Translation
@@ -382,6 +372,11 @@ namespace MVC
                 public const string CountryIndex = "~/Modules/Movie/Country/CountryIndex.cshtml";
             }
 
+            public static class DataBase
+            {
+                public const string DataBaseIndex = "~/Modules/Movie/DataBase/DataBaseIndex.cshtml";
+            }
+
             public static class Genre
             {
                 public const string _Genres = "~/Modules/Movie/Genre/_Genres.cshtml";
@@ -439,6 +434,11 @@ namespace MVC
             {
                 public const string _ServiceRatings = "~/Modules/Movie/ServiceRating/_ServiceRatings.cshtml";
                 public const string ServiceRatingIndex = "~/Modules/Movie/ServiceRating/ServiceRatingIndex.cshtml";
+            }
+
+            public static class Site
+            {
+                public const string SiteIndex = "~/Modules/Movie/Site/SiteIndex.cshtml";
             }
 
             public static class Tag

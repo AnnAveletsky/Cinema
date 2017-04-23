@@ -1,6 +1,4 @@
-﻿/// <reference types="jquery" />
-/// <reference types="jqueryui" />
-declare namespace Cinema.Administration {
+﻿declare namespace Cinema.Administration {
 }
 declare namespace Cinema.Administration {
     class DataBaseForm extends Serenity.PrefixedContext {
@@ -2047,9 +2045,6 @@ declare namespace Cinema.Movie {
         Description: Serenity.StringEditor;
         YearStart: Serenity.IntegerEditor;
         YearEnd: Serenity.IntegerEditor;
-        ReleaseWorldDate: Serenity.DateEditor;
-        ReleaseOtherDate: Serenity.DateEditor;
-        ReleaseDvd: Serenity.DateEditor;
         Runtime: Serenity.StringEditor;
         CreateDateTime: Serenity.DateEditor;
         UpdateDateTime: Serenity.DateEditor;
@@ -2175,9 +2170,6 @@ declare namespace Cinema.Movie {
         Description?: string;
         YearStart?: number;
         YearEnd?: number;
-        ReleaseWorldDate?: string;
-        ReleaseOtherDate?: string;
-        ReleaseDvd?: string;
         Runtime?: string;
         CreateDateTime?: string;
         UpdateDateTime?: string;
@@ -2207,9 +2199,6 @@ declare namespace Cinema.Movie {
             const Description: string;
             const YearStart: string;
             const YearEnd: string;
-            const ReleaseWorldDate: string;
-            const ReleaseOtherDate: string;
-            const ReleaseDvd: string;
             const Runtime: string;
             const CreateDateTime: string;
             const UpdateDateTime: string;

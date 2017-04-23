@@ -1163,30 +1163,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseColumns.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseForm.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.DataBaseService.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteColumns.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteForm.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteRow.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="Imports\ServerTypings\Administration.SiteService.ts">
-      <DependentUpon>ServerTypings.tt</DependentUpon>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.CastColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1209,6 +1185,18 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.CountryService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.DataBaseColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.DataBaseForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.DataBaseRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.DataBaseService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.GenreColumns.ts">
@@ -1334,6 +1322,18 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.ServiceService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.SiteColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.SiteForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.SiteRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Movie.SiteService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.TagColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1358,10 +1358,10 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Movie.VideoService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseDialog.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseEditor.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseEditorDialog.ts" />
-    <TypeScriptCompile Include="Modules\Administration\DataBase\DataBaseGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\DataBase\DataBaseDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\DataBase\DataBaseEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\DataBase\DataBaseEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\DataBase\DataBaseGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageDialog.ts" />
     <TypeScriptCompile Include="Modules\Administration\Language\LanguageGrid.ts" />
     <TypeScriptCompile Include="Modules\Administration\RolePermission\RolePermissionDialog.ts" />
@@ -1640,10 +1640,10 @@
     <TypeScriptCompile Include="Modules\Common\Reporting\ReportDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\ScriptInitialization.ts" />
     <TypeScriptCompile Include="Modules\Common\UserPreference\UserPreferenceStorage.ts" />
-    <TypeScriptCompile Include="Modules\Administration\Site\SiteDialog.ts" />
-    <TypeScriptCompile Include="Modules\Administration\Site\SiteEditor.ts" />
-    <TypeScriptCompile Include="Modules\Administration\Site\SiteEditorDialog.ts" />
-    <TypeScriptCompile Include="Modules\Administration\Site\SiteGrid.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Site\SiteDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Site\SiteEditor.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Site\SiteEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Movie\Site\SiteGrid.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ChangePassword\ChangePasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ForgotPassword\ForgotPasswordPanel.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\ResetPassword\ResetPasswordPanel.ts" />
@@ -1699,7 +1699,7 @@
     <Content Include="Modules\Movie\Cast\CastIndex.cshtml" />
     <Content Include="Modules\Movie\Country\CountryIndex.cshtml" />
     <Content Include="Modules\Movie\ServicePath\ServicePathIndex.cshtml" />
-    <Content Include="Modules\Administration\DataBase\DataBaseIndex.cshtml" />
+    <Content Include="Modules\Movie\DataBase\DataBaseIndex.cshtml" />
     <Content Include="Modules\Movie\Movie\_Movie.cshtml" />
     <Content Include="Modules\Movie\Movie\_Movies.cshtml" />
     <Content Include="Modules\Movie\Movie\_PreviewMovies.cshtml" />
@@ -1714,7 +1714,7 @@
     <Content Include="Modules\Movie\Person\_Person.cshtml" />
     <Content Include="Modules\Movie\Person\_Persons.cshtml" />
     <Content Include="Modules\Movie\Service\_Services.cshtml" />
-    <Content Include="Modules\Administration\Site\SiteIndex.cshtml" />
+    <Content Include="Modules\Movie\Site\SiteIndex.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -2356,16 +2356,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Imports\ClientTypes\Administration.DataBaseEditorAttribute.cs">
-      <DependentUpon>ClientTypes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Imports\ClientTypes\Administration.SiteEditorAttribute.cs">
-      <DependentUpon>ClientTypes.tt</DependentUpon>
-    </Compile>
     <Compile Include="Imports\ClientTypes\Movie.CastEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Movie.CountryEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.DataBaseEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Movie.GenreEditorAttribute.cs">
@@ -2389,15 +2386,18 @@
     <Compile Include="Imports\ClientTypes\Movie.ServiceRatingEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Movie.SiteEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Imports\ClientTypes\Movie.TagEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Movie.VideoEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20141004_140000_Sites.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20141003_140000_DataBase.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160703_140000_DataBase.cs" />
     <Compile Include="Migrations\DefaultDB\DefaultDB_20161030_130000_HistoryLog.cs" />
+    <Compile Include="Migrations\MovieDB\MovieDB_20160704_140000_Sites.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115100_Initial.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115101_Movie.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115103_ServicePath.cs" />
@@ -2405,12 +2405,12 @@
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115105_Contents.cs" />
     <Compile Include="Migrations\MovieDB\MovieDB_20160607_115104_Video.cs" />
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseColumns.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseEndpoint.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseForm.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBasePage.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseRepository.cs" />
-    <Compile Include="Modules\Administration\DataBase\DataBaseRow.cs" />
+    <Compile Include="Modules\Movie\DataBase\DataBaseColumns.cs" />
+    <Compile Include="Modules\Movie\DataBase\DataBaseEndpoint.cs" />
+    <Compile Include="Modules\Movie\DataBase\DataBaseForm.cs" />
+    <Compile Include="Modules\Movie\DataBase\DataBasePage.cs" />
+    <Compile Include="Modules\Movie\DataBase\DataBaseRepository.cs" />
+    <Compile Include="Modules\Movie\DataBase\DataBaseRow.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionListResponse.cs" />
@@ -2574,12 +2574,12 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceModels.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceEndpoint.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRepository.cs" />
-    <Compile Include="Modules\Administration\Site\SiteColumns.cs" />
-    <Compile Include="Modules\Administration\Site\SiteEndpoint.cs" />
-    <Compile Include="Modules\Administration\Site\SiteForm.cs" />
-    <Compile Include="Modules\Administration\Site\SitePage.cs" />
-    <Compile Include="Modules\Administration\Site\SiteRepository.cs" />
-    <Compile Include="Modules\Administration\Site\SiteRow.cs" />
+    <Compile Include="Modules\Movie\Site\SiteColumns.cs" />
+    <Compile Include="Modules\Movie\Site\SiteEndpoint.cs" />
+    <Compile Include="Modules\Movie\Site\SiteForm.cs" />
+    <Compile Include="Modules\Movie\Site\SitePage.cs" />
+    <Compile Include="Modules\Movie\Site\SiteRepository.cs" />
+    <Compile Include="Modules\Movie\Site\SiteRow.cs" />
     <Compile Include="Modules\Meeting\MeetingAttendee\MeetingAttendanceStatus.cs" />
     <Compile Include="Modules\Meeting\MeetingAttendee\MeetingAttendeeType.cs" />
     <Compile Include="Modules\Meeting\MeetingNavigation.cs" />

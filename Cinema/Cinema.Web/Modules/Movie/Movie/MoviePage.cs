@@ -100,6 +100,10 @@ namespace Cinema.Movie.Pages
                         EntityId = (Int64)newmovie.EntityId
                     });
                 }
+                else
+                {
+                    throw new Exception("newmovie is null");
+                }
             }
             catch (Exception e)
             {

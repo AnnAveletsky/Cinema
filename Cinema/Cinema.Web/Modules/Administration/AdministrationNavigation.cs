@@ -7,4 +7,3 @@ using Administration = Cinema.Administration.Pages;
 [assembly: NavigationLink(9000, "Administration/Translations", typeof(Administration.TranslationController), icon: "icon-speech")]
 [assembly: NavigationLink(9000, "Administration/Roles", typeof(Administration.RoleController), icon: "icon-lock")]
 [assembly: NavigationLink(9000, "Administration/User Management", typeof(Administration.UserController), icon: "icon-people")]
-[assembly: NavigationLink(9000, "Administration/DataBase", typeof(Administration.DataBaseController), icon: "icon-bubbles")]

@@ -10,6 +10,8 @@ namespace Cinema.Common.Pages
     using System.Collections.Generic;
     using Movie.Pages;
     using Movie;
+    using Administration.Entities;
+    using Administration.Pages;
 
     public class PageController : Controller
     {
@@ -20,7 +22,14 @@ namespace Cinema.Common.Pages
         }
         #endregion
 
-      
+        public static RetrieveResponse<SiteRow> GetSite(string url)
+        {
+            return TwoLevelCache.GetLocalStoreOnly("Site"+ url, TimeSpan.FromMinutes(5),
+                SiteRow.Fields.GenerationKey, () =>
+                {
+                    return SiteController.Find(new ListRequest() { Criteria = new Criteria("Url") == url });
+                });
+        }
         #region get public metod
         public static RetrieveResponse<MovieRow> GetPageMovie(Int64? id, string movie = "")
         {
@@ -62,7 +71,7 @@ namespace Cinema.Common.Pages
             {
                 Take = 20,
                 Criteria = new Criteria("Kind") == MovieKind.Film,
-                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
+                ExcludeColumns = new HashSet<string>() { "Description", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "UpdateDateTime" },
                 Sort = new[] {
                     new SortBy("Rating", true)
                 }
@@ -73,7 +82,7 @@ namespace Cinema.Common.Pages
             {
                 Take = 20,
                 Criteria = new Criteria("Kind") == MovieKind.TvSeries,
-                ExcludeColumns = new HashSet<string>() { "Description", "ReleaseWorldDate", "ReleaseOtherDate", "ReleaseDvd", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "Rating" },
+                ExcludeColumns = new HashSet<string>() { "Description", "Runtime", "CreateDateTime", "PublishDateTime", "Mpaa", "Nice", "ContSeason", "Tagline", "Budget", "GenreList", "GenreListName", "TagList", "TagListName", "Rating" },
                 Sort = new[] {
                     new SortBy("UpdateDateTime", true)
                 }

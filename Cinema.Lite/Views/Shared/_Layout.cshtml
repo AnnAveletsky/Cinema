@@ -33,6 +33,7 @@
     <script>
         request().getSite(function (model) {
             ko.applyBindings(cinemaModel(model));
+            $('body').addClass('loaded');
             console.log(model);
         });
     </script>

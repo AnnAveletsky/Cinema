@@ -1,9 +1,10 @@
 ﻿var request = function () {
     var self = this;
-    self.url = "http://localhost:49999/api/";
+    self.url = "http://localhost:49999/";
+    self.thisUrl = "http://localhost:50559/";
 
     self.getSite = function (done, fail) {
-        return self.get("page", "", done, fail);
+        return self.get("api/page", "url=" + self.thisUrl, done, fail);
     }
     self.get = function (url, data, done, fail) {
         return self.ajax("GET", self.url + url, data, done, fail);

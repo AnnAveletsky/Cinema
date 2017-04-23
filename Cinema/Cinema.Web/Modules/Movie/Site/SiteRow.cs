@@ -64,7 +64,12 @@ namespace Cinema.Movie.Entities
             get { return Fields.Color[this]; }
             set { Fields.Color[this] = value; }
         }
-
+        [DisplayName("Background Color"), Size(20), NotNull]
+        public String BackgroundColor
+        {
+            get { return Fields.BackgroundColor[this]; }
+            set { Fields.BackgroundColor[this] = value; }
+        }
         [DisplayName("Data Base"), NotNull, ForeignKey("[dbo].[DataBase]", "DataBaseId"), LeftJoin("jDataBase"), TextualField("DataBaseName")]
         public Int32? DataBaseId
         {
@@ -140,6 +145,7 @@ namespace Cinema.Movie.Entities
             public StringField Background;
             public StringField Logo;
             public StringField Color;
+            public StringField BackgroundColor;
             public Int32Field DataBaseId;
 
             public StringField DataBaseName;

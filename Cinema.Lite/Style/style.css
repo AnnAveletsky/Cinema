@@ -1,6 +1,8 @@
 ﻿html,
 body {
-  background: #faf3f9;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .no-padding-left {
   padding-left: 0;
@@ -57,7 +59,7 @@ body {
   font-size: 12px;
 }
 .header h1 {
-  padding-left: 30px;
+  padding-left: 100px;
 }
 .info-box-image {
   height: 199px;

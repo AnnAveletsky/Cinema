@@ -18,6 +18,7 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("Background").AsString(500).NotNullable().WithDefaultValue("")
                 .WithColumn("Logo").AsString(500).NotNullable().WithDefaultValue("")
                 .WithColumn("Color").AsString(20).NotNullable().WithDefaultValue("")
+                .WithColumn("BackgroundColor").AsString(20).NotNullable().WithDefaultValue("")
                 .WithColumn("DataBaseId").AsInt32().NotNullable()
                     .ForeignKey("FK_SiteDataBase_DataBaseId", "DataBase", "DataBaseId"), checkExists: true);
 
@@ -27,9 +28,10 @@ namespace Cinema.Migrations.MovieDB
                 Url= "http://localhost:50559/",
                 Title="Kino",
                 Color = "#fff",
-                Logo= "https://pbs.twimg.com/profile_images/594228734615375872/Nkf9AxvJ.png",
-                Background = "http://www.radiohamburg.de/var/ezflow_site/storage/images/radiohh/bilder-videos/nachrichten/hamburg/2010/passage-kino-filme-im-neuen-glanz/06-passage-kino/2664961-1-ger-DE/06-passage-kino_image_1200.jpg",
-                DataBaseId=1
+                Logo= "/Content/img/icon.png",
+                Background = "/Content/img/background.png",
+                BackgroundColor = "#000",
+                DataBaseId =1
             });
         }
     }

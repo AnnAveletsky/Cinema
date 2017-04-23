@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title – приложение ASP.NET</title>
@@ -10,7 +10,7 @@
     @Styles.Render("~/Style/style")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body @*data-bind="style:{'background':'url('+model.Background+')'}"*@>
+<body data-bind="style:{'background':'url('+model.Site.Background+') no-repeat '+model.Site.BackgroundColor,'color':model.Site.Color}">
     <div class="pl">
         <div class="round1"></div>
         <div class="pl_l"></div>
@@ -29,7 +29,6 @@
     <script src="~/Scripts/knockout.viewmodel.2.0.3.min.js"></script>
     <script src="~/Services/cinemaServices.js"></script>
     <script src="~/Models/cinemaModels.js"></script>
-    <script src="~/Scripts/loaded.js"></script>
     <script>
         request().getSite(function (model) {
             ko.applyBindings(cinemaModel(model));

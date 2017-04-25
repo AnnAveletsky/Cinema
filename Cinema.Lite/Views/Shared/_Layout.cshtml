@@ -1,27 +1,31 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+﻿<!DOCTYPE">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
-    @Styles.Render("~/admin-lte/AdminLTE")
+    @*@Styles.Render("~/admin-lte/AdminLTE")*@
     @Styles.Render("~/Style/style")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body data-bind="style:{'background':'url('+model.Site.Background+') no-repeat '+model.Site.BackgroundColor,'color':model.Site.Color}">
+<body data-bind="style:{'background':'url('+model.Site.Background+') no-repeat '+model.Site.BackgroundColor,'color':model.Site.Color,'background-size':'contain'}">
     <div class="pl">
         <div class="round1"></div>
         <div class="pl_l"></div>
         <div class="pl_r"></div>
     </div>
-    <div class="container body-content">
-      @{Html.RenderPartial("~/Views/Home/_Header.cshtml");}
-        @RenderBody()
+    <div class="panel-nav panel-nav-right short">
         @{Html.RenderPartial("~/Views/Genre/_Genres.cshtml");}
     </div>
+    <div class="container body-content">
+        @{Html.RenderPartial("~/Views/Home/_Header.cshtml");}
+            @RenderBody()
+    </div>
+        
     <div class="clearfix"></div>
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

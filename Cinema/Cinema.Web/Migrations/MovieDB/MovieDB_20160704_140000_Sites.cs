@@ -27,10 +27,10 @@ namespace Cinema.Migrations.MovieDB
                 Name = "Movie",
                 Url= "http://localhost:50559/",
                 Title="Kino",
-                Color = "#fff",
+                Color = "#0F1E25",
                 Logo= "/Content/img/icon.png",
                 Background = "/Content/img/background.png",
-                BackgroundColor = "#000",
+                BackgroundColor = "#0F1E25",
                 DataBaseId =1
             });
         }

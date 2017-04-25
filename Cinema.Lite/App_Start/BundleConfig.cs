@@ -31,7 +31,7 @@ namespace Cinema.Lite
                       "~/admin-lte/css/skins/_all-skins.css"));
 
             bundles.Add(new StyleBundle("~/Style/style").Include(
-                      "~/Style/style.min.css"));
+                      "~/Style/theme-green.min.css"));
         }
     }
 }

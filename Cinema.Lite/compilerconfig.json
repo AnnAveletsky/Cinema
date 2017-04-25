@@ -10,5 +10,25 @@
   {
     "outputFile": "Style/style.css",
     "inputFile": "Style/style.less"
+  },
+  {
+    "outputFile": "Style/theme-green.css",
+    "inputFile": "Style/theme-green.less"
+  },
+  {
+    "outputFile": "Style/panel-navigation.css",
+    "inputFile": "Style/panel-navigation.less"
+  },
+  {
+    "outputFile": "Style/loading.css",
+    "inputFile": "Style/loading.less"
+  },
+  {
+    "outputFile": "Style/info-box.css",
+    "inputFile": "Style/info-box.less"
+  },
+  {
+    "outputFile": "Style/base.css",
+    "inputFile": "Style/base.less"
   }
 ]

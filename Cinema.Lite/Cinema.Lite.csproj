@@ -240,11 +240,11 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Services\cinemaServices.js" />
-    <Content Include="Style\style.css">
-      <DependentUpon>style.less</DependentUpon>
+    <Content Include="Style\theme-green.css">
+      <DependentUpon>theme-green.less</DependentUpon>
     </Content>
-    <Content Include="Style\style.min.css">
-      <DependentUpon>style.css</DependentUpon>
+    <Content Include="Style\theme-green.min.css">
+      <DependentUpon>theme-green.css</DependentUpon>
     </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -262,8 +262,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Genre\_Genres.cshtml" />
     <Content Include="Views\Movie\_Movies.cshtml" />
-    <Content Include="Style\style.less" />
+    <Content Include="Style\theme-green.less" />
     <Content Include="Views\Home\_Header.cshtml" />
+    <Content Include="Style\loading.less" />
+    <Content Include="Style\panel-navigation.less" />
+    <Content Include="Style\info-box.less" />
+    <Content Include="Style\base.less" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

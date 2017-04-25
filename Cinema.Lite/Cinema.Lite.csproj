@@ -240,6 +240,30 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Services\cinemaServices.js" />
+    <Content Include="Style\base.css">
+      <DependentUpon>base.less</DependentUpon>
+    </Content>
+    <Content Include="Style\base.min.css">
+      <DependentUpon>base.css</DependentUpon>
+    </Content>
+    <Content Include="Style\info-box.css">
+      <DependentUpon>info-box.less</DependentUpon>
+    </Content>
+    <Content Include="Style\info-box.min.css">
+      <DependentUpon>info-box.css</DependentUpon>
+    </Content>
+    <Content Include="Style\loading.css">
+      <DependentUpon>loading.less</DependentUpon>
+    </Content>
+    <Content Include="Style\loading.min.css">
+      <DependentUpon>loading.css</DependentUpon>
+    </Content>
+    <Content Include="Style\panel-navigation.css">
+      <DependentUpon>panel-navigation.less</DependentUpon>
+    </Content>
+    <Content Include="Style\panel-navigation.min.css">
+      <DependentUpon>panel-navigation.css</DependentUpon>
+    </Content>
     <Content Include="Style\theme-green.css">
       <DependentUpon>theme-green.less</DependentUpon>
     </Content>

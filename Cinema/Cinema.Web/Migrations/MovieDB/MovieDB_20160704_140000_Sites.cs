@@ -17,7 +17,6 @@ namespace Cinema.Migrations.MovieDB
                 .WithColumn("Title").AsString(500).NotNullable()
                 .WithColumn("Background").AsString(500).NotNullable().WithDefaultValue("")
                 .WithColumn("Logo").AsString(500).NotNullable().WithDefaultValue("")
-                .WithColumn("Color").AsString(20).NotNullable().WithDefaultValue("")
                 .WithColumn("BackgroundColor").AsString(20).NotNullable().WithDefaultValue("")
                 .WithColumn("DataBaseId").AsInt32().NotNullable()
                     .ForeignKey("FK_SiteDataBase_DataBaseId", "DataBase", "DataBaseId"), checkExists: true);
@@ -27,7 +26,6 @@ namespace Cinema.Migrations.MovieDB
                 Name = "Movie",
                 Url= "http://localhost:50559/",
                 Title="Kino",
-                Color = "#0F1E25",
                 Logo= "/Content/img/icon.png",
                 Background = "/Content/img/background.png",
                 BackgroundColor = "#0F1E25",

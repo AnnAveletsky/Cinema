@@ -7,10 +7,10 @@
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
     @*@Styles.Render("~/admin-lte/AdminLTE")*@
-    @Styles.Render("~/Style/style")
+    @Styles.Render("~/Style/shared/_layout.less")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body data-bind="style:{'background':'url('+model.Site.Background+') no-repeat '+model.Site.BackgroundColor,'color':model.Site.Color,'background-size':'contain'}">
+<body data-bind="style:{'background-image':'url('+model.Site.Background+')','background-color':model.Site.BackgroundColor}">
     <div class="pl">
         <div class="round1"></div>
         <div class="pl_l"></div>
@@ -20,12 +20,13 @@
         @{Html.RenderPartial("~/Views/Genre/_Genres.cshtml");}
     </div>
     <div class="container body-content">
-        @{Html.RenderPartial("~/Views/Home/_Header.cshtml");}
-            @RenderBody()
+        @{Html.RenderPartial("~/Views/Shared/_Header.cshtml");}
+        @RenderBody()
+        @{Html.RenderPartial("~/Views/Shared/_Footer.cshtml");}
     </div>
         
     <div class="clearfix"></div>
-   
+    @{Html.RenderPartial("~/Views/Templates/_Pagination.cshtml");}
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -8,27 +8,43 @@
     "inputFile": "Scripts/scripts.js"
   },
   {
-    "outputFile": "Style/style.css",
-    "inputFile": "Style/style.less"
+    "outputFile": "Style/shared/_layout.css",
+    "inputFile": "Style/shared/_layout.less"
   },
   {
-    "outputFile": "Style/theme-green.css",
-    "inputFile": "Style/theme-green.less"
+    "outputFile": "Style/themes/theme-green.css",
+    "inputFile": "Style/themes/theme-green.less"
   },
   {
-    "outputFile": "Style/panel-navigation.css",
-    "inputFile": "Style/panel-navigation.less"
+    "outputFile": "Style/shared/_header.css",
+    "inputFile": "Style/shared/_header.less"
   },
   {
-    "outputFile": "Style/loading.css",
-    "inputFile": "Style/loading.less"
+    "outputFile": "Style/movie/_movies.css",
+    "inputFile": "Style/movie/_movies.less"
   },
   {
-    "outputFile": "Style/info-box.css",
-    "inputFile": "Style/info-box.less"
+    "outputFile": "Style/genres/_genres.css",
+    "inputFile": "Style/genres/_genres.less"
   },
   {
-    "outputFile": "Style/base.css",
-    "inputFile": "Style/base.less"
+    "outputFile": "Style/common/base.css",
+    "inputFile": "Style/common/base.less"
+  },
+  {
+    "outputFile": "Style/common/info-box.css",
+    "inputFile": "Style/common/info-box.less"
+  },
+  {
+    "outputFile": "Style/common/loading.css",
+    "inputFile": "Style/common/loading.less"
+  },
+  {
+    "outputFile": "Style/common/panel-navigation.css",
+    "inputFile": "Style/common/panel-navigation.less"
+  },
+  {
+    "outputFile": "Style/shared/_base.css",
+    "inputFile": "Style/shared/_base.less"
   }
 ]

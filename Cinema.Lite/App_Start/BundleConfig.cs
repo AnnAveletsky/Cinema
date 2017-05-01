@@ -30,8 +30,8 @@ namespace Cinema.Lite
                       "~/admin-lte/css/AdminLTE.css",
                       "~/admin-lte/css/skins/_all-skins.css"));
 
-            bundles.Add(new StyleBundle("~/Style/style").Include(
-                      "~/Style/theme-green.min.css"));
+            bundles.Add(new StyleBundle("~/Style/shared/_layout.less").Include(
+                      "~/Style/shared/_layout.min.css"));
         }
     }
 }

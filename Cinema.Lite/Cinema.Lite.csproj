@@ -240,34 +240,64 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Services\cinemaServices.js" />
-    <Content Include="Style\base.css">
+    <Content Include="Style\common\base.css">
       <DependentUpon>base.less</DependentUpon>
     </Content>
-    <Content Include="Style\base.min.css">
+    <Content Include="Style\common\base.min.css">
       <DependentUpon>base.css</DependentUpon>
     </Content>
-    <Content Include="Style\info-box.css">
+    <Content Include="Style\common\info-box.css">
       <DependentUpon>info-box.less</DependentUpon>
     </Content>
-    <Content Include="Style\info-box.min.css">
+    <Content Include="Style\common\info-box.min.css">
       <DependentUpon>info-box.css</DependentUpon>
     </Content>
-    <Content Include="Style\loading.css">
+    <Content Include="Style\common\loading.css">
       <DependentUpon>loading.less</DependentUpon>
     </Content>
-    <Content Include="Style\loading.min.css">
+    <Content Include="Style\common\loading.min.css">
       <DependentUpon>loading.css</DependentUpon>
     </Content>
-    <Content Include="Style\panel-navigation.css">
+    <Content Include="Style\common\panel-navigation.css">
       <DependentUpon>panel-navigation.less</DependentUpon>
     </Content>
-    <Content Include="Style\panel-navigation.min.css">
+    <Content Include="Style\common\panel-navigation.min.css">
       <DependentUpon>panel-navigation.css</DependentUpon>
     </Content>
-    <Content Include="Style\theme-green.css">
+    <Content Include="Style\genres\_genres.css">
+      <DependentUpon>_genres.less</DependentUpon>
+    </Content>
+    <Content Include="Style\genres\_genres.min.css">
+      <DependentUpon>_genres.css</DependentUpon>
+    </Content>
+    <Content Include="Style\movie\_movies.css">
+      <DependentUpon>_movies.less</DependentUpon>
+    </Content>
+    <Content Include="Style\movie\_movies.min.css">
+      <DependentUpon>_movies.css</DependentUpon>
+    </Content>
+    <Content Include="Style\shared\_base.css">
+      <DependentUpon>_base.less</DependentUpon>
+    </Content>
+    <Content Include="Style\shared\_base.min.css">
+      <DependentUpon>_base.css</DependentUpon>
+    </Content>
+    <Content Include="Style\shared\_header.css">
+      <DependentUpon>_header.less</DependentUpon>
+    </Content>
+    <Content Include="Style\shared\_header.min.css">
+      <DependentUpon>_header.css</DependentUpon>
+    </Content>
+    <Content Include="Style\shared\_layout.css">
+      <DependentUpon>_layout.less</DependentUpon>
+    </Content>
+    <Content Include="Style\shared\_layout.min.css">
+      <DependentUpon>_layout.css</DependentUpon>
+    </Content>
+    <Content Include="Style\themes\theme-green.css">
       <DependentUpon>theme-green.less</DependentUpon>
     </Content>
-    <Content Include="Style\theme-green.min.css">
+    <Content Include="Style\themes\theme-green.min.css">
       <DependentUpon>theme-green.css</DependentUpon>
     </Content>
     <Content Include="Web.config" />
@@ -286,12 +316,20 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Genre\_Genres.cshtml" />
     <Content Include="Views\Movie\_Movies.cshtml" />
-    <Content Include="Style\theme-green.less" />
-    <Content Include="Views\Home\_Header.cshtml" />
-    <Content Include="Style\loading.less" />
-    <Content Include="Style\panel-navigation.less" />
-    <Content Include="Style\info-box.less" />
-    <Content Include="Style\base.less" />
+    <Content Include="Style\themes\theme-green.less" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Style\common\loading.less" />
+    <Content Include="Style\common\panel-navigation.less" />
+    <Content Include="Style\common\info-box.less" />
+    <Content Include="Style\common\base.less" />
+    <Content Include="Style\shared\_header.less" />
+    <Content Include="Style\movie\_movies.less" />
+    <Content Include="Style\genres\_genres.less" />
+    <Content Include="Style\shared\_layout.less" />
+    <Content Include="Style\shared\_base.less" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Templates\_Pagination.cshtml" />
+    <Content Include="Views\Templates\_Navigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

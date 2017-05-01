@@ -18,7 +18,6 @@ namespace Cinema.Movie.Forms
         public String Title { get; set; }
         public String Background { get; set; }
         public String Logo { get; set; }
-        public String Color { get; set; }
         public String BackgroundColor { get; set; }
         public Int32 DataBaseId { get; set; }
     }

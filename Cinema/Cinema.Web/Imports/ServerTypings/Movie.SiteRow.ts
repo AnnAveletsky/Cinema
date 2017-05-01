@@ -6,7 +6,7 @@
         Title?: string;
         Background?: string;
         Logo?: string;
-        Color?: string;
+        BackgroundColor?: string;
         DataBaseId?: number;
         DataBaseName?: string;
         DataBaseConnectionString?: string;
@@ -20,6 +20,11 @@
         export const idProperty = 'SiteId';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Default.Site';
+        export const lookupKey = 'Movie.Site';
+
+        export function getLookup(): Q.Lookup<SiteRow> {
+            return Q.getLookup<SiteRow>('Movie.Site');
+        }
 
         export namespace Fields {
             export declare const SiteId: string;
@@ -28,7 +33,7 @@
             export declare const Title: string;
             export declare const Background: string;
             export declare const Logo: string;
-            export declare const Color: string;
+            export declare const BackgroundColor: string;
             export declare const DataBaseId: string;
             export declare const DataBaseName: string;
             export declare const DataBaseConnectionString: string;
@@ -38,7 +43,7 @@
             export declare const DataBaseType: string;
         }
 
-        ['SiteId', 'Name', 'Url', 'Title', 'Background', 'Logo', 'Color', 'DataBaseId', 'DataBaseName', 'DataBaseConnectionString', 'DataBaseProviderName', 'DataBaseActive', 'DataBaseTagDataBaseMovie', 'DataBaseType'].forEach(x => (<any>Fields)[x] = x);
+        ['SiteId', 'Name', 'Url', 'Title', 'Background', 'Logo', 'BackgroundColor', 'DataBaseId', 'DataBaseName', 'DataBaseConnectionString', 'DataBaseProviderName', 'DataBaseActive', 'DataBaseTagDataBaseMovie', 'DataBaseType'].forEach(x => (<any>Fields)[x] = x);
     }
 }
 

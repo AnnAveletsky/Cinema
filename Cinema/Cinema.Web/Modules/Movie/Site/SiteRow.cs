@@ -58,12 +58,7 @@ namespace Cinema.Movie.Entities
             set { Fields.Logo[this] = value; }
         }
 
-        [DisplayName("Color"), Size(20), NotNull]
-        public String Color
-        {
-            get { return Fields.Color[this]; }
-            set { Fields.Color[this] = value; }
-        }
+        
         [DisplayName("Background Color"), Size(20), NotNull]
         public String BackgroundColor
         {
@@ -144,7 +139,6 @@ namespace Cinema.Movie.Entities
             public StringField Title;
             public StringField Background;
             public StringField Logo;
-            public StringField Color;
             public StringField BackgroundColor;
             public Int32Field DataBaseId;
 

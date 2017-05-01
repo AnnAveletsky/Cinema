@@ -1,0 +1,44 @@
+﻿.info-box{
+    padding:0;
+    .info-box-content{
+        position:absolute;
+        top:0;
+        width: 100%;
+    }
+    .short-description{
+        text-align: justify;
+        width:100%;
+        padding:10px;
+    }
+    .title{
+        margin:0;
+        cursor:pointer;
+    }
+}
+.info-box.image{
+
+}
+.info-box.large{
+    margin-bottom:20px;
+    height:199px;
+}
+.info-box.image.large{
+    .info-box-icon{
+        height: 200px;
+        width: 150px;
+    }
+    .info-box-content{
+        padding-left:150px;
+        height:200px;
+    }
+}
+.info-box(@background,@color){
+    .info-box{
+        background:@background;
+        .short-description{
+            color:@color;
+        }
+        .title{
+        }
+    }
+}

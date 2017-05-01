@@ -1239,6 +1239,11 @@ var Cinema;
             DataBaseRow.idProperty = 'DataBaseId';
             DataBaseRow.nameProperty = 'Name';
             DataBaseRow.localTextPrefix = 'Administration.DataBase';
+            DataBaseRow.lookupKey = 'Movie.DataBase';
+            function getLookup() {
+                return Q.getLookup('Movie.DataBase');
+            }
+            DataBaseRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = DataBaseRow.Fields || (DataBaseRow.Fields = {}));
@@ -1825,7 +1830,7 @@ var Cinema;
         }(Serenity.PrefixedContext));
         SiteForm.formKey = 'Movie.Site';
         Movie.SiteForm = SiteForm;
-        [['Name', function () { return Serenity.StringEditor; }], ['Url', function () { return Serenity.StringEditor; }], ['Title', function () { return Serenity.StringEditor; }], ['Background', function () { return Serenity.StringEditor; }], ['Logo', function () { return Serenity.StringEditor; }], ['Color', function () { return Serenity.StringEditor; }], ['DataBaseId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(SiteForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
+        [['Name', function () { return Serenity.StringEditor; }], ['Url', function () { return Serenity.StringEditor; }], ['Title', function () { return Serenity.StringEditor; }], ['Background', function () { return Serenity.StringEditor; }], ['Logo', function () { return Serenity.StringEditor; }], ['BackgroundColor', function () { return Serenity.StringEditor; }], ['DataBaseId', function () { return Serenity.IntegerEditor; }]].forEach(function (x) { return Object.defineProperty(SiteForm.prototype, x[0], { get: function () { return this.w(x[0], x[1]()); }, enumerable: true, configurable: true }); });
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));
 var Cinema;
@@ -1837,10 +1842,15 @@ var Cinema;
             SiteRow.idProperty = 'SiteId';
             SiteRow.nameProperty = 'Name';
             SiteRow.localTextPrefix = 'Default.Site';
+            SiteRow.lookupKey = 'Movie.Site';
+            function getLookup() {
+                return Q.getLookup('Movie.Site');
+            }
+            SiteRow.getLookup = getLookup;
             var Fields;
             (function (Fields) {
             })(Fields = SiteRow.Fields || (SiteRow.Fields = {}));
-            ['SiteId', 'Name', 'Url', 'Title', 'Background', 'Logo', 'Color', 'DataBaseId', 'DataBaseName', 'DataBaseConnectionString', 'DataBaseProviderName', 'DataBaseActive', 'DataBaseTagDataBaseMovie', 'DataBaseType'].forEach(function (x) { return Fields[x] = x; });
+            ['SiteId', 'Name', 'Url', 'Title', 'Background', 'Logo', 'BackgroundColor', 'DataBaseId', 'DataBaseName', 'DataBaseConnectionString', 'DataBaseProviderName', 'DataBaseActive', 'DataBaseTagDataBaseMovie', 'DataBaseType'].forEach(function (x) { return Fields[x] = x; });
         })(SiteRow = Movie.SiteRow || (Movie.SiteRow = {}));
     })(Movie = Cinema.Movie || (Cinema.Movie = {}));
 })(Cinema || (Cinema = {}));

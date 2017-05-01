@@ -13,6 +13,11 @@
         export const idProperty = 'DataBaseId';
         export const nameProperty = 'Name';
         export const localTextPrefix = 'Administration.DataBase';
+        export const lookupKey = 'Movie.DataBase';
+
+        export function getLookup(): Q.Lookup<DataBaseRow> {
+            return Q.getLookup<DataBaseRow>('Movie.DataBase');
+        }
 
         export namespace Fields {
             export declare const DataBaseId: string;
